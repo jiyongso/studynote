@@ -1,0 +1,9 @@
+/* style
+-------------------------------------------------- */
+body {
+      position: relative; /* For scrollyspy */
+      padding-top: 50px;   /*Account for fixed navbar */
+      background-color: #f8f8f8;
+      line-height: 1.8; letter-spacing: 1px;
+      color: #333333 ;
+    }
