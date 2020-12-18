@@ -138,7 +138,41 @@ $$
 \begin{align*}
 J&=\int_0^{t_0}\left(\dfrac{mn^2A^2}{2}\sinh^2nt-mgA\cosh(nt)\right)\, dt \\
 &=\int_0^{t_0}\left( \dfrac{mn^2A^2}{2} \dfrac{e^{2nt}+e^{-2nt}-2}{4}-mgA\cosh (nt)\right)\, dt \\
-&=\left[\dfrac{mn^2A^2}{2}\right]
+&=\dfrac{mn^2A^2}{2}\left[\dfrac{e^{2nt}-e^{-2nt}-4nt}{8n}\right]_0^{t_0} -mgA(\cosh(nt_0)-1) \\
+&=\dfrac{mnA^2}{16}(e^{2nt_0}-e^{-2nt_0}-4nt_0)-mgA(\cosh (nt_0)-1)
 
+\end{align*}
+$$
+
+
+
+<b>2.4.</b> 주기 $T$의 주기운동을 하는 입자의 운동이 다음과 같은 functional 로 기술된다고 하자.
+$$
+J=\int_0^T \left(\dfrac{1}{2}m\dot{x}^2-\dfrac{1}{2}m\omega^2x^2\right)\,dt
+$$
+a. 첫번째 반주기는 $dx/dt=+v_0=\text{const.}$ 라 놓고, 나머지 반주기는 $dx/dt=-v_0=\text{const.}$ 라 놓고  해를 구하기를 시도한다고 하자. 위의 부정적분 $J$ 를 계산하라.
+
+b. $x(t)=A \cos (\omega t)$ 로 놓고 $J$ 를 계산하라.
+
+c. (a)와 (b) 의 $J$ 를 비교하여 어느 값이 더 적은지 비교하라.
+
+---
+
+a. 첫번째 반주기에서 $x(t) = x_1(t)=v_0t+x_0$, 두번째 반주기에서 $x(t) =x_2(t)= -v_0 t+v_0T+x_0$ 이어야 한다. 이 운동이 연속이어야 하므로 $x_1(0)=x_2(T)$ 이어야 하며 $x_1(T/2)=x_2(T/2)$ 이어야 한다. $x_2(t)=-v_0T+x_1$ 로 놓자. 
+
+
+$$
+\begin{align*}
+J&=\int_0^{T/2}\left(\dfrac{1}{2}mv_0^2-\dfrac{1}{2}m\omega^2(v_0t+x_0)^2\right)\,dt+\int_{T/2}^{T}\left(\dfrac{1}{2}mv_0^2-\dfrac{1}{2}m\omega^2(-v_0t+x_1)^2\right)\, dt\\
+&=\dfrac{mv_0^2 T}{2}-\dfrac{m\omega^2}{3v_0}\left[\left(\dfrac{v_0T}{2}+x_0\right)^3-{x_0}^3\right]
+
+
+\end{align*}
+$$
+b. $\dot{x}(t) = -\omega A \sin (\omega t)$ 이므로,
+$$
+\begin{align*}
+J&=\int_0^T \left(\dfrac{m\omega^2A^2\sin^2(\omega t)}{2} -\dfrac{m\omega^2\cos^2(\omega t)}{2}\right)\, dt\\
+&= \dfrac{m\omega^2A^2}{2} \int_0^T -\cos (2 \omega t)\, dt=-\dfrac{m\omega A^2}{4}=0\, 
 \end{align*}
 $$
