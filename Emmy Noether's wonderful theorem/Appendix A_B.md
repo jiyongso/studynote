@@ -5,6 +5,8 @@ Appendix A. & B
 
 
 
+<b>Note : </b> 여기서는 speed of light $c=1$ 인 unit을 사용한다.
+
 
 
 
@@ -128,3 +130,123 @@ $$
 
 
 
+#### 4-vectors
+
+- space time 4 vectors : $(x^0,\,x^1,\,x^2,\,x^3)=(t,\,x,\,y,\,z)$
+- spacetime displacement 4 vectors $(dx^0,\, dx^1,\,dx^2,\,dx^3)=(dt,\,dx,\,dy,\,dz)$
+
+
+
+#### Momentum 4-vectors
+
+주어진 관성계에서 다음과 같이 정의된 $\{p^\mu\}$ 를 **momentum four-vetor** 라 한다.
+$$
+p^\mu = m \dfrac{dx^\mu}{d\tau}=m \left(\dfrac{dx^\mu}{dt}\dfrac{dt}{d\tau}\right)=mu^\mu \tag{A.13}
+$$
+여기서 
+$$
+u^\mu = \gamma v^\mu\quad \text{where }\gamma \equiv\dfrac{dt}{d\tau}=\dfrac{1}{\sqrt{1-v^2}} \tag{A.14}
+$$
+($c=1$ 인 unit을 사용함을 유념하라.)
+
+
+
+여기서 spatial component of momentum 4-vectors는 
+$$
+\boldsymbol{p}=\gamma m\boldsymbol{v} \quad \text{where } \boldsymbol{v}=\dfrac{d\boldsymbol{r}}{dt}\tag{A.15} 
+$$
+이다. 그렇다면 $p^0=\gamma m$ 은? $p^0$ 를 $v^2$ 에 대해 멱급수 전개하면 다음과 같다.
+$$
+p^0 = m+\dfrac{1}{2}mv^2+O(v^4)\tag{A.16}
+$$
+$m$ 은 관성계와 무관한 상수이며 두번째 식은 운동에너지이다. 즉 momentum 4-vectors 는
+$$
+\{p^\mu\} = (E,\,\boldsymbol{p}) = \gamma m (1,\, \boldsymbol{v})\tag{A.17}
+$$
+이다. 
+
+
+
+우리는 역시 covariant partner of $p^\mu$ 를 정의하면,
+$$
+p_\mu = g_{\mu\nu}p^\nu \tag{A.18}
+$$
+그렇다면,
+$$
+\{p_\mu\}=(E,\, -\boldsymbol{p}) \tag{A.19}
+$$
+이며,
+$$
+p_\mu p^\mu = E^2-p^2 = m^2 \tag{A.20}
+$$
+이므로 invariant mass 를 얻는다.
+
+
+
+#### Lorentz transformation
+
+관성좌표계 $\Sigma$ 에 대해 $v_r \hat{\boldsymbol{x}}$ 로 움직이는 다른 관성좌표계 $\Sigma'$ 을 생각하자. $\gamma_r = 1/\sqrt{1-v_r^2}$ 라 할 때, $\Sigma$ 에서의 $(t,\,x,\,y,\,z)$ 와 $\Sigma'$ 에서의 $(t',\,x',\,y',\,z')$ 사이에는 다음과 같은 관계가 성립한다.
+$$
+\begin{bmatrix}t' \\ x' \\ y' \\z'\end{bmatrix} = \begin{bmatrix} \gamma_r & -v_r & 0 & 0 \\ -\gamma_r v_r & \gamma_r & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{bmatrix} \cdot \begin{bmatrix}t \\ x\\ y \\ z \end{bmatrix} \tag{A.21}
+$$
+이 때 **rapidity** $\varepsilon \equiv \tanh^{-1} v_r$ (정확히는 $\varepsilon \equiv \tanh^{-1} (v_r/c)$ ) 를 정의하면 아래와 같이 rotation과 비슷한 form을 가진다.
+$$
+\begin{bmatrix}t' \\ x' \\ y' \\z'\end{bmatrix} = \begin{bmatrix} \cosh \varepsilon & -\sinh \varepsilon & 0 & 0 \\ -\sinh \varepsilon & \cosh \varepsilon & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{bmatrix} \cdot \begin{bmatrix}t \\ x\\ y \\ z \end{bmatrix} \tag{A.22}
+$$
+위 식을 $\varepsilon$ 에 대해 1st order 까지 나타내면,
+$$
+\begin{bmatrix}t' \\ x' \\ y' \\z'\end{bmatrix} = \begin{bmatrix} 1 & - \varepsilon & 0 & 0 \\ -\varepsilon & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{bmatrix} \cdot \begin{bmatrix}t \\ x\\ y \\ z \end{bmatrix} \tag{A.23}
+$$
+이다. 즉
+$$
+x'^\mu \approx x^\mu+\varepsilon {\omega^\mu}_\nu x^\nu\,,\quad \text{where } {\omega^\mu}_\nu=\begin{bmatrix} 0 & - 1 & 0 & 0 \\ -1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{bmatrix} \tag{A.24}
+$$
+으로 나타 낼 수 있다. 
+
+
+
+Lorentz transformation matrix coefficiants $\partial x'^\mu/\partial x^\nu$ 를 ${\Lambda^\mu }_\nu$ 로 쓰기로 하자. 그렇다면,
+$$
+x'^\mu = {\Lambda^\mu}_\nu x^\nu \tag{A.25}
+$$
+이며 infinitesimal transformation은
+$$
+{\Lambda^\mu}_\nu \approx {\delta^\mu}_\nu + \varepsilon {\omega^\mu}_\nu \tag{A.26}
+$$
+이다. 
+
+
+
+#### Lorentz group and Poincaré group
+
+모든 Lorentz transformation의 집합은 group 이다. 이를 Lorentz group 이라 하나. 여기에 spacetime translation 까지 포함하면 역시 group을 이루며 이를 Poincaré group 이라 한다.
+
+
+
+From the invariance of the spacetime interval 로 부터,
+$$
+g'_{\mu\nu} dx'^\mu dx'^\nu = g_{\rho \sigma}dx^\rho dx^\sigma \tag{A.27}
+$$
+임을 안다. 또한 $dx'^\mu ={\Lambda^\mu}_\rho dx^\rho$ 이므로, 
+$$
+\begin{align*}
+g_{\rho\sigma}dx^\rho dx^\sigma = g'_{\mu\nu} dx'^\mu dx'^\nu = g'_{\mu\nu} {\Lambda^\mu}_\rho {\Lambda^\nu}_\sigma dx^\rho dx^\sigma 
+\end{align*}
+$$
+이다. 따라서,
+$$
+g'_{\mu \nu} {\Lambda^\mu}_\rho {\Lambda^\nu}_\sigma = g_{\rho \sigma}
+$$
+이것을 행렬로 쓰면,
+$$
+\Lambda^T g'\Lambda = g\tag{A.28}
+$$
+이 된다. 
+
+
+
+우리는 $\det(g')=\det(g)=-1$ 임을 알고 있다. 도한 $\det(\Lambda^T)=\det(\Lambda)$ 임도 알고 있다. 따라서,
+$$
+\det (\Lambda)= \pm 1\tag{A.29}
+$$
+이다. 
