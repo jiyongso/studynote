@@ -3,7 +3,7 @@ III. Invariance
 
 
 
-## 4.1 Formal Definition of Invariance
+## 3.1 Formal Definition of Invariance
 
 
 
@@ -21,8 +21,142 @@ $$
 t\to t' &=T(t,\,q^\mu,\,\varepsilon) \,,\\
 q^\mu \to {q^\mu}'&=Q^\mu (t,\,q^\nu,\,\varepsilon)\,. 
 
-\end{align*}\tag{4.1.1}
+\end{align*}\tag{3.1.1}
+$$
+
+<b>Example 1: Rotation along $z$-axis in 3D Euclidean  space</b> 
+$$
+\begin{align*}
+x'&=x \cos \varepsilon + y \sin \varepsilon\,,\\
+y'&=-x \sin \varepsilon + y \cos \varepsilon\,,\\
+z'&=z
+
+\end{align*} \tag{3.1.2}
+$$
+<b>Example 2: Lorentz transformation</b> (with $c=1$)
+$$
+\begin{align*}
+t'&=\gamma (t-vx)\,,\\
+x'&=\gamma(x-vt)\,,\\
+y'&=y\,,\\
+z'&=z\;.
+
+\end{align*}\tag{3.1.3}
+$$
+<b>Example 3: Length functional in xy plane</b>
+$$
+\begin{align*}
+s&=\int_a^b \sqrt{1+\left(\dfrac{dy}{dx}\right)^2} \,dx\\
+s'&=\int_{a'}^{b'}\sqrt{1+\left(\dfrac{dy'}{dx'}\right)^2}dx'
+
+\end{align*}
+$$
+Notice the transformation does not change the structure of the functional, but merely the input stuffed into them.
+
+
+
+#### Invariance of functional $J$ and Lie group
+
+Functional $J$ 가 다음과 같이 주어졌다고 하자.
+$$
+J=\int_a^b \mathcal{L}\left(t,\,q^\mu(t),\,\dfrac{d}{dt}q^\mu(t)\right)\, dt
+$$
+variable transformation $t\to t',\, q^\mu \to {q^\mu}'$ 에 대해 transformed functional $J'$ 은 다음과 같다.
+$$
+J'=\int_{a'}^{b'}\mathcal{L}\left( t',\, {q^\mu}'(t'),\, \dfrac{d}{dt'}{q^\mu}'(t') \right)
+$$
+앞으로 편의상 $J=\int \mathcal{L}\,dt,\,J'=\int\mathcal{L}'\,dt'$ 으로 쓰기로 한다.
+
+
+
+$J$ 가 invariance라는 뜻은 엄격하게 말하자면 $\varepsilon$ 값이 무엇이든 간에 $J$ 의 값과 $J'$ 의 값이 같다는 뜻이다. But perhaps we do not have to be so rigid in our definition of the invariance of the functional. Perhaps we can distinguish matters of principle from what is detectable. <u>Rigidly requiring $J'$ to be exactly the same number as $J$ for all $\varepsilon$ means that we may bbe disqaulifying a lot of transformations that have something to teach us</u>. 
+
+우리는 invariance 의 정의로 infinitesimal change of $\varepsilon$ 에 대해 $|J-J'| \propto \varepsilon^s$ for some $s>1$ 일 때 $J$ 를 invariance라 하기로 하자.
+
+Infinitesimal transformation을 $\varepsilon$ 에 대한 series로 나타내면,
+$$
+\begin{align*}
+t'&=t+ \left(\dfrac{dT}{d\varepsilon}\right)_0 \varepsilon + O(\varepsilon^2)+\cdots\,,\\
+{q^\mu}'&=q^\mu+\left(\dfrac{dQ^\mu}{d\varepsilon}\right)_0 \varepsilon + O(\varepsilon^2)+\cdots
+
+\end{align*}\tag{3.1.4}
+$$
+이 때 series expansion에서 $\varepsilon$ 의 coefficient를 **generator** 라 한다. 이제 $\tau$ 와 $\zeta^\mu$ 를 다음과 같이 정의한다.
+$$
+\begin{align*}
+\tau &\equiv \left( \dfrac{dT}{d\varepsilon} \right)_0 = \tau(t,\,q^\mu)\,,\\
+\zeta^\mu&\equiv \left( \dfrac{dQ^\mu}{d\varepsilon} \right)_0 = \zeta^\mu (t,\, q^\nu)\,.
+
+\end{align*}\tag{3.1.5}
+$$
+ 그렇다면 식 (3.1.4) 는 다음과 같이 표현 할 수 있다.
+$$
+\begin{align*}
+t'&=t+\tau\varepsilon + \cdots\,,\\
+{q^\mu}'&=q^\mu + \zeta^\mu \varepsilon + \cdots\,.
+
+\end{align*}\tag{3.1.6}
 $$
 
 
-<b>Example 1 : </b> 
+<b>Example 4 : Rotation along $z$-axis in 3D Euclidean space </b>
+$$
+\begin{align*}
+x'&=x+\varepsilon y\,,\\
+y'&=-\varepsilon x + y\,,\\
+z'&=z
+\end{align*} \tag{3.1.7}
+$$
+<b> Example 5 : Lorentz transformation</b> (with $c=1$)
+$$
+\begin{align*}
+t'&=t-vx\,,\\
+x'&=x-vt\,,\\
+y'&=y\,,\\
+z'&=z
+
+\end{align*}\tag{3.1.8}
+$$
+
+
+
+
+이러한 Invariants 들의 집합은 group을 이루며 이 group을 **Lie group** 이라 한다.
+
+
+
+$J$ 는 $t,\,q^\mu(t),\,dq^\mu(t)/dt$ 의 함수이고 $J'$ 은 $t',\,{q^\mu}'(t'),\, d{q^\mu}'(t')/dt'$ 의 함수이다. 또한 $t'=T(t,\,q^\mu,\,\varepsilon)$, ${q^\mu}'=Q^\mu (t,\,q^\nu,\,\varepsilon)$ 이므로 $J'$ 을 $t$ 의 적분꼴로 나타 낼 수 있다. 즉,
+$$
+\begin{align*}
+J'-J&=\int_{a'}^{b'}\mathcal{L \left(t',\,{q^\mu}'(t'),\,\dfrac{d{q^\mu}'(t')}{dt'}\right)}\,dt'-\int_a^b \mathcal{L}\left(t,\,q^\mu(t),\,\dfrac{dq^\mu (t)}{dt}\right)\,dt \\
+&= \int_a^b \left[\mathcal{L \left(t',\,{q^\mu}'(t'),\,\dfrac{d{q^\mu}'(t')}{dt'}\right)}\left(\dfrac{dt'}{dt}\right)-\mathcal{L}\left(t,\,q^\mu(t),\,\dfrac{dq^\mu (t)}{dt}\right)\right]\,dt \\
+&=\int_a^b \left[\mathcal{L}'\dfrac{dt'}{dt}-\mathcal{L}\right]\,dt
+
+\end{align*}
+$$
+ 이다. 따라서 invariance 조건은 다음과 동치이다.
+$$
+\mathcal{L}'\dfrac{dt'}{dt}-\mathcal{L}\sim \varepsilon^s,\quad \text{where }s>1\;.
+$$
+
+
+<b>Example 6. : Length functional</b>
+
+Length functional $\displaystyle s=\int_a^b \sqrt{1+\left(\dfrac{dy}{dx}\right)^2}\,dx$ 를 생각하자. Example 1의 transformation에 대해,
+$$
+\mathcal{L}'\dfrac{dx'}{dx}-\mathcal{L}=\sqrt{1+\left(\dfrac{dy'}{dx'}\right)^2}\dfrac{dx'}{dx}-\sqrt{1+\left(\dfrac{dy}{dx}\right)^2}
+$$
+이다. (3.1.7) 로 부터,
+$$
+\begin{align*}
+\dfrac{dx'}{dx}&=1+\dfrac{dy}{dx}\,,\\
+\dfrac{dy'}{dx'}&=\dfrac{-\varepsilon dx+dy}{dx+\varepsilon dy}=\dfrac{-\varepsilon + (dy/dx)}{1+\varepsilon (dy/dx)}
+
+\end{align*}
+$$
+이므로,
+$$
+\mathcal{L}'\dfrac{dx'}{dx}-\mathcal{L}=-\sqrt{1+\left(\dfrac{dy}{dx}\right)^2} \left(\dfrac{dy}{dx}\right)^2\varepsilon^2 + O(\varepsilon^3)
+$$
+이며 따라서 invariant 이다. 
+
