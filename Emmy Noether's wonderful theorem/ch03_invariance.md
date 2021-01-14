@@ -160,3 +160,85 @@ $$
 $$
 이며 따라서 invariant 이다. 
 
+
+
+## 3.2 Condition for Invariance : The Rund-Trautman Identity
+
+
+
+#### Rund-Trautman Identity
+
+만약 functional
+$$
+J=\int_a^b \mathcal{L}(t,\,q^\mu,\,\dot{q}^\mu)\,dt
+$$
+가 invariant under infinitesimal transformation 
+$$
+\begin{align*}
+t'&=t+\varepsilon \tau + \cdots,\,\\
+{q^\mu}' &=q^\mu + \varepsilon \zeta^\mu +\cdots
+
+\end{align*}\tag{3.1.9}
+$$
+일 때 다음이 성립한다.
+$$
+\dfrac{\partial \mathcal{L}}{\partial q^\mu} \zeta^\mu + p_\mu \dot{\zeta^\mu} + \dfrac{\partial \mathcal{L}}{\partial t} \tau - \mathcal{H}\dot{\tau}=0\,. \tag{3.1.10}
+$$
+
+----
+
+*(proof)* (1) $J$ 가 invariant 이므로 $\mathcal{L}'\dfrac{dt'}{dt}-\mathcal{L}\sim \varepsilon^s$ for some $s>1$ 이다. 위 식을 $\varepsilon$ 에 대해 미분하고 $\varepsilon=0$ 으로 놓으면, 
+$$
+\begin{align*}
+\left(\dfrac{d}{d\varepsilon}\left[\mathcal{L}'(t',\,{q^\mu}',\, \dot{q}^\mu) \dfrac{dt'}{dt}-\mathcal{L}(t,\,q^\mu,\,\dot{q}^\mu)\right] \right)_{\varepsilon=0}& =\mathcal{L}\dfrac{d}{d\varepsilon}\left[\dfrac{dt'}{dt}\right]_{\varepsilon=0} + \left[\dfrac{d\mathcal{L}'}{d\varepsilon}\cdot\left(1+\varepsilon\tau+\cdots\right)\right]_{\varepsilon=0} \\
+&=\mathcal{L}\dfrac{d}{d\varepsilon}\left[1+\varepsilon \dot{\tau}+O(\varepsilon^2)\right]+\left[\dfrac{d\mathcal{L}'}{d\varepsilon}\right]_{\varepsilon=0} \\
+&=\mathcal{L}\dot{\tau}+\left[\dfrac{d\mathcal{L}'}{d\varepsilon}\right]_{\varepsilon=0}\;, \\
+\left(\dfrac{d\varepsilon^s}{d\varepsilon}\right)_{\varepsilon=0}&=\left(s\varepsilon^{s-1})\right)_{\varepsilon=0}=0\;.
+
+\end{align*}
+$$
+이므로 다음 식을 얻는다.
+$$
+\mathcal{L}\dot{\tau}+\left[\dfrac{d\mathcal{L}'}{d\varepsilon}\right]_{\varepsilon=0}=0 \tag{a}
+$$
+(2) 여기서,
+$$
+\begin{align*}
+\dfrac{d\mathcal{L}'}{d\varepsilon} &= \dfrac{\partial \mathcal{L}'}{\partial t'}\dfrac{dt'}{d\varepsilon}+\dfrac{\partial \mathcal{L}'}{\partial {q^\mu}'}\dfrac{d{q^\mu}'}{d\varepsilon}+ \dfrac{\partial \mathcal{L}'}{\partial {\dot{q}^\mu}'}\dfrac{d{\dot{q}^\mu}'}{d\varepsilon} \\
+&= \dfrac{\partial \mathcal{L}'}{\partial t'}\tau+\dfrac{\partial \mathcal{L}'}{\partial {q^\mu}'}\zeta^\mu+ \dfrac{\partial \mathcal{L}'}{\partial {\dot{q}^\mu}'}\dfrac{d{\dot{q}^\mu}'}{d\varepsilon} \tag{b}
+
+
+\end{align*}
+$$
+이며 $d{q^\mu}'=dq^\mu + \varepsilon d\zeta^\mu + O(\varepsilon^2)$ 이므로,
+$$
+{\dot{q}^\mu}' \equiv \dfrac{d{q^\mu}'}{dt'} = \dfrac{dq^\mu + \varepsilon d\zeta^\mu}{dt + \varepsilon d\tau} = \dfrac{ \dot{q}^\mu + \varepsilon \dot{\zeta}^\mu}{1+ \varepsilon\dot{\tau}}
+$$
+이다. 따라서,
+$$
+\left(\dfrac{d{\dot{q}^\mu}'}{d\varepsilon}\right)_{\varepsilon=0} =\left[\dfrac{d}{d\varepsilon} \left( \dfrac{ \dot{q}^\mu + \varepsilon \dot{\zeta}^\mu}{1+ \varepsilon\dot{\tau}}\right)\right]_{\varepsilon = 0} = \dot{\zeta}^\mu-\dot{q}^\mu\dot{\tau} \tag{c}
+$$
+(3) $\varepsilon\to 0$ 에서,
+$$
+\begin{align*}
+\left(\dfrac{\partial \mathcal{L}'}{\partial t'} \right)_{\varepsilon=0} &= \dfrac{\partial \mathcal{L}}{\partial t} \,, \\
+\left(\dfrac{\partial \mathcal{L}'}{\partial {q^\mu}'} \right)_{\varepsilon=0} &= \dfrac{\partial \mathcal{L}}{\partial q^\mu}\,,\\
+\left(\dfrac{\partial \mathcal{L}'}{\partial {\dot{q}^\mu}'} \right)_{\varepsilon=0} &= \dfrac{\partial \mathcal{L}}{\partial \dot{q}^\mu}\,.
+
+\end{align*}
+$$
+이므로 식 (b) 는,
+$$
+\left(\dfrac{d\mathcal{L}'}{d\varepsilon}\right)_{\varepsilon=0} = 
+\dfrac{\partial \mathcal{L}}{\partial t}\tau+\dfrac{\partial \mathcal{L}}{\partial {q^\mu}}\zeta^\mu+ \dfrac{\partial \mathcal{L}}{\partial {\dot{q}^\mu}}\left(\dfrac{d{\dot{q}^\mu}'}{d\varepsilon}\right)_{\varepsilon=0} \tag{d}
+$$
+(4) From (a) and (d), and using $p_\mu = \dfrac{\partial \mathcal{L}}{\partial \dot{q}^\mu}$ and $\mathcal{H}=p_\mu \dot{q}^\mu -\mathcal{L}$  we get
+$$
+\begin{align*}
+0&=\mathcal{L}\dot{\tau}+\dfrac{\partial \mathcal{L}}{\partial t}\tau + \dfrac{\partial \mathcal{L}}{\partial {q^\mu}}\zeta^\mu + p_{\mu}(\dot{\zeta}^\mu - \dot{q}^\mu\dot{\tau}) \\
+&=\dfrac{\partial \mathcal{L}}{\partial q^\mu} \zeta^\mu + p_\mu \dot{\zeta^\mu} + \dfrac{\partial \mathcal{L}}{\partial t} \tau - \mathcal{H}\dot{\tau} \qquad \square
+
+\end{align*}
+$$
+ 
+
