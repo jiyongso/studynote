@@ -44,7 +44,7 @@ $$
 \hat{\mathbf{y}}'=\cos \phi \hat{\mathbf{y}}+\sin \phi \hat{\mathbf{z}}\,,\quad \hat{\mathbf{z}}'=-\sin \phi \hat{\mathbf{y}}+\cos \phi \hat{\mathbf{z}}\\
 \hat{\mathbf{y}}=\cos \phi \hat{\mathbf{y}}'-\sin \phi \hat{\mathbf{z}}'\,,\quad \hat{\mathbf{z}}=\sin \phi \hat{\mathbf{y}}'+\cos \phi \hat{\mathbf{z}}'
 $$
- 
+
 
 따라서,
 $$
@@ -54,6 +54,27 @@ $$
 &=\hat{\mathbf{y}}'(\partial'_y f)+\hat{\mathbf{z}}'\partial_z' f = \nabla'f
 \end{align*}
 $$
+
+
+
+<b>Problem 1.16</b> vector function
+$$
+\mathbf{v} = \dfrac{\hat{\mathbf{r}}}{r^2}
+$$
+을 스케치하고 그 divergence를 계산하시오.
+
+----
+
+$$
+\sum_i\partial_i v_i = \sum_i\partial_i \left( \dfrac{x_i}{r^3} \right)= \sum_i\dfrac{1}{r^3}-\dfrac{3x_i^2}{r^5}=0\;.
+$$
+
+
+
+
+
+
+
 
 
 <b>Problem 1.17</b> In two dimension, show that the divergence transforms as a scalar under rotation
@@ -210,7 +231,7 @@ $$
 
 ## 4. Curvilinear coordinates
 
-<b>Problem 1.36</b> $r,\,\theta,\,\phi$ 를 $x,\,y,\,z$ 로 표시하시오.
+<b>Problem 1.37</b> $r,\,\theta,\,\phi$ 를 $x,\,y,\,z$ 로 표시하시오.
 
 ---
 
@@ -225,7 +246,7 @@ $$
 
 
 
-<b>Problem 1.37 </b> Unit vectors $\hat{\mathbf{r}},\,\hat{\boldsymbol{\theta}},\,\hat{\boldsymbol{\phi}}$ 를 $\hat{\mathbf{x}},\,\hat{\mathbf{y}},\,\hat{\mathbf{z}}$ 로 표시하시오.
+<b>Problem 1.38 </b> Unit vectors $\hat{\mathbf{r}},\,\hat{\boldsymbol{\theta}},\,\hat{\boldsymbol{\phi}}$ 를 $\hat{\mathbf{x}},\,\hat{\mathbf{y}},\,\hat{\mathbf{z}}$ 로 표시하시오.
 
 ---
 
@@ -242,4 +263,28 @@ $$
 a_{11}=\hat{\mathbf{r}}\cdot \hat{\mathbf{x}} = \sin \theta \cos\phi,\quad a_{12}=\hat{\mathbf{r}}\cdot \hat{\mathbf{y}}= \sin \theta \sin \phi,\quad a_{13}=\hat{\mathbf{r}}\cdot \hat{\mathbf{z}}=\cos \theta\,,\\
 a_{21}=\hat{\boldsymbol{\theta}}\cdot \hat{\mathbf{x}}=\cos \theta \cos \phi,\quad a_{22}=\hat{\boldsymbol{\theta}}\cdot\hat{\mathbf{y}}=\sin \theta \sin \phi,\quad a_{23}=\hat{\boldsymbol{\theta}}\cdot \hat{\mathbf{z}}=-\sin\theta\,\\
 a_{31}=\hat{\boldsymbol{\phi}}\cdot \hat{\mathbf{x}}= - \sin \phi,\quad a_{32}=\hat{\boldsymbol{\phi}}\cdot \hat{\mathbf{y}}=\cos \phi,\quad a_{33}=\hat{\boldsymbol{\phi}}\cdot \hat{\mathbb{z}}=0
+$$
+
+
+
+<b>Problem 1.39</b> (a) $\mathbf{v}_1=r^2\hat{\mathbf{r}}$ 에 대해 divergence theorem이 성리하는지 보이시오. 이 때 반경 $R$ 의 원점을 중심으로 하는 구를 부피로 삼으시오.
+
+(b) $\mathbf{v}_2=1/r^2 \hat{\mathbf{r}}$ 에 대해 (a) 와 같이 하시오.
+
+---
+
+(a) 
+$$
+\begin{align*}
+\int_\mathcal{V} \nabla \cdot \mathbf{v}_1 \, d\tau &= \int_0^R\int_0^\pi \int_0^{2\pi} \dfrac{1}{r^2}\dfrac{\part}{\partial r}\left(r^4\right) r^2 \sin\theta\, dr d\theta d\phi = 4\pi \int_0^R 4r^3\, dr=4\pi R^4\,,\\
+\oint_{\mathcal{S}} \mathbf{v}_1 \cdot \hat{\mathbf{n}} da &=\oint_{\mathcal{S}} r^2  \hat{\mathbf{n}}\cdot \hat{\mathbf{r}} \, da =4\pi R^4\,.
+
+\end{align*}
+$$
+ (b)
+$$
+\begin{align*}
+\int_{\mathcal{V}} \nabla\cdot \mathbf{v}_2 \,d\tau &=\int_0^R \int_0^\pi \int_0^{2\pi} \dfrac{1}{r^2}\dfrac{\part}{\part r}\left(\dfrac{1}{r^2} r^2\right)r^2 \,dr d\theta d\phi=0\,,\\
+\oint_{\mathcal{S}} \mathbf{v}_2 \cdot d\mathbf{a} &=\int
+\end{align*}
 $$
