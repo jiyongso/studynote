@@ -208,6 +208,9 @@ $$
 \left[\nabla \times (\nabla f)\right]_1= \varepsilon_{1jk} \part_j \part_k f= \part_2\part_3 f-\part_3\part_2f=0
 $$
 
+2, 3에서도 같은 방법으로 보일 수 있다.
+
+
 
 ## 3. Integral calculus
 
@@ -285,6 +288,221 @@ $$
 $$
 \begin{align*}
 \int_{\mathcal{V}} \nabla\cdot \mathbf{v}_2 \,d\tau &=\int_0^R \int_0^\pi \int_0^{2\pi} \dfrac{1}{r^2}\dfrac{\part}{\part r}\left(\dfrac{1}{r^2} r^2\right)r^2 \,dr d\theta d\phi=0\,,\\
-\oint_{\mathcal{S}} \mathbf{v}_2 \cdot d\mathbf{a} &=\int
+\oint_{\mathcal{S}} \mathbf{v}_2 \cdot d\mathbf{a} &=\int \dfrac{1}{R^2}R^2\sin\theta\,d\theta d\phi = 4\pi
 \end{align*}
 $$
+
+
+<b>Problem 1.40</b> 다음 함수의 divergence를 구하시오.
+$$
+\mathbf{v}=(r\cos\theta)\hat{\mathbf{r}}+(r\sin\theta)\hat{\boldsymbol{\theta}}+(r \sin\theta \cos \phi)\hat{\boldsymbol{\phi}}
+$$
+이 함수에 대해서 divergence theorem을 확인하시오. 이 때 volume을 그림 1.40의 inverted hemispherical bowl of radius $R$ 을 사용하시오.
+
+---
+
+Using (1.71)
+$$
+\begin{align*}
+\nabla \cdot \mathbf{v} &= \dfrac{1}{r^2} \dfrac{\part}{\part r}(r^3 \cos\theta) + \dfrac{1}{r\sin\theta} \dfrac{\part}{\part \theta}(r \sin^2\theta) + \dfrac{1}{r\sin\theta} \dfrac{\part}{\part \phi}(r \sin \theta \cos \phi) \\
+&=3\cos\theta+2\cos\theta-\sin\phi = 5 \cos\theta - \sin \phi
+\end{align*}
+$$
+이다.
+$$
+\int_{\mathcal{V}} \left( \nabla \cdot \mathbf{v} \right) d\tau = \int_0^R \int_0^{\pi/2} \int_0^{2\pi} r^2(5\cos \theta -\sin \phi)\sin\theta \,dr d\theta d\phi =\dfrac{5R^3}{3}\int_0^{\pi/2} \cos\theta \sin\theta\,d\theta d\phi=\dfrac{5\pi}{3}R^3\
+$$
+이다. 
+$$
+\int_{\mathcal{S}} \mathbf{v}\cdot d\mathbf{a}= \int_{\text{upper hemisphere}} \mathbf{v} \cdot \hat{\mathbf{r}}\,da_1 + \int_{\text{circir with radius }R\text{ and z=0}} \mathbf{v} \cdot (-\hat{\mathbf{z}})\, da_2
+$$
+upper hemisphere 에 대한 surface 적분 $da_1 = r\sin\theta\, drd\theta d\phi$ with $r=R$ 이며. $z=0$ 에서의 $r=R$ 에 대한 surface 적분 $da_2 = rdrd\phi$ with $\theta=\pi/2$ 이다. 따라서,
+$$
+\begin{align*}
+\int_{\mathcal{S}} \mathbf{v}\cdot d\mathbf{a}&=\int_0^{\pi/2} \int_0^{2\pi} R^3 \cos\theta \sin\theta\, d\theta d\phi - \int_0^R \int_0^{2\pi} (r \cos^2 \theta -r \sin^2 \theta )_{\theta = \pi/2} r drd\phi\\
+&=\pi R^3 + \dfrac{2\pi}{3}R^3=\dfrac{5\pi}{3}R^3
+
+
+\end{align*}
+$$
+
+
+<b>Problem 1.46 </b>
+
+(a) 다음을 보이시오
+$$
+x \dfrac{d}{dx}(\delta(x))=-\delta (x)\;.
+$$
+(b) step function $\theta(x)$ 가 다음과 같다.
+$$
+\theta (x) \equiv \left\{\begin{array}{ll} 1\,, \qquad&\text{if } x>0 \\ 0\,, & \text{if } x\le 0\end{array}\right.
+$$
+이 때 $d\theta/dx = \delta(x)$ 임을 보이시오.
+
+---
+
+(a) Using integration by parts,
+$$
+\int_{-\infty}^\infty x\dfrac{d}{dx}(\delta (x)) \, dx = \left[x\delta(x)\right]_0^\infty - \int\delta(x)\, dx=-1 \\
+\int_{-\infty}^\infty f(x) x\dfrac{d}{dx}(\delta(x)) \,dx= \left[xf(x)\delta(x)\right]_0^\infty - \int (f(x)+xf'(x))\delta(x)\,dx=-f(0)
+$$
+(b) If we integrate $f(x) \theta'(x) = f(x)d\theta/dx$, 
+$$
+\int_{-\infty}^\infty f(x)\theta'(x) = \int_{-\epsilon}^\epsilon f(x)\theta'(x)dx=[f(x)\theta(x)]_{-\epsilon}^\epsilon-\int_{-\epsilon}^\epsilon f'(x)\theta(x)dx=f(\epsilon)-\int_{0}^\epsilon f'(x)dx=f(0)
+$$
+
+
+
+
+<b>Problem 1.49 </b> 다음 적분을 계산하시오.
+$$
+J=\int_{\mathcal{V}} e^{-r}\left(\nabla \cdot \dfrac{\hat{\mathbf{r}}}{r^2}\right) d\tau
+$$
+ 여기서 $\mathcal{V}$ 는 원점을 중심으로 반경 $R$ 인 구이다. 두가지 다른 방법으로 계산하시오.
+
+---
+
+(1) $\nabla \cdot  \left(\dfrac{\hat{\mathbf{r}}}{r^2} \right) = 4\pi \delta^3 (\mathbf{r})$ 이므로, $J=\displaystyle \int_{\mathcal{V}} e^{-r} \cdot (4\pi \delta (\mathbf{r}))\, d\tau = 4\pi$.
+
+(2) $\nabla (f \mathbf{v})=\mathbf{v} \cdot (\nabla f)+ f(\nabla \cdot \mathbf{v})$  이며, $\nabla e^{-r}=-e^{-r} \hat{\mathbf{r}}$ 이므로,
+$$
+\begin{align*}
+J&=\int_{\mathcal{V}} \nabla \cdot (e^{-r} \dfrac{\hat{\mathbf{r}}}{r^2})\, d\tau -\int_{\mathcal{V}}(-e^{-r} \hat{\mathbf{r}})\cdot \dfrac{\hat{\mathbf{r}}}{r^2} \, d\tau  \\
+&= \int_{\mathcal{S}} \dfrac{e^{-r}}{r^2}  r^2\sin\theta \, d\theta d \phi  + \int_{\mathcal{V}} \dfrac{e^{-r}}{r^2} \sin\theta r^2 drd\theta d\phi \\
+&= 4\pi e^{-R } +4\pi [-e^{-r}]_{r=0}^{r=R}=4\pi\,.
+
+\end{align*}
+$$
+
+
+
+
+<b>Problem 1.51</b> Theorem 1 에서 (d) $\implies$ (a), (a) $\implies$ (c), (c) $\implies$ (b), (b) $\implies$ (c), (c)$\implies$ (a) 임을 보이시오.
+
+---
+
+Theorem 1 : 아래 네 명제는 equivalent 하다.
+
+(a) $\nabla \times \mathbf{F}=0$,
+
+(b) $\int_{\mathbf{a}}^{\mathbf{b}} \mathbf{F}\cdot d\mathbf{l}$ 은 임의의 end points 에 대해 path-independent 하다.
+
+(c) $\oint \mathbf{F}\cdot d\mathbf{l}=0$, 
+
+(d) $\mathbf{F}$ 는 어떤 scalar function $V$ 에 대해 $\mathbf{F}=-\nabla V$ 이다.
+
+(1) (d)$\implies$(a) : see problem 1.28.
+
+(2) (a)$\implies$(c) : From Stoke's theorem, $\oint \mathbf{F}\cdot d\mathbf{l}=\int (\nabla \times \mathbf{F} )\cdot d\mathbf{a}=0$ 
+
+(3) (c)$\implies$(b) : Let's fix $\mathbf{a}$ and $\mathbf{b}$ and choose a path $\Gamma_1$ from $\mathbf{a}$ to $\mathbf{b}$. For any arbitrary path $\Gamma_2$ from $\mathbf{a}$ to $\mathbf{b}$,
+$$
+\int_{\Gamma_1} \mathbf{F}\cdot d\mathbf{l}-\int_{\Gamma_2}\mathbf{F}\cdot d\mathbf{l}=\oint_{\Gamma_1-\Gamma_2} \mathbf{F}\cdot d \mathbf{l}=0 \implies \int_{\Gamma_1} \mathbf{F}\cdot d\mathbf{l}=\int_{\Gamma_2}\mathbf{F}\cdot d\mathbf{l}
+$$
+(4) (b)$\implies$(c) : trivial
+
+(5) (c)$\implies$(a) : Trivial from Stoke's theorem. 
+
+
+
+<b>Problem 1.52</b> 
+
+Theorem 2에서. (d)$\implies$(a), (a)$\implies$(c), (c)$\implies$(b), (b)$\implies$(c), (c)$\implies$(a) 를 보이시오.
+
+---
+
+Theorem 2: 아래 네 명제는 equivalent 하다.
+
+(a) $\nabla \cdot \mathbf{F}=0$ everywhere.
+
+(b) $\int \mathbf{F}\cdot d\mathbf{a}$ is independent of surface, for any given boundary line.
+
+(c)  $\oint \mathbf{F}\cdot d\mathbf{a}=0$ for any closed surface.
+
+(d)  $\mathbf{F}$ is the curl of some vector function : $\mathbf{F}=\nabla \times \mathbf{A}$.
+
+(1) (d)$\implies$(a) : seel problem 1.27
+
+(2) (a)$\implies$(c) : Divergence theorem, $\int_{\mathcal{V}} (\nabla \cdot \mathbf{F})=\int_{\mathcal{S}} \mathbf{F}\cdot d\mathbf{a}$, 
+
+(3) (c)$\implies$(b) : boundary line을 경계로 하는 두 closed surface를 생각하라.
+
+(4) (b)$\implies$(c) : 어떤 closed surface를 임의의 boundary line으로 이분할하는것을 생각하라
+
+(5) (c)$\implies$(a) : divergende theorem
+
+
+
+
+
+##  More Problems on Chapter I.
+
+<b>Problem 1.61 </b>
+
+Gradient, divergence, curl theorem으로 부터 몇가지 colloraries를 유도하라.
+
+(a) $\int_{\mathcal{V}} (\nabla T)\, d\tau =\oint T d\mathbf{a}$ ,
+
+(b) $\int_{\mathcal{V}} (\nabla \times \mathbf{v})d\tau = -\oint_{\mathcal{S}} \mathbf{v} \times d\mathbf{a}$, 
+
+(c) $\int_{\mathcal{V}} [T\nabla^2 U+(\nabla T)\cdot (\nabla U)]\,d\tau = \oint_{\mathcal{S}} (T\nabla U)\cdot d\mathbf{a}$ , 
+
+(d) $\int_{\mathcal{V}} (T\nabla^2 U-U\nabla^2 T)d\tau = \oint_{\mathcal{S}} (T\nabla U - U \nabla T)\cdot d\mathbf{a}$ ,
+
+(e) $\int_\mathcal{S} \nabla T \times d\mathbf{a}=-\oint_{\mathcal{P}} T d\mathbf{l}$.
+
+---
+
+(a) Let $\mathbf{v} = \mathbf{c}T$ where $\mathbf{c}$ is a constant vector. Then,
+$$
+\int_{\mathcal{V}} \nabla\cdot (\mathbf{c}T)\,d\tau= \mathbf{c} \cdot\int_{\mathcal{V}} (\nabla T)\, d\tau
+$$
+From divergence theorem, 
+$$
+\int_{\mathcal{V}} \nabla \cdot (\mathbf{c}T)\,d\tau = \oint_{\mathcal{S}} T\mathbf{c}\cdot d\mathbf{a}=\mathbf{c} \cdot\oint_{\mathcal{S}} T\,d\mathbf{a}
+$$
+$\mathbf{c}$ 가 임의의 vector 이므로 (a)가 성립한다.
+
+(b) From hint, let $\mathbf{c}$ be any constant vector. Then, 
+$$
+\nabla \cdot(\mathbf{v}\times \mathbf{c}) = \mathbf{c} \cdot (\nabla \times \mathbf{v})\,.
+$$
+이로부터, 양 변을 부피 $\mathcal{L}$ 에 대해 적분했을 때 
+$$
+\begin{align*}
+\int_\mathcal{V} \nabla \cdot (\mathbf{v}\times \mathbf{c})\, d\tau &=\oint_{\mathcal{S}} (\mathbf{v}\times \mathbf{c})\cdot d\mathbf{a}=-\mathbf{c}\cdot\oint_\mathcal{S} \mathbf{v} \times d\mathbf{a}\,,\\
+\end{align*}
+$$
+이며 우변은 $\displaystyle \mathbf{c} \cdot \int_\mathcal{V} (\nabla \times \mathbf{v})\, d\tau$ 이므로 증명 끝.
+
+(c) 다음에 대해 divergence theorem을 적용하면 된다.
+$$
+\nabla\cdot(T \nabla U)=T \nabla^2 U+(\nabla T)\cdot (\nabla U)\;.
+$$
+(d) (c)의 식과 $\nabla \cdot (U\nabla T)=U \nabla^2 T + (\nabla T)\cdot (\nabla U)$ 를 이용하면 끝.
+
+(e) 임의의 nonzero constant vector $\mathbf{c}$ 에 대해 $\mathbf{v} = \mathbf{c}T$ 라 하자. $\nabla \times (\mathbf{c}T)=-\mathbf{c} \times \nabla T$ 이므로,
+$$
+\begin{align*}
+\int_\mathcal{S} \nabla \times (\mathbf{c}T)\cdot d\mathbf{a} &=\mathbf{c} \cdot\oint_{\mathcal{P}}  T\,d\mathbf{l}\qquad&\text{by Stoke's theorem,}\\
+&=- \int_\mathcal{S} (\mathbf{c} \times\nabla T) \cdot d\mathbf{a} = -\mathbf{c} \cdot \int_\mathbf{S} \nabla T \times d\mathbf{a}\, &\text{From identity above,}
+
+\end{align*}
+$$
+
+
+
+
+<b>Problem 1.62 </b> 다음 적분
+$$
+\mathbf{a} \equiv \int_\mathcal{S} d\mathbf{a}
+$$
+를 surface $\mathcal{S}$ 에 대한 **vector area** 라고 하기도 한다. 만약 $\mathcal{S}$ 가 평평하다면 $|\mathbf{a}|$ 는 우리가 통상적으로 말하는 area 이다.
+
+(a) Hemispherical bowl of radius $R$ 에 대한 vector area를 구하라.
+
+(b) 임의의 closed surface에 대해 $\mathbf{a}=0$ 임을 보여라.
+
+(c) $\mathbf{a}$ 는 boundary를 공유하는 임의의 surface에 대해 동일함을 보여라.
+
+(d)
