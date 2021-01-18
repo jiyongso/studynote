@@ -71,12 +71,6 @@ $$
 
 
 
-
-
-
-
-
-
 <b>Problem 1.17</b> In two dimension, show that the divergence transforms as a scalar under rotation
 
 ---
@@ -505,4 +499,151 @@ $$
 
 (c) $\mathbf{a}$ 는 boundary를 공유하는 임의의 surface에 대해 동일함을 보여라.
 
-(d)
+(d) 다음을 보여라.
+$$
+\mathbf{a} = \dfrac{1}{2}\oint \mathbf{r}\times d\mathbf{l}
+$$
+여기서 적분은 boundary line을 따른다.
+
+(e) 임의의 constant vector $\mathbf{c}$에 대해 다음을 보여라.
+$$
+\oint (\mathbf{c} \cdot \mathbf{r})\,d\mathbf{l}=\mathbf{a} \times \mathbf{c}
+$$
+
+---
+
+(a) 반경 $R$이며 원점을 중심으로 하는 spherical shell 의 $z<0$ 인 hemispherical shell을 생각한다. Symmetry에 의해 $\hat{\mathbf{z}}$ 방향 성분을 제외하고는 $0$ 이 되므로,
+$$
+\mathbf{a} = R^2\int_{\pi/2}^{\pi}\int_0^{2\pi} \hat{\mathbf{r}}\sin\theta\, d\theta d\phi = \hat{\mathbf{z}}R^2\int_{\pi/2}^\pi\int_0^{2\pi} \sin\theta\cos\theta \,d\theta d\phi=-\pi R^2 \hat{\mathbf{z}}
+$$
+(b) Problem 1.62 (b) 를 사용한다. 임의의 constant vector $\mathbf{c}$, closed surface의 내부에 포함되는 부피 $\mathcal{V}$ 에 대해,
+$$
+0=\int_{\mathcal{V}} (\nabla \times \mathbf{c})\,d\tau = -\mathbf{c} \times \oint_{\mathcal{S}} d\mathbf{a}
+$$
+(c) (b) 에 의해 자명하다.
+
+(d) Using vector identity 
+
+$$
+\nabla \times (\mathbf{A} \times \mathbf{B})=(\mathbf{B}\cdot \nabla) \mathbf{A} -(\mathbf{A}\cdot \nabla) \mathbf{B}+\mathbf{A}( \nabla\cdot\mathbf{B})-\mathbf{B}(\nabla \cdot \mathbf{A})\,.
+$$
+
+For any constant vector $\mathbf{c}$,
+$$
+\nabla \times (\mathbf{c} \times \mathbf{r})=-(\mathbf{c} \cdot \nabla)\mathbf{r}+\mathbf{c} (\nabla \cdot \mathbf{r})=-\mathbf{c} +3\mathbf{c} =2\mathbf{c}\;.
+$$
+또한 Stoke's theorem 에 의해,
+$$
+\int_\mathcal{S} \left[\nabla \times (\mathbf{c} \times \mathbf{r})\right] \cdot d\mathbf{a}=\oint_{\mathcal{P}} (\mathbf{c} \times \mathbf{r}) \cdot d\mathbf{l}
+$$
+이다.
+$$
+\begin{align*}
+\int_\mathcal{S}\left[\nabla \times (\mathbf{c} \times \mathbf{r})\right]\cdot d\mathbf{a} &=2\mathbf{c} \cdot \mathbf{a}\,,\\
+\oint_{\mathcal{P}}  (\mathbf{c} \times \mathbf{r}) \cdot d\mathbf{l}&= \mathbf{c} \cdot \oint_{\mathcal{P}}(\mathbf{r} \times d\mathbf{l})
+\end{align*}
+$$
+이므로,
+$$
+\mathbf{a} = \dfrac{1}{2} \oint_{\mathcal{P}} (\mathbf{r} \times d\mathbf{l})
+$$
+
+
+(e) Let $T=\mathbf{c} \cdot \mathbf{r}$ and use Problem 1.61 (e). 
+$$
+\nabla(\mathbf{c} \cdot \mathbf{r})= (\mathbf{c} \cdot \nabla)\mathbf{r}=\mathbf{c}
+$$
+이므로,
+$$
+\begin{align*}
+\int_{\mathcal{S}} (\nabla T) \times d\mathbf{a}&=\int_{\mathcal{S}}\nabla(\mathbf{c}\cdot \mathbf{r})\times d\mathbf{a} = \mathbf{c} \times \int_{\mathcal{S}}d\mathbf{a} =- \mathbf{a} \times \mathbf{c} \,\\
+&= -\oint_{\mathcal{P}} (\mathbf{c} \cdot \mathbf{r})d\mathbf{l}
+
+\end{align*}
+$$
+
+
+
+<b>Problem 1.63 </b>
+
+(a) 다음 함수 $\mathbf{v} =\dfrac{\hat{\mathbf{r}}}{r}$ 의 divergence를 구하시오. 이 결과를 divergence theorem을 이용하여 확인하시오. Is there a delta function at the origin, as there was for $\hat{\mathbf{r}}/r^2$?  $r^n \hat{\mathbf{r}}$ 에 대한 divergence의 일반식을 구하시오.
+
+(b) $r^n \hat{\mathbf{r}}$ 의 curl을 구하시오.
+
+---
+
+(a) $\mathbf{v}=\mathbf{r}/r^2$ 이므로,
+$$
+\nabla \cdot \mathbf{v} = \sum_i \part_i \left( \dfrac{x_i}{r^2}\right)=\sum_i \left[\dfrac{1}{r^2}- \dfrac{2x_i^2}{r^4}\right]=\dfrac{1}{r^2}
+$$
+Divergence theorem : 원점을 중심으로 반경 $R$ 인 구에 대해 적분하면,
+$$
+\begin{align*}
+\int_{\mathcal{V}} (\nabla \cdot \mathbf{v})\,d\tau &= \int_{0}^R \int_0^\pi\int_0^{2\pi} \sin\theta\, dr d\theta d\phi = 4\pi R \,,\\
+\int_\mathcal{S} \mathbf{v} \cdot d\mathbf{a} &=\int_0^{\pi}\int_0^{2\pi} R\sin\theta dr d\theta d\phi = 4\pi R\,.
+
+\end{align*}
+$$
+$r^n\hat{\mathbf{r}}$ 의 divergence 
+$$
+\begin{align*}
+\nabla \cdot (r^n \hat{\mathbf{r}})&=\nabla\cdot (r^{n-1}\mathbf{r})=\sum_{i}\part_i (x_i r^{n-1})\\
+&= \sum_i \left[ r^{n-1} + (n-1)x_i^2 r^{n-3}\right]=3r^{n-1}+(n-1)r^{n-1}\\
+&= (n+2)r^{n-1}
+\end{align*}
+$$
+(b) $r^n \hat{\mathbf{r}}=\sum_i r^{n-1}x_i \hat{\mathbf{e}}_i$ 이므로
+$$
+\begin{align*}
+\left[\nabla \times (r^n \hat{\mathbf{r}})\right]_1 & = \sum_{j,\,k}\varepsilon_{1jk} \part_j (r^{n-1} x_k) =\part_y(r^{n-1}z)-\part_z(r^{n-1}y)=0
+\end{align*}
+$$
+$y,\,z$ 에 대해 생각해도 $0$ 이므로 $\nabla \times (r^n \hat{\mathbf{r}})=0$ 
+
+
+
+<b>Problem 1.64</b> 당신이 $\nabla^2 (1/r)=-4\pi \delta(\mathbf{r})$ 인 것에 설득되지 않을 지도 몰라서 $r$을 $\sqrt{r^2+\epsilon^2}$ 로 치환하고 $\epsilon \to 0$ limit에서 어떻게 되는지 한번 보자. 
+$$
+D(r,\,\epsilon)\equiv -\dfrac{1}{4\pi} \nabla^2 \dfrac{1}{\sqrt{r^2+\epsilon^2}}
+$$
+라 하자. $\epsilon \to 0$ 에서 $D(r,\,\epsilon)\to \delta(\mathbf{r})$ 임을 보이기 위해 다음을 보여라.
+
+(a) $D(r,\,\epsilon)=\displaystyle \dfrac{3\epsilon^2}{4\pi}\dfrac{1}{(r^2+\epsilon^2)^{5/2}}$ 임을 보여라.
+
+(b) $\lim_{\epsilon \to 0}D(0,\, \epsilon)\to \infty$ 임을 보여라.
+
+(c) For $r\ne 0$ 에 대해 $\lim_{\epsilon \to 0} D(r,\,\epsilon)=0$ 임을 보여라.
+
+(d) $D(r,\,\epsilon)$ 의 전체 공간에 대한 적분이 $1$ 임을 보여라.
+
+----
+
+(a) 
+$$
+\begin{align*}
+\nabla D &=-\sum_i\dfrac{\hat{\mathbf{e}}_i}{4\pi}\part_i \dfrac{1}{\sqrt{r^2+\epsilon^2}}=\sum_i\dfrac{\hat{\mathbf{e}_i}}{4\pi}\dfrac{x_i}{(r^2+\epsilon^2)^{3/2}}\,,\\
+\nabla^2D &= \nabla \cdot (\nabla D) = \sum_i \dfrac{1}{4\pi} \part_i \left(\dfrac{x_i}{(r^2+\epsilon^2)^{3/2}}\right) \\
+&=\dfrac{1}{4\pi} \sum_i \left[\dfrac{1}{(r^2+\epsilon^2)^{3/2}}-\dfrac{3x_i^2}{(r^2+\epsilon^2)^{5/2}}\right]\\
+&= \dfrac{1}{4\pi}\cdot\dfrac{3\epsilon^2}{(r^2+\epsilon^2)^{5/2}}
+
+
+\end{align*}
+$$
+(b) 
+$$
+\lim_{\epsilon\to 0} D(0,\,\epsilon) = \lim_{\epsilon \to 0} \dfrac{1}{4\pi}\dfrac{1}{|\epsilon|^{5/2}}=\infty
+$$
+(c) For $r \ne 0$,
+$$
+\lim_{\epsilon \to 0}D(r,\,\epsilon)=0
+$$
+(d) 
+$$
+\begin{align*}
+\int_\mathcal{V} D(r,\,\epsilon)\,d\tau &=\dfrac{1}{4\pi} \int_0^\infty \int_0^\pi \int_0^{2\pi}\dfrac{3\epsilon^2}{\sqrt{(r^2+\epsilon^2)^{5/2}}} r^2\sin\theta \, dr d\theta d\phi \\
+&=3\epsilon^2\int_0^\infty \dfrac{r^2}{(r^2+\epsilon^2)^{5/2}}dr & r=\epsilon \tan \psi\\
+&=3\epsilon^2\int_0^{\pi/2} \dfrac{\epsilon^3 \tan^2 \psi \csc^2 \psi}{\epsilon^5 \csc^5 \psi} d\psi \\
+&= 3\int_0^{\pi/2} \sin^2 \,\psi \cos\psi \,d\psi = 1
+
+\end{align*}
+$$

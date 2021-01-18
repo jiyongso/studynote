@@ -9,7 +9,7 @@ III. Invariance
 
 #### Continuous transformation 
 
-Continuous parameter $\varepsilon$ 을 생각하자. $\varepsilon$ 이 $0$ 부터 변화할 수 있으며 $\varepsilon=0$ 일 때의 변화가 identity transformation 이라 하자. 
+Continuous parameter $\varepsilon$ 을 생각하자. $\varepsilon$ 이 $0$ 부터 변화할 수 있으며 $\varepsilon=0$ 일 때 identity transformation 이 되도록 한다.
 
 <b>Note : </b> Noether's theorem은 continuous transformations 만을 다룬다.
 
@@ -63,13 +63,13 @@ J=\int_a^b \mathcal{L}\left(t,\,q^\mu(t),\,\dfrac{d}{dt}q^\mu(t)\right)\, dt
 $$
 variable transformation $t\to t',\, q^\mu \to {q^\mu}'$ 에 대해 transformed functional $J'$ 은 다음과 같다.
 $$
-J'=\int_{a'}^{b'}\mathcal{L}\left( t',\, {q^\mu}'(t'),\, \dfrac{d}{dt'}{q^\mu}'(t') \right)
+J'=\int_{a'}^{b'}\mathcal{L}\left( t',\, {q^\mu}'(t'),\, \dfrac{d}{dt'}{q^\mu}'(t') \right)\,dt'
 $$
 앞으로 편의상 $J=\int \mathcal{L}\,dt,\,J'=\int\mathcal{L}'\,dt'$ 으로 쓰기로 한다.
 
 
 
-$J$ 가 invariance라는 뜻은 엄격하게 말하자면 $\varepsilon$ 값이 무엇이든 간에 $J$ 의 값과 $J'$ 의 값이 같다는 뜻이다. But perhaps we do not have to be so rigid in our definition of the invariance of the functional. Perhaps we can distinguish matters of principle from what is detectable. <u>Rigidly requiring $J'$ to be exactly the same number as $J$ for all $\varepsilon$ means that we may bbe disqaulifying a lot of transformations that have something to teach us</u>. 
+$J$ 가 invariance라는 뜻은 엄격하게 말하자면 $\varepsilon$ 값이 무엇이든 간에 $J$ 의 값과 $J'$ 의 값이 같다는 뜻이다. But perhaps we do not have to be so rigid in our definition of the invariance of the functional. Perhaps we can distinguish matters of principle from what is detectable. <u>Rigidly requiring $J'$ to be exactly the same number as $J$ for all $\varepsilon$ means that we may be disqualifying a lot of transformations that have something to teach us</u>. 
 
 우리는 invariance 의 정의로 infinitesimal change of $\varepsilon$ 에 대해 $|J-J'| \propto \varepsilon^s$ for some $s>1$ 일 때 $J$ 를 invariance라 하기로 하자.
 
@@ -240,5 +240,37 @@ $$
 
 \end{align*}
 $$
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Exercises
+
+<b>4.1.</b> 질량 $m$ , 전하량 $q$ 인 입자가 전자기장을 움직일 경우 potentials $V(t,\,\mathbf{r})$ 과 $\boldsymbol{A}(t,\,\mathbf{r})$ 로 기술 할 수 있다. 전기장과 자기장은 $\mathbf{E}=-\nabla V-\part_t \boldsymbol{A}$, $\mathbf{B}=\nabla \times \boldsymbol{A}$ 이다. 입자가 빛의 속도에 비해 느리게 움직일 경우 그 Lagrangian은 다음과 같다.
+$$
+\mathcal{L}=\dfrac{1}{2}m\dot{r}^2+q\boldsymbol{v} \cdot \boldsymbol{A}-qV\;.
+$$
+이 Lagrangian에 대한 time integral이 아래와 같은 Galilean transformation에 대해 invariant 한지 확인하시오.
+$$
+\begin{align*}
+t'&=t\,,\\
+x'&=x-vt\,,\\
+y'&=y\,,\\
+z'&=z\,.
+
+\end{align*}
+$$
+
+---
+
+(1) 
 
