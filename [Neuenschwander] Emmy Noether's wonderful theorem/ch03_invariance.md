@@ -450,8 +450,36 @@ $$
 Transformation :
 $$
 \begin{align*}
-t'&=t+\varepsilon \tau\,\\
-{q^\mu}'&=q^\mu + \varepsilon \zeta^\mu
+t'&=t+\varepsilon \tau\,,\\
+{\theta}'&=\theta + \varepsilon \zeta^\theta\,,\\
+{\phi}'&=\phi+\varepsilon \zeta^\phi\,\\
+r'&=r\,.
+
+\end{align*}
+$$
+partial differentiation of $\mathcal{L}$ :
+$$
+\begin{align*}
+\dfrac{\part \mathcal{L}}{\part \theta}&=mr^2\sin\theta \cos \theta \dot{\phi}^2\,,\\
+\dfrac{\part \mathcal{L}}{\part \phi}&=0\,,\\
+\dfrac{\part \mathcal{L}}{\part r}&=mr\dot{\theta}^2+mr\sin^2 \dot{\phi}^2-\dfrac{\part U}{\part r}\,,\\
+\dfrac{\part \mathcal{L}}{\part \dot{\theta}}&=mr^2\dot{\theta}=p_{\theta}\,,\\
+\dfrac{\part \mathcal{L}}{\part \dot{\phi}}&=mr\sin^2\theta \dot{\phi}=p_\phi\,,\\
+\dfrac{\part \mathcal{L}}{\part \dot{r}} &= m\dot{r}=p_r
+
+\end{align*}
+$$
+Hamiltonian becomes,
+$$
+\mathcal{H}=\dfrac{1}{2}m(\dot{r}^2 + r^2\dot \theta^2+r^2\sin^2\theta \dot{\phi^2})+U(t,\,r)\;.
+$$
+Rund-Trautman identity :
+$$
+\begin{align*}
+0&=\dfrac{\partial \mathcal{L}}{\partial q^\mu} \zeta^\mu + p_\mu \dot{\zeta^\mu} + \dfrac{\partial \mathcal{L}}{\partial t} \tau - \mathcal{H}\dot{\tau}\\
+&=\zeta^\theta\left(mr\sin\theta \cos \theta \dot{\phi}^2\right)+mr^2\dot{\theta} \dot{\zeta}^\theta+mr\sin^2\theta\dot{\phi}\dot{\zeta}^\phi -\dfrac{\part U}{\part t}\tau -
+
+
 
 \end{align*}
 $$
