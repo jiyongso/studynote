@@ -178,12 +178,14 @@ $$
 t'&=t+\varepsilon \tau + \cdots,\,\\
 {q^\mu}' &=q^\mu + \varepsilon \zeta^\mu +\cdots
 
-\end{align*}\tag{3.1.9}
+\end{align*}\tag{3.2.1}
 $$
 일 때 다음이 성립한다.
 $$
-\dfrac{\partial \mathcal{L}}{\partial q^\mu} \zeta^\mu + p_\mu \dot{\zeta^\mu} + \dfrac{\partial \mathcal{L}}{\partial t} \tau - \mathcal{H}\dot{\tau}=0\,. \tag{3.1.10}
+\dfrac{\partial \mathcal{L}}{\partial q^\mu} \zeta^\mu + p_\mu \dot{\zeta^\mu} + \dfrac{\partial \mathcal{L}}{\partial t} \tau - \mathcal{H}\dot{\tau}=0\,. \tag{3.2.2}
 $$
+
+ <b>Note : </b> 여기서는 Rund-Trautman identity가 invariance의 필요조건이라고 기술되어 있으나 실제는 필요충분조건이고, 충분조건은 exercise에서 다룬다. 
 
 ----
 
@@ -243,13 +245,80 @@ $$
 
 
 
+#### Two form of Rund-Trautman invariance
+
+1. From 1,
+   $$
+   \dfrac{\partial \mathcal{L}}{\partial q^\mu} \zeta^\mu + p_\mu \dot{\zeta^\mu} + \dfrac{\partial \mathcal{L}}{\partial t} \tau - \mathcal{H}\dot{\tau}=0\,. \tag{3.2.2}
+   $$
+
+2. 
+
+2. Form 2,
+
+$$
+-(\zeta^\mu-\dot{q}^\mu \tau)\left[\dfrac{\part \mathcal{L}}{\part q^\mu}-\dfrac{d}{dt}\dfrac{\part \mathcal{L}}{\part \dot{q}^\mu}\right] = \dfrac{d}{dt}\left[p_\mu\zeta^\mu-\mathcal{H}\tau\right] \tag{3.2.3}
+$$
+
+이 두 form은 equivalent 하다. (see exercises 4.3)
 
 
 
 
 
+<b>Note : </b> Euler-Lagrange eq. 와 Rund-Trautman identity를 구별하라. Euler-Lagrange eq. 는 extremal of functional 에 대한 조건이고 Rund-Trautman identity는 invariance of functional에 대한 것이다.
 
 
+
+<b>Example 1 : Length functional under rotation</b> 
+
+Length functional $\mathcal{L}=\sqrt{1+\left(\dfrac{dy}{dx}\right)^2}$ 를 생각하자. Rotation의 generator (3.1.7)을 생각하면, $\tau = y,\,\zeta=-x$ 이며, $\part_x \mathcal{L}=0,\, \part_y \mathcal{L}=0$ 이다. $p=\part_{\dot{y}}\mathcal{L}=\dot{y}/\sqrt{1+\dot{y}^2}$ where $\dot{y}=dy/dx$  이므로 
+$$
+\mathcal{H}=p\dot{y}-\mathcal{L}=\dfrac{\dot{y}^2}{\sqrt{1+\dot{y}^2}}-\sqrt{1+\dot{y}^2}=-\dfrac{1}{\sqrt{1+\dot{y}^2}}
+$$
+이다.
+
+Rund-Trautman identity를 적용하면,
+$$
+\dfrac{\partial \mathcal{L}}{\partial y} (-x) + p  + \dfrac{\partial \mathcal{L}}{\partial t} y - \mathcal{H}\dot{y}=p-\mathcal{H}\dot{y}=0
+$$
+이다. 따라서 length functional은 invariant 하다.
+
+
+
+<b>Example 2  : time-independent potential</b> 1차원이고 time-independent potential $U(t,\,x)$ 에서 움직이는 Neutonian particle with mass $m$ 에 대한 Lagrangian은
+$$
+\mathcal{L}(t,\,x,\,\dot{x})=\dfrac{1}{2}m\dot{x}^2-U(t,\,x)
+$$
+이사 $t'=t+\varepsilon t,\, x'=x+\dfrac{\varepsilon}{2}x$ 의 rescaling을 생각하면 $\tau=t,\, \zeta = x/2$ 이다. $p=mv$ 이며 $\mathcal{H}=\dfrac{1}{2}m\dot{x}^2+U(t,\,x)$ 이므로 Rund-Trautman identity는
+$$
+\dfrac{\partial \mathcal{L}}{\part x} \zeta+ p \dot{\zeta} + \dfrac{\partial \mathcal{L}}{\partial t} \tau - \mathcal{H}\dot{\tau}= -(\part_x U)\dfrac{x}{2}+\dfrac{m\dot{x}^2}{2}-(\part_t U)t-\dfrac{1}{2}m\dot{x}^2-U=-U-\dfrac{1}{2}(\part_x U) x-(\part_t U)t
+$$
+이며 generally nonzero 이다.
+
+
+
+## 3.3 A More Liberal Definition of Invariance
+
+
+
+#### Divergence invariant
+
+Functional $\mathcal{L}$ 이 어떤 function $F(t)$ 에 대해 
+$$
+\mathcal{L}' \dfrac{dt'}{dt}-\mathcal{L}= \varepsilon \dfrac{dF}{dt}+O(\varepsilon^s)\;\quad ,\,s>1 \tag{3.3.1}
+$$
+일 때 $\mathcal{L}$ 은 **divergence invariant** 하다고 한다.
+
+
+
+#### Rund-Trantman condition
+
+Rund-Trautman condition은 $\mathcal{L}'\dfrac{dt'}{dt}-\mathcal{L}=\varepsilon^s$ 의 양변을 $\varepsilon$으로 미분하고 $\varepsilon \to 0$ 을 취한 것이므로,
+$$
+\dfrac{\partial \mathcal{L}}{\partial q^\mu} \zeta^\mu + p_\mu \dot{\zeta^\mu} + \dfrac{\partial \mathcal{L}}{\partial t} \tau - \mathcal{H}\dot{\tau} = \dfrac{dF}{dt} \tag{3.3.2}
+$$
+이다.
 
 
 
@@ -272,5 +341,117 @@ $$
 
 ---
 
-(1) 
+Invariance 조건에서 $\tau=0,\, \zeta_1=-t,\, \zeta_2=\zeta_3=0,\,\,\varepsilon=v$ 로 볼 수 있다. Conjugate momentum $p_i$는
+$$
+p_i=\part_{\dot{x}_i}\mathcal{L}=m\dot{x}_i+qA_i
+$$
+이며 Hamiltonian $\mathcal{H}$ 는
+$$
+\mathcal{H}=\sum_ip_i \dot{x}_i-\mathcal{L}=\sum_i\dfrac{1}{2}m\dot{x}_i^2+qV
+$$
+이다. Rund-Trautman condition
+$$
+\begin{align*}
+\dfrac{\partial \mathcal{L}}{\partial x^\mu} (-t) + p_\mu \dot{\zeta^\mu} - \mathcal{H}\dot{\tau} &=-t(qv_j\part_i A_j-q\part_iV)-(m\dot{x}_1)
+\end{align*}
+$$
+이므로 generally not-invariant 하다.
 
+
+
+<b>4.2. </b> 1D-damped harmonic oscillator with mass $m$ and time dependent spring constant $k$ 의 Lagrangian은
+$$
+\mathcal{L}=\left[\dfrac{1}{2}m\dot{x}^2-\dfrac{1}{2}k(t)x^2\right]e^{bt/m}
+$$
+이다. $t'=t+\varepsilon t$ , $x'=x+\dfrac{1}{2}\varepsilon x$ 로 놓고 $\mathcal{L}$ 이 time integral에 대해 invariant 한지 확인하시오. Invariant 하지 않다면 어떤 조건에서 invariant 할 수 있는가?
+
+---
+
+(1) $\tau=t$, $\zeta=x/2$ 이다. $p=m\dot{x}e^{bt/m}$ 이며 Hamiltonian은,
+$$
+\mathcal{H}=p\dot{x}-\mathcal{L}=\left[\dfrac{1}{2}m\dot{x}^2+\dfrac{1}{2}k(t)x^2\right]e^{bt/m}
+$$
+이고,
+$$
+\dfrac{\part \mathcal{L}}{\part t}=-\dfrac{1}{2}k'(t)x^2e^{bt/m}-\dfrac{b}{2m}k(t)x^2e^{bt/m}
+$$
+Rund-Trautman condition은 
+$$
+\begin{align*}
+\dfrac{\partial \mathcal{L}}{\partial x} \dfrac{x}{2} + p \dfrac{\dot{x}}{2} + \dfrac{\partial \mathcal{L}}{\partial t} t - \mathcal{H}&= \left[-\dfrac{kx^2}{2}+\dfrac{m\dot{x}^2}{2} -\dfrac{k'x^2}{2}-\dfrac{bkx^2}{2m}-\dfrac{m\dot{x}^2}{2}-\dfrac{kx^2}{2}\right]e^{bt/m} \\
+&=\left[-k(t)\left(1+\dfrac{b}{2m} \right)-\dfrac{k'(t)}{2}\right]x^2e^{bt/m}
+
+\end{align*}
+$$
+이므로 generally nonzero 이다. 따라서 invariant 하다.
+
+(2) 만약
+$$
+\dfrac{k'(t)}{k(t)}=-\left(2+\dfrac{b}{m}\right)
+$$
+이면, 즉 $k(t) = k_0 \exp \left[-\left(2+\dfrac{b}{m}\right)t\right]$ 이면 된다.
+
+
+
+<b>4.3.</b> 식 (3.2.2)로부터  (3.2.3)을 유도하라.
+
+---
+
+$$
+\dfrac{\partial \mathcal{L}}{\partial q^\mu} \zeta^\mu + p_\mu \dot{\zeta^\mu} + \dfrac{\partial \mathcal{L}}{\partial t} \tau - \mathcal{H}\dot{\tau}=0\,. \tag{3.2.2}
+$$
+
+$$
+-(\zeta^\mu-\dot{q}^\mu \tau)\left[\dfrac{\part \mathcal{L}}{\part q^\mu}-\dfrac{d}{dt}\dfrac{\part \mathcal{L}}{\part \dot{q}^\mu}\right] = \dfrac{d}{dt}\left[p_\mu\zeta^\mu-\mathcal{H}\tau\right] \tag{3.2.3}
+$$
+
+이다. 
+$$
+\begin{align*}
+\dfrac{d}{dt}\left[p_\mu \zeta^\mu-\mathcal{H}\tau\right] &= \dfrac{d}{dt}\left[\dfrac{\part \mathcal{L}}{\part \dot{q}^\mu} \zeta^\mu-\mathcal{H}\tau\right]\\
+&=-\mathcal{H}\dot{\tau}+\left[\dfrac{d}{dt}\dfrac{\part \mathcal{L}}{\part \dot{q}^\mu} \zeta^\mu+\dfrac{\part \mathcal{L}}{\part \dot{q}^\mu}\dot{\zeta}^\mu-\dfrac{d\mathcal{H}}{dt} \tau\right]
+\end{align*}
+$$
+이므로, $p_\mu  =\part \mathcal{L}/\part \dot{q}^\mu$ , ${d\mathcal{H}}/{dt}=-\part \mathcal{L}/\part t$ 임을 이용하면,
+$$
+\begin{align*}
+-\mathcal{H}\dot{\tau}&=\dfrac{d}{dt}\left[p_\mu \zeta^\mu-\mathcal{H}\tau\right] -\left[\dfrac{d}{dt}\dfrac{\part \mathcal{L}}{\part \dot{q}^\mu}+\dfrac{\part \mathcal{L}}{\part \dot{q}^\mu}\dot{\zeta}^\mu - \dfrac{d\mathcal{H}}{d t} \tau\right] \\
+&=-\dfrac{\partial \mathcal{L}}{\partial q^\mu} \zeta^\mu - \dfrac{\part \mathcal{L}}{\part \dot{q}^\mu} \dot{\zeta^\mu} - \dfrac{\partial \mathcal{L}}{\partial t} \tau
+\end{align*}
+$$
+따라서,
+$$
+\begin{align*}
+
+\dfrac{d}{dt}\left[p_\mu \zeta^\mu-\mathcal{H}\tau\right]&= \dfrac{d}{dt}\dfrac{\part \mathcal{L}}{\part \dot{q}^\mu}\zeta^\mu-\tau\dfrac{d}{dt}(p_\mu \dot{q}^\mu-\mathcal{L}) -\dfrac{\part\mathcal{L}}{\part q^\mu}\zeta^\mu-\dfrac{\part \mathcal{L}}{\part t}\tau \\
+&=\dfrac{d}{dt} \dfrac{\part \mathcal{L}}{\part \dot{q}^\mu}\zeta^\mu-\tau \left(\dot{p_\mu} \dot{q}^\mu+p^\mu \ddot{q}^\mu -\dfrac{\part \mathcal{L}}{\part q^\mu} \dot{q}^\mu-\dfrac{\part \mathcal{L}}{\part \dot{q}^\mu}\ddot{q}^\mu - \dfrac{\part \mathcal{L}}{\part t}\right) -\dfrac{\part \mathcal{L}}{\part q^\mu} \zeta^\mu -\tau \dfrac{\part \mathcal{L}}{\part t} \\
+&=(\zeta^\mu  - \tau \dot{q}^\mu) \dfrac{d}{dt}\dfrac{\part \mathcal{L}}{\part \dot{q}^\mu} + (\tau \dot{q}^\mu-\zeta^\mu)\dfrac{\part \mathcal{L}}{\part q^\mu} \\
+&=-(\zeta^\mu-\tau \dot{q}^\mu)\left(\dfrac{\part \mathcal{L}}{\part q^\mu} -\dfrac{d}{dt}\dfrac{\part \mathcal{L}}{\part \dot{q}^\mu}\right)
+
+\end{align*}
+$$
+
+
+
+
+
+
+
+
+
+<b>4.6. </b> Rund-Trautman identity에 의하면 central force motion은 latitude와 longitude coordinates의 변화에 대해 invariant 함을 보이시오.
+
+---
+
+Lagrangian for central force motion :
+$$
+\mathcal{L}=\dfrac{1}{2}m(\dot{r}^2 + r^2\dot \theta^2+r^2\sin^2\theta \dot{\phi^2})-U(t,\,r)\;.
+$$
+Transformation :
+$$
+\begin{align*}
+t'&=t+\varepsilon \tau\,\\
+{q^\mu}'&=q^\mu + \varepsilon \zeta^\mu
+
+\end{align*}
+$$
