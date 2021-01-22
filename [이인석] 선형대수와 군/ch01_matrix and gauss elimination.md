@@ -247,5 +247,21 @@ $$
 
 ----
 
-(가) Let $K=\operatorname{diag} (A_1,\ldots,\,A_k)\cdot \operatorname{diag}(B_1,\ldots,\,B_k)$, $s_i = \sum_{j=1}^{i-1} n_j$.  그렇다면 $A_i$ 는 행렬 $K$ 의 $s_i+1$ 행/열 부터 $s_{i+1}$ 행/열 까지를 차지한다. 
+(가) Let $K=\operatorname{diag} (A_1,\ldots,\,A_k)\cdot \operatorname{diag}(B_1,\ldots,\,B_k)$, $s_i = \sum_{j=1}^{i-1} n_j$.  그렇다면 $A_i$ 는 행렬 $K$ 의 $s_i+1$ 행/열 부터 $s_{i+1}$ 행/열 까지를 차지한다. $A=(a_{ij}),\, B=(b_{ij})$ 라 하자.  $a_{ij}=0$ if $i,\, j \le s_i$ or $i,\,j >s_{i+1}$ 이므로 $(AB)_{lm}=\sum_{k=1}^n a_{lk}b_{km}$ 에 있어 $l$ 이 어떤 $i$ 에 대해 $s_i +1 \le l \le s_{i+1}$ 이라면 $k$도 $s_i+1\le l\le s_{i+1}$ 의 범위에서만  $a_{lk}$ 가 nonzero 이다. 마찬가지로 $m$도 $s_i +1 \le l \le s_{i+1}$ 범위에서만 nonzero 이므로 $(AB)_{lm}$ 은 $l$ 과 $m$ 이 모드 특정한 $i$ 에 대해 $s_i+1 \le l,\,m \le s_{i+1}$ 일 때만 nonzero 이며,
+$$
+(AB)_{lm}=\sum_{k={s_i+1}}^{s_{i+1}} a_{lk}b_{km}=A_iB_i
+$$
+이다. 또한 이로부터 $(AB)$ 역시 block diagonal matrix 이며 $K=\operatorname{diag}(A_1B_1,\ldots,\,A_kB_k)$ 임을 알 수 있다.
+
+(나) (가) 로 부터 자명하다.
+
+
+
+<b>연습문제  1.1.23</b> $A,\,B \in \mathfrak{M}_{n,\,n}(\mathbb{F})$ 일 때 $AB=0$ 이면 $BA=0$ 인가?
+
+---
+
+Let $A=\begin{bmatrix} 1 & 1 \\ 1 & 1\end{bmatrix}$ and $B=\begin{bmatrix} 0 & -1 \\ 0 & 1\end{bmatrix}$. $AB=0$ and $BA=\begin{bmatrix} -1 & -1 \\ 1 & 1\end{bmatrix}$.
+
+
 
