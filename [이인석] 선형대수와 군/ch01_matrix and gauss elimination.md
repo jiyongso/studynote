@@ -265,3 +265,121 @@ Let $A=\begin{bmatrix} 1 & 1 \\ 1 & 1\end{bmatrix}$ and $B=\begin{bmatrix} 0 & -
 
 
 
+## 2. Gaussian Elimination
+
+
+
+<b>연습문제 1.2.1</b> 연립방정식 ($**$) $AX=B$ 에 elementary row operation 을 유한 번 시행하여 연립방정식 $A'X=B'=(b'_1,\ldots,\,b'_m)^t$ 를 얻었다고 하자. 행렬 $A'$ 이 다음과 같을 때 연립방정식 ($**$) $AX=B$ 의 해집합을 구하여라.
+
+(가) $A'=I$.
+
+(나) $A'=\begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}$. 
+
+(다) $A' = \begin{bmatrix} 1 & 2 & 0 \\ 0 & 0 & 1 \end{bmatrix}$.
+
+(라) $A'=\begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & 3\\ 0 & 0 & 0 \end{bmatrix}$
+
+(마) $A'=\begin{bmatrix} 1 & 1 & 0 & 2 & 0 & 0 & -2 \\ 0 & 0 & 1 & 3 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 1 & 4 \\ 0 & 0 & 0 & 0 & 0 & 0& 0\end{bmatrix}$.
+
+---
+
+$AX=B$ 에 elementary row opertation 을 유한 번 시행하여 $A'X=B'$ 을 얻었을 때 연립방정식의 해잡합은 변하지 않는다. 따라서,
+
+(가) $X=B'$ 
+
+(나) $X=(x_1,\,x_2,\,x_3)^t$ 라 하면,  $x_1=b_1',\, x_3=b_2'$ 이며 $x_2$ 는 임의의 $\mathbb{F}$ 이다.
+
+(다) $X=(x_1,\,x_2,\,x_3)^t$ 라 하면, $x_1+2x_2=b'_1$ 을 만족하는 모든 $x_1,\,x_2$ 이며 $x_3=b'_2$ 이다.
+
+(라) $X=(x_1,\,x_2,\,x_3)^t$ 라 하면 $x_1+2x_3=b_1'$, $x_2+3x_3=b'_2$ 를 만족하는 $x_1,\,x_2,\,x_3$ 의 값에 의해 결정된다. 만약 $b_3'\ne 0$ 이면 만족하는 해의 집합은 공집합이다. 
+
+(마)$X=(x_1,\ldots,\,x_7)^t$ 라 하면 $x_1+x_2+2x_4-2x_7=b_1'$, $x_3+3x_4=b'_2$, $x_6+4x_7=b'_3$ 를 만족하는 모든 $x_1,\ldots,\,x_7$ 에 의해 결정되며 $b'_4\ne 0$ 이면 만족하는 해의 집합은 공집합이다.
+
+
+
+<b>연습문제 1.2.4</b> (가) $(4 \times 7)$-행렬 $A$ 가
+$$
+A=\begin{bmatrix} 4 & 4 & 9 & 35 & 0 & 1 & -4 \\ -1 & -1 & -2 & -8 & 0 & 1 & 6 \\ -3 & -3 & -7 & -27 & 0 & -1 & 2 \\ 1 & 1 & 2 & 8 & 0 & 1 & 2  \end{bmatrix}
+$$
+일 때, $A$ 를 row-reduced echelon form으로 바꾸어 보라.
+
+(나) 그럴듯한 행렬을 세 개만 임의로 택해 행 간소 사다리꼴로 바꾸어 보라.
+
+---
+
+(가) $[A]_1=[A]_1+[A]_3$, $A=\begin{bmatrix} 1 & 1 & 2 & 8 & 0 & 0 & -2 \\-1 & -1 & -2 & -8 & 0 & 1 & 6 \\ -3 & -3 & -7 & -27 & 0 & -1 & 2 \\ 1 & 1 & 2 & 8 & 0 & 1 & 2  \end{bmatrix}$ .
+
+$[A]_2 = [A]_2+[A]_1$, $A=\begin{bmatrix} 1 & 1 & 2 & 8 & 0 & 0 & -2 \\0 & 0 & 0 & 0 & 0 & 1 & 4 \\ -3 & -3 & -7 & -27 & 0 & -1 & 2 \\ 1 & 1 & 2 & 8 & 0 & 1 & 2  \end{bmatrix}$
+
+$[A]_3=[A_3]+3\times [A_1]$, $A=\begin{bmatrix} 1 & 1 & 2 & 8 & 0 & 0 & -2 \\0 & 0 & 0 & 0 & 0 & 1 & 4 \\ 0 & 0 & -1 & -3 & 0 & -1 & -4 \\ 1 & 1 & 2 & 8 & 0 & 1 & 2  \end{bmatrix}$ 
+
+$[A]_3=-1 \times [A]_3$ , $A=\begin{bmatrix} 1 & 1 & 2 & 8 & 0 & 0 & -2 \\0 & 0 & 0 & 0 & 0 & 1 & 4 \\ 0 & 0 & 1 & 3 & 0 & 1 & 4 \\ 1 & 1 & 2 & 8 & 0 & 1 & 2  \end{bmatrix}$ 
+
+$[A]_4=[A]_4+(-1)\times [A]_1$, $A=\begin{bmatrix} 1 & 1 & 2 & 8 & 0 & 0 & -2 \\0 & 0 & 0 & 0 & 0 & 1 & 4 \\ 0 & 0 & 1 & 3 & 0 & 1 & 4 \\ 0 & 0 & 0 & 0 & 0 & 1 & 4  \end{bmatrix}$
+
+$[A]_2 \longleftrightarrow [A]_3$, $A=\begin{bmatrix} 1 & 1 & 2 & 8 & 0 & 0 & -2  \\ 0 & 0 & 1 & 3 & 0 & 1 & 4 \\0 & 0 & 0 & 0 & 0 & 1 & 4\\ 0 & 0 & 0 & 0 & 0 & 1 & 4  \end{bmatrix}$
+
+$[A]_1=[A]_1-2\times [A]_2$, $A=\begin{bmatrix} 1 & 1 & 0 & 2 & 0 & -2 & -10  \\ 0 & 0 & 1 & 3 & 0 & 1 & 4 \\0 & 0 & 0 & 0 & 0 & 1 & 4\\ 0 & 0 & 0 & 0 & 0 & 1 & 4  \end{bmatrix}$
+
+$[A]_4=[A]_4-[A]_3$, $A=\begin{bmatrix} 1 & 1 & 0 & 2 & 0 & -2 & -10  \\ 0 & 0 & 1 & 3 & 0 & 1 & 4 \\0 & 0 & 0 & 0 & 0 & 1 & 4\\ 0 & 0 & 0 & 0 & 0 & 0 & 0  \end{bmatrix}$
+
+$[A]_1=[A]_1+2\times[A]_3$, $A=\begin{bmatrix} 1 & 1 & 0 & 2 & 0 & 0 & -2  \\ 0 & 0 & 1 & 3 & 0 & 1 & 4 \\0 & 0 & 0 & 0 & 0 & 1 & 4\\ 0 & 0 & 0 & 0 & 0 & 0 & 0  \end{bmatrix}$
+
+$[A]_2=[A]_2-[A]_3$,  $A=\begin{bmatrix} 1 & 1 & 0 & 2 & 0 & 0 & -2  \\ 0 & 0 & 1 & 3 & 0 & 0 & 0 \\0 & 0 & 0 & 0 & 0 & 1 & 4\\ 0 & 0 & 0 & 0 & 0 & 0 & 0  \end{bmatrix}$
+
+(나) 는 생략한다.
+
+
+
+<b>정리 1.2.3 가능성 증명</b> (수학적 귀납법으로 증명)
+
+모든 행렬은 유한번의 elementary row operation을 시행하여 row-induced echelon form으로 바꿀 수 있다.
+
+---
+
+(1) 행의 갯수 $n$ 에 대한 귀납법으로 증명한다. $n=1$ 일 때는 첫번째 nonzero element 가 $a$ 일 때 $1/a$ 를 곱하면 된다.
+
+(2) $n$ 개보다 적거나 같은 수의 행을 가진 행렬에 대해 성립한다고 가정하고 $n+1$ 개의 행을 가진 행렬을 생각하자. 마지막 행을 제외한 행렬에 대한 row-induced echelon form $A_0$ 를 만드는 것은 귀납법의 가정에 의해 가능하다. 
+
+(3) 마지막 행의 nonzero 열에 대해 만약 $A_0$ 에 해당 열에 대한 최초의 1이 있으면 이 열을 elementary row operation으로 $0$ 으로 만들 수 있다. 해당 열에 대한 최초의 1이 $A_0$에 없으면 해당 열의값의 곱셈의 역수를 $n+1$ 번째 행에 곱해 그 값을 1로 만든 후 그 행을 적당한 행과 교환하여 echelon form으로 만든다. 그 행부터 최후 행까지의 행렬에 대해서만 생각하면 행의 갯수가 $n$ 보다 작거나 같으므로 row-induced echelon form을 만들 수 있으며 전체 행렬에 대해 생각하면 row-induced echelon form이다.  $\square$
+
+
+
+
+
+<b>연습문제 1.2.5.</b> (가) $0$ 은 언제나 $(*)\, AX=0$ 의 solution 임을 보여라.
+
+(나) $X_1,\,X_2$ 가 $(*)$의 solution 이면 $X_1+X_2$ 도 ($*$) 의 solution 임을 보여라.
+
+(다) $X_0$ 가 ($*$) 의 solution 이고 $c\in \mathbb{F}$ 이면 $cX_0$ 도 ($*$) 의 solution 임을 보여라.
+
+---
+
+(가) Let $A\in\mathfrak{M}_{m,\,n}(\mathbb{F})$ and $X=0\in \mathfrak{M}_{n,\,1}(\mathbb{F})$. Then $(AX)_j=\sum_{k=1}^{n} A_{jk}X_{k1}=0$ .
+
+(나) $A(X_1+X_2)=AX_1+AX_2=0$. 
+
+(다) $A(cX_0)=cAX_0=0$. 
+
+
+
+## 1.3 Elementary Matrix
+
+
+
+<b>연습문제 1.3.8</b> $A\in \mathfrak{M}_{n,\,n}(\mathbb{F})$ 일 때 $(A,\,I_n)\in \mathfrak{M}_{n,\,2n}(\mathbb{F})$ 를 생각하자. 만약 행렬 $(A,\,I_n)$ 에 elemtary row operation을 수행하여 $(I_n,\,B)$ 를 얻을 수 있었다면, $B=A^{-1}$ 임을 보여라. (왜 이 연습문제가 section 1.2 에 등장하지 못했을까?)
+
+---
+
+Let $E_1\cdots E_m A=I_n$ where $E_i,\, i=1,\ldots,\,m$ is elementary matrices. Then, $E_1\cdots E_m I_n = E_1\cdots E_m= \ B$. Then, $BA=I_n$. 
+
+$A=E^{-1}_m \cdots E^{-1}_1$ 이므로 $AB=E^{-1}_m \cdots E^{-1}_1 E_1 \cdots E_m=I$. 따라서, $B=A^{-1}$. 
+
+
+
+n 
+
+
+
+
+
