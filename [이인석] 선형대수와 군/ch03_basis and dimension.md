@@ -178,3 +178,167 @@ $$
 
 
 
+<b>연습문제 3.3.13.</b> $A\in \mathfrak{M}_{m,\,n}(\mathbb{F})$ 일 때, 다음을 증명하라.
+
+(가) $\left\{[A]^1,\ldots,\,[A]^n \right\}$ 이 일차독립이기 위한 필요충분조건은 $(\ast)\, AX=0$ 이 trivial solution 만을 갖는 것이다.
+
+(나) $\left\langle [A]^1,\ldots,\,[A]^n\right\rangle =\mathbb{F}^n$ 이기 위한 필요충분조건은 임의의 $B\in \mathbb{F}^m$ 에 대하여 $(**)\, AX=B$ 가 solution을 갖는 것이다.
+
+(다) $\left\{[A]_1,\ldots,\,[A]^n\right\}$ 이 $\mathbb{F}^m$ 의 기저일 필요충분조건은 임의의 $B\in \mathbb{F}^m$ 에 대하여 $(**)\, AX=B$ 가 unique solution을 갖는 것이다.
+
+---
+
+(가) $\left\{[A]^1,\ldots,\,[A]^n \right\}$ 이 일차독립임을 가정하면 $x_1[A]^1 + \cdots + x_n [A]^n=0 \implies x_1 = \cdots =x_n=0$ 일 때 분이다. $X=(x_1,\ldots,\,x_n)^t$ 라 하면 $x_1[A]^1+\cdots + x_n[A]^n=AX$ 이므로 $\left\{[A]^1,\ldots,\,[A]^n \right\}$ 이 일차독립이면 $AX=0$ 의 해는 $0$ 뿐이다. 
+
+$AX=0$의 해가  trivial solution 뿐이면 $x_1[A]^1 + \cdots + x_n [A]^n=0 \implies x_1 = \cdots =x_n=0$ 이므로 $\left\{[A]^1,\ldots,\,[A]^n \right\}$ 이 일차독립이다.
+
+(나) $AX=x_1[A]^1+\cdots + x_n[A]^n$ 이다. $\left\langle [A]^1,\ldots,\,[A]^n\right\rangle =\mathbb{F}^n$ 이려면 임의의 $B\in \mathbb{F}^m$ 에 대해 $AX=B$ 의 해가 존재하면 된다. 반대로 $AX=B$ 의 해 $X$ 가 존재한다면 $AX=x_1[A]^1+\cdots + x_n[A]^n=B$ 이므로 $\left\langle [A]^1,\ldots,\,[A]^n\right\rangle =\mathbb{F}^n$ 이다.
+
+(다) $\left\{[A]_1,\ldots,\,[A]^n\right\}$ 이 $\mathbb{F}^m$ 의 기저라면 관찰 3.3.2에 의해 $AX=B$ 가 unique solution을 갖는다. $AX=B$ 가 unique solution을 가지면 역시 관찰 3.3.2에 의해 $\left\{[A]_1,\ldots,\,[A]^n\right\}$ 이 $\mathbb{F}^m$ 의 기저이다.
+
+
+
+<b>연습문제 3.3.14. </b> (가) $\mathbb{F}[t]$ 는 infinite basis $\{1,\,t,\,t^2,\,t^3,\ldots\}$ 를 갖는 것을 보여라.
+
+(나) $\mathbb{F}[t]$ 는 finite basis를 가질 수 있는가?
+
+---
+
+(가), (나). $\{1,\,t,\,t^2,\,t^3,\ldots\}$ 는 lineary independent 함을 연습문제 3.2.8에서 보였다. 또한 일차독립인 집합의 부분집합도 일차독립임을 연습문제 3.2.6에서 보였다. 만약 $\mathbb{F}[t]$ 가 finite basis를 가진다면 가장 큰 degree $n$ 을 가지며 이는 $t^{n+1}$ 을 표현하지 못한다. 따라서 $\mathbb{F}^n$ 은 infinite basis $\{1,\,t,\,t^2,\,t^3,\ldots\}$를 가진다.
+
+
+
+<b>질문 3.3.15</b> (가) $\mathbb{R}^3$ 공간은 4개(또는 2개) 의 vector로 이루어진 basis도 가질 수 있는가?
+
+(나) Function space $C^0(\R)$ 은 basis를 갖는가? $C^0(\R)$ 은 finite basis를 가질 수 있는가?
+
+---
+
+(가) $t,\,u,\,v,\,w\in \R^3$ 가 basis of $\R^3$ 면 연습문제 3.3.13 (가) 에 의해 $t,\,u,\,v,\,w$ 를 열로 갖는 행렬 $A$ 에 대해 $AX=0$ 이 trivial solution 만을 가져야 한다. 명제 $A\in \mathfrak{M}_{3,\,4}(\mathbb{F})$ 이므로 명제 1.2.6 에 의해 항상 nontrivial solution을 가진다. 따라서 $t,\,u,\,v,\,w$ 는 일차독립이 아니므로 $\R^3$ 공간은 4개의 vector로 이루어진 basis를 가질 수 없다.
+
+$u,\,v \in \R^3$ 가 basis of $\R^3$ 라면 $u,\,v$ 를 열로 갖는 행렬 $A\in \mathfrak{M}_{3,\,2}(\mathbb{F})$ 과 임의의 $B\in \R^3$에 대해 $AX=B$ 가 solution을 가져야 한다. 그런데 $A$ 에 대한 row induced echelon form은 최소한 하나의 $0$ row를 가지므로 이것이 불가능. 즉 두개의 vector 로는 $\R^3$ 를 span하지 못한다. 따라서 $\R^3$ 에 두개의 vector로 이루어진 basis는 존재 할 수 없다. 
+
+(나) $\R[t] \subset C^0 (\R)$ 이므로 $C^0$ 가 basis를 갖는다면 무한개의 basis를 가질 수 밖에 없다. 
+
+
+
+## 3.4. Basis 의 존재
+
+
+
+<b>연습문제 3.4.1.</b> $S\subset V$ 가 일차독립이고 $v\not\in S$ 일 때, 다음 조건
+
+(가) $S\cup \{v\}$ 는 일차독립.
+
+(나) $v\not\in \langle S\rangle$. 
+
+이 동치임을 증명하라.
+
+---
+
+(1) $S=\{v_1,\,v_2,\ldots\}$ 라 하자. 
+
+(2) $S\cup \{v\}$ 가 일차독립임을 가정한다. $v\in \langle S\rangle$ 이면 $v=\sum_i a_i v_i$ 이므로 $(\sum_i a_iv_i)-v=0$ 이며 이는 $S \cup \{v\}$ 가 일차독립이라는 것에 모순. 따라서 $v\not\in \langle S \rangle$.
+
+(3) $v\notin \langle S\rangle$ 이면 $\sum a_i v_i +av=0$ 을 만족하는 $\{a_i\},\,a$ 는 $0=a=a_1=a_2=\cdots$ 뿐이다. 따라서 $S \cup \{v\}$ 는 일차독립이다.
+
+
+
+## 3.5. Vector Space 의 Dimension
+
+
+
+#### 보조정리 3.5.3.
+
+Vector space $V$ 가 finite basis $\mathcal{B}=\{v_1,\ldots,\,v_m\}$ 을 갖는다고 하자. 이 때 만약 $\mathcal{C}=\{w_1,\ldots,\,w_n\}\subset V$ 이고 $m<n$ 이면 $\mathcal{C}$ 는 일차종속이다.
+
+---
+
+*(proof)* $\mathcal{B}$ 가 basis of $V$ 이므로 $w_j= \sum_{i=1}^m a_{ij}v_i$ 인 $A=(a_{ij})\in \mathfrak{M}_{m,\,n}(\mathbb{F})$ 가 유일하게 존재한다. 
+$$
+0=\sum_{j=1}^n c_jw_j = \sum_{j=1}^n c_j \left(\sum_{i=1}^m a_{ij}v_i\right)=\sum_{i=1}^m \left(\sum_{j=1}^n a_{ij}c_j\right)v_i
+$$
+이므로 $\sum_{j=1}^n a_{ij}c_j=0$ for all $i=1,\ldots,m$. 그런데 $m<n$ 이면 항상 nonzero vector $c=(c_1,\ldots,\,c_n)^t$ 가 존재하므로 (명제 1.2.6) $\{w_j\}$ 는 일차종속이다. $\quad\square$
+
+
+
+<b>연습문제 3.5.4. </b> $V=\mathbb{F}^m$ 일 때 보조정리 3.5.3과 명제 1.2.6은 동치임을 보여라.
+
+---
+
+[명제 1.2.6] $A\in\mathfrak{M}_{m,\,n}(\mathbb{F})$ 이고 $m<n$ 이면 $AX=0$ 은 항상 nontrivial solution을 갖는다.
+
+(1) $A$ 의 열벡터를 $[A]^1,\ldots,\,[A]^n$ 이라 하자.  
+
+(2) 보조정리 3.5.3을 가정하자. $\mathbb{F}^m$ 은 standard basis $\{\mathbf{e}_1,\ldots,\,\mathbf{e}_m\}$ 을 가지며 따라서 $\{[A]^1,\ldots,\,[A]^n\}$ 을 일차종속이므로 $\sum_{i=1}^n x_j [A]^j=0$ 에 대해 nonzero $x_j$ 가 존재한다. 이는 $AX=0$ 이 nontrivial solution을 갖는다는 말고 같은 뜻이다. 
+
+(3) 명제 1.2.6을 가정하자. $[A]^i=w_i$ 로 하여 행렬 $A\in \mathfrak{M}_{m,\,n}(\mathbb{F})$ 를 만들자. $AX=0$ 이 non-trivial solution 을 가지므로 $X=(x_1,\ldots,\,x_n)^t$ 라 하면 $\sum_{i=1}^n x_i [A]^i=0$ 을 만족하는 nonzero $x_i$ 가 최소한 하나 이상 존재한다. 따라서 $\{w_i\}$ 는 일차종속이다. 
+
+
+
+<b>연습문제 3.5.6.</b> $\C$- vector space $\C^n$ 은 동시에 $\R$-vector space 로도 볼 수 있다.(연습문제 2.3.5) 이 때 $\dim_\R \C^n$ 을 구하라. (물론 $\dim_{\C}\C^n=n$)
+
+---
+
+$\R^n$ 의 standard basis $\mathcal{B}_{Re}=\{\mathbf{e}_1,\ldots,\,\mathbf{e}_n\}$ 과 여기에 $i$ 를 곱한 $\mathcal{B}_{Im}=\{i\mathbf{e}_1,\ldots,\,i\mathbf{e}_n\}$ 을 생각하자. $\mathcal{B}=\mathcal{B}_{Re}\cup \mathcal{B}_{Im}$ 이 선형독립이며 $\R$-vector space $\C^n$ 을 span함을 알 수 있으므로 $\dim_{\R}\C^n=2n$ 이다.
+
+
+
+<b>연습문제 3.5.7.</b> $V,\,W$ 가 FDVS(finite dimensional vector space) 일 때,
+$$
+\dim (V \times W)=\dim V +\dim W
+$$
+임을 보여라.
+
+---
+
+(1)  $m=\dim V$ and $n =\dim W$ 이라 하자. $\mathcal{B}_{V0}=\{v_1,\ldots,\,v_m\}$ and $\mathcal{B}_{W0}=\{w_1,\ldots,\,w_n\}$ 을 각각 $V,\,W$ 의 basis라 하자. $\mathcal{B}_V=\{(v_i,\,0): v_i \in \mathcal{B}_{V0}\}$ , $\mathcal{B}_W=\{(0,\,w_j): w_j \in \mathcal{B}_{W0}\}$ 라 하고 $\mathcal{B}=\mathcal{B}_V \cup \mathcal{B}_W$ 라 하자. $(0,\,0)=0_{V \times W}$ 임은 자명하다. 
+
+(2) $v\in V,\, w\in W$ 일 때 $v=\sum_{i}a_i v_i,\, w=\sum_{j}b_j w_j$ 이며 $(v,\,w)=\sum_{i}a_i (v_i,\,0)+\sum_{j}b_j (0,\,w_j)$ 이다. 따라서 $\langle \mathcal{B}\rangle = V \times W$ 이다. 
+
+(3) $\sum_{i=1}^m a_i (v_i,\,0) + \sum_{j=1}^n b_j (0,\,w_j)= (\sum_{i} a_iv_i,\,\sum_j b_j w_j) =(0,\,0)$ 이라면 $a_i=0$ for $i=1,\ldots,\,m$ and $b_j =0$ for $j=1,\,\ldots,\,n$ 이다. 따라서 $\mathcal{B}$ 는 선형독립이며 basis of $V\times W$ 이다. 이로부터,
+$$
+\dim(V\times W)=m+n = \dim V + \dim W.
+$$
+
+
+
+<b> 연습문제 3.5.13.</b> $V$ 가 f.d.v.s 이고 $S \subseteq V$ 일 때 $|S|<\dim V$ 이면, $\langle S\rangle \ne V$ 임을 보여라.
+
+---
+
+$|S| \le \dim V$ 이면 $S$ 에서의 선형독립인 벡터의 갯수는 $\dim V$ 보다 작으므로 $S$ 의 원소들로 $V$ 를 span 하지 못한다.
+
+
+
+<b> 연습문제 3.5.14. </b>$A$ 가 $n \times n$ square matrix 일 때, 다음 조건
+
+(가) $\left\{ [A]^1,\ldots,\,[A]^n\right\}$ 은 $\mathbb{F}^n$ 의 basis.
+
+(나) $\left\langle [A]^1,\ldots,\,[A]^n\right\rangle=\mathbb{F}^n$.
+
+(다) $\left\{ [A]^1,\ldots,\,[A]^n\right\}$ 은 일차독립.
+
+(라)  임의의 $B\in \mathbb{F}^n$ 에 대하여 $(**)\; AX=B$ 는 unique solution을 갖는다.
+
+(마) 임의의 $B\in \mathbb{F}^n$ 에 대하여 $(**)\; AX=B$ 는 solution을 갖는다.
+
+(바) $(*)\; AX=0$ 은 trivial solution 만을 갖는다.
+
+은 동치임을 보여라.
+
+---
+
+(1) (가), (나), (다) 따름정리 3.5.12에 의해 equivalent.
+
+(2) (가)$\implies$(라) 는 관찰 3.3.2를 보라.
+
+(3) (라)$\implies$(바) $0\in\mathbb{F}^n$ 이므로 $AX=0$ 은 unique solution을 갖는다. $X=0$ 이 solution 이므로 unique 하다. 따라서 $AX=0$ 은 trivial solution 만을 가진다.
+
+(4) (바)$\implies$(다) $X=(x_1,\ldots,\,x_n)^t$ 라 하면 $\sum_{j=0}^n x_j [A]^j=0$ 을 만족시키는 해는 $x_1=\cdots =x_n=0$ 뿐이므로 (다) 증명.
+
+여기까지 (마)를 제외한 (가), (나), (다), (라), (바) 가 동치임을 보였다. (라)$\implies$(마) 는 자명하다(unique solution이 있다는 이야기는 일단 solution이 있다는 이야기이까.) (마)$\implies$(나) 역시 자명하다. 따라서 여섯 명제는 equivalent 하다.
+
+
+
+  
