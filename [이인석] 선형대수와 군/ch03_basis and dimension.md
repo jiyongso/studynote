@@ -85,13 +85,96 @@ $$
 
 거꾸로 $v=aw$ 인 $a\in \mathbb{F}$ 가 존재한다면 i) $a=0$ 이면 $v=0$ 이므로 $\{v,\,w\}$ 는 일차종속, ii) $a\ne 0$ 이면 $v-aw=0$ 이므로 $\{v,\,w\}$ 는 일차종속.
 
-(라) 일단 원점을 지나는 평면은 모두 $ax+by+cz=0$ 꼴임을 알고 있다고 가정하고 진행한다. 
+(라) $u,\,v\in \R^3$ 가 일차독립이면 벡터의 외적에 의해 $u,\,v$ 모두와 수직인 벡터 $n$ 이 존재하며 $w$ 가 $u,\,v$ 의 linear combination 이면 $w$ 도 $n$ 에 수직이며 따라서 $u,\,v,\,w$ 는 이 $n$ vector에 의해 결정되며 $0$ 을 포함하는 평면상에 존재한다. 만약 세 벡터중 일차종속인 두 벡터가 없다면 세 벡터는 $0$ 벡터 이거나 $0$  벡터가 아니라면 다른 nonzero vector의 스칼라곱이므로 한 벡터의 스칼라곱으로 표현 될 수 있다. 한 벡터를 포함하는 원점을 지나는 평면은 무한하게 존재한다.
 
-우선 $\{u,\,v,\,w\}$ 가 일차종속이면 $u,\,v,\,w$ 가 $0$ 을 지나는 하나의 평면 위에 존재함을 보인다.  $\{u,\,v,\,w\}$ 중 zero vector가 존재한다면 일차 종속이다(가). 셋 다 $0$ 이면 자명하다. 셋중 둘이 $0$ 벡터라 하자. $u=v=0$ 이며 $w\ne 0$ 이면 $aw_1+bw_2+cw_3=0$ 에서 $w_3\ne 0$ 이면 $c=-(aw_1+bw_2)/w_3$ 로 잡고 평면의 방정식 $ax+by+cz=0$ 을 세우면 $u,\,v,\,w$ 는 모두 이 평면상에 있다. $w_3=0$ 이면 nonzero component of $w$ 에 대해 같은 방법으로 풀면 된다.
+$u,\,v,\,w$ 가 $0$ 을 지나는 하나의 평면 위에 있다면 이 평면은 이중 linearly independent한 두 벡터가 존재하며 다른 하나는 두 벡터의 선형결합이라는 뜻이므로 $\{u,\,v,\,w\}$ 는 일차종속이다.
 
-$u=0$, $v\ne 0,\,w \ne 0$ 이면 $\alpha v+ \beta w=0$ 인 $\alpha,\, \beta\in \mathbb{F}$, $\alpha \ne 0,\, \beta \ne 0$ 이 존재한다. 
+
+
+<b>연습문제 3.2.6.</b> $S=\{v_i\}_{i\in I}\subseteq V$ 일 때 다음을 보여라.
+
+(가) $S$ 가 일차독립이면 $[\,v_i \ne v_j \text{ for all }i \ne j\,]$ .
+
+(나) $S$ 가 일차독립이면, $S$의 모든 subset도 일차독립.
+
+(다) $S\subseteq V$ 가 일차종속이면, $S$ 의 모든 subset도 일차종속인가?
+
+(라) $S \subseteq T \subseteq V$ 이고 $S$ 가 일차종속이면 $T$ 도 일차종속인가?
+
+---
+
+(가) 어떤 $i\ne j$ 에서 $v_i=v_j$ 이면 $v_i+(-1)v_j=0$ 이므로 일차종속이다. 
+
+(나) $S$ 가 일차종속이며 $S$ 의 어떤 subset 에서 일차종속이 말이 안되지.
+
+(다) $V=\R^2$ 이고 $S=\{(0,\,1),\, (1,\,0),\,(1,\,1)\}$ 은 일차종속이나 $S_0=\{(0,\,1),\, (1,\,0)\}\subset S$ 는 일차독립이다. 따라서 No.
+
+(라) 당연하지.
+
+
+
+<b>연습문제 3.2.8.</b> (가) $\{1,\,t,\,t^2,\,t^3,\ldots\}\subset \mathbb{F}[t]$ 는 일차독립임을 보여라.
+
+(나) 실변소 함수 $f,\,g,\,h \in C^\infty(\R)$ 을 다음과 같이 정의하면
 $$
-\alpha v+\beta w= (\alpha v_1+\beta w_1,\, \alpha v_2+\beta w_2,\, \alpha v_3 + \beta w_3)=(0,\,0,\,0)
+f(x)=1,\quad g(x) = \exp (x),\quad h(x)=\exp (2x)\, , \quad x\in \R
+$$
+$\{f,\,g,\,h\}$ 는 일차독립임을 보여라.
+
+---
+
+ (가) $0= \sum_{k=0}^\infty c_k t^k$ 라 하자. $t=0$ 을 놓으면 $c_0=0$ 이다. 양 변을 $t$ 에 대해 미분하고 $t=0$ 을 대입하면 $c_1=0$. 이를 계속 반복하면 $c_k=0$ for all $k=0,\,1,\,\ldots$ 임을 알 수 있다.
+
+(나) $af(x)+bg(x)+ch(x)=0$ 이라 놓자. $x=0$ 에 대해 $a+b+c=0$. $x=\ln 2$ 를 넣으면 $a+2b+4c=0$. $x=\ln 4$ 를 넣으면 $a+4b+16c=0$ 이다. 이를 풀면 $a=b=0$ 이므로 $\{f,\,g,\,h\}$ 는 일차독립.
+
+
+
+## 3.3. Vector Space의 Basis
+
+
+
+<b>Note : </b> $S\subset V$ 일 때 $\langle S\rangle$ 은 $S$ 의 원소중 <u>유한개의 선형결합으로</u> 이루어진 모든 벡터의 집합이다. 
+
+
+
+<b>연습문제 3.3.9.</b> $\mathcal{B}=\{v_1,\ldots,\,v_n\}$ 이 $V$ 의 basis 라 하자. $v,\,w\in V$, $a\in\mathbb{F}$ 일 때, 다음을 보여라.
+
+(가) $[v+w]_{\mathcal{B}}=[v]_{\mathcal{B}}+[w]_{\mathcal{B}}$. 
+
+(나) $[av]_{\mathcal{B}}=a[v]_{\mathcal{B}}$.
+
+---
+
+(가) $v=\sum_i a_i v_i,\, w=\sum_i b_i v_i$ 일 때 $v+w=\sum_i (a_i +b_i)v_i$ 이므로 
+$$
+[v+w]_{\mathcal{B}}=(a_1+b_1,\ldots,\, a_n+b_n)^t =(a_1,\ldots,\,a_n)^t+(b_1,\ldots,\,b_n)^t=[v]_{\mathcal{B}}+[w]_{\mathcal{B}}\,.
 $$
 
-이므로 $\beta\\\\
+(나) $av=\sum_{i}aa_i v_i$ 이므로,
+$$
+[av]_\mathcal{B}=(aa_1,\ldots,\,aa_n)^t = a(a_1,\ldots,\,a_n)^t=a[v]_{\mathcal{B}}\;.
+$$
+
+
+<b>명제 3.3.12. </b> $\{v_1,\ldots,\,v_n\}$ 이 $V$ 의 기저이고 $w_j = \sum_{i}a_{ij}v_i\quad (j=1,\ldots,\,n)$ 이라 하자.  만약 $A=(a_{ij})\in \mathfrak{M}_{n,\,n}(\mathbb{F})$ 가 가역이면 $\{w_1,\ldots,\,w_n\}$ 도 $V$ 의 basis 이다.
+
+---
+
+*(proof)* (1) 우선 $\{w_j\}$ 가 일차독립임을 보이자. 
+$$
+0=\sum_j c_j w_j = \sum_j c_j(\sum_i a_{ij}v_j)=\sum_i (\sum_{j}a_{ij}c_j)v_i
+$$
+이므로 $\sum_j a_{ij}c_j=0$ 이다. $c=(c_1,\ldots,\,c_n)^t$ 라 하면 $Ac=0$ 이며 $A$ 가 가역이므로 $A^{-1}Ac=c=A^{-1}0=0$ 이므로 $c=0$ 이다. 즉 $\{w_j\}$ 는 일차독립이다.
+
+(2) $\langle \{w_j\} \rangle =V$ 임을 보인다. $B=(b_{ij})=A^{-1}$ 이며 $\displaystyle w_j=\sum_i a_{ij}v_i$ 일 때 $\displaystyle v_j=\sum_i b_{ij}w_i$ 임을 보이자.  $AB=BA=I$ 이므로 $\displaystyle \sum_k b_{ik}a_{kj}=\sum_k a_{ik}b_{kj}=\delta_{ij}$ 이다. 
+$$
+\sum_{j}b_{ji}w_j = \sum_j b_{ji}\sum_k a_{kj}v_k=\sum_k v_k \left( \sum_j a_{kj}b_{ji} \right)=\sum_k\delta_{ki}v_k =v_i
+$$
+$\{v_i\}$ 가 $V$ 의 basis 이므로 임의의 $v\in V$ 는 $v=\sum_j c_jv_j$ 로 표현 할 수 있다. 그렇다면,
+$$
+v=\sum_i c_i v_i = \sum_i c_i \left( \sum_j  b_{ji}w_j\right )=\sum_j \left(\sum_i b_{ji}c_i\right)w_j
+$$
+이므로 $\langle\{w_j\}\rangle =V$ 이다. $\quad\square$
+
+
+
