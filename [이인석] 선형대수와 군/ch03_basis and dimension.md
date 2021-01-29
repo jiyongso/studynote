@@ -341,4 +341,163 @@ $|S| \le \dim V$ 이면 $S$ 에서의 선형독립인 벡터의 갯수는 $\dim 
 
 
 
-  
+## 3.6 우리의 철학
+
+
+
+## 3.7 Dimension의 보기
+
+
+
+<b>연습문제 3.7.3.</b>  다음 벡터공간의 기저와 차원을 구하라.
+
+(가) $\mathfrak{t}_n (\mathbb{F})=\left\{ (a_{ij}\in \mathfrak{M}_{n,\,n}(\mathbb{F}) \mid a_{ij}=0 \text{ if }i > j\right\}$.
+
+(나) $\mathfrak{n}_n (\mathbb{F})=\left\{(a_{ij})\in \mathfrak{M}_{n,\,n}(\mathbb{F}) \mid a_{ij}=0\text{ if } i \ge j  \right\} $.
+
+(다) $\mathfrak{o}_n (\mathbb{F}) = \left\{(a_{ij})\in \mathfrak{M}_{n,\,n} (\mathbb{F})\mid a_{ij}=0 \text{ if }i \ne j  \right\}  $.
+
+(라) $\mathfrak{sl}_n (\mathbb{F}) = \left\{  (a_{ij})\in \mathfrak{M}_{n,\,n}(\mathbb{F}) \mid \operatorname{tr} (A)=0 \right\}$.
+
+(마) $\mathfrak{Snm}_n (\mathbb{F})=\left\{(a_{ij})\in \mathfrak{M}_{n,\,n}(\mathbb{F}) \mid A=A^t\right\}$.
+
+(바) $\mathfrak{Ult}_n (\mathbb{F})=\left\{ (a_{ij})\in \mathfrak{M}_{n,\,n}(\mathbb{F})\mid A=-A^t \right\}$.
+
+---
+
+(가) $\{ \mathbf{e}_{ij}: 1 \le i \le j \le n\}$ , $\dim (\mathfrak{t}_n (\mathbb{F}) )=n(n+1)/2$. 
+
+(나) $\{\mathbf{e}_{ij} : 1 \le i < j\le n\}$, $\dim (\mathfrak{n}_n (\mathbb{F}))=n(n-1)/2$. 
+
+(다) $\{\mathbf{e}_{ii}: i = 1,\ldots,\,n\}$, $\dim (\mathfrak{o}_n (\mathbb{F}))=n$. 
+
+(라) $\{\mathbf{e}_{ij} : 1 \le i \ne j \le n\} \cup \{\mathbf{e}_{ii}: i=1,\ldots,\,n-1\}$, $\dim (\mathfrak{sl}_n(\mathbb{F}))=n^2-1$. 
+
+(마) $\{\mathbf{e}_{ij}+\mathbf{e}_{ji} : 1 \le i < j \le n\}\cup \{\mathbf{e}_{ii}: i=1,\ldots,\,n\}$ , $\dim(\mathfrak{Snm}_n(\mathbb{F}))=n(n-1)/2+n=n(n+1)/2$.
+
+(바) $\{\mathbf{e}_{ij}-\mathbf{e}_{ji}: 1\le i < j \le n\}$, $\dim (\mathfrak{Ult}_n (\mathbb{F}))=n(n-1)/2$. 
+
+
+
+<b>연습문제 3.7.4. </b> (**Lagrange interpolation formula**) $a_0,\,a_1,\ldots,\,a_n \in \mathbb{F}$ 가 서로 다른 scalar 이고 (단 $n\ge 0$), $b_0,\,b_1,\ldots,\,b_n\in \mathbb{F}$ 는 임의의 scalar 라고 할 때,
+$$
+g(a_i)=b_i,\qquad (i=0,\,1,\ldots,\,n)
+$$
+인 다항식 $g(t)\in \mathcal{P}_n (\mathbb{F})$ 가 유일하게 존재하고 또 쉽게 계산 할 수 있음을 다음 순서로 증명하라. 먼저, Lagrange polynomial $f_0(t),\, f_1(t),\ldots,\,f_n(t)$ 를 
+$$
+f_i (t) = \prod_{j\ne 1 \\ i \le j \le 0} \dfrac{t-a_j}{a_i-a_j},\qquad (i=0,\ldots,\,n)
+$$
+이라 정의하자.
+
+(가) $f_i (a_j)=\delta_{ij}$ 임을 이용해 $\mathcal{B}=\{f_0(t),\ldots,\,f_n(t)\}$ 가 $\mathcal{P}_n(\mathbb{F})$ 의 일차독립인 subset 임을 보여라. 이제 따름정리 3.5.12 (와 보기 3.5.5 (나) 항)에 의해 $\mathcal{B}$ 는 $\mathcal{P}_n(\mathbb{F})$  의 basis 가 됨을 보여라.
+
+(나) $g(t) = b_0 f_0(t) + b_1 f_1(t) + \cdots + b_n f_n (t)$ 이어야만 함을 보여라.
+
+---
+
+(가) $c_0f_0(t)+ c_1 f_1(t)+\cdots c_n f_n (t)=0$ 을 만족하는 $c_0,\,c_1,\ldots,\,c_n$ 을 구하자. $t$ 에 $a_i$ 를 넣어 보면 $c_i=0$ 임을 알 수 있다. 따라서 $\mathcal{B}$ 는 일차독립이며 $|\mathcal{B}|=n+1=\dim (\mathcal{P}_n (\mathbb{F}))$ 이므로 $\mathcal{B}$ 는 $\mathcal{P}_n (\mathbb{F})$ 의 basis 이다.
+
+(나) 주어진 $g(t)$ 가 $g(a_i)=b_i$ 를 만족함은 쉽게 알 수 있다.  $g(t)\in \mathcal{P}_n(\mathbb{F})$ 이고 $\mathcal{B}$ 가 $\mathcal{P}_n(\mathbb{F})$ 의 basis 이므로 $g(t)$ 는 $\mathcal{B}$ 의 선형결합으로 유일하게 결정된다.
+
+
+
+<b>연습문제 3.7.6.</b> 앞 연습문제 3.7.3에서 $U=\mathfrak{t}_n(\mathbb{F})$ , $W=\mathfrak{sl}_n (\mathbb{F})$ 로 놓을 때 $U+V$ 를 묘사하고 명제 3.7.5 를 확인하라.
+
+----
+
+(1) $U=\mathfrak{t}_n (\mathbb{F})$ 는 $n \times n$ upper triangular matrix 의 집합이며 $W=\mathfrak{sl}_n (\mathbb{F})$ 는 trace가 $0$ 인 $n \times n$ 행렬의 집합이다. 임의의 $A\in \mathfrak{M}_{n,\,n}(\mathbb{F})$ 는 어떤 $A_U\in U$ 와 $A_W\in W$ 의 합으로 나타낼 수 있는데, $A$ 에서 upper triangule part를 $A_U$ 라 하면 $(A-A_U)_{ij}=0$ 이므로 $A-A_U\in W$ 이다. 따라서 $\dim (U+W)=n^2$ 이며 $U+V=\mathfrak{M}_{n,\,n}(\mathbb{F})$ 이다.
+
+(2) $U\cap V$ 따라서 trace가 $0$ 인 upper triangular matrix의 집합이다. 따라서 $\dim (U \cap V)=n(n+1)/2-1$ 이다. 
+
+(3) 연습문제 3.7.3에서 보았듯이 $\dim (U)=n(n+1)/2$ 이며 $\dim (W)=n^2-1$ 이다. 
+
+(4) 명제 3.7.5 를 확인해보면 $\dim (U+W)+\dim (U \cap W)= n^2+n(n+1)/2-1$ 이고 $\dim(U)+\dim (W)=n^2+n(n+1)/2-1$ 이다.
+
+
+
+<b>연습문제 3.7.7.</b> $V$ 가 f.d.v.s 이고 $U,\,W \le V$ 일 때 다음 조건들,
+
+(가) $U \cap W=0$.
+
+(나) $(U + W)$ 의 vector를 $(u+w)$ 꼴로 (단 $u\in U,\, w\in W$) 쓰는 방법은 유일.
+
+(다) $0$ 을 $(u+w)$ 꼴로 (단 $u \in U,\, w\in W$) 쓰는 방법은 $0+0$ 뿐.
+
+(라) $\mathcal{B},\,\mathcal{C}$ 가 각각 $U,\,W$ 의 기저이면, $\mathcal{B}\cap \mathcal{C} =\varnothing$ 이고 $\mathcal{B}\cup \mathcal{C}$ 는 $U+W$ 의 기저.
+
+는 동치임을 보여라. 또, 이 때 $\dim (U+W)=\dim U + \dim W$ 임을 보여라.
+
+---
+
+(1) (가)$\implies$(나) $U \cap W=\{0\}$ 임을 가정한다. $v\in U +W$ 에 대해 $v=u_1+w_1=u_2+w_2$ where $u_1,\,u_2\in U$, $w_1,\,w_2\in W$ 라 하자. $u_1-u_2=w_1-w_2$ 이며 $u_1-u_2\in U$, $w_1-w_2\in W$ 이므로 $u_1-u_2,\, w_1-w_2 \in U \cap W=\{0\}$. 따라서 $u_1=u_2,\,w_1=w_2$  이므로 $u+w$ 꼴로 쓰는 방법은 유일하다.
+
+(2) (나)$\implies$(다) 일단 $0\in U \cap W$ 이므로 $0=0+0$ 꼴로 쓸 수 있으며, (나) 에 의해 유일하므로 증명 끝.
+
+(3) (다)$\implies$(라) $v\in \mathcal{B} \cap \mathcal{C}$, $v\ne 0$ 이면 $v\in U$ 이며 $v\in W$ 이므로 $v+(-v)=0$ 인 nonzero vector $v\in U,\, (-v)\in W$ 가 존재한다. 따라서 (다) 를 가정하면 $\mathcal{B} \cap \mathcal{C}=\varnothing$ 이다. 또한,
+
+$$
+|\mathcal{B}\cup \mathcal{C}|=|\mathcal{B}|+|\mathcal{C}|+|\mathcal{B} \cap \mathcal{C}|=|\mathcal{B}|+|\mathcal{C}|=\dim V + \dim W -\dim (V \cap W)= \dim (V +W)
+$$
+
+이다. $\mathcal{B} \cup \mathcal{C}$ 가 $V+W$ 를 span 하며 $|\mathcal{B}\cup \mathcal{C}|=\dim (V+W)$ 이므로 $\mathcal{B}\cup \mathcal{C}$ 는 $V+W$ 의 기저이다.
+
+(4) (라)$\implies$(가) $\mathcal{B},\,\mathcal{C}$ 가 각각 $U,\,W$ 의 기저이므로 $|\mathcal{B}|=\dim U,\, |\mathcal{C}|=\dim U$ 이다. $\mathcal{B}\cup \mathcal{C}$ 가 $U+W$ 의 기저이므로 $|\mathcal{B}\cup\mathcal{C}|=\dim (U+V)$ 이다. 그런데 $\mathcal{B}\cap \mathcal{C}=\varnothing$ 이므로 $|\mathcal{B}\cup \mathcal{C}|=\dim U + \dim V$ 이며 $\dim (U \cap V)=0$ 이다. 따라서 $U \cap W=0$ 이다.
+
+
+
+<b>연습문제 3.7.9.</b> $X_1,\ldots,\,X_r\in \mathbb{F}^n$ 일 때, ${X_i}^t$ 를 $i$ 번 째 행으로 갖는 $(r\times n)$-행렬 $A$ 를 생각하고, $A$ 로 부터 얻어지는 행 간소 사다리꼴을 $R$ 이라고 놓자. 
+
+(가) $\left\langle [A]_1,\ldots,\,[A]_r\right\rangle$ =$\left\langle [R]_1,\ldots,\,[R]_r\right\rangle$ 임을 보여라.
+
+(나) $R$ 의 [최초의 1]을 갖는 행들 (즉, nonzero-row 들) 은 일차독립임을 보여라.
+
+(다) $\{X_1,\ldots,\,X_r\}$ 이 일차독립인지 (또는 $\mathbb{F}^n$ 의 기저인지는) $R$ 이 zero row를 갖는지 (또는 항등행렬인지) 여부만 확인해 보면 알 수 있음을 보여라.
+
+---
+
+(가) 행렬 $A$ 를 행 간소 사다리꼴로 바꾸는 것은 3종류의 elementary row operation을 계속 반복하는 것이다. 각각의 elementary row operation에 대해 모든 row에 대한 span이 바뀌지 않음을 보이며 된다. elementary row operations 는 다음과 같다.
+
+(i) 두 행의 위치를 바꾼다. (ii) 한 행에 non-zero scalar를 곱한다 (iii) $i$ 번째 행에 $j$  번째 행의 $s$ 배를 더한다. 
+
+(i), (ii)는 span 을 변경시키지 않음이 자명하다. $[A]_i \to [A]_i + s[A]_j$ 라 하자. 어떤 $v\in \mathbb{F}^n$ 이 $v=\cdots +a[A]_i +\cdots + b[A]_j+ \cdots$ 일 때 $v= \cdots + a([A]_i + s[A]_j) + \cdots + (b-sa)[A]_j + \cdots$ 이므로 (iii)-th row operation에 대해서도 span이 변화하지 않는다. $R$ 의 $A$ 에 유한번의 elementary row operation 을 수행한 것이므로 (가) 는 성립한다.
+
+(나) 최초의 1을 갖는 행의 그 1의 열에 대해 다른 행의 그 열 값은 0 이다. 따라서 그 행에 $0$ 을 곱해야만 그 열을 0으로 만들수 있다. 따라서 $R$ 의 [최초의 1] 을 갖는 행들은 일차독립이다.
+
+(다) (가) 에 의해 $\dim (\left\langle [A]_1,\ldots,\,[A]_r\right\rangle)= \dim (\left\langle [R]_1,\ldots,\,[R]_r\right\rangle)$ 이며 (나) 에 의해 이 값은 [최초의 1]을 갖는 $[R]_i$ 의 갯수 임을 알 수 있다. $[A]_i={X_i}^t$  이므로 $R$  이 zero row를 가지면 일차종속, 갖지 않으면 일차독립이다.
+
+
+
+<b>연습문제 3.7.11.</b>  $V$ 가 f.d.v.s. 일 때 $V$ 의 기저 $\mathcal{B}$ 와 $\mathcal{C}$ 가 주어져 있다고 하자. 만약 $\{v_1,\ldots,\,v_r\}\subseteq \mathcal{B}$ 이면, $\{v_1,\ldots,\,v_r,\,w_1,\ldots,\,w_s\}$ 가 $V$ 의 기저가 되는 $\{w_1,\ldots,\,w_s\}\subseteq \mathcal{C}$ 가 존재함을 보여라. (물론 $r+s = \dim V$). (따라서 $V=\mathbb{F}^n$ 이고 $\mathcal{C}=\mathcal{E}$ ) 이면, $w_j$ 는 표준단위벡터가 된다.
+
+---
+
+(1) $n=\dim V$ 라 하자. $\mathcal{C}=\{w_1,\ldots,\,w_n\}$ 이라 할 때 $\{w_i\}$  가운데 $\{v_1,\ldots,\,v_r\}$ 의 선형결합으로 표현될 수 있는 것의 갯수 $m$ 이라 하면 $m=r$ 임을 보이자. 이 $m$ 개의 $\mathcal{C}$ 의 원소를 $\{w_{i_1},\ldots,\,w_{i_m}\}$ 이라 하면 이는 선형독립이며 $\langle w_{i_1},\ldots,w_{i_m}\rangle \le \langle v_1,\ldots,\,v_r\rangle$ 이므로 $m\le r$ 이다. 
+
+(2) $\mathcal{C}$ 에서 $w_{i_1},\ldots,\,w_{i_m}$ 을 제외한 것을 $\mathcal{C}_0$ 라 하고 이것의 index를 재배치하여 $\{w_1,\ldots,\,w_{n-m}\}$ 으로 놓자. $\{v_1,\ldots,\,v_r,\,w_1\}$ 은 선형독립임이 자명하다. 만약 $w_2$ 를 포함시켰을때 선형독립이면 유지시키고 선형독립이 아니면 기각한다. $w_2,\ldots,\,w_{n-m}$ 까지 계속하여(그리고 $w_j$ 의 index를 다시 지정하여) $\{v_1,\ldots,\,v_r,\,w_1,\ldots,\,w_s\}$ 을 얻었다고 하자. 생성 방법에 따라 이것은 선형 독립이다. 이제 이것이 $V$ 의 기저가 됨을 보이면 된다.
+
+(3) 거꾸로 이것이 $V$ 의 기저가 되지 않는가고 가정해보자. 즉 $r+s<\dim V$ 라 하자. $v_X\in V-\langle v_1,\ldots,\,v_r,\,w_1,\ldots,\,w_s\rangle$ with $v_X\ne0$ 이면 $v_X$ 는 $\mathcal{C}$ 의 span에 포함되지 않으며, 이는 $\mathcal{C}$ 가 base of $V$ 라는 것과 모순이다. 따라서 $r+s=\dim V$ 이며, 따라서 $\{v_1,\ldots,\,v_r,\,w_1,\ldots,\,w_s\}$ 는 $V$ 의 기저이다.
+
+
+
+<b>연습문제 3.7.12.</b> (연습문제 3.7.9. 계속) $\{X_1,\ldots,\,X_r\}\subset \mathbb{F}^n$ 이 일차독립일 때 (물론 $r\le n$), $R$ 의 [최초의 1] 을 갖지 않는 column 들을 $[R]^{j_1},\ldots,\,[R]^{j_s}$ 라고 하면 $\{X_1,\ldots,\, X_r,\,\mathbf{e}_{j_1},\ldots,\,\mathbf{e}_{j_s}\}$ 는 $\mathbb{F}^n$ 의 기저가 됨을 보이시오.
+
+---
+
+$A$ 는 $n$ 개의 column이 존재한다.  $\{X_1,\ldots,\,X_r\}$ 이 일차독립이면 $r$ 개의 최초의 1을 갖는 row가 존재하며(연습문제 3.7.9의 (나)와 (다)) 최초의 1이 중복될수 없으므로 $r$ 개의 최초의 1을 갖는 column이 있다. 즉 $n-r$ 개의 column은 최초의 1을 갖지 않는다. 그리고 최초의 1을 갖는 칼럼은 표준기저벡터이므로 증명 끝.
+
+ 
+
+
+
+<b>Note</b>  : 연습문제 3.7.13. ~ 3.7.15. 는 생략. 
+
+
+
+ 
+
+ 
+
+
+
+
+
