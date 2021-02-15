@@ -36,11 +36,21 @@ $$
 
 
 
+<b>관찰 4.1.9.</b> $L : V \to W$ 가 linear map 이고 $S \subset V$ 이면 $L\langle S \rangle = \langle LS\rangle$ 이다.
+
+----
+
+*(proof 1)* $w\in L\langle S\rangle \iff w=\sum_{j=1}^n L(c_j v_j)$ for some $\{v_j\} \subset S$ and $\{c_j\} \subset \mathbb{F} \iff w=\sum_{j=1}^n c_j L( v_j) \iff w \in \langle LS \rangle$. 
+
+*(proof 2)* $LS \subset L\langle S\rangle$ 임은 자명하다. $\langle LS\rangle$ 은 $LS$ 를 포함하는 가장 작은 subspace of $W$ 이며 $L\langle S \rangle$ 또한 subspace of $W$  이므로 $\langle LS\rangle \le L\langle S\rangle$ 이다.  $L\langle S\rangle$ 은 $S$ 의 원소들의 finite linear combination 에 대한 linear map $L$ 의 작용이므로 $L\langle S\rangle \le \langle LS\rangle$ 이다. 따라서 $L\langle S\rangle = \langle LS \rangle$ 이다. $\square$ 
+
+
+
 <b>연습문제 4.1.10.</b> $L \in \mathcal{L}(V,\,W)$ 이고 $S \subseteq W$ 일 때 다음을 증명하라.
 
 (가) $V=\langle S\rangle$ 이면, $\operatorname{im}L=\langle L(S)\rangle$.
 
-(나) $L$ 이 epimorphism(surjective linear map) 이기 위한 필요충분조건은 [$L$ 은 ($V$ 의) **generating set** 을 ($W$ 의) generating set 으로 옮기는 것] 이다.
+(나) $L$ 이 epimorphism (surjective linear map) 이기 위한 필요충분조건은 [$L$ 은 ($V$ 의) **generating set** 을 ($W$ 의) generating set 으로 옮기는 것] 이다.
 
 ---
 
@@ -56,8 +66,6 @@ $$
 따라서 $\operatorname {im} L = \langle L(S) \rangle$. 
 
 (나) $L$ 이 epimorphism 이면 $W=\operatorname{im}L$ 이므로 [...] 는 (가) 에 의해 trivial 하다. [...] 를 가정하면 $V=\langle S\rangle$ 에 대해 $\langle L(S)\rangle = W$ 이다. 그런데 (가)  에서 $\operatorname{im}L = \langle L(S)\rangle$ 임을 보였으므로 $\operatorname{im} L =W$ 이다. 따라서 $L$ 은 epimorphsim 이다.
-
-
 
 
 
