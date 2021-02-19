@@ -152,7 +152,7 @@ $$
 
 \end{align*}
 $$
- 
+
 
 다변수 확률분포에서 특정 변수에 대한 평균은 다음과 같이 쓴다. $\mathbb{E}_x [f(x,\,y)]$ 는 
 $$
@@ -204,9 +204,14 @@ $ 로 정의한다.
 
 #### 1.2.3 Bayesian Probabilities
 
-- 지금까지 우리는 확률을 random, repeatable events의 빈도(frequencies)라는 관점에서 봤다. 이것을 확률에 대한 고전적인 (classical) 혹은 빈도주의자(frequencist) 해석이라 한다. 이제 우리는 확률이 uncertainty를 정량화하는 *Bayesian* 확률에 대한 관점을 학습할 것이다.
+- 지금까지 우리는 확률을 random, repeatable events의 빈도(frequencies)라는 관점에서 봤다. 이것을 확률에 대한 고전적인 (classical) 혹은 빈도주의자(frequentist) 해석이라 한다. 이제 우리는 확률이 uncertainty를 정량화하는 *Bayesian* 확률에 대한 관점을 학습할 것이다.
 
+- Polynomial curve fitting example 을 생각하자.  측정된 값 $\mathcal{D}=\{t_1,\ldots,\,t_n\}$ 과 parameter $\mathbf{w}$ 에 대해 Bayes theorem은 다음과 같다.
+  $$
+  p(\mathbf{w}\mid \mathcal{D})=\dfrac{p(\mathcal{D}\mid\mathbf{w})p(\mathbf{w})}{p(\mathcal{D})}
+  $$
 
+- 
 
-
-
+- 여기서 $p(\mathcal{D}|\mathbf{w})$ 를 **likelihood function**  하고  $p(\mathbf{w})$ 를 **prior distribution** 이라 한다. $p(\mathcal{D})$ 는 normalization constant 이다. 
+- frequentist 든 Bayesian 이든 $p(\mathcal{D}|\mathbf{w})$ 가 중심적인 역할을 하지만 이에 대한 두 입장의 견해는 매우 다르다. 빈도주의 입장에서는 $\mathbf{w}$ 는 고정된 parameters 이며 그 값과 에러는 dataset $\mathcal{D}$ 의 분포를 고려하여 얻어진다. 그러나 Bayesian 입장에서는 유일한 datatset $\mathcal{D}$ 가 존재하며 the uncertainty in the parameters is expressed through a probability distribution over $\mathbf{w}$. 
