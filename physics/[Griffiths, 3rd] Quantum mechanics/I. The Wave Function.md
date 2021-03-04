@@ -22,29 +22,29 @@ I. The Wave Function
 ---
 
 $$
-\begin{align*}
-\dfrac{d\langle p\rangle}{dt}&=\dfrac{d}{dt}\int \Psi^*(x,\,t) \left(-i\hbar\dfrac{\part}{\part x}\right)\Psi(x,\,t)\,dx \\
-&=-i\hbar \int \left[\dfrac{\part \Psi^*}{\part t} \dfrac{\part \Psi}{\part x}+\Psi^* \dfrac{\part}{\part x}\left(\dfrac{\part \Psi}{\part t}\right)  \right]\,dx \\
-&=-i\hbar \int \left[\left(-\dfrac{i\hbar}{2m}\dfrac{\part^2 \Psi^*}{\part x^2}+\dfrac{i}{\hbar}V\Psi^*\right) \dfrac{\part \Psi}{\part x}+\Psi^* \dfrac{\part }{\part x}\left(\dfrac{i\hbar}{2m} \dfrac{\part^2 \Psi}{\part x^2}-\dfrac{i}{\hbar}V\Psi\right) \right]\,dx \\
-&=\dfrac{-\hbar^2}{2m} \int\left[\dfrac{\part^2 \Psi^*}{\part x^2}\dfrac{\part \Psi}{\part x} - \Psi^* \dfrac{\part^3 \Psi}{\part x^3}\right]dx+ \int\left[V\Psi^* \dfrac{\part \Psi}{\part x}-\Psi^* \dfrac{\part V}{\part x} \Psi -V\Psi^* \dfrac{\part \Psi}{\part x}\right]\,dx
-\end{align*}
+\begin{aligned}
+\dfrac{d\langle p\rangle}{dt}&=\dfrac{d}{dt}\int \Psi^*(x,\,t) \left(-i\hbar\dfrac{\partial}{\partial x}\right)\Psi(x,\,t)\,dx \\
+&=-i\hbar \int \left[\dfrac{\partial \Psi^*}{\partial t} \dfrac{\partial \Psi}{\partial x}+\Psi^* \dfrac{\partial}{\partial x}\left(\dfrac{\partial \Psi}{\partial t}\right)  \right]\,dx \\
+&=-i\hbar \int \left[\left(-\dfrac{i\hbar}{2m}\dfrac{\partial^2 \Psi^*}{\partial x^2}+\dfrac{i}{\hbar}V\Psi^*\right) \dfrac{\partial \Psi}{\partial x}+\Psi^* \dfrac{\partial }{\partial x}\left(\dfrac{i\hbar}{2m} \dfrac{\partial^2 \Psi}{\partial x^2}-\dfrac{i}{\hbar}V\Psi\right) \right]\,dx \\
+&=\dfrac{-\hbar^2}{2m} \int\left[\dfrac{\partial^2 \Psi^*}{\partial x^2}\dfrac{\partial \Psi}{\partial x} - \Psi^* \dfrac{\partial^3 \Psi}{\partial x^3}\right]dx+ \int\left[V\Psi^* \dfrac{\partial \Psi}{\partial x}-\Psi^* \dfrac{\partial V}{\partial x} \Psi -V\Psi^* \dfrac{\partial \Psi}{\partial x}\right]\,dx
+\end{aligned}
 $$
 
-여기서 두번째 적분이 $-\left\langle \dfrac{\part V}{\part x} \right\rangle$ 임은 쉽게 알 수 있다. 첫번째 적분의 두번째 term을 계속 부분적분 해 보자.
+여기서 두번째 적분이 $-\left\langle \dfrac{\partial V}{\partial x} \right\rangle$ 임은 쉽게 알 수 있다. 첫번째 적분의 두번째 term을 계속 부분적분 해 보자.
 $$
-\begin{align*}
-\int_{-\infty}^{\infty} \Psi^* \dfrac{\part^3 \Psi}{\part x^3}dx &= \left[\Psi^* \dfrac{\part^2 \Psi}{\part x^2}\right]_{-\infty}^\infty - \int\dfrac{\part \Psi^*}{\part x}\dfrac{\part \Psi^2}{\part x^2}\, dx \\
-&=-\left[\dfrac{\part \Psi^*}{\part x} \dfrac{\part \Psi}{\part x}\right]_{-\infty}^\infty + \int_{-\infty}^\infty \dfrac{\part^2 \Psi^*}{\part x^2} \dfrac{\part \Psi}{\part x}\, dx
+\begin{aligned}
+\int_{-\infty}^{\infty} \Psi^* \dfrac{\partial^3 \Psi}{\partial x^3}dx &= \left[\Psi^* \dfrac{\partial^2 \Psi}{\partial x^2}\right]_{-\infty}^\infty - \int\dfrac{\partial \Psi^*}{\partial x}\dfrac{\partial \Psi^2}{\partial x^2}\, dx \\
+&=-\left[\dfrac{\partial \Psi^*}{\partial x} \dfrac{\partial \Psi}{\partial x}\right]_{-\infty}^\infty + \int_{-\infty}^\infty \dfrac{\partial^2 \Psi^*}{\partial x^2} \dfrac{\partial \Psi}{\partial x}\, dx
 
-\end{align*}
+\end{aligned}
 $$
 이다. 따라서,
 $$
-\dfrac{d\langle p \rangle}{dt}=\left[\dfrac{\part \Psi^*}{\part x} \dfrac{\part \Psi}{\part x}\right]_{-\infty}^\infty +\left\langle -\dfrac{\part V}{\part x}\right\rangle
+\dfrac{d\langle p \rangle}{dt}=\left[\dfrac{\partial \Psi^*}{\partial x} \dfrac{\partial \Psi}{\partial x}\right]_{-\infty}^\infty +\left\langle -\dfrac{\partial V}{\partial x}\right\rangle
 $$
-이다.  $\Psi \to 0$ as $x \to \infty$ 이므로 $\part \Psi/\part x \to 0$ as $x \to \infty$ 이다. $-\infty$ 에 대해서도 $\Psi^*$ 에 대해서도 성립하므로,
+이다.  $\Psi \to 0$ as $x \to \infty$ 이므로 $\partial \Psi/\partial x \to 0$ as $x \to \infty$ 이다. $-\infty$ 에 대해서도 $\Psi^*$ 에 대해서도 성립하므로,
 $$
-\dfrac{d\langle p \rangle}{dt}= +\left\langle -\dfrac{\part V}{\part x}\right\rangle
+\dfrac{d\langle p \rangle}{dt}= +\left\langle -\dfrac{\partial V}{\partial x}\right\rangle
 $$
 이다.
 
@@ -54,7 +54,7 @@ $$
 
 ---
 
-Let $H_1 = -\dfrac{\hbar^2}{2m}\dfrac{\part^2}{\part x^2}+V(x)$ and $H_2 = H_1+V_0$. It is obvious that if $\psi_1 (x,\,t)= \phi (x)e^{-iE_1 t/\hbar}$ is a solution of $H_1$, then $\psi_2 (x,\,t) =\phi (x) e^{-i(E_1+V_0)t/\hbar}=\psi_1(x,\,t)e^{-iV_0t/\hbar}$ is a solution of $H_2$. 
+Let $H_1 = -\dfrac{\hbar^2}{2m}\dfrac{\partial^2}{\partial x^2}+V(x)$ and $H_2 = H_1+V_0$. It is obvious that if $\psi_1 (x,\,t)= \phi (x)e^{-iE_1 t/\hbar}$ is a solution of $H_1$, then $\psi_2 (x,\,t) =\phi (x) e^{-i(E_1+V_0)t/\hbar}=\psi_1(x,\,t)e^{-iV_0t/\hbar}$ is a solution of $H_2$. 
 
 
 
@@ -62,7 +62,7 @@ Let $H_1 = -\dfrac{\hbar^2}{2m}\dfrac{\part^2}{\part x^2}+V(x)$ and $H_2 = H_1+V
 
 (a) **probability current** $J(x,\,t)$ 를 다음과 같이 정의한다.
 $$
-J(x,\,t)\equiv \dfrac{i\hbar}{2m}\left(\Psi \dfrac{\part \Psi^{\ast}}{\part x}-\Psi^* \dfrac{\part \Psi}{\part x}\right)
+J(x,\,t)\equiv \dfrac{i\hbar}{2m}\left(\Psi \dfrac{\partial \Psi^{\ast}}{\partial x}-\Psi^* \dfrac{\partial \Psi}{\partial x}\right)
 $$
 이 때 다음을 보이시오.
 $$
@@ -78,15 +78,15 @@ P_{ab}(t) = \int_a^b |\Psi(x,\,t)|^2dx
 $$
 이다. 따라서,
 $$
-\begin{align*}
-\dfrac{dP_{ab}}{dt} &=\dfrac{d}{dt}\int_a^b \Psi^* \Psi \,dx = \int_a^b \left[(\part_t \Psi^*)\Psi + \Psi^*(\part_t \Psi)
+\begin{aligned}
+\dfrac{dP_{ab}}{dt} &=\dfrac{d}{dt}\int_a^b \Psi^* \Psi \,dx = \int_a^b \left[(\partial_t \Psi^*)\Psi + \Psi^*(\partial_t \Psi)
 \right]\,dx \\
-&=\int_a^b \left[\left(-\dfrac{i\hbar}{2m}\part_x^2 \Psi^*+\dfrac{i}{\hbar}V\Psi^* \right)\Psi + \Psi^*\left( \dfrac{i\hbar}{2m} \part_x^2 \Psi-\dfrac{i}{\hbar}V\Psi \right)   \right]\,dx \\
-&=\dfrac{i\hbar}{2m}\int_a^b \left[\Psi^*(\part_x^2 \Psi)-\Psi (\part_x^2 \Psi^*)\right] \,dx\\
-&= \dfrac{i\hbar}{2m} \left[ \Psi^* (\part_x \Psi)-\Psi (\part_x \Psi^*)\right]_a^b -\dfrac{i\hbar}{2m}\int \left[ (\part_x \Psi^*) (\part_x \Psi) - (\part_x \Psi)(\part_x \Psi^*)\right]\,dx \\
+&=\int_a^b \left[\left(-\dfrac{i\hbar}{2m}\partial_x^2 \Psi^*+\dfrac{i}{\hbar}V\Psi^* \right)\Psi + \Psi^*\left( \dfrac{i\hbar}{2m} \partial_x^2 \Psi-\dfrac{i}{\hbar}V\Psi \right)   \right]\,dx \\
+&=\dfrac{i\hbar}{2m}\int_a^b \left[\Psi^*(\partial_x^2 \Psi)-\Psi (\partial_x^2 \Psi^*)\right] \,dx\\
+&= \dfrac{i\hbar}{2m} \left[ \Psi^* (\partial_x \Psi)-\Psi (\partial_x \Psi^*)\right]_a^b -\dfrac{i\hbar}{2m}\int \left[ (\partial_x \Psi^*) (\partial_x \Psi) - (\partial_x \Psi)(\partial_x \Psi^*)\right]\,dx \\
 &= J(a,\,t)-J(b,\,t)\,.
 
-\end{align*}
+\end{aligned}
 $$
 
 
@@ -94,25 +94,25 @@ $$
 
 어떤 Schroedinger 방정식의 두 solutions $\Psi_1,\,\Psi_2$ 에 대해 다음이 성립함을 보이시오.
 $$
-\begin{align*}
+\begin{aligned}
 \dfrac{d}{dt} \int_{-\infty}^{\infty} \Psi^*_1 \Psi_2 dx=0
 
-\end{align*}
+\end{aligned}
 $$
 
 ---
 
-Let the Schroedinger eq. : $i\hbar \part_t \Psi= - \dfrac{\hbar^2}{2m} \part_x^2 \Psi + V\Psi$. Then,
+Let the Schroedinger eq. : $i\hbar \partial_t \Psi= - \dfrac{\hbar^2}{2m} \partial_x^2 \Psi + V\Psi$. Then,
 $$
-\begin{align*}
-\dfrac{d}{dt}\int_{-\infty}^\infty \Psi_1^* \Psi_2 dx &= \int_{-\infty}^{\infty} \left[ (\part_t \Psi_1^*) \Psi_2 + \Psi_1^* (\part_t \Psi_2)\right] \\
-&= \dfrac{i\hbar}{2m} \int_{-\infty}^\infty \left[\Psi_1^* (\part_x^2 \Psi_2)-(\part_x^2\Psi_1^*)\Psi_2\right]\,dx \\
-&=\dfrac{i\hbar}{2m} \left[\Psi_1^* (\part_x \Psi_2)-\Psi_2 (\part_x \Psi_1)\right]_{-\infty}^\infty \\
-&\qquad\qquad - \dfrac{i\hbar}{2m} \int_{-\infty}^\infty \left[(\part_x \Psi_1^*)(\part_x \Psi_2)-(\part_x \Psi_1^*)(\part_x \Psi_2)\right]\,dx \\
+\begin{aligned}
+\dfrac{d}{dt}\int_{-\infty}^\infty \Psi_1^* \Psi_2 dx &= \int_{-\infty}^{\infty} \left[ (\partial_t \Psi_1^*) \Psi_2 + \Psi_1^* (\partial_t \Psi_2)\right] \\
+&= \dfrac{i\hbar}{2m} \int_{-\infty}^\infty \left[\Psi_1^* (\partial_x^2 \Psi_2)-(\partial_x^2\Psi_1^*)\Psi_2\right]\,dx \\
+&=\dfrac{i\hbar}{2m} \left[\Psi_1^* (\partial_x \Psi_2)-\Psi_2 (\partial_x \Psi_1)\right]_{-\infty}^\infty \\
+&\qquad\qquad - \dfrac{i\hbar}{2m} \int_{-\infty}^\infty \left[(\partial_x \Psi_1^*)(\partial_x \Psi_2)-(\partial_x \Psi_1^*)(\partial_x \Psi_2)\right]\,dx \\
 &=0
 
 
-\end{align*}
+\end{aligned}
 $$
 
 
@@ -132,24 +132,24 @@ $$
 
 ---
 
-(a) Schroedinger eq. becomes : $i\hbar \part_t \Psi= - \dfrac{\hbar^2}{2m} \part_x^2 \Psi + (V_0-i\Gamma)\Psi$.
+(a) Schroedinger eq. becomes : $i\hbar \partial_t \Psi= - \dfrac{\hbar^2}{2m} \partial_x^2 \Psi + (V_0-i\Gamma)\Psi$.
 
 Then,
 $$
-\begin{align*}
-\part_t \Psi &=\dfrac{i\hbar}{2m} \part_x^2 \Psi -\dfrac{i}{\hbar}(V_0 -i\Gamma)\Psi\,,\\
-\part_t \Psi^* &= -\dfrac{i\hbar}{2m}\part_x^2 \Psi^*+\dfrac{i}{\hbar}(V_0+i\Gamma)\Psi^*\,.
+\begin{aligned}
+\partial_t \Psi &=\dfrac{i\hbar}{2m} \partial_x^2 \Psi -\dfrac{i}{\hbar}(V_0 -i\Gamma)\Psi\,,\\
+\partial_t \Psi^* &= -\dfrac{i\hbar}{2m}\partial_x^2 \Psi^*+\dfrac{i}{\hbar}(V_0+i\Gamma)\Psi^*\,.
 
-\end{align*}
+\end{aligned}
 $$
 따라서,
 $$
-\begin{align*}
+\begin{aligned}
 \dfrac{dP}{dt}
 &=\dfrac{d}{dt}\int_{-\infty}^\infty |\Psi|^2\,dx \\
-&=\int_{-\infty}^{\infty} \left[\Psi (\part_t \Psi^*)+ \Psi^* (\part_t \Psi)\right]\,dx \\
+&=\int_{-\infty}^{\infty} \left[\Psi (\partial_t \Psi^*)+ \Psi^* (\partial_t \Psi)\right]\,dx \\
 &=-\dfrac{2\Gamma}{\hbar}\int_{-\infty}^{\infty}\Psi\Psi^*\,dx = -\dfrac{2\Gamma}{\hbar}P(t)\;.
-\end{align*}
+\end{aligned}
 $$
 (b) $P(t) = P(t=0)\exp \left(-\dfrac{2\Gamma}{\hbar} t\right)$ .
 

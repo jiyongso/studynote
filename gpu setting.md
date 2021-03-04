@@ -95,17 +95,30 @@ c.NotebookApp.notebook_dir = r'/home/snunsadmin/development/jupyter'
 
 ## cuDNN 설치
 
-cuDNN으로부터 3개의 deb 파일을 다운로드하였다.
+cuDNN으로부터 1개의 tgz 파일과 3개의 deb 파일을 다운로드하였다.
+
+cudnn-11.2-linux-x64-v8.1.0.77.tgz
 
 libcudnn8-dev_8.1.0.77-1+cuda11.2_amd64.deb
+
 libcudnn8-samples_8.1.0.77-1+cuda11.2_amd64.deb
+
 libcudnn8_8.1.0.77-1+cuda11.2_amd64.deb
 
 터미널에서 아래와 같은 명령으로 설치하였다.
 
+```sh
+tar -xzvf cudnn-11.2-linux-x64-v8.1.0.77.tgz 
+sudo cp cuda/include/cudnn*.h /usr/local/cuda-11.2/include
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda-11.2/lib64
+sudo chmod a+r /usr/local/cuda-11.2/include/cudnn*.h /usr/local/cuda/lib6
 ```
-sudo dpkg -i libcudnn8_8.1.0.77-1+cuda11.2_amd64.deb 
-sudo dpkg -i libcudnn8_8.1.0.77-1+cuda11.2_amd64.deb 
+
+
+
+```sh
+sudo dpkg -i libcudnn8-dev_8.1.0.77-1+cuda11.2_amd64.deb
+sudo dpkg -i libcudnn8-samples_8.1.0.77-1+cuda11.2_amd64.deb
 sudo dpkg -i libcudnn8_8.1.0.77-1+cuda11.2_amd64.deb
 ```
 
@@ -115,7 +128,7 @@ sudo dpkg -i libcudnn8_8.1.0.77-1+cuda11.2_amd64.deb
 
 ## Pytorch 설치
 
-```
+```sh
 pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio===0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
@@ -127,7 +140,7 @@ pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio===0.7.2 -f ht
 
 ## Tensorflow 설치
 
-```null
+```
 pip install tf-nightly
 ```
 
@@ -183,4 +196,6 @@ sudo apt install -y nodejs
 sudo apt install -y npm
 sudo npm install -g configurable-http-proxy
 ```
+
+Not yet installed successfuly.
 

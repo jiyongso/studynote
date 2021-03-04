@@ -33,11 +33,11 @@ $$
 $$
  (라) $v\in V$ 에 대해 $L(v)=w$ 라 하면,
 $$
-\begin{align*}
+\begin{aligned}
 ((rM)\circ L)(w)& = rM(w)=r(M(w))=r(M\circ L )(v)\,,\\
 &=rM(w)=M(rw)=M(rL(v))=(M\circ(rL))(v) \,.
 
-\end{align*}
+\end{aligned}
 $$
 
 
@@ -57,11 +57,11 @@ $$
 
 (다) 
 $$
-\begin{align*}
+\begin{aligned}
 (L-I)\circ (L^m+L^{m-1}+ \cdots +L+I) &=L(L^m+L^{m-1}+ \cdots +L+I)-(L^m+L^{m-1}+ \cdots + L+I)\\
 &=L^{m+1}+ L^m+\cdots +L^2+L -(L^m+L^{m-1}+L+I)\\
 &=L^{m+1}-I
-\end{align*}
+\end{aligned}
 $$
 <b>연습문제 5.1.4.</b> [$L^r=0$ for some $r\ge 1$] 인 linear operator $L\in \mathcal{L}(V,\,W)$ 를 **nilpotent operator** 라고 부른다. 만약 $L,\,M\in \mathcal{L}(V,\,V)$ 가 nilpotent 이고 $L\circ M = M \circ L$ 이면 $(L+M)$ 도 nilpotent 임을 보여라.
 
@@ -113,11 +113,11 @@ $$
 
 (가) $v,\,v'\in V,\, c\in \mathbb{F}$ 라 하자. 
 $$
-\begin{align*}
+\begin{aligned}
 \psi (v+v')(f) &=f(v+v')=f(v)+f(v')=\psi(v)(f)+\psi(v')(f)\,,\\
 \psi (cv)(f)&=f(cv)=cf(v)=c(\psi(v)(f))\;.
 
-\end{align*}
+\end{aligned}
 $$
 (나) $0=\psi(v)(f)=f(v) \implies v=0$. $\dim V^{**} =\dim V^* = \dim V$ 이므로 $\psi$ 는 isomorphism 이다.
 
@@ -193,20 +193,20 @@ $$
 
 *(proof)* (가-1) 우선 $\Phi^\mathcal{E}_\mathcal{F}=\Phi$ 가 linear map임을 보이자. 임의의 $c\in \mathbb{F},\, X\in \mathbb{F}^n$ 와 $A,\,B\in \mathfrak{M}_{m,\,n}$  에 대해,
 $$
-\begin{align*}
+\begin{aligned}
 \Phi (A+B) X&=L(A+B)X=AX+BX=(\Phi(A)+\Phi(B))X\,,\\
 \Phi(cA) X&=L(cA)X=(cA)X=c(AX)=c\Phi(A)X\,.
-\end{align*}
+\end{aligned}
 $$
 따라서 $\Phi^\mathcal{E}_\mathcal{F}$ 는 linear map 이다. isomorphism 임은 쉽게 보일 수 있다.
 
 (가-2) 이제 $\Psi^\mathcal{E}_\mathcal{F}=\Psi$ 가 linear map 임을 보이자. 임으의 $c\in \mathbb{F},\, X\in \mathbb{F}^n$ 과 $L,\,M \in \mathcal{L}(\mathbb{F}^n,\,\mathbb{F}^m)$ 에 대해,
 $$
-\begin{align*}
+\begin{aligned}
 \Psi(L+M)&= [L+M]^\mathcal{E}_{\mathcal{F}}=[L]^\mathcal{E}_\mathcal{F}+[M]^\mathcal{E}_\mathcal{F}=\Psi(L)+\Psi(M)\,,\\
 \Psi(cL)&=[cL]^\mathcal{E}_{\mathcal{F}}=c[L]^\mathcal{E}_\mathcal{F}=c\Psi(L)\,.
 
-\end{align*}
+\end{aligned}
 $$
  따라서 $\Psi^\mathcal{E}_\mathcal{F}$ 는 linear map 이다. isomorphism 임은 쉽게 보일 수 있다.
 
