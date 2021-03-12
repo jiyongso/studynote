@@ -20,7 +20,7 @@ I. The Wave Function
 <b>Problem 1.7 </b> $\dfrac{d\langle p\rangle}{dt}$를 계산하시오.
 
 ---
-
+    1
 $$
 \begin{aligned}
 \dfrac{d\langle p\rangle}{dt}&=\dfrac{d}{dt}\int \Psi^*(x,\,t) \left(-i\hbar\dfrac{\partial}{\partial x}\right)\Psi(x,\,t)\,dx \\
@@ -35,7 +35,6 @@ $$
 \begin{aligned}
 \int_{-\infty}^{\infty} \Psi^* \dfrac{\partial^3 \Psi}{\partial x^3}dx &= \left[\Psi^* \dfrac{\partial^2 \Psi}{\partial x^2}\right]_{-\infty}^\infty - \int\dfrac{\partial \Psi^*}{\partial x}\dfrac{\partial \Psi^2}{\partial x^2}\, dx \\
 &=-\left[\dfrac{\partial \Psi^*}{\partial x} \dfrac{\partial \Psi}{\partial x}\right]_{-\infty}^\infty + \int_{-\infty}^\infty \dfrac{\partial^2 \Psi^*}{\partial x^2} \dfrac{\partial \Psi}{\partial x}\, dx
-
 \end{aligned}
 $$
 이다. 따라서,
@@ -48,7 +47,7 @@ $$
 $$
 이다.
 
-
+<br>
 
 <b>Problem 1.8</b> Potential energy에 constant term $V_0$ 를 포함시켰다고 하자. 고전역학에서는 아무 변화가 일어나지 않지만 양자역학에서도 그러할까? Show that the wave function picks up a time-independent phase factor : $\exp (-iV_ot/\hbar)$. What effect does this have on the expectation value of a dynamical variable?
 
@@ -85,7 +84,6 @@ $$
 &=\dfrac{i\hbar}{2m}\int_a^b \left[\Psi^*(\partial_x^2 \Psi)-\Psi (\partial_x^2 \Psi^*)\right] \,dx\\
 &= \dfrac{i\hbar}{2m} \left[ \Psi^* (\partial_x \Psi)-\Psi (\partial_x \Psi^*)\right]_a^b -\dfrac{i\hbar}{2m}\int \left[ (\partial_x \Psi^*) (\partial_x \Psi) - (\partial_x \Psi)(\partial_x \Psi^*)\right]\,dx \\
 &= J(a,\,t)-J(b,\,t)\,.
-
 \end{aligned}
 $$
 
@@ -96,7 +94,6 @@ $$
 $$
 \begin{aligned}
 \dfrac{d}{dt} \int_{-\infty}^{\infty} \Psi^*_1 \Psi_2 dx=0
-
 \end{aligned}
 $$
 
@@ -110,8 +107,6 @@ $$
 &=\dfrac{i\hbar}{2m} \left[\Psi_1^* (\partial_x \Psi_2)-\Psi_2 (\partial_x \Psi_1)\right]_{-\infty}^\infty \\
 &\qquad\qquad - \dfrac{i\hbar}{2m} \int_{-\infty}^\infty \left[(\partial_x \Psi_1^*)(\partial_x \Psi_2)-(\partial_x \Psi_1^*)(\partial_x \Psi_2)\right]\,dx \\
 &=0
-
-
 \end{aligned}
 $$
 
@@ -139,7 +134,6 @@ $$
 \begin{aligned}
 \partial_t \Psi &=\dfrac{i\hbar}{2m} \partial_x^2 \Psi -\dfrac{i}{\hbar}(V_0 -i\Gamma)\Psi\,,\\
 \partial_t \Psi^* &= -\dfrac{i\hbar}{2m}\partial_x^2 \Psi^*+\dfrac{i}{\hbar}(V_0+i\Gamma)\Psi^*\,.
-
 \end{aligned}
 $$
 따라서,
