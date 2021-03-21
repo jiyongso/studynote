@@ -212,3 +212,49 @@ $$
 $$
 W(n) \approx \dfrac{N^n}{n!} p^n e^{-Np}=\dfrac{(Np)^n}{n!} e^{-Np}= \dfrac{\lambda^n}{n!}e^{-\lambda}\;.
 $$
+<b>1.10. </b> 앞 문제의 Poisson distribution을 생각하자.
+
+(a) $\displaystyle \sum_{n=0}^N W(n)=1$ 임을 보여라. ($N\to \infty$ approximation 이 reasonable 하다.)
+
+(b) Poisson distribution 에서 $\overline{n}$ 을 계산하라.
+
+(c) Poisoon distribution 에서 $\overline{(\Delta n)^2}= \overline{(n-\overline{n})^2}$ 를 계산하라.
+
+---
+
+(a) $\displaystyle e^{\lambda}=\sum_{n=0}^\infty \dfrac{\lambda^n}{n!}$ 을 이용하면 쉽게 보일 수 있다.
+
+(b)
+$$
+\begin{aligned}
+\overline{n}=\sum_{n=0}^\infty n \cdot W(n)= \sum_{n=1}^{\infty} \dfrac{\lambda^n}{(n-1)!}e^{-\lambda}=\lambda e^{-\lambda} \sum_{n=1}^{\infty}\dfrac{\lambda^{n-1}}{(n-1)!}=\lambda e^{-\lambda}e^\lambda =\lambda.
+
+\end{aligned}
+$$
+(c)
+$$
+\begin{aligned}
+\overline{(\Delta n)^2} &= \overline{(n-\overline{n})^2}=\overline{n^2-2n\overline{n}+\overline{n}^2}=\overline{n^2}-{\overline{n}}^2 \\
+&=\sum_{n=0}^\infty n^2 \dfrac{\lambda^n}{n!}e^{-\lambda} - \lambda^2 = \sum_{n=1}^\infty \dfrac{n\lambda^n} {(n-1)!}e^{-\lambda} -\lambda^2 \\
+&= e^{-\lambda} \left[ \sum_{n=1}^\infty \dfrac{(n-1)\lambda^n}{(n-1)!}+\sum_{n=1}^\infty\dfrac{\lambda^n}{(n-1)!} \right] -\lambda^2 \\
+&=e^{-\lambda }\left[ \lambda^2e^\lambda +\lambda e^\lambda\right]-\lambda^2 = \lambda
+
+\end{aligned}
+$$
+
+
+<b>1.11</b> typesetter 가 random 하게 식자 오류를 낸다고 가정하자. 600 페이지에서 그러한 오류가 600개가 발생하였다고 하자. Poisson distribution을 이용하여 다음 확률을 계산하라.
+
+(a) 한 페이지에 오류가 하나도 없을 경우.
+
+(b) 한 페이지에 최소한 3개의 오류가 있을 경우.
+
+---
+
+(a) $\lambda=1$ 이다. 따라서 $W(0)=e^{-1}=0.368$.
+
+(b) $W(n\ge 3)=1-W(0)-W(1)-W(2)=0.080$. 
+
+
+
+<b></b>
