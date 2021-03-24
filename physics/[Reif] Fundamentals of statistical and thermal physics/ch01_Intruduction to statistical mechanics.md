@@ -257,4 +257,44 @@ $$
 
 
 
-<b></b>
+<b>1.12</b> Radioactive source로부터 어떤 시간 간격 $t$ 동안에 $\alpha$ 입자가 방출되었다고 하자. $\alpha$ 입자는 emitted at random times, the probability of a radioactive disintegration occurring during any such time $\Delta t$ is completely independent of whaterver disintegrations uccur at other times. 더우기 $\Delta t$ 는 매우 작아서 $\Delta t$ 동안에 두번 이상의 disintegration이 일어날 확률은 무시할 수 있을 정도로 작다고 하자. 이것은 $\Delta t$ 동안에 disintegration이 일어날 확률 $p$ 가 $1$ 보다 매주 작음을 의미하며 ($p \ll 1$), $1-p$ 는 $\Delta t$ 동안 disintegration이 일어나지 않을 확률인다. 각각의 이러한 time interval $\Delta t$ 는 독립시행(independent trial)로 간주될 수 있으며 주어진 시간 $t$ 동안 $N=t/\Delta t$ 번의 시행이 이루어졌다고 여겨질 수 있다.
+
+(a) $W(n)$ 을 $t$ 동안 $n$ 번의 disintegration이 발생할 확률이라 할 때 $W(n)$ 은 Poisson 분포로 주어짐을 보여라.
+
+(b) Radioactive source에서 dinsintegration이 평균적으로 분당 24번 일어난다고 하자. 이 때 10초동안 $n$ 번의 count를 얻을 확률은 무엇인가? $0$ 에서 $8$ 까지의 numberical value를 구하라.
+
+---
+
+(a) $N=t/\Delta t$ 의 시행에서 $n$ 번의 성공을 이룰 확률은 bionomial distribution에 의해
+$$
+W(n) = \dfrac{N!}{n! (N-n)!}p^n(1-p)^{N-n}
+$$
+임을 알 수 있다. 문제의 조건에 의해 $p \ll 1$ 이며, $\overline{n}= Np \ll N$ 이므로 문제 1.9 에 의해 poisson distribution으로 생각 할 수 있다. 즉,
+$$
+W(n)= \dfrac{(Np)^n}{n!}e^{-Np} = \dfrac{\lambda^n}{n!}e^{-\lambda} \quad \text{where }\lambda = Np
+$$
+ 이다.
+
+(b) 10초동안 평균 4번의 disintegration이 일어나므로 $\lambda = 4$ 임을 알 수 있다. 즉,
+$$
+W(n) = \dfrac{4^n}{n!}e^{-4}
+$$
+이다.
+
+(b) $W(0)=0.0183$, $W(1)= 0.073$, $W(2)= 0.147$, $W(3)= 0.195$, $W(4)=0.195$, $W(5)= 0.156$,
+$W(6)= 0.104$, $W(7) = 0.060$, $W(8)= 0.030$
+
+
+
+<b>1.13 </b> 금속은 뜨거운 filamnet로부터 진공으로 evaporated 되며, 이 결과로 금속 원자는 어느 정도 떨어진 quartz plate 표면으로 가서 금속 박막이 된다. 이 quartz plate 는 저온으로 유지되어 quartz plate 표면으로 입사된 금속 원자가 더이상 이동하지 않고 고정되도록 한다. 금속 원자는 plate의 어느 위치에도 동등한 확률로 impinged 된다고 가정한다.
+
+
+
+
+
+
+
+
+
+
+
