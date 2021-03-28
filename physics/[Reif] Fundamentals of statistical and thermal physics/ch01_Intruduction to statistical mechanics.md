@@ -288,13 +288,139 @@ $W(6)= 0.104$, $W(7) = 0.060$, $W(8)= 0.030$
 
 <b>1.13 </b> 금속은 뜨거운 filamnet로부터 진공으로 evaporated 되며, 이 결과로 금속 원자는 어느 정도 떨어진 quartz plate 표면으로 가서 금속 박막이 된다. 이 quartz plate 는 저온으로 유지되어 quartz plate 표면으로 입사된 금속 원자가 더이상 이동하지 않고 고정되도록 한다. 금속 원자는 plate의 어느 위치에도 동등한 확률로 impinged 된다고 가정한다.
 
+Substrate 를 이루는 원자의 면적이 $b^2$ 이고 $b$ 는 metal atom의 지름일 때, 이 면적에 쌓이는 (piled up)  metal atom의 갯수가 근사적으로 Poisson distribution을 이룸을 보여라. 
+
+충분한 metal을 evaporate 시켜  평균 6 atomic layer에 달하는 metal film을 쌓았다고 하자.  전체 면적중 metal에 의해 cover 되지 않는 substrate area의 비율은 어느정도인가? 3 atom 두께로 쌓인 부분과 6 atom 두께로 쌓인 부분의 비율은 무엇인가?
+
+---
+
+(1) substrate 전체 면적에서 원자의 면적 $b^2$ 가 매우 작은것이 당연하므로 Poisson distribution.
+
+(2) $\lambda = 6$. $W(0,\, \lambda =6)= 0.00247875$ , $W(3, \lambda=6)=0.08923508$ , $W(6,\, \lambda=6)=0.16062314$ 
 
 
 
+<b>1.14</b> 동전을 400번 전졌을 때 215번 앞이 나올 확률을 구하시오. (gaussian 근사를 사용하시오.)
+
+---
+
+$N=400$, $p=0.5$, $\overline{n}=Np=200$, $\sigma^2 = npq=100$. $Z=\dfrac{X-\overline{n}}{\sigma}$ 이므로 정규분포에서 $(1.45, 1.55)$ 사이에 있을 확률을 구하면 된다. $0.130$
 
 
 
+<b>1.15 </b> 전화선이 마을 $A$ 에서 마을 $B$ 로 연결되었다. 마을 $A$ 에는 2,000 개의 전화기가 있다. 만악 $A$ 마을의 전화기 사용자가 $B$ 로 즉각 전화 통화하는 것이 보장되기 위해서는 2000 개의 전화선이 필요한데 이는 상당한 낭비이다. 가장 전화선이 붐비는 한 시간동안에 $A$ 에서 $B$ 로 전화를 걸 때 평균 2분을 통화한다고 하자. 최대 1 퍼센트의 통화시도만이 즉각적인 통화에 실패하도록 하려면 $A$ 와 $B$ 사이의 회선은 최소 $M$ 회선 이상이어야 할 때 $M$ 을 구하여라. (Approximate the distribution by a Gaussian distribution to facilitate the arithmetic).
+
+---
+
+가장 바쁜 한 시간동안 평균 2분을 통화하므로 가장 바쁜 한 시간동안 어떤 회선이 통화중일 확률은 $p=2/60=1/30$ 이다. 2,000 개의 전화가 있으므로 평균 $\mu=2000 p \approx 66.67$ 개의 전화가 통화중이다.  통화 갯수의 표준편차 $\sigma = \sqrt{Npq} \approx 8.03$.
+$$
+\int_{-1/2}^{M+1/2} \exp \left( -\dfrac{x-\mu}{2\sigma^2} \right)dx > 0.99 \implies M>84.84 \implies M>85   
+$$
+
+
+<b>1.16</b> 부피 $V_0$ 의 콘테이너 안에 있는 $N_0$ 개의 non-interacting molecule gas 를 생각한다. 이 콘테이너 안의 subvolume $V$ 와 $V$ 안의 기체 $N$ 에 주목한다. 각각의 분자들은 이 콘테이너 안의 어디에나 확률로 존재할 수 있다고 하자. 따라서 분자가 $V$ 안에 존재할 확률은 $V/V_0$ 이다.
+
+(a) $V$ 안에 존재하는 분자의 평균값 $\overline{N}$ 은 무엇인가? 이를 $N_0,\, V_0,\,V$ 를 이용하여 표현하시오.
+
+(b) $V$ 안에 존재하는 분자의 갯수의 Relative dispersion $\overline{(N-\overline{N})^2}/\overline{N}^2$ 을 구하시오. 이를 $\overline{N},\,V,\,V_0$ 로 표현하시오.
+
+(c) (b) 에서 $V \ll V_0$ 일 경우는 어떻게 되는가?
+
+(d) $V\to V_0$ 의 경우 dispersion $\overline{(N-\overline{N})^2}/\overline{N}^2$ 는 어떻게 되어야 하는가? (b) 의 결과는 이에 일치하는가?
+
+---
+
+(a) $\overline{N}=\dfrac{N_0 V}{V_0}$
+
+(b) $\overline{(N-\overline{N})^2}=N_0 \times \dfrac{V}{V_0}\times \left(1-\dfrac{V}{V_0}\right)$ 이므로 $\dfrac{\overline{(N-\overline{N})^2}}{\overline{N}^2} = \dfrac{1-V/V_0}{\overline{N}}=\dfrac{V_0-V}{\overline{N}V_0}$
+
+(c) $V \ll V_0 \implies \overline{(N-\overline{N})^2} \to 1/\overline{N}$ 
+
+(d) $0$
 
 
 
+<b>1.17 </b> 문제 1.16 에서 $0 \ll V/V_0 \ll 1$ 을 가정하자. 이 때 $V$ 안에 존재하는 분자의 갯수가 $N$ 과 $N+dN$ 사이에 존재할 확률은 얼마인가?
 
+---
+
+Gaussian distribution $G(N)dN =\dfrac{1}{\sqrt{ 2 \pi \sigma^2}}\exp \left[- \dfrac{(N-\overline{N})^2}{2 \sigma^2}\right] dN$ where $\overline{N}=\dfrac{N_0 V}{V_0}$ and $\sigma = \sqrt{\overline{N}\left(1-\dfrac{V}{V_0}\right)}$, 
+
+
+
+<b>1.18 </b> 가스 분자가 충돌 사이에 같은 거리 $l$ 을 가며 방향은 모든 방향에 대해 같은 확률이라고 하자. 이런 $N$ 번의 이동 후에 시작점으로 부터의 이동거리의 제곱의 평균 $\overline{R^2}$ 는 무엇인가?
+
+---
+
+$j$ 번째 이동에서는 $l\hat{e}_j$ 만큼 움직인다. 여기서 $\hat{e}_j$ 는  $j$ 번째 이동 방향의 단위벡터이다. $N$ 번의 이동에서의 변위는  $\displaystyle \mathbf{R} = \sum_{j=1}^N \left( l\hat{e}_j\right) $ 이며,
+$$
+R^2= \mathbf{R}\cdot \mathbf{R} = l^2\sum_{i,\,j=1}^N (\hat{e}_i\cdot \hat{e}_j) = Nl^2 + l^2 \sum_{i\ne j=1}^N(\hat e_i \cdot \hat e_j)
+$$
+이다. second term의 기대값이 $0$ 임은 자명하므로 $\overline{R^2}=Nl^2$ 이다.
+
+
+
+<b>1.19 </b> total emf가  $V$ 인 전지가 저항 $R$  에 연결되었다면 저항에 dissipated 되는 power $P= V^2/R$ 이다.  베터리는  $N$ 개의 개별적인 cell 로 이루어져 직렬 연결되어있다.전지가 오래되어 모든 cell이 정상적이지는 않다고 가정하자. 그렇다면 각 cell이 정상적인  emf $v$ 를 가질 확률을 $p$ 라 놓고 emf 가 $0$  일 확률을 $1-p$  라 놓자. 각각의 cell은  statistically independent 하다. 이 조건에서 저항에서 dissipate 되는 평균 power $\overline{P}$ 를 구하여 $ N,\,v,\,p$ 로 표현하라.
+
+---
+
+정상적인  emf $v$ 를 갖는 cell 이  $n$ 개일 확률  $W(n)$은 $W(n)=\dfrac{N!}{n!(N-n)!}p^n (1-p)^{N-n}$ 이다. $V^2=n^2v^2$ 이므로,
+$$
+\overline{P}=\overline{V^2}/R,\, \quad\text{where } \overline{V^2}=\overline{n^2}v^2
+$$
+ 임을 이용한다. Reif의 16 페이지에 나왔듯이 $\overline{n^2}=\overline{n}^2+Np(1-p)=N^2p^2+Np(1-p)$  이므로,
+$$
+\overline{P}=\dfrac{Npv^2}{R}\left(Np+1-p\right)
+$$
+
+
+<b>1.20 </b> 파장  $\lambda$, 속도 $c$ 의 linearly polarized electromagnetic radiation을 방출하는 $N$ 개의 유사한 안테나들을 생각한다. 이 안테나들은  $x$ 축을 따라  서로 $\lambda$ 간격으로 위치하고 있다. 한 observer 가 안테나들로부터 아주 멀리 떨어진 $x$ 축상에 위치하고 있다.  한 안테나가 radiates 하면 observer가 그  intensity (mean-square electric filed amplitude) $I$ 를 측정한다.
+
+(a) 모든 안테나가 하나의 generator로 부터 진동수 $\nu=c/\lambda$ 로 모두 같은 phase 가 되도록 driven 된다고 할 때 observer로 부터 측정되는  intensity는 얼마인가?
+
+(b) 모든 안테나가 같은 진동수($\nu = c/\lambda$) 이지만 random phase 가 되도록 driven 된다고 할 때 observer 로부터 측정되는 intensity는 얼마인가?
+
+---
+
+(a) $n^2I$. 
+
+(b) 1.18과 같은 문제 $nI$. 
+
+
+
+<b>1.21 </b> 일단 생략. 문제가 너무 길어...
+
+
+
+<b>1.22</b> 1차원 random work 문제를 생각한다. Displacement가  $s$ 와 $s+ds$ 사이에 잇을 확률이 다음과 같이 주어진다.
+$$
+w(s)\,ds = \dfrac{e^{(s-l)^2/2\sigma^2}}{\sqrt{2\pi} \sigma}\,ds\,.
+$$
+$N$ 스텝 이후
+
+(a) 원점으로부터의 mean displacement $\overline{x}$ 는 무엇인가?
+
+(b) Dispersion $\overline{(x-\overline{x})^2}$ 는 무엇인가?
+
+---
+
+(a) $x=\sum_{i=1}^N s_i$. 
+$$
+\begin{aligned}
+\overline{s} &= \int_{-\infty}^\infty s\, w(x)\,ds =\dfrac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty  s\, e^{(s-l)^2/2\sigma^2}\, dx=l
+\end{aligned}
+$$
+이므로 $\overline{x} = \sum_{i=1}^N \overline{s_i}= Nl$
+
+(b) $\overline{(x-\overline{x})^2}=\overline{(x-Nl)^2}=\overline{x^2}-(Nl)^2$ 이므로,
+$$
+\overline{x^2}=\sum_{i=1}^N (s_i)^2 + \sum_{i=1}^N s_i \sum_{j\ne i, j=1}^N s_j = N\overline{s^2}+Nl(N-1)l 
+$$
+이다. 
+$$
+\overline{s^2}=\dfrac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^\infty s^2 e^{(s-l)^2/2\sigma^2}\,ds= \dfrac{1}{\sigma \sqrt{2\pi}} \left[\int_{-\infty}^\infty (t+l)^2e^{t^2/2\sigma^2} \, dt\right]=\sigma^2+l^2 
+$$
+이므로,
+$$
+\overline{(x-\overline{x})^2}=N(\sigma^2+l^2)-N(N-1)l^2-N^2l^2 =N\sigma^2\,. 
+$$
