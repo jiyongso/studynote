@@ -422,5 +422,115 @@ $$
 $$
 이므로,
 $$
-\overline{(x-\overline{x})^2}=N(\sigma^2+l^2)-N(N-1)l^2-N^2l^2 =N\sigma^2\,. 
+\overline{(x-\overline{x})^2}=N(\sigma^2+l^2)-N(N-1)l^2-N^2l^2 =N\sigma^2\,.
 $$
+
+
+
+<b>1.23</b> 1차원에서의  random work problem 을 생각한다. $l>b$ 이며 각각의 step 에서 displacement는 $l+b$ 와 $l-b$ 사이에서 똑같은 확률을 가진다. $N$ step 이후 다음을 구하라.
+
+(a) mean displacement $\overline{x}$.
+
+(b) Dispersion $\overline{(x-\overline{x})^2}$. 
+
+---
+
+$j$-th step의 displacement를 $s_j$ 라 할 때 각각의 $s_j$ 는 다음과 같이 동일한 확률을 가진다.
+$$
+W(s)ds = \dfrac{1}{2b}ds\,,\quad \text{where }l-b\le s\le l+b
+$$
+그리고 각  step의 평균을  $\overline{s}$  라 하면,
+$$
+\overline{s}=\int_{l-b}^{l+b}\dfrac{s}{2b}ds=\dfrac{1}{4b}\left[(l+b)^2-(l-b)^2\right]=l
+$$
+이다.
+
+(a) $\displaystyle x=\sum_{j=1}^N s_j$, $\displaystyle \overline{x} = Nl$. 
+
+(b) $\overline{(x-\overline{x})^2}=\overline{(x-Nl)^2}=\overline{x^2}-(Nl)^2$ 이므로,
+$$
+\begin{aligned}
+\overline{s^2} &= \dfrac{1}{2b} \int_{l-b}^{l+b} s^2 ds=\dfrac{1}{6b}\left[(l+b)^3-(l-b)^3\right]=\dfrac{1}{6b}(6l^2b+2b^3)=\dfrac{1}{3}(3l^2+b^2)\,, \\
+\overline{x^2}&=\sum_{j=1}^N {s_j}^2+\sum_{i=1}^N \sum_{j\ne i, j=1}^N s_i s_j =N\overline{s^2}+N(N-1)\overline{s}^2 \\
+&= Nl^2+\dfrac{Nb^2}{3} +N^2l^2-Nl^2= N^2l^2+\dfrac{Nb^2}{3}\,,\\
+\overline{(x-\overline{x})^2} &=\overline{x^2}-(Nl)^2=\dfrac{Nb^2}{3}\;.
+\end{aligned}
+$$
+
+<b>1.24</b> (a) 한 입자가 어떤 원의 원주에 equally likely 위치할 수 있다고 하자. $z$ 축이 원을 포함하는 평면에 위치하며 원의 중심을 지난다고 하자. $\theta$ 는 $z$ 축과 입자의 위치와 원의 중심을 잇는 직선의 사잇각이라고 하자. 이 angle이 $\theta$ 와  $\theta+d\theta$ 사이에 있을 확률은?
+
+(b) 한 입자가 어떤 구의 표면에 equally likely 위치할 수 있다고 하자.  구의 중심을 지나는 한 직선을 $z$ 축으로 삼고 $\theta$ 를 입자의 위치와 원을 지나는 직선과 $z$ 축이 이루는 각이라고 하자. 이 때 입자가 $\theta$  와 $\theta+d\theta$ 사이에 위치할 확률은?
+
+---
+
+(a) $W(\theta)d\theta = \dfrac{1}{2\pi}d\theta$ 
+
+(b) $W(\theta)d\theta = \dfrac{1}{2} \sin\theta d\theta$ 
+
+
+
+<b>1.25 </b> $\text{CaSo}_4 \cdot 2\text{H}_2\text{O}$ 다결정이 $z$ 방향의 외부 자기장 $\boldsymbol{B}$ 에 노출되어 있다고 하자. $\text{H}_2\text{O}$ 의  proton 위치에서의 내부자기장은 주변의  proton 에 의해 생성되며 주변의 proton의 스핀이 외부자기장 방향으로 정렬되었을 때 내부자기장의 크기가  $z$ 축 방향으로 $\dfrac{\mu}{a^3}(3 \cos^2 \theta -1)$ 이다.  만약 주변 proton의  스핀이 외부자기장과 반대방향으로 정렬되었다면 proton 위치에서의 내부자기장의 크기는 $-\dfrac{\mu}{a^3}(3\cos^2 \theta -1)$  이다. 여기서 $\mu$ 는  proton의 magnetic moment 이며 $a$ 는 두  protons 사이의 거리 이고  $\theta$ 는 두  proton 사이를 잇는 직선과  $z$ 축이 이루는 각이다. 이 randomly oriented crystals 로 이루어진 시료에서 이웃하는  proton은 주어진 proton을 중심으로하는 반경 $a$ 의 구 표면의 어디든지 같은 확률로 존재할 수 있다고 하자.
+
+(a) Neighboring proton의  spin이  $\boldsymbol{B}$ 와 평행 할 때, Internal field $b$ 가  $b$ 와  $b+db$ 사이에 있을 확률 $W(b)db$  는?
+
+(b) Neighboring proton의 spin이  $\boldsymbol{B}$ 와 평행할 확률과 antiparallel 할 확률이 같을 때,  Internal field $b$ 가  $b$ 와  $b+db$ 사이에 있을 확률 $W(b)db$  는?
+
+---
+
+(a) $\theta$ 가 $[0,\, \pi/2]$ 에서 변할 때 $b$ 는 $[2\mu/a^3, -\mu/a^3]$, $\theta$ 가 $[\pi/2,\, \pi]$ 에서 $b$ 는 $[-\mu/a^3,\, 2\mu/a^3]$ 이므로 $W(b)db = 2\cdot W(\theta(b)) \left|\dfrac{d\theta}{db} \right|db$ 이다. 
+$$
+\begin{aligned}
+W(\theta) d\theta &= \dfrac{1}{2}\sin\theta d\theta \,, \\
+b &=\dfrac{\mu}{a^3}(3\cos^2 \theta -1) \,,\\ 
+\left|\dfrac{db}{d\theta}\right| &= \dfrac{6\mu}{a^3} \sin\theta\cos \theta \,,\\
+W(b)db &= 2\cdot W(\theta(b))\left|\dfrac{d\theta}{db}\right|db=\dfrac{a^3}{6}\sqrt{\dfrac{3}{a^3b\mu+\mu^2}} db
+
+\end{aligned}
+$$
+(b) 만약 antiparallel 하다면, 
+$$
+W(b) db = \dfrac{a^3}{6} \sqrt{\dfrac{3}{\mu^2-a^3b\mu}} db
+$$
+이다. Parallel  한 경우를 $W_p$, antiparallel 한 경우를 $W_a$ 라 하자. Paralle 한 경우 $b$ 값의 범위는 $[-\mu/a^3, 2\mu/a^a]$ 이며 antiparallel 한 경우 $b$ 값 범위는 $[-2\mu/a^3,\, \mu/a^3]$ 이다. 이중 중복되는 값의 범위는 $[-\mu/a^3,\, \mu/a^3]$ 이므로,
+$$
+W(b) = \left\{\begin{array}{ll} \dfrac{a^3}{12}\sqrt{\dfrac{3}{a^3b\mu+\mu^2}} &, b>\dfrac{\mu}{a^3} \, \\ \dfrac{a^3}{12}\left[\sqrt{\dfrac{3}{\mu^2+a^3b\mu}} +\sqrt{\dfrac{3}{\mu^2-a^3b\mu}}\right]\qquad &, -\dfrac{\mu}{a^3}\le b \le \dfrac{\mu}{a^3} \\ \dfrac{a^3}{6}\sqrt{\dfrac{3}{\mu^2-a^3b\mu}} &, b<-\dfrac{\mu}{a^3} \;.\end{array} \right.
+$$
+
+<b>1.26 </b> 일차원 random wor problem 을 생각하자.  Single displacement가 $s$ 와 $s+ds$ 사이에 있을 확률 $w(s)ds$ 는 다음과 같다.
+$$
+w(s)ds = \dfrac{1}{\pi} \dfrac{b}{s^2+b^2}\,ds\;.
+$$
+$N$ step 이후 total displacement가 $x$ 와 $x+dx$ 사이에 있을 확률 $\mathcal{P}(x)dx$ 를 구하라.  $N$ 이 매우 클 때 Gaussian이 되는가? 그렇지 않다면 section 1.11의 central limit theorem을 위배하는가?
+
+---
+$$
+\begin{aligned}
+Q(k) &= \int_{-\infty}^\infty ds e^{iks} w(s)=\dfrac{b}{\pi} \int_{-\infty}^\infty \dfrac{e^{iks}}{s^2+b^2}ds  = \left\{\begin{array}{ll} e^{-kb} \,,\qquad &\text{if } k \ge 0, \\ e^{kb}\,, &\text{if } k < 0\,. \end{array} \right.
+\end{aligned}
+$$
+
+이므로,
+$$
+\begin{aligned}
+\mathcal{P}(x) &= \dfrac{1}{2\pi} \int_{-\infty}^\infty e^{-ikx}Q^N(k)\, dk = \dfrac{1}{2\pi} \left[\int_{-\infty}^0 e^{(Nb-ix)k}\, dk  + \int_{0}^\infty e^{-(Nb+ix)k} \, dk \,\right]\\
+&=\dfrac{1}{2\pi}  \dfrac{Nb}{(Nb)^2+x^2}
+
+\end{aligned}
+$$
+
+
+<b>1.27 </b> A very general 1D random work 을 생각한다. $i$-th displacement가 $s_i$ 와 $s_i + ds_i$ 사이에 있을 확률은 $w_i (s_i)ds_i$ 로 주어진다. 여기서  확률밀도 $w_i$ 는 $i$ 마다 서로 다를 수 있으며, 따라서 $i$-dependent 하다. 그러나 different displacement는 이외의 다른 어떠한 displacement와 statistically independent 할 수 있다. Sec 1.11의 논리를 이용하여 displacement number $N$ 이 매우 크면 total displacement가 $x$ 와 $x+dx$ 사이에 있을 확률 $\mathcal{P}(x)$ 가 Gaussian form에 근접하며 그 때 평균은 $\overline{x}=\sum \overline{s}_i$ 이고 dispersion은 $\overline{(\Delta x)^2}= \sum \overline{(\Delta s_i)^2}$ 이다. 이것은 a very general form of the central limit theorem 이다.
+
+---
+
+식 (1.10.6) 으로 부터
+$$
+\begin{aligned}
+\mathcal{P}(x) &= \dfrac{1}{2\pi} \int_{-\infty}^\infty dk\, e^{-ikx} \int_{-\infty}^\infty ds_1 w_1(s_1)e^{iks_1}\cdots \int_{-\infty}^\infty ds_N w_N(s_N)e^{iks_N}  \\
+&=\dfrac{1}{2\pi} \int_{-\infty}^\infty dk\, e^{ikx} Q_1(k) \cdots Q_N(k) \qquad \text{where } Q_i(k) = \int_{-\infty}^\infty ds_i w_i (s_i)e^{iks_i}\;.
+
+
+\end{aligned}
+$$
+로 표현 할 수 있음을 알 수 있다.
+
