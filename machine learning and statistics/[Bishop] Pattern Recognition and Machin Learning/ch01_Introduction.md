@@ -146,11 +146,11 @@ $$
 
 확률변수 $X$ 에 대한 확률분포가 $p(x)$ 일 때 $x$ 에 대한 함수 $f(x)$ 의 평균값을 **expectation** of $f(x)$ 라 하며 다음과 같이 쓴다.
 $$
-\begin{align*}
-\mathbb{E}[f]&=\sum_x p(x) f(x) &&\text{for descrete distribbution,}\\
+\begin{align}
+\mathbb{E}[f]&=\sum_x p(x) f(x) &&\text{for descrete distribution,}\\
 &=\int  p(x) f(x)\, dx& &\text{for continuous distribution.}
 
-\end{align*}
+\end{align}
 $$
 
 
@@ -168,20 +168,20 @@ $$
 
 Variance of $f(x)$ is defined by
 $$
-\begin{align*}
+\begin{align}
 \operatorname{var}[f]&\equiv \mathbb{E}\left[(f(x)-\mathbb{E}[f(x)])^2\right] \\
 &=\mathbb{E}[f(x)^2]-(\mathbb{E}[f(x)])^2\;.
-\end{align*}
+\end{align}
 $$
 
 
 <b>covariance</b>
 $$
-\begin{align*}
+\begin{align}
 \operatorname{cov}[x,\,y]&\equiv \mathbb{E}_{x,\,y} \left[(x-\mathbb{E}[x]) (y-\mathbb{E}[y])\right] \\
 &=\mathbb{E}_{x,\,y}[xy] -\mathbb{E}[x] \mathbb{E}[y]\;.
 
-\end{align*}
+\end{align}
 $$
 $X,\,Y$ 가 독립변수이면 $\operatorname{cov}[x,\,y]=0$. 이다.
 
@@ -211,7 +211,56 @@ $ 로 정의한다.
   p(\mathbf{w}\mid \mathcal{D})=\dfrac{p(\mathcal{D}\mid\mathbf{w})p(\mathbf{w})}{p(\mathcal{D})}
   $$
 
-- 
-
 - 여기서 $p(\mathcal{D}|\mathbf{w})$ 를 **likelihood function**  하고  $p(\mathbf{w})$ 를 **prior distribution** 이라 한다. $p(\mathcal{D})$ 는 normalization constant 이다. 
-- frequentist 든 Bayesian 이든 $p(\mathcal{D}|\mathbf{w})$ 가 중심적인 역할을 하지만 이에 대한 두 입장의 견해는 매우 다르다. 빈도주의 입장에서는 $\mathbf{w}$ 는 고정된 parameters 이며 그 값과 에러는 dataset $\mathcal{D}$ 의 분포를 고려하여 얻어진다. 그러나 Bayesian 입장에서는 유일한 datatset $\mathcal{D}$ 가 존재하며 the uncertainty in the parameters is expressed through a probability distribution over $\mathbf{w}$. 
+- frequentist 든 Bayesian 이든 $p(\mathcal{D}|\mathbf{w})$ 가 중심적인 역할을 하지만 이에 대한 두 입장의 견해는 매우 다르다. 빈도주의 입장에서는 $\mathbf{w}$ 는 고정된 parameters 이며 그 값과 에러는 dataset $\mathcal{D}$ 의 분포를 고려하여 얻어진다. 그러나 Bayesian 입장에서는 유일한 data set $\mathcal{D}$ 가 존재하며 the uncertainty in the parameters is expressed through a probability distribution over $\mathbf{w}$. 
+
+
+
+#### 1.2.4 The Gaussian Distribution (Normal Distribution)
+
+평균 (mean) $\mu$ 와 분산 $\sigma^2$ 에 대한 Gaussian distribution $\mathcal{N}(x\mid \mu,\,\sigma^2)$ 는 다음과 같다.
+$$
+\mathcal{N} (x\mid \mu,\,\sigma^2) = \dfrac{1}{\sigma \sqrt{2\pi }} \exp \left[-\dfrac{(x-\mu)^2}{2\sigma^2}\right]
+$$
+Gaussian distribution $\mathcal{N}(x\mid \mu,\,\sigma^2)$ 는 다음과 같은 성질을 갖는다.
+$$
+\begin{aligned}
+\mathbb{E}[x] &=\int_{-\infty}^\infty x\, \mathcal{N}(x\mid \mu,\,\sigma^2)\,dx=\mu\;,\\
+\mathbb{E}[x^2] &= \int_{-\infty}^\infty x^2 \mathcal{N}(x\mid \mu,\,\sigma^2)\,dx=\mu^2+\sigma^2\;,\\
+\operatorname{var}[f] &=\mathbb{E}[x^2]-\left(\mathbb{E}[x]\right)^2=\sigma^2 \;.
+
+\end{aligned}
+$$
+$\mathbb{R}^\mathcal{D}$ 에서 평균 $\boldsymbol{\mu}$ 와 covariance $\boldsymbol{\Sigma}$ 를 갖는 Gaussian distribution은 다음과 같다.
+$$
+\mathcal{N}(\boldsymbol{x}\mid \boldsymbol{\mu},\,\boldsymbol{\Sigma}) = \dfrac{1}{(2\pi)^{\mathcal{D}/2}}\dfrac{1}{\left|\boldsymbol{\Sigma}\right|^{1/2}} \exp \left[-\dfrac{1}{2} (\boldsymbol{x}-\boldsymbol{\mu})^T \boldsymbol{\Sigma} (\boldsymbol{x}-\boldsymbol{\mu})\right]
+$$
+ 
+
+<b>1-변수 가우스분포에서의 $\mu$와 $\sigma^2$ 의 추정 </b> 
+
+- 어떤 scalar variable $x$ 에 대해 $N$ 번 측정한 것을 $\mathbf{x}=(x_1,\ldots,\,x_N)^T$ 라 하자. ($\mathbf{x}$는 $\boldsymbol{x}=(x_1,\ldots,\,x_\mathcal{D})^T$  와는 다르다!)  We shall suppose that the observations are drawn independently from a Gaussian distribution whose mean $\mu$ and variance $\sigma^2$ are unknown, and we would like to determine these parameters from the data set.
+- <b>i.i.d </b> : independent and identically distributed.
+- $N$ 번의 측정이 i.i.d. 로 이루어졌으며 $x$ 가 (아마도) 가우스 분포를 따른다고 할 때, 측정된 데이터로부터 $\mu$ 와 $\sigma^2$ 를 산출하는 것은 다음과 같다.
+
+우선 $N$ 측정에서 $\mathbf{x}$ 가 관측될 확률은
+$$
+p(\mathbf{x}\mid \mu,\,\sigma^2)= \prod_{n=1}^N \mathcal{N}(x_n\mid \mu,\,\sigma^2)
+$$
+이며, 계산의 편의를 위해,
+$$
+\ln p(\mathbf{x}\mid \mu,\,\sigma^2)= - \dfrac{1}{2\sigma^2}\sum_{n=1}^N (x_n-\mu)^2-\dfrac{N}{2} \ln \sigma^2 - \dfrac{N}{2} \ln 2\pi
+$$
+이다. 이 때 $p (\mathbf{x}\mid \mu,\,\sigma^2)$ 를 최대화 하는 $\mu$ 와 $\sigma^2$ 를 $\mu_{ML},\,\sigma_{ML}^2$ 라 할 때 다음과 같다.
+$$
+\begin{align}
+\mu_{ML} &= \dfrac{1}{N}\sum_{n=1}^N x_n \;,\\
+\sigma_{ML}^2 &= \dfrac{1}{N} \sum_{n=1}^N (x_n-\mu_{ML})^2\;.
+\end{align}
+$$
+$\mu_{ML},\,\sigma_{ML}^2$ 가 sample의 평균 및 분산과 같음을 알 수 있다.
+
+
+
+
+
