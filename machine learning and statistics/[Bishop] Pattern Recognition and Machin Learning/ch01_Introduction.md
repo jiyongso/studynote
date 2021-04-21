@@ -257,15 +257,44 @@ $$
 \sigma_{ML}^2 &= \dfrac{1}{N} \sum_{n=1}^N (x_n-\mu_{ML})^2\;.
 \end{align}
 $$
-$\mu_{ML},\,\sigma_{ML}^2$ 가 sample의 평균 및 분산과 같음을 알 수 있다.
-
-
+Sample의 평균과 분산은 다음과 같으며 이에 대한 증명은 Exercises 1.12를 참고하라.
 
 $$
 \begin{aligned}
-\mathbb{E}[\mu_{ML}]& =\dfrac{1}{N} \sum_{n=1}^N \int_{-\infty}^\infty x_n\, \mathcal{N(x_n \mid \mu,\,\sigma^2)}\,dx_n =\mu \,\\
-\mathbb{E}[\sigma_{ML}^2] & = \dfrac{1}{N} \sum_{n=1}^N \int_{-\infty}^\infty (x_n-\mu_{ML})^2 \mathcal{N}(x_n\mid \mu,\,\sigma^2) \, dx_n \\
-&= \dfrac{1}{N} \sum_{n=1}^N
-
+\mathbb{E}[\mu_{ML}]& =\mu \,\\
+\mathbb{E}\left[\sigma_{ML}^2\right] & =\left(\dfrac{N-1}{N}\right)\sigma^2
 \end{aligned}
+$$
+
+따라서 다음 값 $\widetilde{\sigma\,}^2$ 는 samples 로 부터 추정한 모집단의 분산과 같다. (즉 unbiased.) 이를 표본분산이라 한다.
+$$
+\widetilde{\sigma\,}^2 = \dfrac{N}{N-1}\sigma_{ML}^2 = \dfrac{1}{N-1} \sum_{n=1}^N\left(x_n-\mu_{ML}\right)^2
+$$
+ $N\to \infty$ 일 때 $\sigma_{ML}^2 \to \sigma^2$ 임은 쉽게 알 수 있다.
+
+
+
+#### 1.2.5 Curve Fitting Revisited
+
+$N$ 개의 input values $\mathbf{x} = (x_1,\ldots,\,x_N)^T$ 와 target values $\mathbf{t}=(t_1,\ldots,\,t_N)^T$ 사이에 polynomial $t=y(x;\mathbf{w})=w_0 + w_1x+ \cdots +w_nx^n$ 의 관계를 가정한다. Target value의 uncertainty 를 확률분포로서 표현하자. 이를 위해 주어진 $x$ 에 대해 target value의 확률은 $y(x,\,\mathbf{w})$ 를 중심으로 분산이 $\beta^{-1}$ 인 가우시안분포를 따른다고 가정한다. 즉,
+$$
+p(t\mid x,\,\mathbf{w},\, \beta)=\mathcal{N}(t\mid y(x,\,\mathbf{w}),\,\beta^{-1})
+$$
+ 이다. 
+
+$\{\mathbf{x},\,\mathbf{t}\}$ 를 이용하여 unknown parameters $\mathbf{w}$ 와 $\beta$ 를 결정하자. 그렇다면 likelyhood function은 다음과 같이 주어진다.
+$$
+p(\mathbf{t}\mid \mathbf{x},\,\mathbf{w},\,\beta)=\prod_{n=1}^N \mathcal{N}(t_n\mid y(x_n,\, \mathbf{w}),\, \beta^{-1})
+$$
+앞서와 같이 $\ln$ 을 취하면,
+$$
+\ln p(\mathbf{t}\mid \mathbf{x},\, \mathbf{w},\,\beta)= -\dfrac{\beta}{2} \sum_{n=1}^N \left[y(x_n,\,\mathbf{w})-t_n\right]^2+\dfrac{N}{2} \ln \beta - \dfrac{N}{2} \ln (2\pi)
+$$
+이 된다. 여기서 (고정된 $\beta$ 에 대해) $p(\mathbf{t}\mid \mathbf{x},\, \mathbf{w},\,\beta)$ 를 maximize 하는 것과 $\displaystyle \dfrac{1}{2}\sum_{n=1}^N \left[ y(x_n,\,\mathbf{w})-t_n\right]^2$ 를 minimize 하는 것은  동치이며 이렇게 하는 $\mathbf{w}$ 를 $\mathbf{w}_{ML}$이라 하자. 또한 $\beta$ 에 대해 미분하여 $p$ 를 maximize 하는 $\beta$ 를 찾아 $\beta_{ML}$ 이라 하면,,
+$$
+\dfrac{1}{\beta_{ML}}=\dfrac{1}{N}\sum_{n=1}^N \left[ y(x_n,\, \mathbf{w})-t_n\right]^2
+$$
+이다. 이제 우린는 maximum likely 한 확률 분포를 다음과 같이 얻는다.
+$$
+p(t\mid x,\,\mathbf{w}_{ML},\, \beta_{ML})=\mathcal{N}(t\mid  y(x,\,\mathbf{w}),\,\beta_{ML}^{-1})
 $$

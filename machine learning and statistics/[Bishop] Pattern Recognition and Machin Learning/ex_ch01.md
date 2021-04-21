@@ -169,22 +169,17 @@ $$
 \sigma_{ML}^2 &= \dfrac{1}{N}\sum_{n=1}^N (x_n-\mu_{ML})^2 =\dfrac{1}{N}\sum_{n=1}^N \left(x_n-\dfrac{1}{N}\sum_{m=1}^N x_m\right)^2 \\
 &=\dfrac{1}{N} \sum_{n=1}^N \left[ \dfrac{N-1}{N}x_n - \dfrac{1}{N} \sum_{m\ne n}^N x_{m} \right]^2 \\
 &=\dfrac{(N-1)^2}{N^3}\sum_{n=1}^N {x_n}^2 -2\dfrac{N-1}{N^3} \sum_{n=1}^N x_n \left(\sum_{m\ne n}^N x_m\right) +\dfrac{1}{N^3} \sum_{n=1}^N\left(\sum_{m\ne n} x_m\right)^2 \\
-&=\dfrac{(N-1)^2}{N^3} \sum_{n=1}^N {x_n}^2 -\dfrac{4(N-1)}{N^3} \sum_{n\ne m=1}^N x_nx_m + \dfrac{N-1}{N^3} \sum_{n=1}^N {x_n}^2 + \dfrac{2(N-2)}{N^3} \sum_{n\ne m=1}^N x_m x_n \\
-&=\dfrac{N-1}{N^2} \sum_{n=1}^N {x_n}^2-\dfrac{2}{N^2} \sum_{n\ne m=1}^N x_n x_m
-\\
-\\
-
-&= \dfrac{1}{N}\sum_{n=1}^N (x_n-\mu_{ML})^2 =\dfrac{1}{N} \sum_{n=1}^N (x_n-\mu +\mu-\mu_{ML})^2 \\
-&= \dfrac{1}{N}\left[\sum_{n=1}^N (x_n-\mu)^2+2(x_n-\mu)(\mu-\mu_{ML})+ (\mu-\mu_{ML})^2  \right]
-
+&=\dfrac{(N-1)^2}{N^3} \sum_{n=1}^N {x_n}^2 -\dfrac{2(N-1)}{N^3} \sum_{n\ne m=1}^N x_nx_m + \dfrac{N-1}{N^3} \sum_{n=1}^N {x_n}^2 + \dfrac{(N-2)}{N^3} \sum_{n\ne m=1}^N x_m x_n \\
+&=\dfrac{N-1}{N^2} \sum_{n=1}^N {x_n}^2-\dfrac{1}{N^2} \sum_{n\ne m=1}^N x_n x_m
 \end{align}
 $$
 
+따라서, 
 $$
 \begin{align}
-\mathbb{E}\left[ \sigma^2_{ML} \right] &= \dfrac{1}{N} \sum_{m,\,n=1}^N \mathbb{E}[x_mx_n]-2\mu \dfrac{1}{N}\sum_{n=1}^N \mathbb{E}[x_n]-\mu^2 \\
-&=\dfrac{1}{N} (N^2\mu^2+N\sigma^2)-\mu^2\\
-&=(N-1)\mu^2+N\sigma^2
+\mathbb{E}\left[\sigma_{ML}^2\right] &= \dfrac{N-1}{N^2}\mathbb{E}\left[\sum_{n=1}^N{x_n}^2\right]-\dfrac{1}{N^2} \mathbb{E} \left[\sum_{n\ne m = 1}^N  x_nx_m\right] \\
+&=\dfrac{N-1}{N^2}\cdot N\left( \mu^2+\sigma^2 \right) - \dfrac{1}{N^2} N(N-1) \mu^2 \\
+&= \dfrac{N-1}{N} \sigma^2
 
 \end{align}
 $$
