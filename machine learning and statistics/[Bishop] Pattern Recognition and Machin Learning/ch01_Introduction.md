@@ -235,9 +235,8 @@ $\mathbb{R}^\mathcal{D}$ 에서 평균 $\boldsymbol{\mu}$ 와 covariance $\bolds
 $$
 \mathcal{N}(\boldsymbol{x}\mid \boldsymbol{\mu},\,\boldsymbol{\Sigma}) = \dfrac{1}{(2\pi)^{\mathcal{D}/2}}\dfrac{1}{\left|\boldsymbol{\Sigma}\right|^{1/2}} \exp \left[-\dfrac{1}{2} (\boldsymbol{x}-\boldsymbol{\mu})^T \boldsymbol{\Sigma} (\boldsymbol{x}-\boldsymbol{\mu})\right]
 $$
- 
 
-<b>1-변수 가우스분포에서의 $\mu$와 $\sigma^2$ 의 추정 </b> 
+<b>1-변수 가우스분포에서의 $\mu$와 $\sigma^2$ 의 추정 -Maximum Likelyhood </b> 
 
 - 어떤 scalar variable $x$ 에 대해 $N$ 번 측정한 것을 $\mathbf{x}=(x_1,\ldots,\,x_N)^T$ 라 하자. ($\mathbf{x}$는 $\boldsymbol{x}=(x_1,\ldots,\,x_\mathcal{D})^T$  와는 다르다!)  We shall suppose that the observations are drawn independently from a Gaussian distribution whose mean $\mu$ and variance $\sigma^2$ are unknown, and we would like to determine these parameters from the data set.
 - <b>i.i.d </b> : independent and identically distributed.
@@ -262,5 +261,11 @@ $\mu_{ML},\,\sigma_{ML}^2$ 가 sample의 평균 및 분산과 같음을 알 수 
 
 
 
+$$
+\begin{aligned}
+\mathbb{E}[\mu_{ML}]& =\dfrac{1}{N} \sum_{n=1}^N \int_{-\infty}^\infty x_n\, \mathcal{N(x_n \mid \mu,\,\sigma^2)}\,dx_n =\mu \,\\
+\mathbb{E}[\sigma_{ML}^2] & = \dfrac{1}{N} \sum_{n=1}^N \int_{-\infty}^\infty (x_n-\mu_{ML})^2 \mathcal{N}(x_n\mid \mu,\,\sigma^2) \, dx_n \\
+&= \dfrac{1}{N} \sum_{n=1}^N
 
-
+\end{aligned}
+$$
