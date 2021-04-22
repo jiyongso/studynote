@@ -183,3 +183,41 @@ $$
 
 \end{align}
 $$
+
+
+
+<b>1.13</b> 
+
+Let $\displaystyle \widetilde{\sigma\,}_{ML}^2 = \dfrac{1}{N} \sum_{n=1}^N \left(x_n-\mu\right)^2$. 
+$$
+\begin{align}
+\mathbb{E}[\widetilde{\sigma\,}_{ML}^2] &= \dfrac{1}{N} \sum_{n=1}^N \mathbb{E}[(x_n-\mu)^2] =\dfrac{1}{N} \sum_{n=1}^N\left(\mathbb{E}[x^2]-2\mu \mathbb{E}[x]+\mu^2  \right)\\
+&=\dfrac{1}{N}(N(\mu^2+\sigma^2)-N\mu^2)=\sigma^2\;/.
+
+\end{align}
+$$
+
+
+<b>1.14 </b> 
+
+(1) Let $w_{ij}^S = \dfrac{1}{2}(w_{ij}+w_{ji})$ and $w_{ij}^A = \dfrac{1}{2}(w_{ij}-w_{ji})$ . Then,
+$$
+\begin{align}
+w_{ji}^S &= w_{ij}^S \quad\; &\text{symmetric}, \\
+w_{ji}^A &= -w_{ij}^S \quad & \text{assymetric}\,,\\
+w_{ij}^S+w_{ij}^A&= w_{ij}
+\end{align}
+$$
+(2) 
+$$
+\begin{align}
+\sum_{i=1}^\mathcal{D}\sum_{j=1}^\mathcal{D} w_{ij} x_i x_j &= \sum_{i=1}^\mathcal{D} \sum_{j=1}^\mathcal{D} w_{ji}x_j x_i \\
+\text{Therefore,}\\
+\sum_{i}\sum_j w_{ij}x_i x_j  &= \dfrac{1}{2} \sum_{i}\sum_j (w_{ij}x_ix_j + w_{ji}x_ix_j)=\sum_{i}\sum_j \dfrac{1}{2}(w_{ij}+w_{ji})x_ix_j\\&=\sum_i \sum_j w_{ij}^S x_ix_j \;.
+\end{align}
+$$
+(3) $w_{ij}$ 의 elements의 갯수는 $D^2$. 여기서 diagonal 성분을 제외한 $D^2-D$ 개의 elements 의 절반이  independent 하므로  $D+ (D^2-D)/2=\dfrac{D(D+1)}{2}$ 개의 독립적인 parameter가 존재한다.
+
+
+
+<b>1.15  </b> 
