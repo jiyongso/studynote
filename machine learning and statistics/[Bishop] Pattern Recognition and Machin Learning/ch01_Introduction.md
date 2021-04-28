@@ -64,7 +64,7 @@ $$
 
 
 
-## 2. Probability Theory
+## 1.2. Probability Theory
 
 
 
@@ -296,5 +296,120 @@ $$
 $$
 이다. 이제 우린는 maximum likely 한 확률 분포를 다음과 같이 얻는다.
 $$
-p(t\mid x,\,\mathbf{w}_{ML},\, \beta_{ML})=\mathcal{N}(t\mid  y(x,\,\mathbf{w}),\,\beta_{ML}^{-1})
+p(t\mid x,\,\mathbf{w}_{ML},\, \beta_{ML})=\mathcal{N}(t\mid  y(x,\,\mathbf{w}_{ML}),\,\beta_{ML}^{-1})
 $$
+
+
+
+
+
+- 베이즈 통계를 위한 짧은 formulas
+
+$$
+\begin{align}
+p(a|x)&=\sum_y p(a| x,\,y)\, p(y| x) & (\text{B}1) \\
+p(a|x,\,y) &= \dfrac{p(x|a,\,y)\, p(a|y)} {p(y|x)} & (\text{B}2)
+\end{align}
+$$
+
+*proof*
+
+(1)
+$$
+\begin{align}
+\sum_y p (a\mid x,\,y)\, p(y\mid x)&=\sum_y \dfrac{p(a,\,x,\,y)}{p(x,y)} \cdot \dfrac{p(x,\,y)}{p(x)} =\sum_y \dfrac{p(a,\,x,\,y)}{p(x)} \\
+&=\dfrac{1}{p(x)}\sum_{y}p(a,\,x,\,y) = \dfrac{p(a,\,x)}{p(x)} \\
+&=p(a|x)
+\end{align}
+$$
+(2)
+$$
+\begin{align}
+\dfrac{p(x|a,\,y)\, p(a|y)}{p(y|x)} &= \dfrac{p(a,\,x,\,y)}{p(a,\,y)} \cdot \dfrac{p(a,\,y)}{p(y)} \cdot \dfrac{p(y)}{p(x,\,y)}=\dfrac{p(a,\,x,\,y)}{p(x,\,y)}=p(a|x,\,y)
+\end{align}
+$$
+
+
+이제 Bayesian 접근법을 좀 알아보자. $\mathbf{w}$ 가 $\alpha$ 의 정확도를 갖는 Gaussian 분포를 따른다고 하자. 그렇다면,
+$$
+p(\mathbf{w}|\alpha)=\mathcal{N}(\mathbf{w}|0,\,\alpha^{-1}\mathbf{I})=\left(\dfrac{\alpha}{2\pi}\right)^{(M+1)/2} \exp \left(-\dfrac{\alpha}{2}\mathbf{w}^T \mathbf{w}\right)
+$$
+이다. 여기서 $M$은 degree of polynomial 이며 따라서 $\mathbf{w}$ 는 $M+1$ 개의 elements를 가진다.
+
+또한 식 (B2) 로부터 다음을 알 수 있다.
+$$
+\begin{align}
+p(\mathbf{w}|\mathbf{x},\,\mathbf{t},\,\alpha,\,\beta) &=\dfrac{p(\mathbf{t}|\mathbf{x},\,\mathbf{w},\,\alpha,\,\beta)\, p(\mathbf{w}|\mathbf{x},\alpha,\,\beta)}{p(\mathbf{x},\,\alpha,\,\beta |\mathbf{t})} 
+\end{align}
+$$
+ 우리는 $\mathbf{t}$ 가 $\alpha$-independent 하며, $\mathbf{w}$ 가 $\beta$-independent 함을 알고 있다. 
+
+
+
+## 1.5 Decision Theory
+
+#### 1.5.0 Introduction
+
+$X$-선 사진 촬영을 통해 암인지 아닌지 판별하는 의사라고 하자. 이는 Classification 문제이며 암인 경우 $C_1$, 암이 아닌 경우를 $C_2$ 라 하자. $X$ 선 사진을 vector $\mathbf{x}$ 이고 그 결과를 $\mathbf{t}$ 라 하자.
+
+Bayes' theorem 에 따라
+$$
+p(C_k|\mathbf{x})=\dfrac{p(\mathbf{x}|C_k)\, p(C_k)}{p(\mathbf{x})}
+$$
+가 성립한다. 여기서 
+
+- $p(C_k)$ 는 prior probability for $C_k$  로서 암일 확률 $p(C_1)$ 과 암이 아닐 확률 $p(C_2)$ 의 2가지이다.
+- $p(\mathbf{x}|C_k)$ 는 학습에 의해 얻는 likelihood function 이다.
+
+
+
+#### 1.5.1 Minimizing the Misclassification Rate
+
+- 우리의 목표가 misclassification을 최소화 하는 것이라고 하자. 이 때 우리는 input space를 어떤 규칙에 따라 몇개의 영역으로 분할할 필요가 있다. 각각의 영역 $R_k$ 를 **decision region** 이라 한다. 각각의 $\{R_k\}$ 는 서로 disjoint 하다.  Decision regions 사이의 경계를 **decision boundary** 혹은 **decision surface** 라 한다.
+
+- Inputs 를 그 결과가 되는 $C_1,\,C_2$ 에 따라 $R_1,\,R_2$ 의 decision region으로 나누자. 그렇다면 위의 암 판정에서 에러가 발생할 확률 $p(\text{mistake})$ 는 다음과 같다.
+  $$
+  \begin{align}
+  p(\text{mistake})=p(\mathbf{x}\in R_1,\, C_2)+p(\mathbf{x}\in R_2,\,C_1)&=\int_{R_1} p(\mathbf{x},\,C_2)\,d\mathbf{x} +\int_{R_2}p(\mathbf{x},\,C_1)\,d\mathbf{x} \\
+  
+  &=\int_{R_1}p(C_2|\mathbf{x})\,p(\mathbf{x})\,d\mathbf{x} + \int_{R_2}p(C_1|\mathbf{x})\,p(\mathbf{x})\,d\mathbf{x}
+  \end{align}
+  $$
+
+- 만약 $K$ 개의 classes 로 분류하는 문제의 경우는 에러가 발생학 확률을 최소화 하는 것보다 맞을 확률을 최대화 하는 것이 계산이 더 편하다. 이 확률을 $p(\text{correct})$ 라 하면,
+
+$$
+p(\text{correct})=\sum_{k=1}^K p(\mathbf{x}\in R_k,\,C_k)=\sum_{k=1}^K \int_{R_k} p(\mathbf{x},\, C_k)\, d\mathbf{x}
+$$
+
+이다. 
+
+#### 1.5.2 Minimizing the Expected Loss
+
+- 위의 결과는 암 환자를 건강하다고 판정했을 때와, 건강한 환자를 암환자로 판정했을 때의 상대적인 비중이 등가이지만, 실제에서는 암 환자를 건강하다고 판정하는 것이 더 큰 문제이다. 
+
+- Minimization process 에서는 이것을 방지하기 위해 **loss function** 혹은 **cost function** 이라 불리는 함수를 도입한다. 여기서는 어떤 오류가 있었을 때의 cost를 차등적으로 둔다. 만약 Maximization process 를 수행하고자 할 때 이러한 역할을 하는 함수는 **utility function** 이라 불린다.
+
+- 실제 $C_k$ class로 분류되어야 할 input $\mathbf{x}$ 가 $C_j$ class로 분류되었을 때의 차등적인 cost를 나타내는 행렬 $L_{kj}$ 로 쓴다. 예를 들어, 암인 경우의 $C_1$, 암이 아닌 경우 $C_2$ 로 했을 때 $L_{kj}$ 를 
+  $$
+  \begin{bmatrix}
+  0 & 1000 \\ 1 & 0
+  \end{bmatrix}
+  $$
+  으로 표현 할 수 있다. 
+
+-   $p(\text{mistake})$ 를 생각하면 $L_{kj}$ 의 대각성분은 $0$ 이어야 할 것이다. 그렇다면 loss function은 다음과 같다.
+  $$
+  \begin{align}
+  \mathbb{E}[L]&=\sum_k \sum_j \int_{R_j} L_{kj} p(\mathbf{x},\,C_k)\,d\mathbf{x} \\
+  &=\sum_k \sum_j \int_{R_j}L_{kj}\, p(C_k|\mathbf{x})\, p(\mathbf{x})\, d\mathbf{x}
+  \end{align}
+  $$
+  이 때 우리의 목표는 $\mathbb{E}[L]$ 을 최소로 하는 decision region $\{R_j\}$ 를 찾는 것이다. 
+
+
+
+#### 1.5.3 The Rejection Option
+
+- 어떤 특정한 영역에서 모든 $p(C_k|\mathbf{x}) \ll 1$ 이거나 가장 큰  $p(C_k|\mathbf{x})$  값이 그 이후의 값과 comparable 할 경우 문제가 된다. 이 경우 결정을 피할 수 있는데 이를 **reject option** 이라 한다. 
+- 이것을 구현하는 방법 중의 하나는 확률에 대한 threshold $\theta$ 를 부여하여 가장 큰 $p(C_k|\mathbf{x})$ 에 대해 $p(C_k|\mathbf{x})\le\theta$ 일 때 reject option을 발동시키는 것이다.  
