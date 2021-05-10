@@ -283,7 +283,99 @@ $$
 
 임을 보이자.
 
-$a_n = \left(1+\dfrac{1}{n}\right)^n$, $b_n = \left(1+\dfrac{1}{n}\right)^{n+1}$ 라 하자.
+---
+
+(1)  $a_n = \left(1+\dfrac{1}{n}\right)^n$, $b_n = \left(1+\dfrac{1}{n}\right)^{n+1}$ 라 하자.
+
+(2) $a_n$ 이 증가수열임을 보이자. 
+
+<b>method 1. </b>
 $$
-\dfrac{a_{n+1}}{a_n}=\dfrac{\left(\dfrac{n+2}{n+1}\right)^{n+1}}{\left(\dfrac{n+1}{n}\right)^n}=\left(1+\dfrac{1}{n+1}\right) \cdot \left(\dfrac{n^2+2n}{n^2+2n+1}\right)^n
+\begin{align}
+\dfrac{a_{n+1}}{a_n}&=\dfrac{\left(\dfrac{n+2}{n+1}\right)^{n+1}}{\left(\dfrac{n+1}{n}\right)^n}=\left(1+\dfrac{1}{n+1}\right) \cdot \left(\dfrac{n^2+2n}{n^2+2n+1}\right)^n\\
+&=\left(1+\dfrac{1}{n+1}\right) \cdot \left(1-\dfrac{1}{(n+1)^2}\right)^n\\
+\end{align}
 $$
+이다. 우리는 $0<x<1$ 일 때,  $(1-x)^n \ge 1-nx$ 임을 induction을 이용해 증명 할 수 있다.
+
+$n=1$ 일 때는 자명하다. $n$ 일 때 성립함을 가정하면,
+$$
+(1-x)^{n+1}=(1-x)(1-x)^n\ge (1-x)(1-nx)=1-(n+1)x+nx^2>1-(n+1)x
+$$
+따라서 다음을 알 수 있다. 
+$$
+\dfrac{a_{n+1}}{a_n} \ge \left(1+\dfrac{1}{n+1}\right) \cdot\left(1-\dfrac{n}{(n+1)^2}\right)=\left(1+\dfrac{1}{n+1}\right) \cdot \left(\dfrac{n^2+n+1}{(n+1)^2}\right) \tag{1}
+$$
+
+
+또한,
+$$
+\begin{align}
+(n+2)(n^2+n+1)=(n+2)\left((n+1)^2−n\right)≥(n+1)^3
+\end{align}
+$$
+이므로,
+$$
+\begin{align}
+\left(\dfrac{n^2+n+1}{(n+1)^2}\right)  \ge \left(\dfrac{(n+1)^3}{(n+2)(n+1)^2}\right)= \left(\dfrac{n+1}{n+2}\right) =\left(\dfrac{1}{1+\dfrac{1}{n+1}}\right)
+
+\end{align}
+$$
+이다. 이것을 식 (1) 에 대입하면,
+$$
+\dfrac{a_{n+1}}{a_n}\ge \left(1+\dfrac{1}{n+1}\right) \cdot \left(\dfrac{1}{1+\dfrac{1}{n+1}}\right)=1
+$$
+ 이다. 즉 $\left(1+\dfrac{1}{n}\right)^n$ 은 단조증가수열이며 이에대한 $n\to \infty$ 극한이 $e$ 이므로 $\left(1+\dfrac{1}{n}\right)^n <e$ 이다.
+
+<b>method 2</b>
+
+이항정리로부터,
+$$
+\begin{align}
+\left(1+\dfrac{1}{n}\right)^n &= \sum_{k=0}^n \dfrac{n!}{k!(n-k)!} \left(\dfrac{1}{n}\right)^k \\
+&= 2+\sum_{k=2}^n \dfrac{1}{k!} \prod_{m=1}^{k-1} \left( 1-\dfrac{m}{n}\right)
+\end{align}
+$$
+임을 안다. 따라서,
+$$
+\begin{align}
+\left(1+\dfrac{1}{n+1}\right)^{n+1} &= 2 + \sum_{k=2}^{n+1}\dfrac{1}{k!}\prod_{m=1}^{k-1}\left(1-\dfrac{m}{n+1}\right)  \\
+&= 2+ \sum_{k=1}^{n} \dfrac{1}{k!}\prod_{m=1}^{k-1}\left(1-\dfrac{m}{n+1}\right) +\dfrac{1}{(n+1)!} \prod_{m=1}^n  \left(1-\dfrac{m}{n+1}\right)\\
+\end{align}
+$$
+이다 그런데 $\left( 1-\dfrac{m}{n+1}\right)> \left(1-\dfrac{m}{n}\right)$ 이므로,
+$$
+\begin{align}
+\left(1+\dfrac{1}{n+1}\right)^{n+1} &> 2+\sum_{k=1}^{n} \dfrac{1}{k!}\prod_{m=1}^{k-1}\left(1-\dfrac{m}{n}\right) +\dfrac{1}{(n+1)!} \prod_{m=1}^n  \left(1-\dfrac{m}{n+1}\right) \\
+&>\left(1+\dfrac{1}{n}\right)^n+ \dfrac{1}{(n+1)!} \prod_{m=1}^n  \left(1-\dfrac{m}{n+1}\right) \\
+&>\left(1+\dfrac{1}{n}\right)^n
+\end{align}
+$$
+이므로  $(a_n)$ 은 단조증가수열이다. 
+
+(3) $(b_n)$ 이 단조감소수열임을 보이자. 
+$$
+\dfrac{a_{n}}{a_{n+1}}=\dfrac{\left(1+\dfrac{1}{n}\right)^{n+1}}{\left(1+\dfrac{1}{n+1}\right)^{n+2}} = \left(\dfrac{1+\dfrac{1}{n}}{1+\dfrac{1}{(n+1)}}\right)^{n+1} \dfrac{1}{1+\dfrac{1}{n+1}}=\left(1+\dfrac{1}{n^2+2n}\right)^{n+1} \dfrac{1}{1+\dfrac{1}{n+1}}
+$$
+여기서,
+$$
+\left(1+\dfrac{1}{n^2+2n}\right)^{n+1}\ge 1+ \dfrac{n+1}{n^2+2n} > 1+\dfrac{n+1}{(n+1)^2}=1+\dfrac{1}{(n+1)}
+$$
+이므로 $a_n>a_{n+1}$ 이다. 따라서 $(b_n)$ 은 단조감소수열이다.
+
+(4) $\displaystyle \lim_{n \to \infty} \left(1+\dfrac{1}{n}\right)^{n+1}=e$ 임은 쉽게 보일 수 있다. 따라서,
+$$
+\left(1+\dfrac{1}{n}\right)^n < e < \left(1+\dfrac{1}{n}\right)^{n+1}
+$$
+ 이다. 위 식을 $n=1$ 부터 $n$ 까지 곱하면,
+$$
+\begin{align}
+&\left(\dfrac{2}{1}\right) \left(\dfrac{3}{2}\right)^2 \cdots \left(\dfrac{n+1}{n}\right)^n < e^n <\left(\dfrac{2}{1}\right)^{2} \left(\dfrac{3}{2}\right)^{3} \cdots \left(\dfrac{n+1}{n}\right)^{n+1}\\
+\implies& \dfrac{(n+1)^n}{n!}<e^n < \dfrac{(n+1)^{n+1}}{n!} \\
+\implies &\left(\dfrac{n+1}{e}\right)^n <n! < (n+1)\left(\dfrac{n+1}{e}\right)^n \\
+\implies & \dfrac{(n+1)}{\sqrt[n]{n!}}<e<\sqrt[n]{n+1} \dfrac{(n+1)}{\sqrt[n]{n!}}
+
+\end{align}
+$$
+이다. 
+
