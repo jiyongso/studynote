@@ -379,3 +379,304 @@ $$
 $$
 이다. 
 
+## 연습문제 1.5
+
+<b>1.</b> 다음 급수가 수렴하는 $x$ 의 범위를 구하여라
+
+(1) $\sum \dfrac{x^{2n}}{(2n)!}$   (2) $\sum \dfrac{x^{2n+1}}{(2n+1)!}$ 
+
+---
+
+(1) 
+$$
+1>\dfrac{a_{n+1}}{a_n}=\dfrac{x^{2(n+1)} (2n)!}{x^{2n}(2n+2)!}=\dfrac{x^2}{(2n+2)(2n+1)}
+$$
+이며 충분히 어떤 $N$ 에 대해 $n>N \implies \dfrac{a_{n+1}}{a_n}<1$ 이므로 모든 $x\in \mathbb{R}$ 에 대해 수렴한다.
+
+(2) 
+$$
+1> \dfrac{a_{n+1}}{a_n}=\dfrac{(2n+1)! x^{2n+3}}{(2n+3)! x^{2n+1}}=\dfrac{x^2}{(2n+3)(2n+2)}
+$$
+이므로 (1)과 같은 이유로 모든 $x\in \mathbb{R}$ 에서 수렴한다.
+
+
+
+<b>2. </b> Pell 의 수열은 점화식
+$$
+p_{n+2}=2p_{n+1}+p_n
+$$
+으로 주어진다. 이 때,
+$$
+\lim_{n \to \infty}\dfrac{p_{n+1}}{p_n}
+$$
+이 수렴함을 보이고, 그 극한값을 구하라. 또 이를 이용하여
+$$
+\sum\dfrac{1}{p_n}< \infty
+$$
+임을 보이라. 
+
+<b>Note :  </b> 일단 $p_0=0$ $p_1=1$ 이ㅏ 가정한다.
+
+---
+
+우선 $q_n = \dfrac{p_{n+1}}{p_n}$ 이라 하자. 
+$$
+p_{n+2}=2p_{n+1}+p_n\implies  \dfrac{p_{n+2}}{p_{n+1}}=2 +\dfrac{p_n}{p_{n+1}} \implies q_{n+1}=2+\dfrac{1}{q_n}
+$$
+만약 $q_n$ 이 $q$ 로 수렴한다면 $q=2+1/q$ 를 만족하므로, $q=1\pm \sqrt{2}$ 이다. 일단 $(p_n)$ 이 양의 수열이라 가정하면 $q=1+\sqrt{2}$ 이다.
+$$
+q_{n+1}-q= 2+\dfrac{1}{q_n}-2-\dfrac{1}{q}=-\dfrac{q_n-q}{q_nq}
+$$
+$p_n>n$ for $n>1$ 이고 $q>1$ 이므로,
+$$
+|q_{n+1}-q|=\left|\dfrac{q_n-q}{qq_n}\right|<q|q_n-q|
+$$
+이며, 따라서 $\displaystyle \lim_{n \to \infty}q_n=0$ 이다. 비율판정법에 의해 $\sum \dfrac{1}{p_n}$ 은 수렴한다.
+
+
+
+
+
+<b>3. </b> 다음 급수의 수렴 발산을 판정하라.
+
+(1) $\sum \dfrac{2^nn!}{n^n}$    (2)$\sum \dfrac{n^2}{e^n}$     (3) $\sum \dfrac{2^n}{n^2}$   (4) $\sum \dfrac{2^n}{n^3}$ 
+
+---
+
+(1) 수렴한다.
+$$
+\dfrac{2^{n+1}(n+1)!(n)^{n}}{2^n n! (n+1)^{n+1}}=\dfrac{2(n+1) n^n}{(n+1)^{n+1}}=\dfrac{2n^n}{(n+1)^n} =2\left(1-\dfrac{1}{n+1}\right)^{n+1} \left(1-\dfrac{1}{n+1}\right)^{-1} \xrightarrow[]{n \to \infty}\dfrac{1}{e}<1
+$$
+(2) 수렴한다.
+$$
+\dfrac{(n+1)^2 e^n}{n^2e^{n+1}}=\dfrac{1}{e} \left(1+\dfrac{1}{n}\right)^2 \xrightarrow[]{n \to \infty} \dfrac{1}{e}<1
+$$
+(3) 발산한다.
+$$
+\dfrac{2^{n+1}n^2}{2^n (n+1)^2}=\dfrac{2 n^2}{(n+1)^2}\xrightarrow[]{n \to \infty}2 >1
+$$
+(4) 발산한다.
+$$
+\dfrac{2^{n+1}n^3}{2^n (n+1)^3}=\dfrac{2 n^3}{(n+1)^3} \xrightarrow[]{n \to \infty}2 >1
+$$
+
+
+
+
+
+
+## 연습문제 1.6
+
+<b>1. </b> 급수 $\displaystyle \sum_{n\to \infty} \dfrac{1}{(2n+3)^s}$ 가 수렴하는 실수 $s$ 의 범위를 구하라. 
+
+---
+
+$s>1$ 
+
+
+
+<b>2. </b> 적분판정법을 이용하여 다음을 보이라.
+
+(1)  $\displaystyle \sum_{n=1}^\infty \dfrac{1}{n} = \infty$    (2) $\displaystyle \sum_{n=2}^\infty \dfrac{1}{n \ln n}= \infty$  (3) $\epsilon>0 \implies \displaystyle \sum_{n=2}^\infty \dfrac{1}{n(\ln n)^{1+\epsilon}}<\infty$  (4) $\displaystyle \sum_{n=3}^\infty \dfrac{1}{n \cdot \ln n \cdot \ln \ln n}=\infty$ 
+
+---
+
+(1)
+$$
+\int_{1}^\infty \dfrac{1}{x}dx =\left[\ln x\right]_{1}^\infty = \infty
+$$
+(2) 
+$$
+\int_{2}^\infty \dfrac{1}{x\ln x}\,dx=\left[\ln \ln x\right]_2^\infty = \infty
+$$
+(3) 
+$$
+\int_2^{\infty} \dfrac{1}{x (\ln x)^{1+\epsilon}}\,dx= \left[-\dfrac{1}{\epsilon} (\ln x)^{-\epsilon} \right]_2^\infty = \dfrac{1}{\epsilon (\ln 2)^\epsilon}<\infty 
+$$
+(4)
+$$
+\int_3^\infty \dfrac{1}{x\ln x \ln \ln x}\,dx= \left[\ln \ln \ln x\right]_3^\infty=\infty
+$$
+
+
+<b>3. </b> 다음을 보이라.
+
+(1) $\displaystyle \int_1^\infty \sin \dfrac{1}{x} \,dx =\infty$,    (2) $\displaystyle \int_1^\infty \dfrac{1}{x} \sin \dfrac{1}{x} \,dx < \infty$.
+
+---
+
+(1) $\displaystyle \sum_{n=1}^\infty \sin \dfrac{1}{n}$ 이 발산함을 알고 있다. 따라서 발산한다.
+
+(2) 우리는 $x>0$ 일 때, $\sin x<x$ 임을 알고 있다. 따라서, 
+$$
+\sum_{n=1}^\infty \dfrac{1}{n}\sin \dfrac{1}{n} < \sum_{n=1}^\infty \dfrac{1}{n^2}<\infty
+$$
+
+
+<b>4.</b>  여러가지 판정법중에서 편리한 것을 이용하여 다음 급수의 수렴, 발산을 판정하라.
+
+---
+
+(1) $\sum \dfrac{-2}{n\sqrt{n}}$
+$$
+\int_1^\infty \dfrac{1}{x^{3/2}}\,dx= \left[-\dfrac{1}{2\sqrt{x}} \right]_1^\infty = \dfrac{1}{2}<\infty
+$$
+(2)  $\displaystyle \sum_{n=3}^\infty \dfrac{\ln n}{n} > \sum_{n=3}^\infty \dfrac{1}{n} =\infty$ 
+
+(3) $\displaystyle \sum_{n=3}^\infty \dfrac{\ln n}{\sqrt{n}}>\sum_{n=3}^\infty \dfrac{1}{n}=\infty$ 
+
+(4) $\sum \dfrac{2^n}{n+1} =\infty$ because $\displaystyle \lim_{n \to \infty} \dfrac{2^n}{n+1}=\infty$ and $\left(\dfrac{2^n}{n+1}\right)$ is a positive sequence. 
+
+(5) $\sum \dfrac{1}{\sqrt{n}(\sqrt{n}+1)}> \sum \dfrac{1}{\sqrt{n}{(\sqrt{n}+\sqrt{n})}}=\sum \dfrac{1}{2n}=\infty$
+
+(6) $\sum \dfrac{\sqrt{n}}{\ln (n+1)}>\sum \dfrac{\sqrt{n}}{n+1} > \sum \dfrac{1}{2\sqrt{n}} > \sum \dfrac{1}{2n}=\infty$ 
+
+(7) $\sum \left(1+\dfrac{1}{n}\right)^n=\infty$ because $\displaystyle \lim_{n \to \infty}\left(1+\dfrac{1}{n}\right)^n = e \ne 0$. 
+
+(8) $\sum \dfrac{1}{(\ln 2)^n}$ 에서 $0<\ln 2<1$ 이다. 멱근판정법으로부터 발산함을 알 수 있다.
+
+(9) $\sum \dfrac{1}{(\ln 3)^n}$ 에서 $\ln 3>1$ 이므로 멱근판정법으로부터 수렴함을 알 수 있다.
+
+(10) $\sum n \tan \dfrac{1}{n}= \sum n \dfrac{\sin 1/n}{\cos 1/n}> \sum n \sin \dfrac{1}{n}> \sum \dfrac{2}{\pi} \to \infty$  (page 21 에서 $\sin \dfrac{1}{n}> \dfrac{2}{\pi n }$ 임을 안다. )
+
+
+
+<b>5. </b> 급수 $\sum \dfrac{\ln n}{n^p}$ 이 수렴하는 실수 $p$ 의 범위를 구하시오.
+
+---
+
+(1) 임의의 양수 $\varepsilon>0$ 와 충분히 큰 $x>0$ 에 대해 $x^{\varepsilon} > \ln x$ 임을 안다. (미분을 이용해 증명 할 수 있는데..) 문제의 소지가 있는 것은 $\epsilon<1$ 일 대 이므로 $x=e^{1/\varepsilon}$ 으로 놓으면 $x^\varepsilon - \ln x=e-\dfrac{1}{\epsilon}>0$  
+$$
+\sum \dfrac{\ln n}{n^p}< \sum \dfrac{n^{\epsilon}}{n^p}=\sum n^{-p+\epsilon}
+$$
+이므로 $p>1$ 이면, 수렴한다.  
+
+(2) $p \le 0$ 이면 $\sum \dfrac{\ln n}{n^p}\ge \sum \ln n =\infty$ 이다. 
+
+(3) $0<p\le 1$ 이면 $\sum \dfrac{\ln n}{n^p}> \sum \dfrac{1}{n^p}\ge \sum \dfrac{1}{n}=\infty$ 
+
+
+
+<b>6.  </b> 다음 특이적분이 수렴하는 지를 밝히라.
+$$
+\int_1^\infty \dfrac{x^2}{1+x^5}\, dx
+$$
+
+---
+
+$$
+\sum\dfrac{n^2}{1+n^5}< \sum \dfrac{1}{2}\dfrac{1}{n^3}<\infty.
+$$
+
+
+
+## 연습문제 1.7
+
+<b>1.  </b> 다음 급수의 수렴여부를 판정하고, 또 절대수렴하는지를 알아보라.
+
+---
+
+(1) $\sum (-1)^n \dfrac{\sqrt{n}+1}{n+1}$  : $\displaystyle \lim_{n \to \infty} \dfrac{\sqrt{n}+1}{n+1}=0$ 이므로 수렴한다. 절대수렴은 No
+
+(2) $\sum \dfrac{\cos n \pi}{n}= \sum (-1)^{n}\dfrac{1}{n}$ : 수렴 Yes, 절대수렴 No.
+
+(3) $\sum (-1)^{n}ne^{-n}$ : $\displaystyle \lim_{n\to \infty} ne^{-n}=0$ 이므로 수렴 Yes. $\sum ne^n$ 에서 비율판정법을 사용하면, $\displaystyle \lim_{n \to \infty} \dfrac{a_{n+1}}{a_n}=\lim_{n \to\infty}\dfrac{(n+1)}{en}=\dfrac{1}{e}<1$  이므로 절대수렴.
+
+(4) $\sum (-1)^n \sin \dfrac{1}{n}$ : $\displaystyle \lim_{n \to \infty}\sin \dfrac{1}{n}=0$ 이므로 수렴. 절대수렴 하지 않는것은 이미 안다.
+
+(5) $\sum \dfrac{(-1)^{n+1}}{n^{3/2}}$ : 절대수렴하는것을 안다. 따라서 수렴한다.
+
+(6) $\sum (-1)^n \left(\dfrac{n}{10}\right)^n$ : 수렴 No. 절대수렴 No
+
+(7) $\sum (-1)^n  \dfrac{10^n}{n^{10}}$ : 
+$$
+\dfrac{a_{n+1}}{a_n}=\dfrac{10^{n+1} (n+1)^{10}}{10^n n^{10}}= 10 \left(1+\dfrac{1}{n}\right)^{10}>10
+$$
+발산. 절대수렴 No
+
+(8)  $\sum (-1)^n \dfrac{\ln n}{n}$ : $n\to \infty$ 일 때 $0$ 으로 수렴하는 교대수열이므로 수렴. 절대수렴 No
+
+(9) $\sum (-1)^n \ln \left(1+\dfrac{1}{n}\right)$ : $n \to \infty$ 에서 $0$ 으로 수렴하는 교대수열의 합이므로 수렴. 절대수렴 하는것은 쉽게 보일 수 있다.
+
+(10) $\sum_{n\ge 2} \dfrac{(-1)^n}{\ln n}$ : 수렴 Yes, 절대수렴 No
+
+
+
+<b>2. </b> 생략
+
+
+
+<b>3. </b> 교대급수 $\sum a_n$ 에서 모든 $n$ 에 대하여 $|a_n| \ge |a_{n+1}|$ 이고 $\displaystyle \lim_{n \to \infty} a_n =0$ 일 때, 급수 $\sum a_n$ 과 $n$ 항까지의 합의 차는 $|a_{n+1}|$ 을 넘지 않음을 보여라.
+
+---
+
+$s_n = \displaystyle \sum_{k=1}^n a_k,\, s=\lim_{n \to \infty}s_n$ 이라 하자. 즉 $|s-s_n|\le|a_{n+1}|$ 을 보이면 된다.
+
+편의를 위해 $a_{2n}<0,\, a_{2n+1}>0,\, b_n=|a_n|$  이라 하자. 그렇다면 $s-s_{2n}=(b_{2n+1}-b_{2n+2})+(b_{2n+3}-b_{2n+4})+\cdots >0$ 이며 같은 이유로 $s-s_{2n+1}<0$ 임을 알 수 있다. 그렇다면,
+$$
+\begin{align}
+0<s-s_{2n}&=b_{2n+1}-(b_{2n+2}-b_{2n+3})-(b_{2n+4}+b_{2n+5})+\cdots <b_{2n+1}\\
+0>s-s_{2n+1}&=-b_{2n+2}+(b_{2n+3}-b_{2n+4})+(b_{2n+5}-b_{2n+6})+ \cdots >-b_{2n+2}
+
+
+\end{align}
+$$
+이므로 증명 끝.
+
+
+
+<b>4. </b> 특이적분 $\displaystyle \int_0^\infty \dfrac{\sin x}{x}\,dx$ 이 수렴함을 보이라.
+
+---
+
+Define $a_n = \displaystyle \int_{(n-1)\pi}^{n \pi} \dfrac{\sin x}{x}\,dx$ 라 하면 적분 영역 내에서 함수의 부호는 변하지 않으므로 $a_n$ 이 교대급수임을 알 수 있다. 또한 $\lim_{x\to 0}\dfrac{\sin x}{x}=1$ 이므로 모든 영역에서 적분이 잘 정의된다. $a_n$ 의 적분 영역 내에서 $\dfrac{1}{x} < \dfrac{1}{(n-1)\pi}$ 이며,
+$$
+|a_n| = \left|\int_{(n-1)\pi}^{n\pi }\dfrac{\sin x}{x}\,dx \right| \le \dfrac{1}{(n-1)\pi} \left|\int_{(n-1)\pi}^{n\pi} \sin x \, dx\right|= \dfrac{2}{\pi(n-1)}
+$$
+이므로 $\lim_{n \to \infty}a_n=0$ 이다. 또한 $|a_{n}|\ge |a_{n+1}|$ 임은 잘 알고 있다. 따라서 이 적분은 수렴한다. 
+
+
+
+
+
+## 연습문제 1.8
+
+
+
+<b>1. </b> 수열 $(n^{1/n}: n=3,\,4,\ldots)$ 는 순감소 수열임을 보여라.
+
+---
+
+<u>a. 미분을 이용한 증명</u> $n^{1/n}$ 이 순감소이면 이것에 $\ln n^{1/n}=\dfrac{1}{n}\ln n$ 도 순감소 수열이다. $f(x) = \dfrac{\ln x}{x}$ for $x>3$ 에 대해 미분을 취하면,
+$$
+f'(x)=-\dfrac{\ln x}{x^2}+\dfrac{1}{x^2}=-\dfrac{\ln x-1}{x^2}<0
+$$
+ <u>b. 쉬운 증명</u> $n^{1/n}> (n+1)^{1/(n+1)}$ 임을 보이면 된다. 양변의 $n(n+1)$ 승을 취하면 $n^{n+1}>(n+1)^n$ 임을 보이면 된다. 우리는 $\left(1+\dfrac{1}{n}\right)^n<3$ 임을 알고 있다. 즉 $(n+1)^n <3 n^n$ 이다. 그런ㄷ $n>3$ 일 경우는
+$$
+(n+1)^n<3n^n <n \cdot n^{n}=n^{n+1}
+$$
+ 이다.
+
+
+
+<b>2. </b> 일반항이 다음과 같이 주어진 수열의 유계성과 증가-감소를 판정하라.
+
+---
+
+(1) $\dfrac{(-1)^n}{n}$ : 유계, 교대수열.
+
+(2) $\sqrt{n}$ : 유계 아님. 단조증가.
+
+(3) $\dfrac{n^2}{n+1}$ : 유계 아님. $\dfrac{a_{n+1}}{a_n}=\dfrac{(n+1)^2(n+1)}{n^2(n+2)}=\dfrac{n^3+3n^2+3n+1}{n^3+2n^2}>1$ 이므로 단조증가.
+
+(4) $\ln \dfrac{2n}{n+1}$ : 위로 유계. $a_n=\dfrac{2n}{n+1}$ 이라 하자. $\dfrac{a_{n+1}}{a_n}=\dfrac{(n+1)(n+1)}{n(n+2)}=\dfrac{n^2+2n+1}{n^2+2n}>1$ 이므로 단조증가.
+
+(5) $\dfrac{(-2)^n}{n^{10}}$ : 위 아래로 유계, 교대수열.
+
+
+
+<b>3. </b> 임의의 두 양수 $a,\,b$ 에 대하여 수열 
+$$
+(a^n+b^n)^{1/n} \qquad n=1,\,2,\,3,\ldots
+$$
+은 유계인 단조수열임을 보이라. 이 수열의 극한값을 구하라. 
