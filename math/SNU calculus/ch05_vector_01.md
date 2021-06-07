@@ -1,4 +1,4 @@
-V. 벡터
+V. 벡터 #1
 ===
 
 
@@ -418,4 +418,107 @@ $\theta_x =\theta_y=60^\circ$ 라면 $\alpha = \arccos \sqrt{1/2}=45^\circ$ 이�
 
 
 
-<b></b>
+<b>14. </b> 양수 $a,\,b$ 에 대하여
+$$
+A=(b,\, ab^2),\qquad A'=(-b,\,ab^2)
+$$
+으로 두고, 또 $t \ne b$ 인 양수 $t$ 에 대하여
+$$
+P=P(t) = (t,\,at^2)
+$$
+으로 두면, 이들은 포물선 $y=ax^2$ 위의 점들이 됨을 알 수 있다. 이때 벡터 $\vec{PA}$ 와 $\vec{PA'}$ 이 이루는 각의 크기를 $\theta(t)$ 라고 두면,
+$$
+\lim_{t \searrow b} \cos \theta(t)=\dfrac{1}{\sqrt{1+4a^2b^2}}\,,\qquad \lim_{t \nearrow b}\cos \theta(t)=-\dfrac{1}{\sqrt{1+4a^2b^2}}
+$$
+임을 보여라.
+
+---
+
+$$
+\vec{PA}=(b-t,\, ab^2-at^2),\qquad \vec{PA'}=(-t-b,\, ab^2-at^2)
+$$
+
+이며,
+$$
+\begin{align}
+\cos \theta(t) &= \dfrac{-b^2+t^2+a^2t^4+a^2b^4-2a^2t^2b^2}{\sqrt{(b-t)^2+a^2(b^2-t ^2)^2}\sqrt{(b+t)^2+a^2(b^2-t^2)^2}}\\
+&=\dfrac{a^2t^4-(2a^2b^2-1)t^2+b^2(a^2b^2-1)}{|b^2-t^2|\sqrt{1+a^2(b+t)^2}\sqrt{1+a^2(b-t)^2}} \\
+&= \dfrac{(t^2-b^2)}{|t^2-b^2|}\dfrac{(a^2t^2-a^2b^2+1)}{\sqrt{1+a^2(b+t^2)}\sqrt{1+a^2(b-t^2)}} \\
+\end{align}
+$$
+이다. 따라서,
+$$
+\lim_{t \searrow b}\cos \theta(t)=\dfrac{1}{\sqrt{1+4a^2b^2}},\qquad \lim_{t \nearrow b}\cos \theta(t)=-\dfrac{1}{\sqrt{1+4a^2b^2}}
+$$
+
+
+<b>15. </b> (**코사인법칙**) 변의 길이가 각각 $a,\,b,\,c$ 인 삼각형에서 "$a$-변" 과 "$b$-변" 사이의 각을 $\theta$ 라 하면
+$$
+c^2=a^2+b^2-2ab\cos \theta
+$$
+임을 보이라.
+
+---
+
+삼각형의 세 꼭지점을 $A,\,B,\,C$ 라 하고 $\mathbf{a}=\vec{BC},\, \mathbf{b}=\vec{CA},\, \mathbf{c}=\vec{AB}$ 라 하자. 또한 $a=|\mathbf{a}|,\, b=|\mathbf{b}|,\, c=|\mathbf{c}|$ 라 하자. 그렇다면 $\cos \theta$ 는 $\mathbf{a}$ 와 $\mathbf{b}$ 의 사잇각이다. $\mathbf{a}+\mathbf{b}=\mathbf{c}$ 이므로,
+$$
+c^2=|\mathbf{c}|^2=|\mathbf{a}+\mathbf{b}|^2=a^2+b^2+2\mathbf{a}\cdot \mathbf{b}=a^2+b^2+2ab\cos \theta
+$$
+이다.
+
+
+
+<b>16. </b> $x^2+2y^2+3z^2=1$ 일 때 $x+y+z$ 의 최대값과 최소값을 구하라.
+
+---
+
+$\mathbb{R}^3$ 에서의 세 백터 $\mathbf{x}=(x,\, \sqrt{2}y,\,\sqrt{3}z)$ 와 $\mathbf{a}=(1,\,1/\sqrt{2},\,1\sqrt{3})$ 을 생각한다. $|\mathbf{x} \cdot \mathbf{a}|^2\le |\mathbf{x}|^2|\mathbf{a}|^2$ 를 이용하면,
+$$
+|\mathbf{x}\cdot \mathbf{a}|^2=|x+y+z|가 ^2\le |x^2+2y^2+3z^3|\cdot\dfrac{11}{6}=\dfrac{11}{6}
+$$
+ 따라서 최대값은 $\sqrt{11/6}$ 최소값은 $-\sqrt{11/6}$ 이다. 
+
+
+
+<b>17. </b> 다음은 중심의 위치가 $P_0,\,P_1,\,P_2$ 이고 질량이 같은 세개의 당구공이 당구대위에 놓여 있는것을 위에서 본 그림이다.
+
+(그림 생략)
+
+이 때 당구공 $P_0$ 를 때려, 이것이 당구공 $P_1$ 을 맞춘 다음 당구공 $P_2$ 와 속력 $v_2$ 로 정면 충돌하기 위해서는 처음에 당구공 $P_0$ 를 어느 방향으로 얼마만큼의 속력으로 때려야 하는가. 
+
+---
+
+당구공의 질량이 모두 같으므로 $1$ 로 놓아도 된다.  운동량 보존에 의해 $\mathbf{v}_0=\mathbf{v}_1+\mathbf{v}_2$ 이다. 탄성충돌을 가정한다면 $|\mathbf{v}_0|^2=|\mathbf{v}_1|^2+|\mathbf{v}_2|^2$ 이다.  $P_1P_2$ 와 $P_2P_3$ 의 사잇각을 $\theta$ 라 하면 $v_0=v_2/\cos \theta$ 이어야 한다. 
+
+
+
+#### 4.1.2 기본연습문제
+
+<b>1. </b> $n$ 공간의 한 점 $Q$ 와 초평면 $\mathbf{a}\cdot (X-P)=0$ 사이의 거리는
+$$
+\dfrac{|\mathbf{a}\cdot (Q-P)|}{|\mathbf{a}|}
+$$
+ 임을 보이라.
+
+---
+
+$Q$ 와 초평면 $\mathbf{a}\cdot(X-P)$ 사이의 거리는 $(Q-P)$ 의 $\mathbf{a}$ 방향으로의 정사영의 크기이다.  이 정사영을 $k\mathbf{a}$ 라 하면 $(k\mathbf{a} -(Q-P) ) \cdot \mathbf{a}=0$ 이므로,
+$$
+k|\mathbf{a}|^2=\mathbf{a}\cdot (Q-{P})\implies |k\mathbf{a}|= \dfrac{|\mathbf{a}\cdot (Q-P)|}{|\mathbf{a}|}
+$$
+
+
+이다.
+
+
+
+<b>2. </b> 원점과 평면 $ax+by+cz=d$ 사이의 거리를 구하라. 
+
+---
+
+$a(x-x_0)+b(y-y0)+c(z-z_0)=0$ and $ax_0+by_0+cz_0=d$ 라 하면 이 식이 평면의 방정식이다. 이를 1.에 대입하면,
+$$
+[\text{distance}]=\dfrac{|ax_0+by_0+cz_0|}{\sqrt{a^2+b^2+c^z}}= \dfrac{|d|}{\sqrt{a^2+b^2+c^z}}
+$$
+
+
