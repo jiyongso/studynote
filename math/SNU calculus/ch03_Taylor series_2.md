@@ -247,7 +247,7 @@ $$
 
 \end{align}
 $$
- 
+
 
 
 
@@ -272,4 +272,218 @@ $$
 을 만족시킴을 보여라.
 
 ---
+
+$f(x) = \displaystyle \sum_{k=0}^{n-1}\dfrac{f^{(k)}(0)}{k!}x^k + R_{n-1}f(x) = \sum_{k=0}^{k-1} \dfrac{f^{(k)}(0)}{k!}x^k+ \dfrac{f^{(n)}(0)}{n!} x^n+R_{n}f(x)$ 이므로,
+$$
+R_n f(x) = R_{n-1}f(x)-\dfrac{f^{(n)}(0)}{n!}x^n=\dfrac{f^{(n)}(x_*)-f^{(n)}(0)}{n!}x^n
+$$
+이다. 여기서 $x_*\in (0,\,x)$ 는 테일러 전개의 나며지 항을 만족하는 실수이다. 따라서,
+$$
+|R_n f(x) | = \left|f^{(n)}(x_*)-f^{(n)}(0) \right|\dfrac{|x|^n}{n!} \le B_{n}f(x) \dfrac{|x|^n}{n!}
+$$
+이다.
+
+
+
+<b>7. </b> $\sqrt[3]{28}$ 의 근사값을 오차의 범위 $10^{-3}$ 이내로 구하라.
+
+---
+
+28에 가까운 27 은 $3^3$ 이다. 따라서 $\sqrt[3]{28}= \sqrt[3]{27+1}=3\sqrt[3]{1+1/27}$ 이다. $f(x)=\sqrt[3]{1+x}$ 라 하면,
+
+
+$$
+\begin{align}
+f(0) &= 1\,,\\
+f'(0) &=\left(\dfrac{1}{3}(1+x)^{-2/3}\right)(0)=\dfrac{1}{3}\,,\\
+f''(0) &= \left(-\dfrac{2}{9}(1+x)^{-4/3}\right)(0)= -\dfrac{2}{9}\,,\\
+
+\left|R_1 (x)\right| &= \left| \dfrac{f''(x)}{2} x^2\right| \le  \dfrac{1}{6}\cdot \left(\dfrac{1}{27}\right)^2 =2.29\times 10^{-4}
+
+
+\end{align}
+$$
+이므로 근사값은 $3\left( 1+\dfrac{1}{3}\dfrac{1}{27} \right)\approx 3.037$ 이다.  
+
+
+
+## 연습문제 : 제 3장 5절
+
+
+
+<b>1. </b> 다음 함수의 테일러 급수를 구하라.
+
+---
+
+(1) $\cosh x$
+$$
+\cosh x=\dfrac{e^x+e^{-x}}{2},\qquad (\cosh x)'= \sinh x,\, \qquad (\cosh x )''=\cosh x
+$$
+이며 $\cosh 0=1$, $\sinh x=0$ 이므로,
+$$
+\cosh x = \sum_{n=0}^\infty\dfrac{1}{(2n)!}x^{2n}
+$$
+
+
+(2) $\sinh x$
+
+(1) 의 결과로,
+$$
+ \sinh x = \sum_{n=0}^\infty \dfrac{1}{(2n+1)!}x^{2n+1}
+$$
+
+
+(3) $f(x) = \sin x^2$
+$$
+\sin x^2 = \sum_{k=0}^\infty \dfrac{(-1)^k}{(2k+1)!}x^{4k+2}
+$$
+
+
+(4) $f(x) = \dfrac{1}{1+x^3}$
+$$
+\dfrac{1}{1+x^3}= \sum_{k=0}^{\infty} (-1)^{k} x^{3k}
+$$
+
+
+
+
+<b>2. </b> 원점에서 함수 
+$$
+f(x)=\dfrac{1}{1+x^2}
+$$
+의 테일러 급수를 구하고, 수렴반경을 구하라. 이 때 점 $x=1$ 에서 $f(x)$ 의 테일러 급수가 수렴하는가? 또 함수
+$$
+g(x)=\dfrac{x}{1+3x^2}
+$$
+의 테일러 급수의 수렴반경을 구하라.
+
+---
+
+$$
+f(x) = \dfrac{1}{1+x^2}=\sum_{n=0}^\infty (-1)^n x^{2n}
+$$
+
+이며 $x=1$ 일 때 $ 1+(-1)+1 +(-1)+\cdots$ 이므로 수렴하지 않는다.
+$$
+g(x) = \dfrac{x}{1+3x^2}=\sum_{n=0}^{\infty} (-3)^n x^{2n+1}
+$$
+이므로 수렴반경은 $\dfrac{1}{\sqrt{3}}$ 이다. 
+
+
+
+<b>3. </b> 함수
+$$
+f(x) = \left\{\begin{array}{ll} e^{-1/x^2} \qquad & (x\ne 0) \\ 0 &(x=0)\end{array} \right.
+$$
+는 무한급함수 임을 살펴보고, 원점에서 이 함수의 테일러 급수를 구하라.
+
+---
+
+$e^x$ 와 $-1/x^2$  은 $x\ne 0$ 에서 무한급함수이므로 그 합성함수인 $f(x)$ 는 $x\ne 0$ 에서 무한급함수이다. 
+
+$f'(x) = -\dfrac{2}{x^3} e^{-1/x^2}$ , $f''(x) = \dfrac{6}{x^4}e^{-1/x^2} + \dfrac{4}{x^6} e^{-1/x^2}$ 이므로 $f^{(n)}(x) = \text{finite sum of } \dfrac{c}{x^m} e^{-1/x^2}$ where $m\ge 3$ 임을 알 수 있다.  
+
+$m\ge 3$ 에 대해 $\displaystyle \lim_{x \to 0} \dfrac{e^{-1/x^2}}{x^m}=\lim_{t \to \infty} \dfrac{t^m}{e^{t^2}}=0$ 이므로 $f(x)$ 는 실수 전체 구간에서 무한급함수이며,  테일러 급수는 $0$ 이다.
+
+ 
+
+<b>4. </b> 함수
+$$
+f(x) =\left\{\begin{array}{ll} e^{-1/\sin x} \qquad &(0<x<\pi) \\ 0 &  (x\le 0 \;\text{ or }\;x\ge \pi)\end{array}\right.
+$$
+는 무한급함수이지만 원점 근방에서 해석함수가 아님을 보여라.
+
+---
+
+$x\ne 0$ 에서 $f$ 가 무한번 미분 가능함은 쉽게 예상 할 수 있다. $f'(x) = - \dfrac{\cos x}{\sin ^2 x} e^{-1/\sin x}$ 이므로 $f^{(n)}(x)$ 는 $\sin^k x$ 와 $\cos^k x$ for $k\in \mathbb{N}$ 의 선형결합 과  $\dfrac{e^{-1/\sin x}}{\sin^m x}$ 의 곱의 선형결합으로 이루어짐을 알 수 있다.
+
+ 이 때, $\sin^k x$ 와 $\cos^k x$ 의 선형결함의 $x\to 0$ 극한은 유한하므로 $\displaystyle \lim_{x \to 0} \dfrac{e^{-1/\sin x}}{\sin^m x}$ 을 계산하면 된다. $t=1/\sin x$ 라 치환하면, $t\to +\infty$ 를생각해야 한다. 
+$$
+\begin{align}
+\lim_{x \searrow 0} \dfrac{e^{-1/\sin x}}{\sin^m x}&= \lim_{t \to \infty} \dfrac{t^m}{e^{t}}=0\,,\\
+\end{align}
+$$
+즉 $f^{(n)}(0)$ for $n=1,\,2,\,3,\,\ldots$ 이므로 무한급함수이다. 그러나 $f(x)$ 의 테일러전개는 $0$ 이므로 해석함수는 아니다.
+
+
+
+<b>5. </b> 원점에서 함수 $f(x) = \left\{\begin{array}{ll} \dfrac{e^{x}-1}{x} \,,\qquad &\text{if } x\ne 0 \\ 1 \;. &\text{if } x=0\;.\end{array}\right.$ 의 테일러 급수를 구하고 그 급수의 수렴반경을 구하라. 또,
+$$
+\sum_{n=1}^\infty \dfrac{n}{(n+1)!}=1
+$$
+임을 보이라.
+
+---
+
+$e^x$ 의 테일러 전개는 잘 알고 있으므로,
+$$
+\dfrac{e^x-1}{x} = \sum_{n=1}^\infty \dfrac{x^{n-1}}{n!}
+$$
+임을 알고 있다. 또한 $\displaystyle \lim_{n \to \infty} \dfrac{(n)!}{(n+1)!}=\lim_{n\to \infty} \dfrac{1}{(n+1)}=0$ 이므로 수렴반경은 실수 전체이다. 
+
+이 함수를 미분하면,
+$$
+\begin{align}
+\dfrac{d}{dx}\left(\dfrac{e^x-1}{x}\right) &=  \dfrac{xe^x-(e^x-1)}{x^2}=\dfrac{xe^x-e^x+1}{x^2}\,,\\
+\dfrac{d}{dx} \left(\sum_{n=1}^\infty \dfrac{x^{n-1}}{n!}\right) &= \sum_{n=1}^\infty\dfrac{(n-1)x^{n-2}}{n!}=\sum_{n=1}^\infty \dfrac{nx^{n-1}}{(n+1)!}
+
+\end{align}
+$$
+이므로 두 식에 $x=1$ 을 대입하면,
+$$
+\sum_{n=1}^\infty \dfrac{n}{(n+1)!}= 1
+$$
+이다. 
+
+
+
+## 연습문제 : 제 3장 6절
+
+
+
+<b>1. </b> $x=1$ 에서 다음 함수의 3차 근사 다항식을 구하라.
+
+---
+
+(1) $x^2+x+1$
+$$
+\begin{align}
+f(1) &= 3\,,\\
+f'(1) &=(2x+1)(1)=3\,,\\
+f''(1) &=(2)(1)=2\,,\\
+f'''(1)&=0\,,\\
+f(x) &\approx 3+3(x-1)+(x-1)^2\;.
+\end{align}
+$$
+(2) $\sin (\pi x)$
+$$
+\begin{align}
+f(1) &= 0\,,\\
+f'(1) &=(\pi \cos (\pi x))(0)=\pi\,,\\
+f''(1) &= (-\pi^2 \sin (\pi x))(0)=0\,,\\
+f'''(1)&= (-\pi^3 \cos (\pi x))(0)=-\pi^3\;.\\
+f(x)&\approx\pi x -\dfrac{\pi^3}{6}x^3
+\end{align}
+$$
+
+
+<b>2. </b> 생략
+
+
+
+<b>3. </b> 두 번 미분가능한 함수 $f(x)$ 에 대하여
+$$
+f''(x) = \lim_{\Delta x \to 0} \dfrac{f(x+\Delta x) + f(x-\Delta x) -2f(x)}{(\Delta x)^2}
+$$
+임을 보이라.
+
+----
+
+$$
+\begin{align}
+\lim_{\Delta x\to 0} \dfrac{f(x+\Delta x) + f(x-\Delta x) -2f(x)}{(\Delta x)^2} &= \lim_{\Delta x \to 0} \dfrac{f'(x+\Delta x)- f'(x-\Delta x) }{2(\Delta x)} \qquad&\text{by l'Hopital's theorem} \\
+&=\lim_{\Delta x \to 0} \dfrac{f''(x+\Delta x)+f''(x-\Delta x)}{2} \\
+&=f''(x)
+\end{align}
+$$
 
