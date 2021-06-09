@@ -3,6 +3,16 @@ II. Probability Distributions
 
 
 
+#### Density Estimation
+
+Random variable $\mathbf{x}$ 에 대해 $\mathbf{x}_1,\ldots,\,\mathbf{x}_N$ 번의 측정을 통해 확률분포 $p(\mathbf{x})$ 를 modelling 하는 것.
+
+- 일단 여기서는 각각의 data points가 독립적이며 동일하게 분포되어있음을 가정한다. (즉 이전 측정의 영향을 받지 않는다.)
+
+- 이러한 density estimation은 근본적으로 취약하다는것을 명심해야 한다. 왜냐하면 유한한 데이터셋을 만족시키는 확률분포는 무한히 많기 때문이다.
+
+  
+
 ## 2.1 Binary Distribution
 
 
