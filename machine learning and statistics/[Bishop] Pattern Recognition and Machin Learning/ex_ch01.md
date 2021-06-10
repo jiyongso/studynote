@@ -377,7 +377,7 @@ $D=2$ 일 때 $S_2=2\pi $, $V_2=\pi$ 임을 안다. $D=3$ 일 때 $S_3=4\pi,\, V
 
 
 
-<b>19. </b> $D$-차원에서 반경 $a$ 인 구와 한 변의 길이가 $2a$ 인 concentric hypercube 를 생각하자. 이 때 구는 hybercube 의 안에 포함되며 각 면에 그 면의 중심에서 접한다. 문제 1.18 의 결과를 이용하여 hybercube의 부피에 대한 구의 부피비가 다음과 같음을 보이라.
+<b>1.19. </b> $D$-차원에서 반경 $a$ 인 구와 한 변의 길이가 $2a$ 인 concentric hypercube 를 생각하자. 이 때 구는 hybercube 의 안에 포함되며 각 면에 그 면의 중심에서 접한다. 문제 1.18 의 결과를 이용하여 hybercube의 부피에 대한 구의 부피비가 다음과 같음을 보이라.
 $$
 \dfrac{\text{volume of sphere}}{\text{volume of cube}}= \dfrac{\pi^{D/2}}{D2^{D-1}\Gamma(D/2)} \tag{1.145}
 $$
@@ -405,19 +405,19 @@ $$
 
 
 
-<b>20. </b> 이 연습문제에서는 고차원 공간에서의 가우시안 분포에 대해 알아본다. $D$ 차원에서의 가우시안 분포는 다음과 같이 주어진다.
+<b>1.20. </b> 이 연습문제에서는 고차원 공간에서의 가우시안 분포에 대해 알아본다. $D$ 차원에서의 가우시안 분포는 다음과 같이 주어진다.
 $$
 p(\mathbf{x}) = \dfrac{1}{(2\pi \sigma^2)^{D/2}} \exp \left(-\dfrac{\|\mathbf{x}\|^2}{2\sigma^2}\right) \tag{1.147}
 $$
-우리는 극좌표계에서의 radius에 대한 확률밀도함수를 구하고자 한다.  Radius가 $r$ 이고 두께가 $\epsilon \ll 1$ 인 영역에서의 확률밀도함수의 적분은 $p(r)\epsilon$ 이며 $p(r)$ 은 다음과 같이 주어짐을 보여라.
+우리는 극좌표계에서의 radius에 대한 확률밀도함수를 구하고자 한다.  Radius가 $r$ 이고 두께가 $\epsilon \ll 1$ 인 영역에서의 확률밀도함수의 적분은 $p_r(r)\epsilon$ 이며 $p_r(r)$ 은 다음과 같이 주어짐을 보여라. (Text 에는 $p(r)$ 로 나와 있지만 $p(\mathbf{x})$ 와 구별하기 위해 $p_r(r)$ 로 쓰겠다.)
 $$
-p(r)  = \dfrac{S_Dr^{D-1}}{(2\pi \sigma^2)^{D/2}} \exp \left(-\dfrac{r^2}{2\sigma^2}\right)
+p_r(r)  = \dfrac{S_Dr^{D-1}}{(2\pi \sigma^2)^{D/2}} \exp \left(-\dfrac{r^2}{2\sigma^2}\right)
 $$
-여기서 $S_D$ 는 $D$-차원에서의 단의 구의 표면적이다. 함수 $p(r)$ 은 하나의 stationalry point를 가지며, 그 위치는 $D$ 가 클 때 $\widehat{\,r\,}\approx \sqrt{D}\sigma$ 임을 보여라. $\epsilon \ll \widehat{\,r\,}$ 이고 $D$ 가 클 때,
+여기서 $S_D$ 는 $D$-차원에서의 단의 구의 표면적이다. 함수 $p_r(r)$ 은 하나의 stationalry point를 가지며, 그 위치는 $D$ 가 클 때 $\widehat{\,r\,}\approx \sqrt{D}\sigma$ 임을 보여라. $\epsilon \ll \widehat{\,r\,}$ 이고 $D$ 가 클 때,
 $$
-p(\widehat{\,r\,}+\epsilon)=p(\widehat{\,r\,})\exp\left(-\dfrac{3\epsilon^2}{2\sigma^2}\right)
+p_r(\widehat{\,r\,}+\epsilon)=p_r(\widehat{\,r\,})\exp\left(-\dfrac{3\epsilon^2}{2\sigma^2}\right)
 $$
-임을 보여라. 이는 $\widehat{\,r\,}$ 이 radial probability density의 극값이며 $p(r)$ 은 $\widehat{\,r\,}$ 에서 멀어질 때 lengthscale $\sigma$ 로 지수함수적으로 감소함을 보여준다. 우리는 이미 큰 $D$ dptj $\sigma \ll \widehat{\,r\,}$ 임을 보았으며, 또한 대부분의 확률질량의 대부분은 큰 반경의 얇은 shell에 집중되어 있음을 알 수 있다. 마지막으로 확률밀도 $p(\mathbf{x})$ 는 반경 $\widehat{\,r\,}$ 에서보다 원점에서 factor $\exp (D/2)$ 맡큼 큼을 보여라. 우리는 이에 고차원 가우시안 분포에서의 대부분의 확률질량은 높은 확률밀도를 갖는 영역과는 다른 영역에 집중되어 있음을 알 수 있다. 고차원에서의 분포의 이러한 특성은 우리가 나중에 모델 파라메터에 관한 베이지안 추론을 다룰 때 중요한 결과들을 준다.
+임을 보여라. 이는 $\widehat{\,r\,}$ 이 radial probability density의 극값이며 $p_r(r)$ 은 $\widehat{\,r\,}$ 에서 멀어질 때 lengthscale $\sigma$ 로 지수함수적으로 감소함을 보여준다. 우리는 이미 큰 $D$ dptj $\sigma \ll \widehat{\,r\,}$ 임을 보았으며, 또한 대부분의 확률질량의 대부분은 큰 반경의 얇은 shell에 집중되어 있음을 알 수 있다. 마지막으로 확률밀도 $p(\mathbf{x})$ 는 반경 $\widehat{\,r\,}$ 에서보다 원점에서 factor $\exp (D/2)$ 맡큼 큼을 보여라. 우리는 이에 고차원 가우시안 분포에서의 대부분의 확률질량은 높은 확률밀도를 갖는 영역과는 다른 영역에 집중되어 있음을 알 수 있다. 고차원에서의 분포의 이러한 특성은 우리가 나중에 모델 파라메터에 관한 베이지안 추론을 다룰 때 중요한 결과들을 준다.
 
 ---
 
@@ -433,17 +433,57 @@ $$
 $$
 이므로 radial probability density $p(r)$ 은 
 $$
-p(r) = \dfrac{S_D r^{D-1}}{(2\pi \sigma^2)^{D/2}} \exp \left(-\dfrac{r^2}{2\sigma^2}\right)
+p_r(r) = \dfrac{S_D r^{D-1}}{(2\pi \sigma^2)^{D/2}} \exp \left(-\dfrac{r^2}{2\sigma^2}\right)
 $$
 이다. 
 $$
-\dfrac{d p(r)}{dr} = \dfrac{S_D}{(2\pi \sigma^2)^{D/2}} \exp \left(-\dfrac{r^2}{2\sigma^2}\right) \left( (D-1)r^{D-2}-\dfrac{r^D}{\sigma^2}\right)
+\dfrac{d p_r(r)}{dr} = \dfrac{S_D}{(2\pi \sigma^2)^{D/2}} \exp \left(-\dfrac{r^2}{2\sigma^2}\right) \left( (D-1)r^{D-2}-\dfrac{r^D}{\sigma^2}\right)
 $$
-이므로 $\dfrac{dp(r)}{dr}=0 \implies \widehat{\,r\,}^2 = (D-1)\sigma^2 $ 이다.  $D \gg 1$ 일 때 $\widehat{\,r\,}\approx \sqrt{D}\sigma$ 이다. 
+이므로 $\dfrac{dp_r(r)}{dr}=0 \implies \widehat{\,r\,}^2 = (D-1)\sigma^2 $ 이다.  $D \gg 1$ 일 때 $\widehat{\,r\,}\approx \sqrt{D}\sigma$ 이다. 
 
 $\epsilon \ll \widehat{\,r\,}$ 이고 $D\gg 1$ 일 때, $D \approx \dfrac{\widehat{\,r\,}^2}{\sigma^2}$ 이고 $D-1 \approx D$ 이므로,
 $$
 \begin{align}
+\dfrac{p_r(\widehat{\,r\,}+\epsilon) }{p_r(\widehat{\,r\,})}&= \dfrac{(\widehat{\,r\,}+\epsilon)^{D-1}}{\widehat{\,r\,}^{D-1}} \exp \left(-\dfrac{1}{2\sigma^2} \left[(\widehat{\,r\,}+\epsilon)^2-\widehat{\,r\,}^2\right]\right) \\
+&=\left(1+\dfrac{\epsilon}{\widehat{\,r\,}}\right)^{D-1}  \exp \left(-\dfrac{1}{2\sigma^2} \left[(\widehat{\,r\,}+\epsilon)^2-\widehat{\,r\,}^2\right]\right)\\
+&=\exp \left((D-1) \ln \left(1+\dfrac{\epsilon}{\widehat{\,r\,}}\right)-\dfrac{1}{2\sigma^2}(2\epsilon \widehat{\,r\,}+\epsilon^2)\right)
 
 \end{align}
+$$
+여기서 $\ln (1+x)\approx x-\dfrac{x^2}{2}$ for $|x|\ll 1$ 이므로, 
+$$
+\begin{align}
+(D-1) \ln \left(1+\dfrac{\epsilon}{\widehat{\,r\,}}\right)-\dfrac{1}{2\sigma^2}(2\epsilon \widehat{\,r\,}+\epsilon^2) & \approx D\left(\dfrac{\epsilon}{\widehat{\,r\,}}-\dfrac{\epsilon^2}{2\widehat{\,r\,}^2}\right) -\dfrac{1}{2\sigma^2}(2\epsilon \widehat{\,r\,}+\epsilon^2)\\
+&\approx\dfrac{\widehat{\,r\,}^2}{\sigma^2}\left(\dfrac{\epsilon}{\widehat{\,r\,}}-\dfrac{\epsilon^2}{2\widehat{\,r\,}^2}\right) -\dfrac{1}{2\sigma^2}(2\epsilon \widehat{\,r\,}+\epsilon^2)\\
+&= -\dfrac{3\epsilon^2}{2\sigma^2}
+
+\end{align}
+$$
+ 이므로,
+$$
+p_r(\widehat{\,r\,}+\epsilon)=p(\widehat{\,r\,}) \exp \left(-\dfrac{3\epsilon^2}{2\sigma^2}\right)
+$$
+
+
+그리고, $D=\widehat{\,r\,}^2/\sigma^2$ 이므로,
+$$
+\dfrac{p(|\mathbf{x}|=\widehat{\,r\,})}{p(0)}= \exp\left(-\dfrac{\widehat{\,r\,}^2}{2\sigma^2}\right)= \exp \left(-\dfrac{D}{2}\right)
+$$
+
+
+
+<b>1.21</b> 두 non-negative number $a,\,b$ 에 대해 만약 $a\le b$ 이면 $a\le (ab)^{1/2}$ 임을 보여라. 이 결과를 이용하여, 만약 two-class classification 문제가 에서 misclassification 확률을 최소화 하도록 하는 문제라면 이 확률은 다음을 만족함을 보여라.
+$$
+p(\text{mistake})\le \int  \left\{p(\mathbf{x},\,C_1) p(\mathbf{x},\,C_2)\right\}^{1/2}\,d\mathbf{x} \tag{1.150}
+$$
+
+---
+
+$a,\,b$ 가 nonnegative 이며 $a\le b$ 이므로 $0\le \sqrt{a}\le \sqrt{b}$ 이다. 따라서,
+$$
+a=\sqrt{a}\sqrt{a}\le \sqrt{a}\sqrt{b} \le (ab)^{1/2}
+$$
+식 (1.78) 로부터
+$$
+p(\text{mistake})=\int_{\mathcal{R}_1} p(\mathbf{x},\,C_2)\,d\mathbf{x}+\int_{\mathcal{R}_2} p(\mathbf{x},\,C_1)\, d\mathbf{x}=\int \min\{p(\mathbf{x},\,C_1),\, p(\mathbf{x},\,C_2)\}\, d\mathbf{x} \le \int\{p(\mathbf{x},\,C_1)p(\mathbf{x},\,C_2)\}^{1/2}
 $$
