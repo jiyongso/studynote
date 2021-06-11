@@ -3,13 +3,38 @@ I. Introduction
 
 
 
-- Training set : $\{\mathbf{x}_1,\ldots,\,\mathbf{x}_N\}$ 
-- Target vector : $\mathbf{t}$
-- 결국 우리는 $\mathbf{y}(\mathbf{x})$ 를 표현하는 함수를 구하는 것이다. 
-- Supervised learning : input vectors 와 각각의 vector에 대한 target vector가 training set으로 주어지는 경우 이를 *supervised learning* 이라 한다. targent vector가 주어지지 않을 경우 *unsuperviesd learning* 이라 한다. 
-- Supervised learning 에서 $\mathbf{y}(\mathbf{x})$ 가 유한개의 불연속적인 category 값만 가질 수 있을경우 이를 *classfication* 문제라 한다. 연속적인 값만 가질 수 있을 경우 이를 *regression* 이라 한다.
-- Unsupervised learning 에서 데이터 사이에 유사한 것 끼리 group화 하는 것을 *clustering* 이라 하며, input space에서의 데이터의 분포를찾는것을 *density estimation* 이라 한다.
-- 어떤 상황에서 최상의 결과(보상)를 갖는 행동을 trial and error를 통해 찾는 문제를 *reinforced learining* 이라 한다. 
+#### Example of Machine Learning - Supervised Learning
+
+- 우리가 어떤 데이터를 입력하여 machine learning을 통해 어떤 결과를 보고자 한다. 컴퓨터를 학습시키기 위해서는 그 결과값을 알고 있는 입력값과 그 결과값을 함께 사용하는데 이 학습을 위해 사용한 입력값을 **training set**, 각 training set 의 결과값을 **target vector** 라 한다. 즉,
+  - Training set : $\{\mathbf{x}_1,\ldots,\,\mathbf{x}_N\}$ ,  target vector : $\mathbf{t}=\{t_1,\ldots,\,t_N\}$ 
+  - 예를 들어 손으로 쓴 숫자를 확인하는 machine learning model 을 위해 100 개의 데이터로 훈련시킨다고 하자. 훈련을 위해서는 100 개 각각의 데이터에 대해 정확한 숫자값을 알아야 하고 이를 학습시켜야 한다. 100 개의 데이터가 training set $\{\mathbf{x}_1,\ldots,\,\mathbf{x}_{100}\}$ 이며 각각의 $\mathbf{x}_i$ 에 대한 이미 알고 있는 결과값이 target vector $\mathbf{t}=\{t_1,\ldots,\,t_{100}\}$  이다.
+- Training set은 가능한 전체 입력값의 일부이며 가능한 전체 입력값의 집합을 $X$ 라 하고 가능한 전체 결과의 집합을 $T$ 라 하자. $X$ 와 $T$ 사이에는 우리가 목표료하는 유일한 함수 $\mathbf{y}:X \to T$가 존재할 것이며,  Training set 과 target vector를 이용하여 이 함수 $\mathbf{y}$ 를 찾는 것이다. 
+
+
+
+#### Machine learning 의 단계
+
+- **Feature extraction** : training, 혹은 test 단계에 사용될 데이터는 raw 데이터 일 수 도 있고 데이터에 대한 pre-processing 을 거쳐, 학습에 효율적인 혹은 계산 속도를 높일수 있 데이터로 변환시켜야 할 필요가 있다. 이 단계를 feature extraction 이라 한다. 다만 feature extraction 단계에서는 정보가 손실되는 경우가 많으며, 여기서 손실된 정보가 시스템의 전체적인 정확도가 시스템의 전체적인 정확도를 손상시킬수 있으므로 주의해야 한다.
+
+- Training 단계 (Learning 단계) : 모델 학습 단계
+
+- Test 단계 : 그 결과값을 아는, training set 과는 다른 입력값을 사용하여 모델의 유효성을 확인하는 단계. 이를 **generalization** 이라 한다.   
+
+  
+
+
+
+#### Machine Learning 의 분류
+
+- Supervised learning : input vectors 와 각각의 vector에 대한 target vector가 training set으로 주어지는 경우 이를 *supervised learning* 이라 한다. target vector가 주어지지 않을 경우 *unsupervised learning* 이라 한다. 
+  - Supervised learning 에서 $\mathbf{y}(\mathbf{x})$ 가 가질 수 있는 값의 갯수가 countable 이면 이를 *classification* 문제라 한다. uncountable 이면 이를 *regression* 이라 한다.
+- Unsupervised learning 은 input vector 만 있고 target 이 없는 경우이다.  목표가  입력 데이터 사이에 유사한 것 끼리 group화 하는 것이라면 이를 *clustering* 이라 하며, input space에서의 데이터의 분포를찾는것을 *density estimation* 이라 한다. 혹은 고차원 데이터를 2차원 혹은 3차원으로 projection 시키고자 할 수 있는데 이를 *visualization* 이라 한다. 
+- 어떤 상황에서 최상의 결과(보상)를 갖는 행동을 trial and error를 통해 찾는 문제를 *reinforced learning* 이라 한다. 
+  - 여기서는 학습 알고리즘이 주변환경과 상호작용하는 상태(states)와 행동(actions)의 과정이 존재한다.
+  - 많은 경우 actions에 대한 보상은 즉각적 보상 뿐 아니라 차후의 상태에서 취할 수 있는 행동에 대한 지연된 보상에 대해서도 평가한다.
+  - 각 action에 대한 보상을 배분하는 것을 *credit assignment* 라 한다. 
+  - *exploration* (탐험) 은 새로운 action을 통해 이 action이 얼마나 효율적인지 알아보는 것을 수행하는것이며, *exploitation* (이용) 현 상태에서 가장 최대의 보상을 얻을 수 있는 행동을 수행하는 것을 의미한다. 강화학습의 일반적인 특징중의 하나는 이 둘 사이의 trade-off 이다. 
+  - 이 책에서는 강화학습을 자세히 다루지는 않는다.
 
 
 
@@ -27,25 +52,28 @@ I. Introduction
   $$
   y(x,\,\mathbf{w})=\sum_{j=0}^M w_j x^j\;. \tag{1.1}
   $$
-  with $\mathbf{w}=(w_0,\ldots,\,w_M)^T$. 
+  with $\mathbf{w}=(w_0,\ldots,\,w_M)^T$. 이 때 $M$을 order of polynomial 이라 한다.
 
 - Typical error function
   $$
   E(\mathbf{w})=\dfrac{1}{2}\sum_{n=1}^N \left\{y(x_n,\,\mathbf{w})-t_n\right\}^2\;.\tag{1.2}
   $$
-  여기서 $1/2$ 는 편의를 위해 붙인 factor. (이유는 나중에). 목적은 $E(\mathbf{w})$ 를 최소로 하는 $\mathbf{w}$ 를 찾는 것이다.이 때의 $\mathbf{w}$ 를 $\mathbf{w}^\ast$ 라 하자. 
+  여기서 $1/2$ 는 편의를 위해 붙인 factor. (이유는 나중에). 목적은 $E(\mathbf{w})$ 를 최소로 하는 $\mathbf{w}$ 를 찾는 것이다. (이는 다항식을 결정하는것과 동치이다.) 이 때의 $\mathbf{w}$ 를 $\mathbf{w}^\ast$ 라 하자. 일단 우리는 $E(\mathbf{w})\ge 0$ 이며, $E(\mathbf{w})=0 \iff y(x_n,\,\mathbf{w})=t_n \;\forall n=1,\ldots,N$ 임을 안다.  
+
+- 다항식의 order를 얼마로 할 것이냐 하는 문제는 소위 *model comparison* 혹은 *model selection* 문제이다. 
 
 - Root-mean-square error
   $$
   E_{RMS}=\sqrt{\dfrac{2E(\mathbf{w^\ast})}{N}}\;.\tag{1.3}
   $$
   
+- 
 
 
 
 #### Regularization
 
-Text 의 exmaple에서 보았듯이, polynomial curve fitting 에서 parameters의 갯수가 클 경우 항상 *over fitting* 문제가 발생한다. Bayesian approach 를 택할 경우 이러한 over-fitting을 피할 수 있으나 (왜 피할 수 있는지는 다음에..) polynomial curve fitting에서는 regularization 방법으로 over-fitting 문제를 회피한다. [회피라는 말이 가장 적당한 듯 하다.]
+Text 의 example에서 보았듯이, polynomial curve fitting 에서 parameters의 갯수가 많을 경우 항상 *over fitting* 문제가 발생한다. Bayesian approach 를 택할 경우 이러한 over-fitting을 피할 수 있으나 (왜 피할 수 있는지는 다음에..) polynomial curve fitting에서는 regularization 방법으로 over-fitting 문제를 회피한다. [회피라는 말이 가장 적당한 듯 하다.]
 
 
 
@@ -55,8 +83,7 @@ $$
 $$
 여기서 $\|\mathbf{w}\|^2=\mathbf{w}^T \mathbf{w}$ 이다. $\lambda$ 는 일반적인 의미의 error function에  대해 추가되는 term $\|\mathbf{w}\|^2$ 의 가중치를 의미한다.  많은 경우 $w_0$ 를 제외하고 사용한다. 즉 $\|\mathbf{w}\|^2-w_0^2$ 를 사용한다. ($w_0$ 는 target variable의 origin의 위치의 선택문제이므로.) 통계학 문헌에서는 이러한 방법을 *shrinkage method* 라 부른다. 
 
-> The particular case of a quadratic regularizer is called *ridge regression*. In the context of neural networks, this approach is know asn *weight decay*
->
+> The particular case of a quadratic reguralizer is called *ridge regression*. In the context of neural networks, this approach is know asn *weight decay*
 
 - Text 에서 보았듯이 $\ln \lambda = -18$ (즉 $\lambda=1.525\times 10^{-8})$ 일 때 over-fitting 이 사라진다, 
 
@@ -74,20 +101,21 @@ $$
 
 <b>Joint Probability</b>
 
-Random varialble $X,\,Y$ 에 대해 $X$ 는 $x_1,\ldots,\,x_M$ 값을 가질 수 있으며, $Y$ 는 $y_1,\ldots,\,y_L$ 값을 가질 수 있다고 하자. 모두 $N$ 번의 시행에서 $X=x_i,\, Y=y_j$ 가 나온 횟수가 $n_{ij}$ 이었다. $N$ 번의 시행에서 $X=x_i$ 인 횟수는 $c_i$, $Y=y_j$ 인 횟수는 $r_j$ 라 하자. 
+Random variable $X,\,Y$ 에 대해 $X$ 는 $x_1,\ldots,\,x_M$ 값을 가질 수 있으며, $Y$ 는 $y_1,\ldots,\,y_L$ 값을 가질 수 있다고 하자. 모두 $N$ 번의 시행에서 $X=x_i,\, Y=y_j$ 가 나온 횟수를 $n_{ij}$ 라 하자. $N$ 번의 시행에서 $X=x_i$ 인 횟수는 $c_i$, $Y=y_j$ 인 횟수는 $r_j$ 라 하자. 즉,
 $$
 p(X=x_i,\, Y=y_j)=\dfrac{n_{ij}}{N},\quad p(X=x_i)=\dfrac{c_i}{N},\quad p(Y=y_j)=\dfrac{r_j}{N}\;.
 $$
-이 때,
+이다. 이 때,
 $$
 p(X=x_i)=\sum_{j=1}^L p(X=x_i,\, Y=y_j)
 $$
-이며 (자명하다) 이를 **sum rule** 이라 한다. 
+이며 (자명하다) 이를 **sum rule** 이라 한다. 여기서 $P(X=x_i)$ 를 *marginal probability* 라 하기도 한다.
 
 
 
 <b>Conditional probability</b>
 
+$X=x_i$ 인 상황에서 $Y=y_j$ 인 확률을 $p(Y=y_j \mid X=x_i)$ 라 쓰며 *conditional probability* of $Y=y_j$ given $X=x_i$ 라 하고 다음과 같이 주어진다.
 $$
 p(Y=y_j\mid X=x_i)=\dfrac{n_{ij}}{c_i}
 $$
@@ -95,7 +123,6 @@ $$
 
 
 <b>Product rule of probability</b>
-
 $$
 p(X=x_i,\, Y=y_j)=\dfrac{n_{ij}}N=\dfrac{n_{ij}}{c_i}\dfrac{c_i}{N}=P(Y=y_j\mid X=x_i)\cdot p(X=x_i)\;.
 $$
@@ -103,36 +130,76 @@ $$
 
 
 <b> Summary</b>
-
 $$
 \begin{align*}
  \textbf{sum rule}&\qquad p(X)=\sum_Y p(X,\,Y)\,, \\
  \textbf{product rule}& \qquad p(X,\,Y)=p(Y\mid X)p(X) 
 
-\end{align*} \tag{1.5}
+\end{align*} \tag{1.10}
 $$
 
 
 
 <b>Bayes' theorem</b>
 $$
-p(Y\mid X)=\dfrac{p(X\mid Y) \, p(Y)}{p(X)}\;.\tag{1.6}
+p(Y\mid X)=\dfrac{p(X\mid Y) \, p(Y)}{p(X)}\;.\tag{1.12}
 $$
 
 With sum rule,
 $$
-P(X)=\sum_{Y}p(X \mid Y)\, p(Y)\,. \tag{1.7}
+P(X)=\sum_{Y}p(X \mid Y)\, p(Y)\,. \tag{1.13}
 $$
 
 
 
 <b>Independence of variable</b>
 
-확률변수 $X,\,Y$ 에 때해 $p(X,\,Y)=p(X)\, p(Y)$ 일 때 $X$ 와 $Y$ 는 *independent* 하다고 한다.
+확률변수 $X,\,Y$ 에 때해 $p(X,\,Y)=p(X)\, p(Y)$ 일 때 $X$ 와 $Y$ 는 *independent* 하다고 한다. $X,\,Y$ 가 independent 하다면 식 (1.10) 으로 부터 $p(Y|X)=P(Y)$ 임을 알 수 있다.
 
 
 
 #### 1.2.1 Probability densities
+
+연속확률변수일 때 $x\in (a,\,b)$ 일 확률 $p(x\in (a,\,b))$ 는
+$$
+p(x\in (a,\,b))=\int_a^b p(x)\,dx \tag{1.24}
+$$
+이다. 확률밀도함수 $p(x)$는 다음 두 조건을 만족해야 한다.
+$$
+\begin{align}
+p(x) & \ge 0 \tag{1.25}\\
+\int_{-\infty}^\infty p(x)\,dx &=1 \tag{1.26}
+\end{align}
+$$
+<b>Change of variable</b>
+
+$x=g(y)$ 이며 $y$ 에 대한 확률분포를 알고 싶을 때, 이 확률분포를 $p_y(y)$ 라 하면,
+$$
+p_y(y)=p(x)\left|\dfrac{dx}{dy}\right|=p(g(y))|g'(y) \tag{1.27}
+$$
+임을 쉽게 보일 수 있다.
+
+
+
+<b>Cumulative distribution function</b>
+
+$P(z)=p(x\in (-\infty,\,z))$ 를 cumulative distribution function 이라 하며,
+$$
+P(z) = \int_{-\infty}^z p(x)\, dx \tag{1.28}
+$$
+로 정의된다. $P'(x)=p(x)$ 임은 십게 알 수 있다.
+
+
+
+다변수  $\mathbf{x}=(x_1,\ldots,\,x_D)$ 에 대한 확률분포는 $\mathbf{x}$ 를 포함하는 infinitesimal volume $\delta \mathbf{x}$ 에 대해 $p(\mathbf{x})\,\delta \mathbf{x}$ 로 주어지며 다음과 같은 성질을 만족한다.
+$$
+\begin{align}
+p(\mathbf{x}) & \ge 0  \tag{1.29} \\
+\int p(\mathbf{x})\,d\mathbf{x}&= 1\tag{1.30}
+
+\end{align}
+$$
+ 
 
 
 
@@ -140,28 +207,55 @@ $$
 
 
 
+Sum rule과 Bayes' theorem 을 생각하면 다음이 성립함을 알 수 있다.
+$$
+\begin{align}
+p(x) &= \int p(x,\,y)\, dy \tag{1.31}\\
+p(x,\,y)&=p(y| x)\,p(x) \tag{1.32}
+\end{align}
+$$
+ 
+
+
+
 #### 1.2.2 Expectations and covariances
 
 
 
+<b>Expectation </b> of $f$ 
+
 확률변수 $X$ 에 대한 확률분포가 $p(x)$ 일 때 $x$ 에 대한 함수 $f(x)$ 의 평균값을 **expectation** of $f(x)$ 라 하며 다음과 같이 쓴다.
 $$
 \begin{align}
-\mathbb{E}[f]&=\sum_x p(x) f(x) &&\text{for descrete distribution,}\\
-&=\int  p(x) f(x)\, dx& &\text{for continuous distribution.}
+\mathbb{E}[f]&=\sum_x p(x) f(x) &&\text{for descrete distribution,} \tag{1.33}\\
+&=\int  p(x) f(x)\, dx& &\text{for continuous distribution.} \tag{1.34}
 
 \end{align}
 $$
 
+$N$ 개의 sample 이 주어졌을 때 expectation은 다음과 같이 근사 될 수 있다.
+$$
+\mathbb{E}[f] \approx \dfrac{1}{N} \sum_{i=1}^N f(x_n) \tag{1.35}
+$$
+(1.33)과 (1.34)는 (1.35)의 $N \to \infty$  극한과 동일하다.
+
+
 
 다변수 확률분포에서 특정 변수에 대한 평균은 다음과 같이 쓴다. $\mathbb{E}_x [f(x,\,y)]$ 는 
 $$
-\mathbb{E}_x [f(x,\,y)]=\sum_x p (x,\,y) f(x,\,y) =\int p(x,\,y) f(x,\,y)\, dx
+\mathbb{E}_x [f(x,\,y)]=\sum_x p (x,\,y) f(x,\,y) =\int p(x,\,y) f(x,\,y)\, dx \tag{1.36}
 $$
+
+
+
+
 <b>Conditional expectation value</b>
+
+$p(x\,|\,y)$ 에 대한 $f(x)$ 의 기대값은 다음과 같다.
 $$
-\mathbb{E}_x [f \mid y\,]= \sum_x p(x\mid y) f(x)
+\mathbb{E}_x [f \mid y\,]= \sum_x p(x\,|\, y)\, f(x) \tag{1.37}
 $$
+
 
 
 <b>Variance </b>
@@ -169,21 +263,30 @@ $$
 Variance of $f(x)$ is defined by
 $$
 \begin{align}
-\operatorname{var}[f]&\equiv \mathbb{E}\left[(f(x)-\mathbb{E}[f(x)])^2\right] \\
-&=\mathbb{E}[f(x)^2]-(\mathbb{E}[f(x)])^2\;.
+\operatorname{var}[f]&\equiv \mathbb{E}\left[(f(x)-\mathbb{E}[f(x)])^2\right] \tag{1.38} \\
+&=\mathbb{E}[f(x)^2]-(\mathbb{E}[f(x)])^2\;. \tag{1.39}
 \end{align}
 $$
+
+이다. 이 때  특히
+$$
+\operatorname{var}[x]=\mathbb{E}[x^2]-\mathbb{E}[x]^2\;\tag{1.40}
+$$
+dlek. 
+
+
+
 
 
 <b>covariance</b>
 $$
 \begin{align}
 \operatorname{cov}[x,\,y]&\equiv \mathbb{E}_{x,\,y} \left[(x-\mathbb{E}[x]) (y-\mathbb{E}[y])\right] \\
-&=\mathbb{E}_{x,\,y}[xy] -\mathbb{E}[x] \mathbb{E}[y]\;.
+&=\mathbb{E}_{x,\,y}[xy] -\mathbb{E}[x] \mathbb{E}[y]\;.\tag{1.41}
 
 \end{align}
 $$
-$X,\,Y$ 가 독립변수이면 $\operatorname{cov}[x,\,y]=0$. 이다.
+$X,\,Y$ 가 독립변수이면 $\operatorname{cov}[x,\,y]=0$ 이다.
 
 
 
@@ -191,7 +294,7 @@ $X,\,Y$ 가 독립변수이면 $\operatorname{cov}[x,\,y]=0$. 이다.
 $$
 \begin{align*}
 \operatorname{cov}[\mathbf{x},\, \mathbf{y}]&= \mathbb{E}_{\mathbf{x},\, \mathbf{y}}\left[\left( \mathbf{x}-\mathbb{E}[\mathbf{x}]\right)\left( \mathbf{y}^T-\mathbb{E}[\mathbf{y}^T]\right)\right] \\
-&=\mathbb{E}_{\mathbf{x},\,\mathbf{y}}[\mathbf{x}\mathbf{y}^T]-\mathbb{E}[\mathbf{x}]\,\mathbb{E}[\mathbf{y}^T]\,.
+&=\mathbb{E}_{\mathbf{x},\,\mathbf{y}}[\mathbf{x}\mathbf{y}^T]-\mathbb{E}[\mathbf{x}]\,\mathbb{E}[\mathbf{y}^T]\,.\tag{1.42}
 
 \end{align*}
 $$
@@ -208,11 +311,25 @@ $ 로 정의한다.
 
 - Polynomial curve fitting example 을 생각하자.  측정된 값 $\mathcal{D}=\{t_1,\ldots,\,t_n\}$ 과 parameter $\mathbf{w}$ 에 대해 Bayes theorem은 다음과 같다.
   $$
-  p(\mathbf{w}\mid \mathcal{D})=\dfrac{p(\mathcal{D}\mid\mathbf{w})p(\mathbf{w})}{p(\mathcal{D})}
+  p(\mathbf{w}\,|\, \mathcal{D})=\dfrac{p(\mathcal{D}\,|\,\mathbf{w})\,p(\mathbf{w})}{p(\mathcal{D})}
   $$
 
-- 여기서 $p(\mathcal{D}|\mathbf{w})$ 를 **likelihood function**  하고  $p(\mathbf{w})$ 를 **prior distribution** 이라 한다. $p(\mathcal{D})$ 는 normalization constant 이다. 
+  - 데이터를 보기 전에 $p(\mathbf{w})$ 에 대해 임시로 정한다. $\mathcal{D}=\{t_1,\ldots,\,t_N\}$ 는 $p(\mathcal{D}\,|\,\mathbf{w})$ 에 반영된다. 
+  - 여기서 $p(\mathcal{D}\,|\,\mathbf{w})$ 를 **likelihood function**  하고  $p(\mathbf{w})$ 를 **prior distribution** 이라 한다. $p(\mathcal{D})$ 는 normalization constant 이다. 
+  
 - frequentist 든 Bayesian 이든 $p(\mathcal{D}|\mathbf{w})$ 가 중심적인 역할을 하지만 이에 대한 두 입장의 견해는 매우 다르다. 빈도주의 입장에서는 $\mathbf{w}$ 는 고정된 parameters 이며 그 값과 에러는 dataset $\mathcal{D}$ 의 분포를 고려하여 얻어진다. 그러나 Bayesian 입장에서는 유일한 data set $\mathcal{D}$ 가 존재하며 the uncertainty in the parameters is expressed through a probability distribution over $\mathbf{w}$. 
+
+- 널리 사용되는 빈도주의자들의 estimator는 *maximum likelihood* 이다. 그들에게 $p(\mathbf{w})=1$ 이므로 $p(\mathcal{D}\,|\,\mathbf{w})$ 를 최대화하면 자연스럽게 $p(\mathbf{w}\,|\,\mathcal{D})$ 가 최대화 된다. ML 에서는 $-\ln p(D\,|\,\mathbf{w})$ 를 *error function* 이라 한다. 따라서 likelihood 를 최대화 하는것은 error function 을 최소화 하는 것이다.
+
+- bootstrap 방법에 대한 설명... 생략.
+
+- 동전을 던졌을 때 앞면이 나올 확률을 $q$ 라 하자. 세번의 동전을 던져 셋 다 앞면이 나왔을 때, 빈도주의적 접근에 의하면, Likelihood function 
+  $$
+  p(\text{3 up}\,|\,q)=q^3
+  $$
+   이므로 $p(\text{3 up}|q)$ 를 최대화  하는 것은 $q=1$ 이다. 그런데 베이지언에서는 reasonable 한 prior distribution을 부여하므로, 덜 극단적인 결론에 도달하게 된다.	
+
+- 베이지언에 대한 가장 일반적인 비판중의 하나는 prior distribution 이 어떤 선험적인 믿음의 반영이라기 보다는 수학적인 편리에 기반하여 선택된다는 것이다. 또한 prior distribution을 선택하는데는 주관이 개입할 수 밖에 없다는것도 비판의 대상이다. 이러한 주관성을 개선하기 위해 소위 *non-informative priors* 가 도입되기도 한다.
 
 
 
@@ -220,21 +337,25 @@ $ 로 정의한다.
 
 평균 (mean) $\mu$ 와 분산 $\sigma^2$ 에 대한 Gaussian distribution $\mathcal{N}(x\mid \mu,\,\sigma^2)$ 는 다음과 같다.
 $$
-\mathcal{N} (x\mid \mu,\,\sigma^2) = \dfrac{1}{\sigma \sqrt{2\pi }} \exp \left[-\dfrac{(x-\mu)^2}{2\sigma^2}\right]
+\mathcal{N} (x\mid \mu,\,\sigma^2) = \dfrac{1}{\sigma \sqrt{2\pi }} \exp \left[-\dfrac{(x-\mu)^2}{2\sigma^2}\right] \tag{1.46}
 $$
-Gaussian distribution $\mathcal{N}(x\mid \mu,\,\sigma^2)$ 는 다음과 같은 성질을 갖는다.
+여기서 $\mu$ 를 평균, $\sigma^2$ 를 분산 이라고 하며, 가우시안 분포는 $\mu$ 와 $\sigma^2$ 에 의해 결정된다. Gaussian distribution $\mathcal{N}(x\mid \mu,\,\sigma^2)$ 는 다음과 같은 성질을 갖는다.
 $$
-\begin{aligned}
-\mathbb{E}[x] &=\int_{-\infty}^\infty x\, \mathcal{N}(x\mid \mu,\,\sigma^2)\,dx=\mu\;,\\
-\mathbb{E}[x^2] &= \int_{-\infty}^\infty x^2 \mathcal{N}(x\mid \mu,\,\sigma^2)\,dx=\mu^2+\sigma^2\;,\\
-\operatorname{var}[f] &=\mathbb{E}[x^2]-\left(\mathbb{E}[x]\right)^2=\sigma^2 \;.
+\begin{align}
+\mathcal{N}&(x\mid \mu,\,\sigma^2)  \ge 0\,, \tag{1.47}\\
+\int_{-\infty}^\infty &\mathcal{N}(x\mid \mu,\,\sigma^2)\, dx = 1,\, \tag{1.48}\\
+\mathbb{E}[x] &=\int_{-\infty}^\infty x\, \mathcal{N}(x\mid \mu,\,\sigma^2)\,dx=\mu\;, \tag{1.49}\\
+\mathbb{E}[x^2] &= \int_{-\infty}^\infty x^2 \mathcal{N}(x\mid \mu,\,\sigma^2)\,dx=\mu^2+\sigma^2\;,\tag{1.50}\\
+\operatorname{var}[f] &=\mathbb{E}[x^2]-\left(\mathbb{E}[x]\right)^2=\sigma^2 \;. \tag{1.51}
 
-\end{aligned}
+\end{align}
 $$
 $\mathbb{R}^\mathcal{D}$ 에서 평균 $\boldsymbol{\mu}$ 와 covariance $\boldsymbol{\Sigma}$ 를 갖는 Gaussian distribution은 다음과 같다.
 $$
 \mathcal{N}(\boldsymbol{x}\mid \boldsymbol{\mu},\,\boldsymbol{\Sigma}) = \dfrac{1}{(2\pi)^{\mathcal{D}/2}}\dfrac{1}{\left|\boldsymbol{\Sigma}\right|^{1/2}} \exp \left[-\dfrac{1}{2} (\boldsymbol{x}-\boldsymbol{\mu})^T \boldsymbol{\Sigma} (\boldsymbol{x}-\boldsymbol{\mu})\right]
 $$
+
+
 
 <b>1-변수 가우스분포에서의 $\mu$와 $\sigma^2$ 의 추정 -Maximum Likelyhood </b> 
 
