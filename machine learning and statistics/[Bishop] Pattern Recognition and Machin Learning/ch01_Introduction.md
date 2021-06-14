@@ -365,59 +365,74 @@ $$
 
 우선 $N$ 측정에서 $\mathbf{x}$ 가 관측될 확률은
 $$
-p(\mathbf{x}\mid \mu,\,\sigma^2)= \prod_{n=1}^N \mathcal{N}(x_n\mid \mu,\,\sigma^2)
+p(\mathbf{x}\mid \mu,\,\sigma^2)= \prod_{n=1}^N \mathcal{N}(x_n\mid \mu,\,\sigma^2) \tag{1.53}
 $$
-이며, 계산의 편의를 위해,
+이며 *likelihood function for the Gaussian* (가우시안 우도 함수)이라 불리운다.
+
+<u>One common criterion for determining the parameters in a probability distribution using an observed data set is to find the parameter values that maximize the likelihood function. This might seem like a strange criterion because, from our foregoing discussions of probability theory, it would seem more natural to maximize the probability of the parameters given the data, not the probability of the data given the parameters</u>. 관찰 된 데이터 세트를 사용하여 확률 분포에서의 매개변수를 결정하는 일반적인 기준 중 하나는 우도 함수를 최대화하는 파라미터 값을 찾는 것이다. 앞서 언급 한 확률 이론 논의에서 매개 변수가 주어졌을 때의 데이터의 확률이 아니라 데이터가 주어졌을 때 매개 변수 확률을 최대화하는 것이 더 자연스러워 보이기 때문에 이것은 이상한 기준처럼 보일 수 있다. 사실 이 두가지는 연관되어 있으며, curve fitting의 맥락에서 뒤에 논의하기로 하자. 
+
+
+
+어쨋든, 식 (1.53) 의 우도함수를 최대화하는 $\mu,\,\sigma^2$ 를 정하자. 계산의 편의를 위해 로그함수를 사용한다.
 $$
-\ln p(\mathbf{x}\mid \mu,\,\sigma^2)= - \dfrac{1}{2\sigma^2}\sum_{n=1}^N (x_n-\mu)^2-\dfrac{N}{2} \ln \sigma^2 - \dfrac{N}{2} \ln 2\pi
+\ln p(\mathbf{x}\mid \mu,\,\sigma^2)= - \dfrac{1}{2\sigma^2}\sum_{n=1}^N (x_n-\mu)^2-\dfrac{N}{2} \ln \sigma^2 - \dfrac{N}{2} \ln 2\pi \tag{1.54}
 $$
 이다. 이 때 $p (\mathbf{x}\mid \mu,\,\sigma^2)$ 를 최대화 하는 $\mu$ 와 $\sigma^2$ 를 $\mu_{ML},\,\sigma_{ML}^2$ 라 할 때 다음과 같다.
 $$
 \begin{align}
-\mu_{ML} &= \dfrac{1}{N}\sum_{n=1}^N x_n \;,\\
-\sigma_{ML}^2 &= \dfrac{1}{N} \sum_{n=1}^N (x_n-\mu_{ML})^2\;.
+\mu_{ML} &= \dfrac{1}{N}\sum_{n=1}^N x_n \;,\tag{1.55}\\
+\sigma_{ML}^2 &= \dfrac{1}{N} \sum_{n=1}^N (x_n-\mu_{ML})^2\;.\tag{1.56}
 \end{align}
 $$
-Sample의 평균과 분산은 다음과 같으며 이에 대한 증명은 Exercises 1.12를 참고하라.
+<b>Bias</b>
 
+Maximum likelihood approach는 분포의 분산을 underestimate 하는데 이런 현상을 bias라 한다. Sample의 평균과 분산의 기대값은 다음과 같은데(이에 대한 증명은 Exercises 1.12를 참고하라.), 
 $$
-\begin{aligned}
-\mathbb{E}[\mu_{ML}]& =\mu \,\\
-\mathbb{E}\left[\sigma_{ML}^2\right] & =\left(\dfrac{N-1}{N}\right)\sigma^2
-\end{aligned}
+\begin{align}
+\mathbb{E}[\mu_{ML}]& =\mu \,\tag{1.57}\\
+\mathbb{E}\left[\sigma_{ML}^2\right] & =\left(\dfrac{N-1}{N}\right)\sigma^2 \tag{1.58}
+\end{align}
 $$
 
-따라서 다음 값 $\widetilde{\sigma\,}^2$ 는 samples 로 부터 추정한 모집단의 분산과 같다. (즉 unbiased.) 이를 표본분산이라 한다.
+식 (1.58)에서 보듯이 $\mathbb{E}\left[\sigma^2_{ML}\right]<\sigma^2$ 이다. 따라서 아래와 같이 정의된 $\widetilde{\sigma\,}^2$ 는 samples 로 부터 추정한 모집단의 분산과 같다. (즉 unbiased.) 이를 표본분산이라 한다.
 $$
-\widetilde{\sigma\,}^2 = \dfrac{N}{N-1}\sigma_{ML}^2 = \dfrac{1}{N-1} \sum_{n=1}^N\left(x_n-\mu_{ML}\right)^2
+\widetilde{\sigma\,}^2 = \dfrac{N}{N-1}\sigma_{ML}^2 = \dfrac{1}{N-1} \sum_{n=1}^N\left(x_n-\mu_{ML}\right)^2 \tag{1.59}
 $$
- $N\to \infty$ 일 때 $\sigma_{ML}^2 \to \sigma^2$ 임은 쉽게 알 수 있다.
+ $N\to \infty$ 일 때 $\sigma_{ML}^2 \to \sigma^2$ 임은 쉽게 알 수 있다. 실제로 $N$ 이 작지만 않으면 큰 문제는 되지 않는다.
+
+
+
+Section 10.1.3 에서는 이 결과가 베이지안 접근법에서는 자동적으로 나오는 것을 볼 것이다.
+
+
 
 
 
 #### 1.2.5 Curve Fitting Revisited
 
+
+
 $N$ 개의 input values $\mathbf{x} = (x_1,\ldots,\,x_N)^T$ 와 target values $\mathbf{t}=(t_1,\ldots,\,t_N)^T$ 사이에 polynomial $t=y(x;\mathbf{w})=w_0 + w_1x+ \cdots +w_nx^n$ 의 관계를 가정한다. Target value의 uncertainty 를 확률분포로서 표현하자. 이를 위해 주어진 $x$ 에 대해 target value의 확률은 $y(x,\,\mathbf{w})$ 를 중심으로 분산이 $\beta^{-1}$ 인 가우시안분포를 따른다고 가정한다. 즉,
 $$
-p(t\mid x,\,\mathbf{w},\, \beta)=\mathcal{N}(t\mid y(x,\,\mathbf{w}),\,\beta^{-1})
+p(t\mid x,\,\mathbf{w},\, \beta)=\mathcal{N}(t\mid y(x,\,\mathbf{w}),\,\beta^{-1}) \tag{1.60}
 $$
  이다. 
 
-$\{\mathbf{x},\,\mathbf{t}\}$ 를 이용하여 unknown parameters $\mathbf{w}$ 와 $\beta$ 를 결정하자. 그렇다면 likelyhood function은 다음과 같이 주어진다.
+훈련 데이터 $\{\mathbf{x},\,\mathbf{t}\}$ 를 이용하여 unknown parameters $\mathbf{w}$ 와 $\beta$ 를 결정하자. 그렇다면 likelihood function은 다음과 같이 주어진다.
 $$
-p(\mathbf{t}\mid \mathbf{x},\,\mathbf{w},\,\beta)=\prod_{n=1}^N \mathcal{N}(t_n\mid y(x_n,\, \mathbf{w}),\, \beta^{-1})
+p(\mathbf{t}\mid \mathbf{x},\,\mathbf{w},\,\beta)=\prod_{n=1}^N \mathcal{N}(t_n\mid y(x_n,\, \mathbf{w}),\, \beta^{-1}) \tag{1.61}
 $$
 앞서와 같이 $\ln$ 을 취하면,
 $$
-\ln p(\mathbf{t}\mid \mathbf{x},\, \mathbf{w},\,\beta)= -\dfrac{\beta}{2} \sum_{n=1}^N \left[y(x_n,\,\mathbf{w})-t_n\right]^2+\dfrac{N}{2} \ln \beta - \dfrac{N}{2} \ln (2\pi)
+\ln p(\mathbf{t}\mid \mathbf{x},\, \mathbf{w},\,\beta)= -\dfrac{\beta}{2} \sum_{n=1}^N \left[y(x_n,\,\mathbf{w})-t_n\right]^2+\dfrac{N}{2} \ln \beta - \dfrac{N}{2} \ln (2\pi) \tag{1.62}
 $$
-이 된다. 여기서 (고정된 $\beta$ 에 대해) $p(\mathbf{t}\mid \mathbf{x},\, \mathbf{w},\,\beta)$ 를 maximize 하는 것과 $\displaystyle \dfrac{1}{2}\sum_{n=1}^N \left[ y(x_n,\,\mathbf{w})-t_n\right]^2$ 를 minimize 하는 것은  동치이며 이렇게 하는 $\mathbf{w}$ 를 $\mathbf{w}_{ML}$이라 하자. 또한 $\beta$ 에 대해 미분하여 $p$ 를 maximize 하는 $\beta$ 를 찾아 $\beta_{ML}$ 이라 하면,,
+이 된다. 여기서 (고정된 $\beta$ 에 대해) $p(\mathbf{t}\mid \mathbf{x},\, \mathbf{w},\,\beta)$ 를 maximize 하는 것과 $\displaystyle \dfrac{1}{2}\sum_{n=1}^N \left[ y(x_n,\,\mathbf{w})-t_n\right]^2$ 를 minimize 하는 것은  동치이며 이렇게 하는 $\mathbf{w}$ 를 $\mathbf{w}_{ML}$이라 하자. 또한 $\beta$ 에 대해 미분하여 $p$ 를 maximize 하는 $\beta$ 를 찾아 $\beta_{ML}$ 이라 하면,
 $$
-\dfrac{1}{\beta_{ML}}=\dfrac{1}{N}\sum_{n=1}^N \left[ y(x_n,\, \mathbf{w})-t_n\right]^2
+\dfrac{1}{\beta_{ML}}=\dfrac{1}{N}\sum_{n=1}^N \left[ y(x_n,\, \mathbf{w})-t_n\right]^2 \tag{1.63}
 $$
 이다. 이제 우린는 maximum likely 한 확률 분포를 다음과 같이 얻는다.
 $$
-p(t\mid x,\,\mathbf{w}_{ML},\, \beta_{ML})=\mathcal{N}(t\mid  y(x,\,\mathbf{w}_{ML}),\,\beta_{ML}^{-1})
+p(t\mid x,\,\mathbf{w}_{ML},\, \beta_{ML})=\mathcal{N}(t\mid  y(x,\,\mathbf{w}_{ML}),\,\beta_{ML}^{-1}) \tag{1.64}
 $$
 
 
@@ -428,22 +443,22 @@ $$
 
 $$
 \begin{align}
-p(a|x)&=\sum_y p(a| x,\,y)\, p(y| x) & (\text{B}1) \\
-p(a|x,\,y) &= \dfrac{p(x|a,\,y)\, p(a|y)} {p(y|x)} & (\text{B}2)
+p(a|x)&=\sum_y p(a| x,\,y)\, p(y| x)  \tag{B1} \\
+p(a|x,\,y) &= \dfrac{p(x|a,\,y)\, p(a|y)} {p(y|x)}  \tag{B2}
 \end{align}
 $$
 
-*proof*
+---
 
-(1)
+*proof*
 $$
 \begin{align}
-\sum_y p (a\mid x,\,y)\, p(y\mid x)&=\sum_y \dfrac{p(a,\,x,\,y)}{p(x,y)} \cdot \dfrac{p(x,\,y)}{p(x)} =\sum_y \dfrac{p(a,\,x,\,y)}{p(x)} \\
+\sum_y p (a\,|\, x,\,y)\, p(y\mid x)&=\sum_y \dfrac{p(a,\,x,\,y)}{p(x,y)} \cdot \dfrac{p(x,\,y)}{p(x)} =\sum_y \dfrac{p(a,\,x,\,y)}{p(x)} \\
 &=\dfrac{1}{p(x)}\sum_{y}p(a,\,x,\,y) = \dfrac{p(a,\,x)}{p(x)} \\
 &=p(a|x)
 \end{align}
 $$
-(2)
+
 $$
 \begin{align}
 \dfrac{p(x|a,\,y)\, p(a|y)}{p(y|x)} &= \dfrac{p(a,\,x,\,y)}{p(a,\,y)} \cdot \dfrac{p(a,\,y)}{p(y)} \cdot \dfrac{p(y)}{p(x,\,y)}=\dfrac{p(a,\,x,\,y)}{p(x,\,y)}=p(a|x,\,y)
@@ -451,19 +466,55 @@ $$
 $$
 
 
+
 이제 Bayesian 접근법을 좀 알아보자. $\mathbf{w}$ 가 $\alpha$ 의 정확도를 갖는 Gaussian 분포를 따른다고 하자. 그렇다면,
 $$
-p(\mathbf{w}|\alpha)=\mathcal{N}(\mathbf{w}|0,\,\alpha^{-1}\mathbf{I})=\left(\dfrac{\alpha}{2\pi}\right)^{(M+1)/2} \exp \left(-\dfrac{\alpha}{2}\mathbf{w}^T \mathbf{w}\right)
+p(\mathbf{w}|\alpha)=\mathcal{N}(\mathbf{w}|0,\,\alpha^{-1}\mathbf{I})=\left(\dfrac{\alpha}{2\pi}\right)^{(M+1)/2} \exp \left(-\dfrac{\alpha}{2}\mathbf{w}^T \mathbf{w}\right) \tag{1.65}
 $$
-이다. 여기서 $M$은 degree of polynomial 이며 따라서 $\mathbf{w}$ 는 $M+1$ 개의 elements를 가진다.
+이다. 여기서 $M$은 degree of polynomial 이며 따라서 $\mathbf{w}$ 는 $M+1$ 개의 elements를 가진다. $\alpha$ 와 같이 모델 파라메터의 분포를 제어하는 변수를 *hyperparameters* 라 한다. 
 
-또한 식 (B2) 로부터 다음을 알 수 있다.
+또한 Bayes' theorem으로 부터,
+$$
+[\text{posterior distribution for }\mathbf{w}] \propto [\text{likelihood function}]\times[\text{prior distribution}]
+$$
+임을 알고 있으므로,
+$$
+p(\mathbf{w}\,|\,\mathbf{x},\,\mathbf{t},\,\alpha,\,\beta) \propto p(\mathbf{t}\,|\,\mathbf{x},\,\mathbf{w},\,\beta)\cdot p(\mathbf{w}\,|\,\alpha) \tag{1.66}
+$$
+이다. 식 (1.66) 을 $-\ln$ 을 취하고 식 (1.62), (1,65)을 대입하면, maximum of the posterior 는 다음 식을 minimize 하는 것으로 으로 주어진다.
+$$
+\dfrac{\beta}{2}\sum_{n=1}^N \{y(x_n,\,\mathbf{w})-t_n\}^2+\dfrac{\alpha}{2} \mathbf{w}^T \mathbf{w} \tag{1.67}
+$$
+즉 Bayesian에서 posterior distribution을 maximizing 하는 것은 regularized sum of square error 함수의 minimization 과 동일하다. 
+
+
+
+#### 1.2.6 Bayesian Curve Fitting
+
+- 앞서 우리는 prior distribution $p(\mathbf{w}|\alpha)$ 에 대한 추정을 포함시켰지만, $\mathbf{w}$ 에 대한 point estimate 이므로 이것은 제대로 된 Bayesian treatment 가 아니다. 제대로 된 베이지언에서는 확률에 대한 합과 곱의 규칙들을 일관되게 적용해야 하며, 이는 $\mathbf{w}$ 에 대한 모든 값에 대해 적분해야 함을 의미한다. 이러한 marginalizations가 페턴 인식에서의 베이지언 방법의 핵심이다.
+- 일단 $\alpha,\,\beta$ 를 고정시키고 (편의를 위해 식에서는 일단 빼자.), test set $\{\mathbf{x},\,\mathbf{t}\}$ 만을 생각하자. 베이지안 방법은
+
+$$
+p(t\,|\,x,\,\mathbf{x},\,\mathbf{t})=\int p(t\mid x,\,\mathbf{w})\, p(\mathbf{w}\mid\mathbf{x},\,\mathbf{t})\,d\mathbf{w} \tag{1.68}
+$$
+
+을 생각한다. 여기서 $p(t\mid x,\,\mathbf{w})$ 는 식 (1.60) 에 나와 있으며 $p(\mathbf{w}\mid \mathbf{x},\,\mathbf{t})$ 는 posterior distribution 이다. (식 (1.66) 을 보라.) 
+
+- Section 3.3 에서 보겠지만, curve fitting example 과 같은 문제에서 이 posterior distribution 은 Gaussian 이며 해석적으로 계산 할 수 있다. 비슷하게 식 (1.68) 도 해석적으로 적분될 수 있으며 그 결과는 아래와 같은 가우시한 형태로 주어진다.
+
 $$
 \begin{align}
-p(\mathbf{w}|\mathbf{x},\,\mathbf{t},\,\alpha,\,\beta) &=\dfrac{p(\mathbf{t}|\mathbf{x},\,\mathbf{w},\,\alpha,\,\beta)\, p(\mathbf{w}|\mathbf{x},\alpha,\,\beta)}{p(\mathbf{x},\,\alpha,\,\beta |\mathbf{t})} 
+&p(t\mid x,\,\mathbf{x},\,\mathbf{t})=\mathcal{N}(t\mid m(x),\, s^2(x)) \tag{1.69}\\
+\text{where} \qquad &m(x) =\beta \phi(x)^T \mathbf{S} \sum_{n=1}^N \phi (x_n) t_n \tag{1.70}\\
+& s^2(x)=\beta^{-1}+ \phi(x)^T\mathbf{S}\phi(x) \tag{1.71}\\
+&\mathbf{S}^{-1}= \alpha \mathbf{I} + \beta \sum_{n=1}^N \phi(x_n) \phi(x)^T \tag{1.72}\\
+&\phi_i (x)=x^i \;(i\text{-th component of vector }\mathbf{x})
 \end{align}
 $$
- 우리는 $\mathbf{t}$ 가 $\alpha$-independent 하며, $\mathbf{w}$ 가 $\beta$-independent 함을 알고 있다. 
+
+
+
+
 
 
 
