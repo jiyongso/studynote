@@ -215,9 +215,299 @@ $$
 
 (2) $K_i:=\{t_0P_1 + \cdots + t_i P_i : t_0,\ldots,\,t_i \ge 0,\, t_0+\cdots + t_i=1 \}$ 에 대해 이것이 $P_0,\ldots,\,P_i$ 를 포함하는 최소한의 볼록집합임을 induction을 사용하여 증명하자.  $K_0 =\{P_0\}$  이며 $K_1=\{(1-t)P_0+tP_1: 0 \le t\le 1\}$ 임을 보이자. 볼록집합의 정의에 의해 $K_1$ 이 $P_0,\,P_1$ 을 포함하는 최소한의 볼록집합임은 자명하다. 
 
-이제 $K_N$ 이 $P_0,\ldots,\,P_N$ 을 포함하는 최소한의 볼록집합임을 가정하면 $K_{N+1}$ 이 $P_0,\ldots,\,P_N,\, P_{N+1}$ 을 포함하는 최소한의 볼록집합임을 보이자. $Q_N\in K_N$ 이라 할 때 $0\le s \le 1$ 을 만족하는 $s$ 에 대해 $(1-s)Q_N + sP_{N+1} \in P_{N+1}$ 이어야 한다. $Q_N = x_0P_1 + \cdot + x_NP_N$ 이므로
+이제 $K_N$ 이 $P_0,\ldots,\,P_N$ 을 포함하는 최소한의 볼록집합임을 가정하면 $K_{N+1}$ 이 $P_0,\ldots,\,P_N,\, P_{N+1}$ 을 포함하는 최소한의 볼록집합임을 보이자. $Q_N\in K_N$ 이라 할 때 $0\le s \le 1$ 을 만족하는 $s$ 에 대해 $(1-s)Q_N + sP_{N+1} \in P_{N+1}$ 이어야 한다. $Q_N = x_0P_1 + \cdot + x_NP_N$ for some $x_0,\ldots,\,x_N \ge 0,\, x_0+\cdots + x_N=1$ 이므로
 $$
 (1-s)Q_N+sP_{N+1}=(1-s)x_0 P_1 + \cdots +(1-s)x_NP_1 + sP_{N+1}
 $$
-이다. $\displaystyle \sum_{j=1}^N (1-s)x_j + s=(1-s)\sum_{j=1}^N x_j + s=1$ 이므로 $(1-s)Q_N + sP_{N+1}\in P_{N+1}$ 이다. 
+이다. $\displaystyle \sum_{j=1}^N (1-s)x_j + s=(1-s)\sum_{j=1}^N x_j + s=1$ 이므로 $(1-s)Q_N + sP_{N+1}\in P_{N+1}$ 이다. 따라서 $P_1,\ldots,\,P_{N+1}$ 을 포함하는 볼록집합은 $K_{N+1}$ 부분집합이다. 또한 $K_{N+1}$ 의 정의에 의해 $K_{N+1}$ 은 $P_1,\ldots,\,P_{N+1}$ 을 포함하는 볼록집합에 포함된다. 따라서 $K_N$ 이 $P_1,\ldots,\,P_N$ 을 포함하는 최소한의 볼록집합이면 $K_{N+1}$ 은 $P_1,\ldots,\,P_{N+1}$ 을 포함하는 최소한의 볼록집합이다. 따라서 증명 끝.
+
+
+
+<b>13. </b> 볼록집합과 볼록집합의 교집합은 볼록집합임을 보이라.
+
+---
+
+$A,\,B$ 가 볼록집합이며 $P,\,Q\in A \cap B$ 라 하자. 임의의 $0\le t \le 1$ 에 대해 $tP+(1-t)Q \in A \cap B$ 임은 trivial 하므로 $A \cap B$ 는 볼록집합이다.
+
+
+
+<b>14. </b> $n$ 공간 속의 공 
+$$
+\begin{align}
+B^{n}(C,\,r) &:= \{X\in \mathbb{R}^n : |X-C|<r\}\\  
+\overline{B}^n (C,\,r)&:= \{X \in \mathbb{R}^n : |X-C|\le r\}
+\end{align}
+$$
+은 모두 볼록집합임을 보이라.
+
+---
+
+$X,\,Y \in B^n(C,\,r)$ 이라면 $|X-C|<r,\, |Y-C|<r$ 이다. 임의의 $0\le t \le 1$ 에 대해
+$$
+|tX+(1-t)Y-C|=|t(X-C)+(1-t)(Y-C)| \le t|X-C|+(1-t)|Y-C|< tr+(1-t)r=r
+$$
+이므로 $tX+(1-t)Y\in B^n(C,\,R)$ 이다. 따라서 $B^n(C,\,r)$ 은 볼록집합이다. 
+
+$X,\,Y \in \overline{B}^n(C,\,r)$ 이라면 $|X-C|\le r,\, |Y-C|\le r$ 이다. 임의의 $0\le t \le 1$ 에 대해
+$$
+|tX+(1-t)Y-C|=|t(X-C)+(1-t)(Y-C)| \le t|X-C|+(1-t)|Y-C| \le tr+(1-t)r=r
+$$
+이므로 $tX+(1-t)Y\in \overline{B}^n(C,\,R)$ 이다. 따라서 $\overline{B}^n(C,\,r)$ 은 볼록집합이다. 
+
+
+
+<b>15. </b> $n$-공간의 단위벡터 $\mathbf{n}$ 에 대하여 초평면 $\mathbf{n}\cdot X+c=0$ 과 점 $P_1,\ldots,P_k$ 사이의 거리의 제곱합은 $\displaystyle \sum_{i=1}^k (\mathbf{n}\cdot P_i +c)^2$ 으로 주어진다. 이 값이 최소로 되는 초평면을, 주어진 점 $P_1,\ldots,\,P_k$ 에서 가장 가까운 초평면이라고 부를 때, 주어진 점에서 가장 가까운 초평면은 그 점들의 중심을 지남을 보이라.
+
+---
+
+$c=-\mathbf{n}\cdot X$ 이므로, $
+$$
+\sum_{i=1}^k (\mathbf{n}\cdot P_i + c)^2=\sum_{i=1}^k (\mathbf{n} \cdot (P_i-X))^2 
+$$
+
+$$
+\begin{align}
+\sum_{i=1}^k \left(\mathbf{n} \cdot P_i + c\right)^2 &=\sum_{i=1}^k (\mathbf{n}\cdot P_i)^2 + 2c\left(\sum_{i=1}^k \mathbf{n}\cdot P_i\right) + kc^2 \\
+&=k\left[c^2 + \dfrac{2}{k}\left(\sum_{i=1}^k \mathbf{n}\cdot P_i\right)c+\dfrac{1}{k^2}\left(\sum_{i=1}^k \mathbf{n}\cdot P_i\right) ^2\right]+\sum_{i=1}^k (\mathbf{n}\cdot P_i)^2-\dfrac{1}{k}\left(\sum_{i=1}^k \mathbf{n}\cdot P_i\right) ^2 \\
+&=k\left[c+\dfrac{1}{k} \left(\sum_{i=1}^k \mathbf{n}\cdot P_i\right)\right]^2+\sum_{i=1}^k (\mathbf{n}\cdot P_i)^2-\dfrac{1}{k}\left(\sum_{i=1}^k \mathbf{n}\cdot P_i\right) ^2
+
+\end{align}
+$$
+
+여기서 뒤의 두 term 은 상수 term 이므로 $\displaystyle c=-\dfrac{1}{k} \left(\sum_{i=1}^k \mathbf{n}\cdot P_i\right)$ 일 때 최소값을 가진다. 이 때,
+$$
+0=\mathbf{n}\cdot X +c = \mathbf{n}\cdot \left(X-\dfrac{1}{k}
+\sum_{i=1}^k P_i\right)
+$$
+이므로 이 초평면은 $\displaystyle \dfrac{1}{k}\sum_{i=1}^k P_i$ 를 지나는데 이 점이 중심이다.
+
+
+
+<b>16. </b> 어떤 보물섬의 지도에는 $n$ 개의 마을이 그려져 있고, 보물을 찾아 갈 수 있는 지시가 다음과 같이 쓰여 있다.
+
+> 마을 $A_1$ 에서 출발하여 마을 $A_2$ 쪽으로 $\frac{1}{2}$ 만큼 간 다음, 마을 $A_3$ 쪽으로 $\frac{1}{3}$ 만큼 가고, 계속해서 마을 $A_4$ 쪽으로 $\frac{1}{4}$ 만큼 가고, ... , 마을 $A_n$ 쪽으로 $\frac{1}{n}$ 만큼 간 곳에 보물이 묻여 힜다.
+
+그러나 지도에는 마을의 이름이 모두 지워져 있었다. 이 때 부물이 묻힌 곳을 알 수 있겠는가.
+
+---
+
+처음 시작점의 위치를 $P_1$, $k$ 번째 마을을 향하여 주어진 만큼 향하였을때의 위치를 $P_k$ 라 하자. 그렇다면, $P_1=A_1$ 이며 $k\ge 2$ 에 대해 
+$$
+P_k = P_{k-1}+\dfrac{1}k(A_k-P_{k-1})= \dfrac{k-1}{k}P_{k-1} + \dfrac{1}{k}A_k
+$$
+이므로,
+$$
+kP_k = (k-1)P_{k-1}+A_k
+$$
+이다. 양 변에 $\displaystyle \sum_{k=1}^n$ 을 씌워 계산하면,
+$$
+P_1 + 2P_2 + \cdots + nP_n = P_1 + \cdots (n-1)P_{n-1} + A_1 + \cdot + A_n
+$$
+이므로, $nP_n =A_1+\cdots +A_n$ 이다. 즉, 
+$$
+P_n = \dfrac{1}{n} \sum_{k=1}^n A_n
+$$
+이므로 $P_n$ 은 $n$ 개의 마을들의 중심이다.
+
+
+
+<b>17. </b> 사각형의 각 변의 중점을 차례로 이어 얻은 사각형은 평행사변형임을 보이라.
+
+---
+
+사각형의 각 꼭지점을 $A,\,B,\,C,\,D$ 라 하면 각 변의 중점은 $X_1=(A+B)/2,\,X_2=(B+C)/2,\,X_3=(C+D)/2,\,X_4=(D+A)/2$ 이다. 이 때 $X_1-X_2=\dfrac{A-C}{2}=X_4-X_3$ 이므로 $X_1-X_2$ 가 이루는 변과 $X_4-X_3$ 가 이루는 변이 평행하며, $X_4-X_1=\dfrac{D-B}{2}=X_3-X_2$ 이므로 $X_4-X_1$ 과 $X_3-X_2$ 가 이루는 변이 평행하다. 따라서 이 사각형은 평행사변형이다.
+
+
+
+<b>18. </b> trivial
+
+
+
+<b>19. </b> trivial
+
+
+
+<b>20. </b> 공간속의 점 $P_1,\ldots,\,P_k$ 에 대하여
+$$
+|P_1-Q|^2 + \cdots +|P_k-Q|^2
+$$
+ 의 값을 최소로 하는 점 $Q$ 는 $P_1,\ldots,\,P_k$ 의 중심임을 보여라.
+
+---
+
+$$
+\begin{align}
+\sum_{i=1}^k|P_i-Q|^2&= \sum_{i=1}^k |P_i|^2-2\sum_{i=1}^k P_i \cdot Q + k|Q|^2 \\
+&=k\left(|Q|^2-2\left(\dfrac{1}{k}\sum_{i=1}^k P_i\right) \cdot Q + \left( \dfrac{1}{k}\sum_{i} P_i  \right)^2 \right) +\sum_{k=1}^k |P_i|^2-\dfrac{1}{k}\left(\sum_{i=1}^k P_i\right)^2 \\
+&= k \left(Q- \dfrac{1}{k} \sum_{i=1}^k P_i\right)^2+\sum_{k=1}^k |P_i|^2-\dfrac{1}{k}\left(\sum_{i=1}^k P_i\right)^2 
+
+\end{align}
+$$
+
+이다. 마지막 두 terms 는 $\{P_i\}$ 에만 의존하는 상수 term 이므로 이 값을 최소하 하는 점 $Q$ 는
+$$
+Q=\dfrac{1}{k}\sum_{i=1}^k P_i
+$$
+이다. 즉 $P_1,\ldots,\,P_k$ 의 중심이다. 
+
+
+
+<b>21. </b> 두 평면 $x+y+z=1$ 과 $x-y-z=5$ 의 교선의 식을 구하라.
+
+---
+
+두 식을 더하면 $2x=6\implies x=3$ 이다. 따라서 $y+z=-2$ 이다. 따라서 교선의 식은,
+$$
+x=3,\quad y=t,\quad z=-t-2
+$$
+이다.
+
+
+
+<b>22. </b> 공간에서 점과 실수의 쌍 $(P,\,m)$ 을 질점이라고 부르기로 하자. 질점들의 집합
+$$
+A:=\{(P_1,\,m_1),\,(P_2,\,m_2),\ldots,\, (P_n,\,m_n)\}
+$$
+에 대하여 $m:=m_1+\cdots +m_n$ 을 $A$ 의 질량이라고 한다. 그리고 질량이 $0$ 이 아닌 질점들의 집합 $A$ 에 대하여 $A$ 의 질량중심을
+$$
+\operatorname{CM}(A):= \left(\dfrac{m_1}{m}P_1 + \dfrac{m_2}{m}P_2 + \cdots + \dfrac{m_n}m P_n\right)
+$$
+으로 정의한다. 서로 공통부분이 없는 두 질점들의 유한집합 $A,\,B$ 에 대하여,
+$$
+\operatorname{CM}(A \cup B)=\operatorname{CM}(\{\operatorname{CM}(A),\, \operatorname{CM}(B)\})
+$$
+임을 보이라. (편의상 $A,\,B$ 의 각 질량이 모두 양수라 가정한다.
+
+---
+
+$A:=\{(P_1^A,\,m_1^A) \ldots,\,(P_N^A,\,m_N^A)\}$, $B:=\{(P_1^B,\,m_1^B) \ldots,\,(P_M^B,\,m_M^B)\}$ 라 하자.  $m_A=m_1^A+ \cdots +m_N^A$, $m_B=m_1^B+\cdots + m_M^B$ 라 하자. 
+$$
+\begin{align}
+\operatorname{CM}(\{\operatorname{CM}(A),\, \operatorname{CM}(B)\}) &= \dfrac{m_A}{m_A+m_B} \operatorname{CM}(A) + \dfrac{m_B}{m_A+m_B} \operatorname{CM}(B) \\
+&=\dfrac{m_A}{m_A+m_B}\left(\dfrac{1}{m_A}\sum_{i=1}^N m_i^AP_i^A\right) + \dfrac{m_B}{m_A+m_B}\left(\dfrac{1}{m_B}\sum_{j=1}^M m_j^BP_j^B\right) \\
+&=\dfrac{1}{m_A+m_B} \left(\sum_{i=1}^N m_i^AP_i^A+ \sum_{j=1}^M m_j^B P_j^B\right) = \operatorname{CM}(A \cup B)
+\end{align}
+$$
+
+
+## 연습문제 : 제 5장 5 절
+
+
+
+<b>1.</b> trivial
+
+
+
+<b>2. </b> trivial
+
+
+
+<b>3. </b> 세 벡터 $\mathbf{u},\,\mathbf{v},\,\mathbf{w}$ 가 일차독립일 때, 벡터
+$$
+\begin{align}
+\mathbf{a}&= a_1 \mathbf{u}+a_2 \mathbf{v}+a_3\mathbf{w}\\
+\mathbf{b} &= b_1 \mathbf{u}+b_2 \mathbf{v}+b_3\mathbf{w}\\
+\mathbf{c} &= c_1 \mathbf{u}+c_2 \mathbf{v}+c_3\mathbf{w}\\
+\end{align}
+$$
+가 일차독립일 필요충분조건은 벡터 $(a_1,\,a_2,\,a_3),\, (b_1,\,b_2,\,b_3),\, (c_1,\,c_2,\,c_3)$ 가 일차독립임을 보여라.
+
+---
+
+(1) $\mathbf{a},\,\mathbf{b},\,\mathbf{c}$ 가 일차독립이면 $d_1\mathbf{a}+d_2\mathbf{b}+d_3\mathbf{c}=0$ 을 만족시키는 $d_1,\,d_2,\,d_3$ 는 모두 $0$ 이다. 즉,
+$$
+(d_1a_1+d_2b_1+d_3c_1)\mathbf{u}+(d_1a_2+d_2b_2+d_3 c_2)\mathbf{v}+(d_1a_3+d_2b_3+d_3c_3)\mathbf{w}=0
+$$
+이면 $d_1=d_2=d_3=0$ 이다.  $\mathbf{u},\,\mathbf{v},\, \mathbf{w}$ 가 일차독립이므로, 
+$$
+d_1a_1+d_2b_1+d_3c_1=0\\
+d_1a_2+d_2b_2+d_3 c_2=0\\
+d_1a_3+d_2b_3+d_3c_3=0
+$$
+이어야 한다. 따라서 $d_1(a_1,\,a_2,\,a_3)+d_2(b_1,\,b_2,\,b_3)+d_3(c_1,\,c_2,\,c_3)=0$ 를 만족하는 $d_1,\,d_2,\,d_3$ 는 모두 $0$ 일 때이다. 따라서 벡터 $(a_1,\,a_2,\,a_3),\, (b_1,\,b_2,\,b_3),\, (c_1,\,c_2,\,c_3)$ 는 일차독립이다. 
+
+(2) 벡터 $(a_1,\,a_2,\,a_3),\, (b_1,\,b_2,\,b_3),\, (c_1,\,c_2,\,c_3)$ 가 일차독립임을 가정하자. 그렇다면 $d_1(a_1,\,a_2,\,a_3)+d_2(b_1,\,b_2,\,b_3)+d_3(c_1,\,c_2,\,c_3)=0$ 를 만족하는 $d_1,\,d_2,\,d_3$ 는 모두 $0$ 일 때이다. 이는 $d_1 \mathbf{a}+d_2\mathbf{b}+d_3\mathbf{c}=0$ 을 만족하는 $d_1,\,d_2,\,d_3$ 는 모두 $0$ 이란 뜻이며, 따라서 $\mathbf{a},\,\mathbf{b},\,\mathbf{c}$ 는 모두 일차독립이다.
+
+
+
+<b>4. </b> 벡터 $\mathbf{a}_1,\ldots,\,\mathbf{a}_k$ 가 일차독립이면, 모든 $i\in \{1,\ldots,\,k\}$ 에 대하여 $\mathbf{a}_i \ne 0$ 임을 보여라. 
+
+---
+
+$\mathbf{a}_1=0$ 이면 $\sum c_i \mathbf{a}_i=0$ 에 대해 $c_1\ne 0,\, c_2=\cdots c_k=0$ 이어도 성립하므로 $\mathbf{a}_1,\ldots,\,\mathbf{a}_k$ 는 일차독립이 아니다.
+
+
+
+<b>5. </b> 자연수 $k$ 가 자연수 $l$ 보다 작을 때, $n$-벡터 $\mathbf{a}_1,\ldots,\mathbf{a}_l$ 이 일차독립이면 $\mathbf{a}_1,\ldots,\mathbf{a}_k$ 도 일차독립임을 보여라.
+
+---
+
+$\mathbf{a_1},\ldots,\,\mathbf{a}_k$ 가 일차독립이 아니면 $c_1 \mathbf{a}_1 + \cdots + c_k \mathbf{a}_k=0$ 을 만족하는 nontrivial $c_1,\ldots,\,c_k$ 가 존재한다. 그렇다면 $c_j=0$ for $j=k+1,\ldots,\,l$ 이라 놓으면 $c_1 \mathbf{a}_1 + \cdots +c_k\mathbf{a}_k + \cdots +c_l \mathbf{a}_l=0$ 을 만족하는 nontrivial $c_1,\ldots,\,c_l$ 이 존재하므로 $\mathbf{a}_1,\ldots,\,\mathbf{a}_l$ 은 일차독립이 아니다.
+
+
+
+<b>6. </b> 벡터 $\mathbf{a}$ 가 벡터 $\mathbf{b}_1,\ldots,\,\mathbf{b}_k$ 의 일차결합이고, 벡터 $\mathbf{b}_i\,(i=1,\ldots,\,k)$ 가 각각 벡터 $\mathbf{c}_1,\ldots,\,\mathbf{c}_l$ 의 일차결합이면, 벡터 $\mathbf{a}$ 는 $\mathbf{c}_1,\ldots,\,\mathbf{c}_l$ 의 일차결합이 됨을 설명하라.
+
+---
+
+Let $\displaystyle \mathbf{a}=\sum_{i=1}^k \beta_i \mathbf{b}_i$ and $\displaystyle \mathbf{b}_i=\sum_{j=1}^l \gamma_{ji}\mathbf{c}_j$ 라 하자. 그렇다면 $\displaystyle \mathbf{a}=\sum_{i=1}^k \beta_i \left(\sum_{j=1}^l \gamma_{ji}\mathbf{c}_j\right)=\sum_{j=1}^l \left(\sum_{i=1}^k \beta_i \gamma_{ji}\right) \mathbf{c}_j$ 이므로 증명 끝.
+
+
+
+
+
+## 연습문제 : 제 5장 6절
+
+
+
+<b>1. </b> $n$ 공간의 단위벡터 $\mathbf{v}_1,\ldots,\,\mathbf{v}_n$ 이 서로 수직이면, 이들을 정규직교기져라고 부른다. 이제 임의의 $n$-벡터 $\mathbf{a}$ 와 정규직교기저 $\mathbf{v}_1,\ldots,\,\mathbf{v}_n$ 에 대하여,
+$$
+\mathbf{a}=(\mathbf{a}\cdot \mathbf{v}_1)\mathbf{v}_1 + \cdots +(\mathbf{a}\cdot \mathbf{v}_n)\mathbf{v}_n
+$$
+임을 보이라.
+
+---
+
+$\displaystyle \mathbf{a}=\sum_{k=1}^n a_k \mathbf{v}_k$ 이며 이 때 $a_k$ 는 유일하게 결정된다. $\displaystyle \mathbf{a}\cdot \mathbf{v}_i =\sum_{k=1}^n a_k (\mathbf{v}_k \cdot \mathbf{v}_i)=a_i$ 이다. 따라서 $\displaystyle \mathbf{a}=\sum_{k=1}(\mathbf{a}\cdot \mathbf{v}_k)\mathbf{v}_k$  이다.
+
+
+
+<b>2. </b> 정육면체 격자의 각 정육면체의 중점들로 이루어진 집합을
+$$
+\operatorname{FC}:=\left\{\left(\dfrac{1}{2},\, \dfrac{1}{2},\, 0\right), \, \left(\dfrac{1}{2},\,0,\, \dfrac{1}{2}\right),\,\left(0,\,\dfrac{1}{2},\, \dfrac{1}{2}\right)\right\}+\mathbb{Z}^3
+$$
+라고 하자. 이제 **FCC 격자** 
+$$
+\mathbb{Z}^3 \cup \text{FC}
+$$
+에서,
+$$
+\mathbf{i}=(1,\,0,\,0) ,\quad \left(\dfrac{1}{2},\, \dfrac{1}{2},\,0\right),\quad \left(0,\,\dfrac{1}{2},\, \dfrac{1}{2}\right)
+$$
+가 기저임을 보여라.
+
+---
+
+$\mathbf{v}_1=\mathbf{i}=(1,\,0,\,0) ,\, \mathbf{v}_2= \left(\dfrac{1}{2},\, \dfrac{1}{2},\,0\right),\,\mathbf{v}_3=\left(0,\,\dfrac{1}{2},\, \dfrac{1}{2}\right)$ 라 하자. 
+$$
+c_1 \mathbf{v}_1+c_2\mathbf{v}_2+c_3\mathbf{v}_3=0 \implies \left(c_1+\dfrac{c_2}{2},\, \dfrac{c_2+c_3}{2},\, \dfrac{c_3}{2}\right) =0 \implies c_1=c_2=c_3=0
+$$
+이므로 $\mathbf{v}_1,\,\mathbf{v}_2,\,\mathbf{v}_3$ 는 일차독립이다.
+$$
+\begin{align}
+\text{FC} =&\left\{\left(\dfrac{1}{2}+n_1,\, \dfrac{1}{2}+n_2,\, n_3 \right):n_1,\,n_2,\,n_3\in \mathbb{Z} \right\} \bigcup \left\{\left(\dfrac{1}{2}+n_1,\,n_2,\, \dfrac{1}{2}+n_3\right) : n_1,\,n_2,\,n_3\in \mathbb{Z} \right\} \\
+&\bigcup \left\{\left(n_1,\,\dfrac{1}{2}+n_2,\, \dfrac{1}{2}+n_3\right):n_1,\,n_2,\,n_3\in \mathbb{Z} \right\}
+\end{align}
+$$
+이다. 
+$$
+\begin{align}
+\left(\dfrac{1}{2}+n_1,\, \dfrac{1}{2}+n_2,\, n_3 \right) & = (n_1-n_2+n_3)\mathbf{v}_1+(1+2n_2-2n_3)\mathbf{v}_2+2n_3 \mathbf{v}_3\\
+\left(\dfrac{1}{2}+n_1,\,n_2,\, \dfrac{1}{2}+n_3\right) &= (1+n_1-n_2+n_3)\mathbf{v}_1+(-1+2n_2-2n_3)\mathbf{v}_2+(1+2n_3)\mathbf{v}_3 \\
+\left(n_1,\,\dfrac{1}{2}+n_2,\, \dfrac{1}{2}+n_3\right) &=(n_1-n_2+n_3)\mathbf{v}_1+(2n_2-2n_3)\mathbf{v}_2+(1+2n_3)\mathbf{v}_3
+\end{align}
+$$
+이므로 모든 $\text{FC}$ 의 벡터들을 표현 할 수 있다. 따라서 기저이다.
+
+
 
