@@ -199,7 +199,7 @@ p(\mathbf{x}) & \ge 0  \tag{1.29} \\
 
 \end{align}
 $$
- 
+
 
 
 
@@ -214,7 +214,7 @@ p(x) &= \int p(x,\,y)\, dy \tag{1.31}\\
 p(x,\,y)&=p(y| x)\,p(x) \tag{1.32}
 \end{align}
 $$
- 
+
 
 
 
@@ -513,6 +513,64 @@ $$
 $$
 
 
+
+
+
+
+
+## 1.3. Model Selection
+
+- 최소자승법을 이용한 Polynomial curve fitting 에서 보았듯이 best generalization을 주는 최적의 다항식의 order $M$ 이 존재한다. 다항식의 order는 모델에서 free parameters의 갯수를 제어한다. Regularization 을 사용하면 regularization coefficient $\lambda$ 는 모델의 유효 복잡도(effiective complexcity) 를 통제한다. 
+- 실제 응용에서 우리는 이러한 parameters 들을 결정해야 하며 이렇게 하는 주요 목적은 새로운 데이터에 대한 최소의 predictive performance를 얻기 위함이다. 또한 이렇게 complexicity parameters 에 대한 적당한 값을 찾는 것 뿐만 아니라, 특정 목표에 적합한 모델을 찾기 위해 다양한 모델을 고려할 필요가 있다.
+- MLA (maximum likelihood approach) 에서 보았듯이 training set 에 대한 performance 가 다른 데이터에 대한 예측력을 보장해주지 않는다. (overfitting). 만약 데이터가 많다면 가용한 데이터중 일부를 다양한 모델을 학습시키거나, 주어진 모델에 대해 complexicity parameters 를 다양한 범위에서 학습시키는데 사용하고 이것을 독립적인 데이터를 사용하여 predictive performance를 비교하여 수 도 있다. 이렇게 학습데이터와 독립적으로 사용되는 데이터를 **validation set** 이라 한다. 이렇게 수차례 반복한 다음에 **test set** 이라 불리는 별도의 독립적인 데이터를 사용하여 최종적으로 평가할 수도 있다.
+-  보통은 training과 testing에 사용될 수 있는 데이터가 부족한데, 이 경우 좋은 모델을 만들기 위해 training에 가능한 많은 데이터를 사용하고자 할 수 있다. 그러나 만약 validation set이 부족하면 it will give a relatively noisy estimate of predictive performance. 이 딜레마에 대한 해결방법중 하나로 cross validation 방법이 있다.
+
+
+
+<b>Cross Validation</b>
+
+- 전체 데이터를 $S$ 개의 group으로 나눈다. $S$ 개의 training group 으로 각 training group 마다 $S-1$ 개의 데이터 그룹을 training set으로 나머지 하나를 validation set으로 사용한다.
+
+- Training group 마다 각자의 모델 (혹은 별도의 parameters set) 을 사용하므로 computationally expensive 하다. 또한 하나의 모델에 대한 다수의 complexcity parameter 를 갖게 될 수 있다. 이런 조합들을 탐색하다보면 최악의 경우 training run 이 parameter 갯수의 지수승으로 증가할수도 있다.!!!
+
+- 우리는 더 좋은 접근법을 사용해야 한다. 이상적으로 이 접근법은 training data 에 의존해야 하며, 한번의 training run을 통해 비교 할 수 있는 다수의 hyperparameters와 model types 를 허용해야 하는데....
+
+- 이를 위해 training data 에만 의존하며 over fitting에 의한 bias로부터 자유로운 성능 척도를 찾아야 한다.
+
+- 역사적으로 복잡한 모델에서의 over fitting을 보상하는 penalty term을 추가함으로서 maximum likelihood의 bais를 교정하고자 하는 다양한 'information criteria' 가 제안되었다. 예를 들어 *Akaike information criterion* (AIC) 의 경우 
+  $$
+  \ln p(\mathcal{D}\mid \mathbf{w}_{ML})-M
+  $$
+  을 최대화 하는 모델을 선택한다. 여기서 $p(\mathcal{D}\mid \mathbf{w}_{ML})$ 은 best-fit log likelihood 이며 $M$ 은 모델에서 adjustable 한 parameter의 갯수이다. 이의 변형으로서 *Bayesian information criterion* 이 있는데 이는 section 4.4.1 에서 소개될 것이다. 이러한 criteria는 model parameter의 불확실성을 고려하지 않으며, 실제적으로는 과하게 간단한 모델을 선호한다. 
+
+- 따라서 우리는 section 3.4 에서 fully Bayesian approach 로 전환할 것이며 이러한 complexity penalty 가 자연스럽고 원칙적인 방법으로 발생하는지 볼 것이다.
+
+  
+
+
+
+## 1.4 The Curse of Dimensionality
+
+- Oil examples은 그냥 읽으면 되고..
+
+- 우리가 다루고자 하는 입력 데이터가 고차원의 데이터 ($\mathcal{D}-\dim$)라고 가정해보자. 다항식 근사에서 order $3$ 까지 전개해보면,
+  $$
+  y(\mathbf{x},\,\mathbf{w})=w_0+\sum_{i=1}^\mathcal{D} w_i x_i + \sum_{i=1}^\mathcal{D}\sum_{j=1}^\mathcal{D} w_{ij}x_ix_j + \sum_{i=1}^\mathcal{D}\sum_{j=1}^\mathcal{D} \sum_{k=1}^\mathcal{D} w_{ijk}x_i x_j x_k \tag{1.74}
+  $$
+  이다. $\mathcal{D}$ 에 따라 3차항의 계수의 갯수는 $\mathcal{D}^3$ 개 만큼 증가하는 것처럼 보인다.(실제로는 interchange symmetry 로 인해 이것보다는 작지만 그래도 $\mathcal{D}\gg M$ 일 경우는 $\mathcal{D}^M$ 와 같이 증가한다. see exercise 1.16. 이것도 아주 급격하게 증가하는 것이다. )
+
+- ${D}$ 차원의 구를 생각하자. ${D}$ 가 커질수록 구의 대부분의 부피는 표면에 분포한다. ${D}$ 차원에서 반경 $r$ 인 구의 부피 $V_D(r)=K_D r^D$ 이다 여기에 작은 $0<\epsilon\ll 1$ 을 생각하면 구 표면의 두께 $\epsilon$ 만큼의 껍질의 부피와 $D$ 차원에서의 unit sphere 의 부피의 비는,
+  $$
+  \dfrac{V_D(1)-V_D(1-r)}{V_D(1)}=1-(1-\epsilon)^D
+  $$
+  임을 안다. ${D}$ 가 커질 수록 작은 $\epsilon$ 에서의 값이 크다. 
+
+- $D$ 차원 가우시안 분포에서 이 데이터를 polar coordinate 로 바꾸어 보자. 차원이 늘어날수록 $p(r)$ 에서 가장 높은 확률을 가진 값이 점점 커진다. 이는 고차원 구에서 대부분의 부피가 spherical shell에 위치한다는 앞의 논리와 상응한다. 
+
+- 차원의 저주는 저차원에서의 직관이 고차원에서도 통용되지 않는 경우가 많음을 의미한다. 이 차원의 저주는 패턴 인식의 응용에 있어서 중요한 문제를 제기하지만 고차원을 다루는 효율적인 테크닉이 부족하거나 없다는 것을 의미하지는 않는다. 
+
+  - 고차원의 데이터라도 실제로는 보다 낮은 차원의 특정 영역에 데이터가 제한되어 있는 경우가 흔하며,
+  - 실제 데이터는 전형적으로 어떤 smoothness properties 를 (최소한 국소적으로라도) 가지고 있는 경우가 많다. 
 
 
 
