@@ -1,4 +1,4 @@
-Exerciese in Chapter 1.
+Exerciese in Chapter 1. #1
 ==
 
 
@@ -487,3 +487,4 @@ $$
 $$
 p(\text{mistake})=\int_{\mathcal{R}_1} p(\mathbf{x},\,C_2)\,d\mathbf{x}+\int_{\mathcal{R}_2} p(\mathbf{x},\,C_1)\, d\mathbf{x}=\int \min\{p(\mathbf{x},\,C_1),\, p(\mathbf{x},\,C_2)\}\, d\mathbf{x} \le \int\{p(\mathbf{x},\,C_1)p(\mathbf{x},\,C_2)\}^{1/2}
 $$
+

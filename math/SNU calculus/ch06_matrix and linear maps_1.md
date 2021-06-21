@@ -1,4 +1,4 @@
-VI. 행렬과 선형사상
+VI. 행렬과 선형사상 #1
 ===
 
 
@@ -448,6 +448,318 @@ $$
 $$
 |AB|^2 = \sum_{i=1}^m \sum_{j=1}^l \left(\sum_{k=1}^n a_{ik}b_{kj}\right)^2 \le \sum_{i=1}^m \sum_{j=1}^l \left(\sum_{k=1}^n a_{ik}^2\right)\left(\sum_{k=1}^n b_{kj}^2\right)=\left(\sum_{i=1}^m\sum_{k=1}^{n}a_{ik}^2
 \right)\left(\sum_{j=1}^l\sum_{k=1}^{n}b_{kj}^2 \right)=|A|^2|B|^2
+$$
+
+
+
+#### 정리 3.3.3
+
+$m\times n$ 행렬의 수열 $A(k),\,k=1,\,2,\,3,\ldots$ 이 행렬 $B$ 에 수렴할 필요충분조건은
+$$
+\lim_{k \to \infty} |A(k)-B|=0
+$$
+이다.
+
+---
+
+*(proof)* $M=m\times n$ 라 하자. 만약 $A(k)$ 가 $B$ 에 수렴한다고 가정한다면 $A(k)$ 의 각 항이 해당하는 $B$ 각 항에 수렴하는 것이므로, 주어진 $\epsilon>0$에 대해 $n\ge N_{ij}\implies \left| (A(k))_{ij}-B_{ij} \right|\le \dfrac{\epsilon}{M}$ 를 만족하는 $N_{ij}$ 가 존재한다.  $N:=\max\{N_{ij}: 1\le i,\,j \le n\}$ 이라 하면 
+$$
+n\ge N \implies  \left| (A(k))_{ij}-B_{ij} \right|\le \dfrac{\epsilon}{M} \quad \forall i,\,j=1,\ldots,\,n
+$$
+이다. 그렇다면, $n\ge N$ 일 때
+$$
+|A(k)-B|= \sqrt{\sum_{i,\,j} \left(A(k)_{ij}-B_{ij}\right)^2}\le \sqrt{\sum_{i,\,j} \dfrac{\epsilon^2}{M^2}}=\dfrac{\epsilon}{\sqrt{M}}\le \epsilon
+$$
+이므로 $\displaystyle \lim_{k \to \infty} |A(k)-B|=0$ 이다.
+
+이제 $\displaystyle \lim_{k \to \infty} |A(k)-B|=0$ 임을 가정하자. 임의의 행렬 $C$ 에 대해 $|C|\le \max\{C_{ij}\}$ 이므로 $|A(k)_{ij}-B_{ij}|\le |A(k)-B|$ 이며 따라서,
+$$
+\lim_{k \to \infty}|A(k)_{ij}-B_{ij}|=0
+$$
+이다. 따라서 행렬 $A(k)$ 는 $B$ 로 수렴한다.
+
+
+
+#### 행렬 급수의 수렴
+
+$m\times n$ 행렬의 급수 $\displaystyle \sum_{k=0}^\infty A(k)$ 가 행렬 $B$ 에 수렴한다는 것은 유한합으로 이루어진 행렬의 수열 $\displaystyle \sum_{k=0}^n A(k),\quad n=0,\,1,\,2,\ldots$ 가 $B$ 에 수렴한다는 뜻이다. 이 때 $\displaystyle \sum_{k=0}^\infty A(k)=B$ 로 쓰기로 한다.
+
+
+
+#### 정리 3.4.2
+
+임의의 정사각행렬 $A$ 에 대하여 급수
+$$
+I+A+\dfrac{1}{2!}A^2+ \dfrac{1}{3!}A^3 + \cdots + \dfrac{1}{k!}A^k + \cdots
+$$
+는 항상 수렴한다. 이 때 극한값을 $\exp A$ 또는 $e^A$ 로 쓴다.
+
+---
+
+*(proof)* (1) $a=\max\{|A_{ij}|: 1\le i,\,j \le n\}$ 라 하면 $|A| \le na$ 이다. 또한 정리 3.3.2 에 의해 $|A^k_{ij}|\le |A^k|\le |A|^k \le n^k a^k$ 이다. 
+
+(2) 따라서 $B=I+A+\dfrac{1}{2!}A^2+\cdots $ 라 했을 때 $|B_{ij}|\le 1+na+\dfrac{n^2a^2}{2!}+\dfrac{n^3a^3}{3!}+\cdots = e^{na} $ 이다. 
+
+
+
+
+
+
+
+## 연습문제 : 제 6장 3절
+
+
+
+<b>1. </b> 차수가 같은 두 직교행렬의 곱은 직교행렬임을 보여라.
+
+---
+
+$A,\,B\in \mathbb{R}^{n \times n}$ 이 직교행렬이라 하자. $(AB)^t(AB)=B^tA^tA^B=B^tB=I$ 
+
+
+
+<b>2. </b> 영이 아닌 벡터 $X\in \mathbb{R}^n$ 에 대하여 $n \times n$ 행렬
+$$
+A:=I_n-\dfrac{2}{|X|^2}XX^t
+$$
+는 직교행렬임을 보이라.
+
+---
+
+우리는 임의의 $n\times n$ 행렬 $P,\,Q$ 와 $c\in \mathbb{R}$ 에 대해 다음이 성립함을 안다.
+$$
+\begin{align}
+(P+cQ)^t&=P^t+cQ^t
+\end{align}
+$$
+따라서,
+$$
+A^t = (I_n)^t-\dfrac{2}{|X|^2}(XX^t)^t = I_n -\dfrac{2}{|X|^2}XX^t=A
+$$
+이며, $X^tX=|X|^2$ 임을 이용한다. 
+$$
+\begin{align}
+A^tA &= A^2=\left(I_n - \dfrac{2}{|X|^2}XX^t\right)^2\\
+&= I_n - \dfrac{4}{|X|^2}XX^t+ \dfrac{4}{|X|^2}XX^tXX^t \\
+&=I_n - \dfrac{4}{|X|^2}XX^t+\dfrac{4}{|X|^2}|X|^2XX^t\\
+&=I_n
+\end{align}
+$$
+
+
+<b>3. </b> 좌표평면의 점들을 원점 주위로 크기 $\alpha$ 만큼 회전시키는 변환을 한 다음, 다시 각의 크기 $\beta$ 만큼 회전시키는 변환은, 각의 크기 $\alpha+\beta$ 만큼 회전시키는 변환과 같음을 이용하여,
+$$
+\begin{align}
+\cos (\alpha+\beta)&=\cos \alpha \, \cos \beta -\sin \alpha\sin \beta\\
+\cos (\alpha+\beta)& =\sin \alpha \cos \beta + \cos \alpha \sin \beta
+
+\end{align}
+$$
+를 유도하라.
+
+---
+
+$\mathbb{R}^2$ 에서 $\theta$ 만큼 회전 시키는 변화를 나타내는 행렬 $R_\theta = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}$ 이다. 따라서,
+$$
+\begin{pmatrix} \cos (\alpha+\beta)& - \sin (\alpha+\beta) \\\sin (\alpha+\beta) & \cos (\alpha+\beta)  \end{pmatrix} = \begin{pmatrix} \cos \beta& -\sin \beta \\ \sin \beta & \cos \beta \end{pmatrix} \begin{pmatrix} \cos \alpha & -\sin \alpha \\ \sin \alpha & \cos \alpha \end{pmatrix}= \begin{pmatrix} \cos \alpha\cos \beta - \sin \alpha \sin \beta & -\sin \alpha \cos \beta - \cos \alpha \sin \alpha \\ \sin \alpha \cos \beta + \cos \alpha \sin \alpha  & \cos \alpha\cos \beta - \sin \alpha \sin \beta \end{pmatrix}
+$$
+
+
+
+
+<b>4. </b> 삼차원 공간에서 회전변환 $R_1,\,R_2,\,R_3$ 가 다음 관계를 가짐을 보여라.
+$$
+R_1 \left(-\dfrac{\pi}{2}\right)\circ R_3 (\theta) \circ R_1\left(\dfrac{\pi}{2}\right)=R_2(\theta)
+$$
+
+---
+
+$$
+\begin{align}
+R_1 \left(-\dfrac{\pi}{2}\right)\circ R_3 (\theta) \circ R_1\left(\dfrac{\pi}{2}\right)& = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0\end{pmatrix} \begin{pmatrix} \cos \theta & - \sin \theta & 0 \\\sin \theta & \cos \theta& 0 \\ 0 & 0 & 1\end{pmatrix} \begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & -1 \\ 0 & 1 & 0\end{pmatrix} \\
+&= \begin{pmatrix} \cos \theta & -\sin \theta & 0 \\ 0 & 0 & 1 \\ - \sin \theta & - \cos \theta & 0\end{pmatrix}\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & -1 \\ 0 & 1 & 0\end{pmatrix} \\
+&=\begin{pmatrix} \cos \theta & 0 & \sin \theta \\ 0 & 1 & 0 \\ - \sin \theta & 0 & \cos \theta\end{pmatrix}\\
+&=R_2(\theta)
+
+
+\end{align}
+$$
+
+
+
+<b>5. </b> 좌표평면에서 곡선
+$$
+ax^2+2bxy+cy^2+d=0
+$$
+을 회전이동하여 얻은 곡선이 
+$$
+a'x^2+2b'xy+c'y^2+d'=0
+$$
+이라고 하자. 이 때
+$$
+ac-b^2=a'c'-b'^2
+$$
+임을 보이라.
+
+---
+
+$x\to \cos \theta x-\sin \theta y,\, y \to \sin \theta x + \cos \theta y$ 라 하면,
+$$
+\begin{align}
+a'x^2+2b'xy+c'y^2+d'&=a(\cos \theta x-\sin \theta y)^2 +2b (\cos \theta x-\sin \theta y)(\sin \theta x+\cos \theta y)\\
+&\qquad + c(\sin \theta x+\cos \theta y)^2+d\\
+&=(a \cos^2 \theta +2b \cos \theta \sin \theta +c\sin^2 \theta)x^2 +(-2a\cos \theta \sin \theta+2b \cos^2\theta-2b \sin^2 \theta+2c\sin \theta \cos \theta)xy\\
+&\qquad + (a\sin^2 \theta -2b \sin \theta \cos \theta+c\cos ^2 \theta)y^2+d'
+
+
+\end{align}
+$$
+이다. 따라서,
+$$
+\begin{align}
+a'c'-b'^2&=(a \cos ^2 \theta +2b \cos \theta \sin \theta + c\sin ^2 \theta)(a\sin^2 \theta -2b \sin \theta \cos \theta+c\cos ^2 \theta)\\
+&\qquad -(-a\cos \theta \sin \theta+b \cos^2\theta-b \sin^2 \theta+c\sin \theta \cos \theta)^2\\
+&=(\cos^2\theta\sin^2\theta-\cos^2\theta\sin^2\theta)a^2+(-4\cos^2\theta \sin^2 \theta-(\cos^2\theta-\sin^2\theta)^2)b^2\\
+&\qquad+(\cos^2\theta\sin^2\theta-\cos^2\theta\sin^2\theta)c^2+(-2\cos^3\theta \sin \theta+2\cos\theta\sin^2\theta+2\cos\theta\sin\theta(\cos^2\theta-\sin^2\theta)) ab\\
+&\qquad +(2\cos^3\theta \sin\theta-2\cos\theta \sin^3\theta-2\sin\theta\cos\theta(\cos^2\theta-\sin^2\theta))bc\\
+&\qquad +(\cos^4\theta+\sin^4\theta+2\sin^2\theta\cos^2\theta)ac\\
+&=0\cdot a^2+(-2\sin^22\theta-2\cos^2 2\theta)b^2 + 0\cdot c^2-0\cdot ab+0\cdot bc + (\cos^2\theta+\sin^2\theta)^2ac\\
+&=ac-b^2
+
+\end{align}
+$$
+
+
+<b>6. </b> 좌표평면에서 두 직선 $ax+by+c_1=0,\, ax+by+c_2=0$ 에 대한 반사변환을 각각 $T_1,\,T_2$ 라고 두자. (단 $a^2+b^2=1$ 이라고 가정한다) 이 때 합성변환 $T_1 \circ T_2$ 는 어떤 변환인가.
+
+---
+
+$ax+by+c_2=0$ 의 한 점 $X$에서 $ax+by+c_1=0$ 으로 수선을 내렸을때의 교점을 $Y$ 라 한다면 $\overrightarrow{XY}$ 방향으로 두 직선의 거리의 두배만큼 평행이동 하는 변환이다.
+
+
+
+<b>7. </b> 포물선 $y=x^2$ 과 $y=2x^2$ 은 닮음 변환임을 보이라. 
+
+---
+
+$x \to 2x$, $y \to 2y$ 변환을 생각하라.
+
+
+
+<b>8. </b> 좌표평면에서 곡선
+$$
+x^2+4xy+3y^2=1
+$$
+은 타원, 쌍곡선, 포물선 중 어느 것인지를 판정하라.
+
+---
+
+$$
+x^2+4xy+3y^2=1 \implies (x+2y)^2-y^2=1
+$$
+
+이므로 쌍곡선이다.
+
+
+
+<b>9. </b> 좌표평면의 점 $(x,\,y)$ 를 $x$ 축에 대하여 대칭이동 시키고, 원점을 중심으로 하여 반시계방향으로 $60^\circ$ 회전시킨 다음, 다시 $x$ 축에 대하여 대칭이동시키는 선형사상을 $T$ 라고 두자. 이 사상을 2001회 시행하였을 때, 점 $(1,\,1)$ 의 상을 구하라.
+
+---
+
+$$
+T=\begin{pmatrix} 1 & 0 \\ 0 & -1\end{pmatrix} \begin{pmatrix} 1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 &1/2 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & -1\end{pmatrix}=\begin{pmatrix} 1/2 & \sqrt{3}/2 \\ -\sqrt{3}/2 &1/2 \end{pmatrix}
+$$
+
+이므로 $T$ 는 시계방향 $60^\circ$ 회전이다. 2001회 시행은 시계방향으로 $180^\circ$ 회전이므로 역시 반시계방향 $180^\circ$ 회전이다. 따라서 (1,1) 의 상은 (-1,-1) 이다.
+
+
+
+<b>10. </b> (**오일러 항등식**) 임의의 실수 $t$ 에 대하여,
+$$
+\exp \begin{pmatrix} 0 &-t\\ t & 0\end{pmatrix} = \begin{pmatrix} \cos t & - \sin t \\ \sin t & \cos t\end{pmatrix}
+$$
+임을 보이라.
+
+---
+
+$A=\begin{pmatrix} 0 &-t\\ t & 0\end{pmatrix},\, J=\begin{pmatrix} 0 & -1 \\ 1 & 0\end{pmatrix}$ 라 하면, $J^2=-I_2$, $J^3=-J$, $J_4=I$ 이므로 
+$$
+\begin{align}
+A^k = t^k J^k 
+
+\end{align}
+$$
+이다. $\exp A =I+tJ+\dfrac{1}{2}t^2J^2+\cdots + \dfrac{t^k}{k!}J^k+\cdots$ 이므로,
+$$
+\left(\exp A \right)_{11}=  (\exp A)_{22}=\sum_{k=0}^\infty \dfrac{(-1)^{k}t^{2k}}{(2k)!}=\cos t,\,\\
+\left(\exp A\right)_{21}=-\left(\exp A\right)_{12}=\sum_{k=0}^\infty \dfrac{(-1)^{k}t^{2k+1}}{(2k+1)!}=\sin t\,.
+$$
+
+
+<b>11. </b> 다음을 보이라.
+$$
+\exp \begin{pmatrix} 0 & t & 0 & 0 \\ 0 & 0 & t & 0 \\ 0 & 0 & 0 & t \\ 0 & 0 & 0 & 0\end{pmatrix} = \begin{pmatrix} 1 & t & \dfrac{t^2}{2} & \dfrac{t^3}{3!} \\ 0 & 1 & t & \dfrac{t^2}{2} \\ 0 & 0 & 1 & t \\ 0 & 0 & 0 & 1\end{pmatrix}
+$$
+
+---
+
+$A=\begin{pmatrix} 0 & t & 0 & 0 \\ 0 & 0 & t & 0 \\ 0 & 0 & 0 & t \\ 0 & 0 & 0 & 0\end{pmatrix} $ 라 하면, $A^2= \begin{pmatrix} 0 & 0& t^2 & 0 \\ 0 & 0 & 0 & t^2 \\ 0 & 0 & 0 & t \\ 0 & 0 & 0 & 0\end{pmatrix} ,\, A^3 = \begin{pmatrix} 0 & 0 & 0 & t^3 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{pmatrix} ,\, A^4=0$ 이므로 $k\ge 4$ 이면 $A^k=0$ 이다. 따라서,
+$$
+\exp A= I+A+\dfrac{1}{2}A^2+\dfrac{1}{3}A^3
+$$
+이므로 주어진 식을 만족함을 쉽게 보일 수 있다.
+
+
+
+<b>12. </b> 행렬 $\sigma_0 :=\begin{pmatrix}  1 & 0 \\ 0 & -1\end{pmatrix}$ 에 대하여,
+$$
+e^{t\sigma_0} \begin{pmatrix} a& b \\ c & d\end{pmatrix}e^{-t\sigma_0}=\begin{pmatrix}  a & e^{2t}b \\ e^{-2t}c &d\end{pmatrix}
+$$
+임을 보이고, 이 식을 미분하여
+$$
+\left[\sigma_0,\, \begin{pmatrix} a & b \\ c & d \end{pmatrix}\right]=2\begin{pmatrix}   0 & b \\ -c & 0\end{pmatrix}
+$$
+임을 보이라.
+
+---
+
+(1) $\sigma_0^2=I$ 이므로, 
+$$
+\begin{align}
+\left(e^{t\sigma_0}\right)_{11}&=1+t+\dfrac{t^2}{2!}+\dfrac{t^3}{3!}+\cdots =e^{t}\\
+\left(e^{t\sigma_0}\right)_{22}&=1-t+\dfrac{t^2}{2!}-\dfrac{t^3}{3!}+\cdots =e^{-t}\\
+\left(e^{t\sigma_0}\right)_{21}&=\left(e^{t\sigma_0}\right)_{12}=0\\
+\left(e^{-t\sigma_0}\right)_{11}&=1-t+\dfrac{t^2}{2!}-\dfrac{t^3}{3!}+\cdots =e^{-t}\\
+\left(e^{-t\sigma_0}\right)_{22}&=1+t+\dfrac{t^2}{2!}+\dfrac{t^3}{3!}+\cdots =e^{t}\\
+\left(e^{-t\sigma_0}\right)_{21}&=\left(e^{-t\sigma_0}\right)_{12}=0
+\end{align}
+$$
+이다. 따라서
+$$
+e^{t\sigma_0} \begin{pmatrix} a& b \\ c & d\end{pmatrix}e^{-t\sigma_0}=\begin{pmatrix} e^t & 0 \\ 0 & e^{-t}\end{pmatrix} \begin{pmatrix}a & b \\ c & d\end{pmatrix}\begin{pmatrix} e^{-t} & 0 \\ 0 & e^{t}\end{pmatrix}  = \begin{pmatrix} a & e^{2t}b \\ e^{-2t}c & d\end{pmatrix}
+$$
+이다. 
+
+(2) 행렬함수 $A(t)=(a_{ij}(t))$ 의 미분은 $A'(t)=(a_{ij}'(t))$ 로 정의된다. 그렇다면 $e^{At}$ 의 미분은?
+$$
+\left(e^{At}\right)_{ij}=\sum_{k=0}^\infty \dfrac{(A^k)_{ij}t^k}{k!} \implies \dfrac{d}{dt}\left(e^{At}\right)_{ij} =\sum_{k=0}^\infty\dfrac{(A^k)_{ij}t^{k-1}}{(k-1)!}=\sum_{l=0}^n A_{il} \left(\sum_{k=0}^\infty \dfrac{A^{k-1}_{lj} t^{k-1}}{(k-1)!} \right) = \sum_{l=0}^n A_{il} \left(e^{^{At}}\right)_{lj}=\left(Ae^{At}\right)_{ij}
+$$
+이다.  또한 행렬함수 $A(t),\,B(t)$ 가 행렬곱이 가능할 때 $A(t)B(t)$ 의 미분은,
+$$
+\dfrac{d}{dt}\left(A(t)B(t)\right)_{ij}= \dfrac{d}{dt}\sum_{l}A_{il}(t)B_{lj}(t) =\sum_l A'_{il}(t)B_{lj}(t)+A_{il}(t)B'_{lj}(t)= \left(A'(t)B(t)+A(t)B'(t)\right)_{ij}
+$$
+이다. 또한 
+$$
+\sigma_0 e^{t\sigma_0}=\sigma_0 \sum_{k} \dfrac{\sigma_0^k t^k}{k!}=\sum_{k}\dfrac{\sigma_0^k t^k}{k!}\sigma_0 = e^{t\sigma_0}\sigma_0
+$$
+이므로, 이를 이용하여 문제의 식의 좌 우변을 미분한 후 $t=0$ 을 취하면,
+$$
+\begin{align}
+\dfrac{d}{dt} \left[e^{t\sigma_0} \begin{pmatrix} a& b \\ c & d\end{pmatrix}e^{-t\sigma_0}\right] &=\sigma_0 e^{t\sigma_0} \begin{pmatrix} a& b \\ c & d\end{pmatrix}e^{-t\sigma_0}-e^{t\sigma_0} \begin{pmatrix} a& b \\ c & d\end{pmatrix}\sigma_0e^{-t\sigma_0}\,,\\
+\dfrac{d}{dt} \left[e^{t\sigma_0} \begin{pmatrix} a& b \\ c & d\end{pmatrix}e^{-t\sigma_0}\right]_{t=0} &=\sigma_0 \begin{pmatrix} a& b \\ c & d\end{pmatrix}-\begin{pmatrix} a& b \\ c & d\end{pmatrix}\sigma_0 =\left[\sigma_0,\,\begin{pmatrix} a& b \\ c & d\end{pmatrix}\right] \\
+\dfrac{d}{dt}\begin{pmatrix} a & e^{2t}b \\ e^{-2t}c & d\end{pmatrix} &=\begin{pmatrix} 0 & 2e^{2t}b \\ -2e^{-2t}c & 0\end{pmatrix} \\
+\dfrac{d}{dt}\begin{pmatrix} a & e^{2t}b \\ e^{-2t}c & d\end{pmatrix}_{t=0} &= 2\begin{pmatrix} 0 & b\\ -c & 0\end{pmatrix}
+\end{align}
 $$
 
 
