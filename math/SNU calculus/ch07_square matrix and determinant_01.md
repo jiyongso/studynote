@@ -359,4 +359,98 @@ $$
 
 
 
-<b>3. </b>
+<b>3. </b> $m \times n$ 직사각형 퍼즐은 1부터 $ mn-1$ 까지의 숮자와 빈칸으로 이루어져 있다. 처음 공장에서 배열한 순서를 뒤집어 배열할 수 있는 가역퍼즐은 어떠한 것인가?
+
+---
+
+모르겠다.
+
+
+
+
+
+<b>4. </b> 다음 "넉줄 사다리 타기" 에서 5개의 계단을 놓아 같은 숫자끼리 연결되게 할 수 있는가?
+
+---
+
+계단 하나는 하나의 인접호환이며 5개의 계단은 5개의 인접호환이므로 이것의 합성은 홀치환이다. 같은 숫자까지 연결되는 것은 항등호환 $\operatorname{id}$ 이므로 짝치환이다. 따라서 불가능.
+
+
+
+<b>5. </b> 흰실, 노란실, 검은실 세 가닥을 딿아 길고 굵은 끈을 만들었다고 하자. 끈의 처음 색의 배열이 끈의 끝에서의 배열과 같을 때, 땋은 횟수가 짝수임을 설명하라. 
+
+---
+
+한번 땋는 것은 인접호환. 4번과 같은 이유로 짝치환.
+
+
+
+<b>6. </b> 치환 $ \sigma,\,\sigma'$ 에 대하여 
+$$
+\operatorname{sgn}(\sigma\sigma')=\operatorname{sgn}(\sigma)\operatorname{sgn}(\sigma')
+$$
+임을 보이라. 또 이로부터,
+$$
+\operatorname{sgn}(\sigma^{-1})=\operatorname{sgn}(\sigma)
+$$
+를 유도하라.
+
+---
+
+홀치환 짝치환을 생각하면 $\operatorname{sgn}(\sigma\sigma')=\operatorname{sgn}(\sigma)\operatorname{sgn}(\sigma')$ 는 trivial 하다 .$\operatorname{sgn}(\operatorname{id})=1$ 이므로 $1=\operatorname{sgn}(\sigma \sigma') = \operatorname{sgn}(\sigma)\operatorname{sgn}(\sigma')$ . $\operatorname{sgn}(\sigma)= \pm 1$ 이므로 $\operatorname{sgn}(\sigma^{-1})=\operatorname{sgn}(\sigma)$ 이다.
+
+
+
+<b>7. </b> $n$-치환 $\sigma$  에 대하여
+$$
+\operatorname{sgn}(\sigma)=\prod_{i>j} \operatorname{sgn}(\sigma (i)-\sigma(j))=(-1)^{N(\sigma)}
+$$
+임을 보이라.
+
+---
+
+정리 4.1.6  에서 임의의 치환$\sigma$ 와 호환 $\tau$ 에 대해  $N(\sigma \tau)\equiv N(\sigma)+1 \quad \operatorname{mod}2$ 임을 보았다. 즉 호환 한번마다 $N(\sigma)$ 의 짝/홀 이 바뀐다. $N(I)=0$ 이므로  $\operatorname{sgn}(\sigma)=(-1)^{N(\sigma)}$ 임을 알 수 있다. $i>j$ 에 대해 $\operatorname{sgn}(\sigma(i))-\sigma(j))$ 은 전도되었으면 $-1$, 전도되지 않았으면  $+1$ 이다. 따라서, 
+$$
+\prod_{i>j} \operatorname{sgn}(\sigma(i)-\sigma(j))=(-1)^{N(\sigma)}
+$$
+이다. 
+
+
+
+<b>8. </b> 다음 치환의 전도의 수가 짝수인 지 또는 홀수인지를 밝히라.
+$$
+\begin{pmatrix} 1& 2& 3& 4& 5& 6& 7 & 8 & 9 \\9 & 8 & 7 & 6 & 5 & 4& 3& 2& 1 \end{pmatrix}
+$$
+
+---
+
+주어진 치환을 $A$ 라 하면,
+$$
+A=(1\;\;9)(2 \;\; 8)( 3\;\;7)(4\;\; 6)
+$$
+과 같으므로 짝치환이다.
+
+
+
+<b>9. </b> $n$ 차 정사각행렬  $A$ 와  $m$ 차 정사각행렬 $B$  에 대하여
+$$
+\det \begin{pmatrix} A & O \\ O & B \end{pmatrix}=(\det A) (\det B)
+$$
+임을 보이라.
+
+---
+
+$n\times n$ 단위행렬 $I_n$ 과 $m\times m$ 단위행렬  $I_m$ 에 대해 $A'=\begin{pmatrix} A & O \\ O & I_m\end{pmatrix}$ , $B'=\begin{pmatrix} I_n & O \\ O & B\end{pmatrix}$ 라 하고 $ C=\begin{pmatrix} A & O \\ O & B \end{pmatrix}$ 라 하면  $C=A'B'$ 이다. 
+
+
+$$
+\det A' = \sum_{\sigma \in S_{n+m}} \operatorname{sgn}(\sigma) A'_{1\sigma(1)}\cdots A'_{n+m, \sigma(n+m)}
+$$
+인데  $j>n$ 일 경우  $A'_{j\sigma(j)}=\delta_{j,\sigma(j)}$ 이므로  $\sigma \not\in S_n \implies  A'_{1\sigma(1)}\cdots A'_{n\sigma(n)}=0$ 이다. 따라서, 
+$$
+\det A'=\sum_{\sigma \in S_n}\operatorname{sgn}(\sigma) A'_{1\sigma(1)}\cdots A'_{n\sigma(n)}=\det (A)
+$$
+이다. 같은 방식으로 $\det B'=\det B$ 임을 보일 수 있다. 그렇다면, $\det C=(\det A')(\det B')=(\det A)(\det B)$ 이다. 
+
+
+
