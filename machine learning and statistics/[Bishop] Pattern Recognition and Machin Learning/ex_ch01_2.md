@@ -31,4 +31,32 @@ $$
 
 
 
-<b>1.24 </b> Classifiction problem 을 생각하자. 여기서 loss 는 $C_k$ 로 부터 온 input pector 가 class $\mathcal{C}_j$ 로 분류되었을 때 $L_{kj}$ 값을 갖도록 정해졌으며,  rejecti option
+<b>1.24 </b> Classifiction problem 을 생각하자. 여기서 loss 는 $C_k$ 로 부터 온 input vector 가 class $\mathcal{C}_j$ 로 분류되었을 때 $L_{kj}$ 값을 갖도록 정해졌으며,  reject option을 선택했을 때 발생하는 loss는 $\lambda$ 이다. Minimum expected loss를 주는 결정 원칙을 발견하라. 이것은 loss matrix가   $L_{kj}=1-I_{kj}$ 로 주어졌을 때 section 1.5.3 에서 논의된 reject criterion 으로 환원됨을 보이라. $\lambda$ 와 rejection threshold $\theta$ 와의 관계는 무엇인가?
+
+---
+
+$C_j$ 는 $C_j$ 에 속하지 않은 input vector를 $C_j$ 에 속했다고 오판했을 때 위험한 특정하고 unique 한 class 라 하자. Input vector $\mathbf{x}$ 가 class $C_k$ 에 속할 확률은 $p(C_k|\mathbf{x})$ 이며 class $C_j$ 로 잘못 분류되었을 때의 expected loss는  $\sum_{k} L_{kj} p(C_k|\mathbf{x})=\lambda$ 이다.
+
+-- to be done--
+
+<b>1.25 </b> Single target variable $t$ 에 대한 Squared loss function (1.87) 을 multiple target variables $\mathbf{t}$ 에 대해 일반화 하면 다음과 같다.
+$$
+\mathbb{E}\left[L(\mathbf{t},\,\mathbf{y}(\mathbf{x}))\right] = \iint \left\| \mathbf{y}(\mathbf{x})-\mathbf{t} \right\|^2 p(\mathbf{x},\,\mathbf{t})d\mathbf{x}d\mathbf{t} \tag{1.151}
+$$
+변분법을 사용하여 expected loss를 최소화하는 함수$\mathbf{y}(\mathbf{x})$ 는 $\mathbf{y}(\mathbf{x})=\mathbb{E}_\mathbf{t} [\mathbf{t}\,|\, \mathbf{x}]$ 로 주어짐을 보이라. 이 결과는 single target variable $t$ 의 경우 시 (1.89) 가 됨을 보이라.
+
+---
+
+변분법에 의해 $\mathbf{y}(\mathbf{x})$ 의 미분에 의한 의존성이 없는 경우 기대값을 최소화 하는 함수는 
+$$
+\dfrac{\partial \mathbb{E}}{\partial \mathbf{y}(\mathbf{x})}=\int 2(\mathbf{y}(\mathbf{x})-\mathbf{t})\,p(\mathbf{x},\,\mathbf{t})\, d\mathbf{t}=0
+$$
+으로 주어진다. 따라서,
+$$
+\begin{align}
+&\mathbf{y}(\mathbf{x}) \int p(\mathbf{x},\,\mathbf{t})\, d\mathbf{t} = \int\mathbf{t}\, p(\mathbf{x},\,\mathbf{t})\, d\mathbf{t} \\
+\implies & \mathbf{y}(\mathbf{x})=\dfrac{\displaystyle \int\mathbf{t}\, p(\mathbf{x},\,\mathbf{t})\, d\mathbf{t}}{\displaystyle \int p(\mathbf{x},\,\mathbf{t})\, d\mathbf{t} } = \int \mathbf{t} p(\mathbf{x},\,\mathbf{t}) \dfrac{1}{p(\mathbf{x})}\, d\mathbf{t} = \int\mathbf{t} p(\mathbf{t}\,|\,\mathbf{x})\, d\mathbf{t} =\mathbb{E}_\mathbf{t} [\mathbf{t}\,|\,\mathbf{x}]
+\end{align}
+$$
+이다. 
+
