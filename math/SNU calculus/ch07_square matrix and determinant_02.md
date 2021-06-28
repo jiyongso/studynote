@@ -118,6 +118,7 @@ $$
 $$
 
 
+
 <b>5. </b> 어떤 집합 $X$ 에서 정의된 함수 $y_1(x),\ldots,\,y_n(x)$ 에 대하여 항등식
 $$
 c_1y_1 + \cdots + c_n y_n(x)=0
@@ -244,14 +245,106 @@ $f=\det $ 임을 보이라.
 
 ---
 
-$(x_1,\,y_1),\, (x_2,\,y_2)$ 를 두 촛점으로 하며, 두 촛점으로부터의 거리의 합이 $2r$ 인 타원의 방정식은
+
+
+
+
+
+
+<b>10. </b> (**수반행렬 (adjoint matrix)**) $n$ 차 정사각행렬 $A$ 의 $i$ 번째 행과 $j$ 번 째 쳘을 제거한 $n-1$ 차 정사각행렬을 $A_{ij}$ 라고 하였을 때, 임의의 $i$ 에 대하여
 $$
-\sqrt{(x-x_1)^2+(y-y_1)^2}+\sqrt{(x-x_2)^2+(y-y_2)^2}=2r
+\det A=\sum_{j=1}^n (-1)^{i+j} a_{ij}\det A_{ij}
 $$
-이며 자기선형 사상이  $2 \times 2$ 행렬 $A$ 에 의해 정해진다고 하자. 행렬식이 $0$  이 아니므로 역행렬이 존재하며 $A^{-1} =\begin{pmatrix}a &b \\ c&d\end{pmatrix}$ 라 하자. 그렇다면,  $x'=ax+by,\, y'=cx+dy$ 이므로,
+임을 보이라. 또 임의의 $j$ 에 대하여
 $$
-\begin{align}
-&\sqrt{(ax+by-x_1)^2+(cx+dy-y_1)^2}+\sqrt{(ax+by-x_2)^2+(cx+dy-y_2)^2}=2r\\
-\implies & 4r^2-
-\end{align}
+\det A = \sum_{i=1}^n (-1)^{i+j} a_{ij}\det A_{ij}
 $$
+임을 보이라. 또 $i \ne j$ 이면
+$$
+\sum_{k=1}^n (-1)^{j+k} a_{ik}\det A_{jk}=0=\sum_{k=1}^n (-1)^{j+k} a_{ki}\det A_{kj}
+$$
+임을 보이라. 이제 $(i,\,j)$ 항이 $(-1)^{i+j}\det A_{ji}$ 로 주어진 $n$ 차 정사각행렬 $\operatorname{adj} A$ 를 $A$ 의 수반행렬이라 하면,
+$$
+A(\operatorname{adj}A)=(\det A)I=(\operatorname{adj}A)A
+$$
+임을 보이라. 특히 $A$ 가 가역행렬이면,
+$$
+A^{-1}=\dfrac{1}{\det A} \operatorname{adj}A
+$$
+임을 보이라.
+
+---
+
+(1) 우리는 문제 4 에서 $\det A^t = \det A$ 임을 보였다. 이것은 행렬의 열에관한 정리 3.0.3과 따름정리 3.0.4가 행에 대해서도 그대로 성립함을 말한다. 여기서는 주로 행에 대한 연산을 말할 것이다. 
+
+(2) $n$ 공간에서 $i$ 번 째 행은 $\displaystyle \sum_{j=1}^n a_{ij}\mathbf{e}_j$ 로 쓸 수 있다. 그리고 $i$ 번째 행이 $\mathbf{e}_j$ 일 때의 행렬식을 $\overline{A}_j$ 라 하자. 그렇다면
+$$
+\overline{A}_j = \begin{pmatrix} a_{11} &\cdots & a_{1(j-1)} & a_{1j} & a_{1(j+1)} & \cdots &a_{1n} \\ \vdots & & & & & &\vdots\\ 
+a_{(i-1)1} & \cdots & a_{(i-1)(j-1)} &a_{(i-1)j} & a_{(i-1)(j+1)} & \cdots & a_{(i-1)n} \\
+0 & \cdots & 0 &1 & 0 &\cdots & 0 \\
+a_{(i+1)1} & \cdots & a_{(i+1)(j-1)} &a_{(i+1)j} & a_{(i+1)(j+1)} & \cdots & a_{(i+1)n} \\
+\vdots & & & & & &\vdots\\ 
+ a_{n1} &\cdots & a_{n(j-1)} & a_{nj} & a_{n(j+1)} & \cdots &a_{nn} 
+\end{pmatrix}
+$$
+이다.  따름정리 3.0.4 (1) 의 행에 대한 응용에 의해,
+$$
+\det A = \sum_{j=1}^n a_{ij}\det(\overline{A_j}) \tag{10.1}
+$$
+이다. $i$ 번째 행을 첫째 행으로 그리고 1번부터 $i-1$ 번째 행까지는 행번호가 하나씩 늘어나는 행렬(즉 $i$ 번째 행이 맨 첫번째 행으로 바뀌고 1행부터 $i-1$ 행까지는 아래로 하나씩 밀리는 행렬)을 $A'_j$ 이라 하면,
+$$
+A'_j =  \begin{pmatrix}0 & \cdots & 0 &1 & 0 &\cdots & 0 \\
+a_{11} &\cdots & a_{1(j-1)} & a_{1j} & a_{1(j+1)} & \cdots &a_{1n} \\ \vdots & & & & & &\vdots\\ 
+a_{(i-1)1} & \cdots & a_{(i-1)(j-1)} &a_{(i-1)j} & a_{(i-1)(j+1)} & \cdots & a_{(i-1)n} \\
+
+a_{(i+1)1} & \cdots & a_{(i+1)(j-1)} &a_{(i+1)j} & a_{(i+1)(j+1)} & \cdots & a_{(i+1)n} \\
+\vdots & & & & & &\vdots\\ 
+ a_{n1} &\cdots & a_{n(j-1)} & a_{nj} & a_{n(j+1)} & \cdots &a_{nn} 
+ \end{pmatrix}
+$$
+ 이고, 행끼리 $(i-1)$ 번의 치환을 한 것이므로, 따름정리 3.0.4 (2) 의 행에 대한 응용에 의해
+$$
+\det A'_j=(-1)^{i-1} \det \overline{A}_j
+$$
+이다. 이제 행렬의 첫행은 $\mathbf{e}_j$ 이다. 이제 $j$ 번째 열을 첫번째로 옮기고 $1$ 번 열부터 $j-1$ 번 열까지 뒤로 한칸씩 민 행렬을 $A''_j$ 라 하면
+$$
+A''_j =  \begin{pmatrix}1 &  0& \cdots &0 & 0 &\cdots & 0 \\
+a_{1j} & a_{11} &\cdots & a_{1(j-1)} &  a_{1(j+1)} & \cdots &a_{1n} \\ \vdots & & & & & &\vdots\\ 
+a_{(i-1)j} & a_{(i-1)1} & \cdots & a_{(i-1)(j-1)} &a_{(i-1)(j+1)} & \cdots & a_{(i-1)n} \\
+
+a_{(i+1)j} & a_{(i+1)1} & \cdots & a_{(i+1)(j-1)} & a_{(i+1)(j+1)} & \cdots & a_{(i+1)n} \\
+\vdots & & & & & &\vdots\\ 
+a_{nj} & a_{n1} &\cdots & a_{n(j-1)} & a_{n(j+1)} & \cdots &a_{nn} 
+ \end{pmatrix}
+$$
+이고, 행끼리 $j-1$ 번의 치환을 한 것이므로,
+$$
+\det A''_j = (-1)^{j-1} \det A'_j =(-1)^{i+j-2}\det \overline{A}_j=(-1)^{i+j}\det \overline{A}_j \tag{10.2}
+$$
+이다. 이제 $B$ 가 $n \times n$ 행렬이고 $B$ 의 첫 행이 $\mathbf{e}_1$ 인 행렬 일 때 $\det B$ 는 1행과 1열을 제거한 나머지 $(n-1)\times (n-1)$ 행렬 $B_0$ 의 행렬식과 같음을 보이자. 
+$$
+\operatorname{sgn}(\sigma) B_{1\sigma(1)}=\operatorname{sgn}(\sigma)\delta_{1,\sigma(1)}
+$$
+이며 $S_n$ 중 $\sigma(1)=1$ 인 것의 집합은 $\{2,\ldots,\,n\}$ 의 치환의 집합(을 $S'$ 이라 할 때) 과 전단사 대응이 존재하며 이 둘 의 $\operatorname{sgn}$ 함수값은 변하지 않음도 쉽게 알 수 있다. 즉   
+$$
+\det B = \sum_{\sigma\in S_n} \operatorname{sgn}(\sigma)B_{1\sigma(1)}\cdots B_{n\sigma(n)} =\sum_{\sigma'\in S'}\operatorname{sgn}(\sigma')B_{2\sigma'(2)} \cdots B_{n \sigma'(n)}=\det (B_0)
+$$
+이다. 그렇다면 $A''_j$ 의 1행과 1열을 제거한것은 문제에서 정의된 $A_{ij} 와 같으므로
+$$
+\det (A''_j)=\det A_{ij}
+$$
+이며, 식 (10.1), (10.2) 로 부터,
+$$
+\det A=\sum_{j=1}^n a_{ij}\det \overline{A}_j = \sum_{j=1}^n  (-1)^{i+j} a_{ij} \det A_{ij}
+$$
+임을 보였다. 
+
+
+
+(3) (2) 번 과정을 열에 대해 수행하면 
+$$
+\det A = \sum_{i=1}^n (-1)^{i+j} a_{ij}\det A_{ij}
+$$
+를 얻을 수 있다.
+
+(4) 
