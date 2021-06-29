@@ -347,10 +347,232 @@ $$
 $$
 를 얻을 수 있다.
 
-(4) $i \ne j$ 라 하자. 
+(4) $i \ne j$ 라 하자.  $\displaystyle \sum_{k=1}^{n}(-1)^{j+k}a_{ik}\det A_{jk}$ 는 행렬 $A$ 의 $j$ 번째 행을 $i$ 번째 행으로 바꾼 행렬의 행렬식인데 이 행렬에 동일한 행이 존재하므로 이 행렬의 행렬식은 $0$ 이다. 또한 $\displaystyle \sum_{k=1}^n (-1)^{j+k} a_{ki}\det A_{kj}$ 는 행렬의 $j$ 번째 열을 $i$ 번째 열로 바꾼 행렬의 행렬식으로 그 값은 $0$ 이다. 따라서,
+$$
+\sum_{k=1}^n (-1)^{j+k} a_{ik}\det A_{jk}=0=\sum_{k=1}^n (-1)^{j+k} a_{ki}\det A_{kj}
+$$
+이다. 
+
+(5) (4) 의 결과를 이용하면,
 $$
 \begin{align}
+\left[A (\operatorname{adj}A)\right]_{ij} &= \sum_{k=1}^na_{ik}(\operatorname{adj}(A))_{kj}=\sum_{k=1}^n a_{ik}(-1)^{k+j}\det A_{jk}=\delta_{ij}\det A \\
+\left[\operatorname{adj}(A) A\right]_{ij} &= \sum_{k=1}^n (\operatorname{adj}(A))_{ik}a_{kj}= \sum_{k=1}^n (-1)^{i+k}\det A_{ki} a_{ij}=\delta_{ij}\det A
+\end{align}
+$$
+이므로 $A(\operatorname{adj}A)=(\det A) I=(\operatorname{adj}A)A$ 이다.
 
+(6) $I=A \left(\dfrac{1}{\det A} \operatorname{adj} A\right) =  \left(\dfrac{1}{\det A} \operatorname{adj} A\right)A$ 이므로 $A$ 가 가역이면 $A^{-1}=\dfrac{1}{\det A} \operatorname{adj} A$ 이다.
+
+
+
+<b>11. , 12.</b> 번은 생략.
+
+
+
+<b>13. </b> (**크래머** 의 공식) $n$ 차 가역행렬 $A$ 와 $\mathbf{x}=\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}$ , $\mathbf{c}=\begin{pmatrix}c \\ \vdots \\ c_n \end{pmatrix}$ 에 대하여 방정식
+$$
+A\mathbf{x}=\mathbf{c}
+$$
+의 해는 
+$$
+x_j =\dfrac{\det (\mathbf{a}_1,\ldots, \mathbf{a}_{j-1},\, \mathbf{c},\,\mathbf{a}_{j+1},\ldots, \mathbf{a}_n)}{\det A} \qquad (j=1,\,2,\ldots,\,n)
+$$
+임을 보이라. 여기서 $\mathbf{a}_j$ 는 $A$ 의 $j$ 번째 열을 나타낸다.
+
+---
+
+$A$ 가 가역행렬이라는것과 문제 10의 결과를 이용하면,
+$$
+\mathbf{x}=A^{-1}\mathbf{c}=\dfrac{1}{\det A} (\operatorname{adj} A)\mathbf{c}
+$$
+이다. 행렬 $A$ 에서 $j$ 번째 열을 $\mathbf{c}$ 로 바꾼 것을 $A(j)$ 라 하면,
+$$
+\det A(j) =\sum_{k=1}^n (-1)^{j+k}A(j)_{kj} \det A(j)_{kj}=\sum_{k=1}^n (-1)^{j+k}c_k \det A_{kj}
+$$
+이다. 그렇다면, 
+$$
+\begin{align}
+x_{j} = \dfrac{1}{\det A} \sum_{k=1}^n (-1)^{j+k}\det A_{kj}c_{k}=\dfrac{\det A(j)}{\det A}
+\end{align}
+$$
+
+
+
+
+<b>14. </b> 정사각행렬 $A$ 의 각 항이 모두 정수이고 $\det A=1$ 이면 $A^{-1}$ 의 각 항도 모두 정수임을 보이라.
+
+---
+
+$\displaystyle \det A= \sum_{\sigma \in S_n} \operatorname{sgn}(\sigma)a_{1\sigma(1)}\cdots a_{n \sigma(n)}$ 로 부터 우리는 각 항이 모두 정수인 정사각행렬 $A$ 에 대해 $\det A$ 도 정수임을 알 수 있다. $\det A=1$ 이면 가역행렬이고 $A^{-1}$ 의 $j$ 번째 열을 $X$ 라 하면 $AX=\mathbf{e}_j$ 임을 알 수 있다. 크라머의 공식으로 부터
+$$
+X_j = \sum_{k=1}^n (-1)^{j+k}\det A_{kj}\delta_{jk}=\det A_{jj}
+$$
+인데 $A_{jj}$ 역시 정수로 이루어진 행렬이므로 $\det A_{jj}$ 가 정수이고 따라서 $X$ 는 정수행렬이며,  $A^{-1}$ 역시 정수행렬이다.
+
+
+
+
+
+<b>15. </b> $n$ 차 정사각행렬 $A$ 의 처음 $n-1$ 개의 행과 열로 이루어진 $n-1$ 차 행렬을 $B$ 라 두고
+$$
+A=\begin{pmatrix} B & C \\ C^t & d\end{pmatrix}
+$$
+로 두자. 이때 $B$ 가 가역이면
+$$
+\det A= (d-C^tB^{-1}C)\det B
+$$
+을 보이라. 또 $B$ 가 가역이 아니더라도
+$$
+\det A = d \cdot \det B - C^t(\operatorname{adj}B)C
+$$
+임을 보이라.
+
+---
+
+일단 
+$$
+\det A = d \cdot \det B - C^t(\operatorname{adj}B)C = \det B \left( d-C^t \dfrac{\operatorname{adj} B}{\det B} C \right)
+$$
+이며 $B$ 가 가역행렬이면 $B^{-1}=\dfrac{\operatorname{adj} B}{\det B}$ 이므로 $\det A = d \cdot \det B - C^t(\operatorname{adj}B)C$ 만 보이면 된다.
+$$
+\det A= \sum_{j=1}^n (-1)^{i+j}a_{ij}\det A_{ij}
+$$
+이며 $i=n$ 으로 놓으면 $a_{nn}=d$ 이고 $j\ne n$ 일 때 $a_{nj}=(C^t)_{j}$ 이므로
+$$
+\begin{align}
+\det A &= \sum_{j=1}^n (-1)^{n+i}a_{nj}\det A_{nj}= (-1)^{2n}d \cdot\det B+\sum_{j=1}^{n-1} (-1)^{n+j}(C^t)_{j} \det(A_{nj})= d \cdot \det B +\sum_{j=1}^{n-1} (-1)^{n+j}(C^t)_{j} \det(A_{nj}) \tag{1}
 
 \end{align}
 $$
+이다. $j<n$ 일 때, $\det(A_{nj})$ 는 행렬 $B$ 에서 $j$ 번째 열을 빼고 남은 $(n-1)\times (n-2)$ 행렬에 마지막 열로 $C$ 를 넣은 행렬의 행렬식이다.  
+
+
+
+--- to be done--
+
+
+
+
+
+<b>16. </b> 
+$$
+\det \begin{pmatrix} 1 & 2 & 1 \\ 2 & 5 & 3 \\ 8 & 2& 5\end{pmatrix} \equiv 0 \quad \operatorname{mod}\; 11
+$$
+임을 보이라.
+
+---
+
+첫번째 행에 100을 곱한것과 두번째 행에 10을 곱한것과 세번째 행을 더하여 세번째 행에 두더라도 행렬식 값은 바뀌지 않는다. 따라서,
+$$
+\det \begin{pmatrix} 1 & 2 & 1 \\ 2 & 5 & 3 \\ 8 & 2& 5\end{pmatrix} =\det \begin{pmatrix} 1 & 2 & 121 \\ 2 & 5 & 253 \\ 8 & 2& 825\end{pmatrix}
+$$
+이다. 행렬식의 각 term 에는 121, 253, 825 중 하나가 들어가는데 이는 모두 11로 나누어 떨어지는 수이다. 따라서 증명 끝.
+
+
+
+<b>17. </b> 격자 $L$ 의 한 기저를 $\mathbf{v}_1,\ldots,\,\mathbf{v}_k$ 라 하고 또 다른 기저를 $\mathbf{w}_1,\ldots,\,\mathbf{w}_k$ 라고 하자. 이 때,
+$$
+\mathbf{w}_j = \sum_{i=1}^n a_{ij}\mathbf{v}_i
+$$
+로 두었을 때,
+$$
+|\det (a_{ij})|=1
+$$
+임을 보이라.
+
+----
+
+$\{\mathbf{v}_1,\ldots,\,\mathbf{v}_k\}\in L$ 이며 $\{\mathbf{w}_1,\ldots,\,\mathbf{w}_k\}\in L$ 이므로 $a_{ij}\in \mathbb{Z}$ 이어야 한다. $A=(a_{ij})$ 라 하면 $A$ 는 가역행렬 이어야 하며 같은 이유로 $A^{-1}$ 도 정수행렬이어야 한다. 따라서 $\det A$ 와 $\det A^{-1}$ 이 정수이다. 그런데 $(\det A ) (\det A^{-1})=1$ 이어야 하므로 가능한 값은 $\det A=\pm 1$ 뿐이다.
+
+
+
+<b>18. </b> 
+
+
+
+<b>19. </b> 모든 정사각행렬은 가역행렬로 이루어진 수열의 극한값임을 설명하여라.
+
+---
+
+가역행렬이 아닌 행렬에 대해서만 생각하면 된다. 예를 들어 생각해보자. $O$ 행렬의 경우는 $\displaystyle \lim_{k \to \infty}\dfrac{1}{k} I_n$ 이며 대각행렬의 경우는 비가역 행렬이면 대각성분에 $0$ 이 존재하므로 $0$ 을 $\dfrac{1}{k}$ 로 바꾸고 $\displaystyle \lim_{k \to \infty}$ 를 취하면 된다.
+
+ $n \times n$ 행렬 $A$ 의 각 열을 $A_i$ 라 하자. $A$ 가 비가역 행렬이면 $\{A_1,\ldots,\, A_n\}$ 중에 일차종속인 것이 존재한다. 이제 여기서 일차독립인 수열은 남겨놓고, 이것으로부터 이것들과 일차독립인 벡터들을 모아 $n$ 공간의 basis 를 구성 할 수 있다. 이를 $B_1,\ldots,\,B_m$ 이라 하자. 즉 $\{A_1,\ldots,\,A_n\}$ 에는 일차독립인 벡터 $n-m$ 개가 있고, 이들과 일차종속인 열벡터 $m$ 개가 있다. 이 일차종속인 열벡터에 순서대로 $\dfrac{1}{k}B_1,\ldots,\dfrac{1}{k}B_k$ 를 더한 행렬 $D_k$ 를 생각한다. 즉 $A_p$ 가 일차종속인 $j$ 번째 열벡터이면 $D_k$ 의 $p$ 번째 열벡터는 $A_p+\dfrac{1}{k}B_j$ 이다. 
+
+당연히 $D_k$ 의 열벡터들은 서로 일차독립이 되며 따라서 $D_k$ 는 가역행렬이고 $\displaystyle \lim_{k \to \infty}D_k = A$ 이다. 
+
+
+
+<b>20. </b> $n$-벡터 $\mathbf{v}_1,\ldots,\,\mathbf{v}_n$ 에 대하여 
+$$
+\det (\mathbf{v}_1,\ldots,\,\mathbf{v}_n)>0
+$$
+ 이면, 기저 $(\mathbf{v}_1,\ldots,\,\mathbf{v}_n)$ 은 **양으로 향하여** 있다고 부르고,
+$$
+\det (\mathbf{v}_1,\ldots,\,\mathbf{v}_n)<0
+$$
+이면 $(\mathbf{v}_1,\ldots,\,\mathbf{v}_n)$ 은 **음으로 향하여** 있다고 부른다. 이제 벡터 $\mathbf{v}_1,\ldots,\,\mathbf{v}_n$ 이 시각에 따라 연속적으로 변한다고 하자. 시각 $t=0$ 일 때 이들이 양으로 향하여 있고 시각 $t=1$ 일 때 음으로 향하여 있으면, 어느 시각에서 $\mathbf{v}_1,\ldots,\mathbf{v}_n$ 이 일차종속임을 보이라.
+
+---
+
+말인 즉슨 어느 시각에서 $\det (\mathbf{v}_1,\ldots,\,\mathbf{v}_n)=0$ 이 된다는 뜻이다. $\mathbf{v}_1(t)=(v_{11}(t),\ldots,\,v_{1n}(t))$  라 하자. 뒤에 배우겠지만 $\mathbf{v}_1(t)$ 가 $t$ 에 대해 연속적으로 변한다는 것은 각 $v_{11}(t),\ldots,\,v_{1n}(t)$ 가 모두 시간에 대해 연속적이란 말과 동치이다. (9.1 매개화된 곡선 을 보라.)  
+
+이렇게 $\mathbf{v}_k(t) = (v_{k1}(t),\ldots,\, v_{kn}(t))$ 로 정의하고 행렬 $V(t)=(v_{ij}(t))$ 라 정의하자. 문제의 조건에 의해 $v_{ij}(t)$ 가 연속함수이며 $\det V(t)$ 는 이런 $v_{ij}(t)$ 의 유한개의 곱들의 합이므로 $\det V(t)$ 는 $t$ 에 대한 연속함수이다. (당연하겠지?)
+
+이제 $\det V(t=0)>0$ 이며 $\det V(t=1)<0$ 이고 $\det V(t)$ 는 연속함수 이므로 평균값 정리에 의해 어떤 $t_0\in (0,\,1)$ 에서 $\det V(t_0)=0$ 이다. 즉 $ (\mathbf{v}_1(t_0),\ldots,\,\mathbf{v}_n(t_0))$ 은 일차종속이다. 
+
+
+
+<b>21. </b> 표준단위벡터 $\mathbf{e}_1,\ldots,\,\mathbf{e}_n$ 에 대하여 $n$ 공간의 기저 $(\mathbf{e}_1,\ldots,\,\mathbf{e}_n)$ 양으로 향해 있음을 보이라.
+
+---
+
+trivial.
+
+
+
+<b>22. </b> 임의의 $n$ 차 정사각행렬 $A,\,B$ 에 대하여, $B$ 가 가역이면,
+$$
+(B^{-1}AB)^k = B^{-1}A^kB \qquad (k=1,\,2,\,3,\ldots)
+$$
+임을 보이라. 임의의 다항식 $p(x)$ 에 대하여,
+$$
+p(B^{-1}AB)=B^{-1}p(A)B
+$$
+임을 보이라.
+
+---
+
+(1) 우선 induction으로 증명한다. $k=1$ 일 때 자명하다. $n$ 일 때 성립함을 가정한다.
+$$
+(B^{-1}AB)^{n+1}=(B^{-1}AB)^n B^{-1}AB=B^{-1}A^nBB^{-1}AB=B^{-1}A^{n+1}B
+$$
+이다. 
+
+(2) $p(x)=a_0 + a_1x+\cdots +a_nx^n$ 이면,
+$$
+\begin{align}
+p(B^{-1}AB)&=a_0 + a_1(B^{-1}AB)+ a_2(B^{-1}AB)^2 + \cdots + a_n (B^{-1}AB)^n \\
+&=a_0 +a_1(B^{-1}AB)+a_2B^{-1}A^2B+\cdots + a_n B^{-1}A^nB\\
+&=B^{-1}(a_0 +a_1A+a_2 A^2+\cdots + a_nA^n)B^{-1}\\
+&=B^{-1}p(A)B^{-1}
+\end{align}
+$$
+
+
+<b>23. </b> $n$ 차 정사각행렬 $A,\,B$ 에 대하여 $B$ 가 가역이면
+$$
+\operatorname{tr} (B^{-1}AB)=\operatorname{tr}A
+$$
+임을 보이라.
+
+---
+
+우선 $n$ 차 정사각행렬 $A,\,B$ 에 대해 $\operatorname{tr}(AB)=\operatorname{tr}(BA)$ 임을 안다. $B^{-1}A$ 도 $n$ 차 정사각행렬이므로, 
+$$
+\operatorname{tr}(B^{-1}AB)=\operatorname{tr}(ABB^{-1})=\operatorname{tr}(A)
+$$
+.
+
+
+
