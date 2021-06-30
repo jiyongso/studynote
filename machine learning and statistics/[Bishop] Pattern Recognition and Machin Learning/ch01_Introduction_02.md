@@ -136,27 +136,68 @@ $$
 
 Input $\mathbf{x}$ 에 대해 target $t$ (1-D target) 를 estimate 하는 $y(\mathbf{x})$ 에 대해 loss function $L(t,\,y(\mathbf{x}))$ 를 생각하자. 이 때 expected loss $\mathbb{E}[L]$ 은 
 $$
-\mathbb{E}[L]=\iint L(t,\,y(\mathbf{x}))\,p(\mathbf{x},\,t)\,d\mathbf{x}\,dt
+\mathbb{E}[L]=\iint L(t,\,y(\mathbf{x}))\,p(\mathbf{x},\,t)\,d\mathbf{x}\,dt \tag{1.86}
 $$
-이다 많은 경우 $L(t,\,y(\mathbf{x}))=\{t-y(\mathbf{x})\}^2$ 로 주어지며, 이 때,
+이다. 많은 경우 $L(t,\,y(\mathbf{x}))=\{t-y(\mathbf{x})\}^2$ 로 주어지며, 이 때,
 $$
-\mathbb{E}[L]=\iint \{t-y(\mathbf{x})\}^2 \, p(\mathbf{x},\,t)\,d\mathbf{x}\,dt
+\mathbb{E}[L]=\iint \{t-y(\mathbf{x})\}^2 \, p(\mathbf{x},\,t)\,d\mathbf{x}\,dt \tag{1.87}
 $$
 이다. 우리는 $\mathbb{E}[L]$ 을 최소화 하는 $y(\mathbf{x})$ 를 얻고자 한다. 만약 $y(\mathbf{x})$ 가 completely flexible function 이라고 가정하면 변분법을 이용하여
 $$
-\dfrac{\delta \mathbb{E}[L]}{\delta y(\mathbf{x})}=2\int \{t-y(\mathbf{x})\}p(\mathbf{x},\,t)\,dt =0
+\dfrac{\delta \mathbb{E}[L]}{\delta y(\mathbf{x})}=2\int \{t-y(\mathbf{x})\}p(\mathbf{x},\,t)\,dt =0 \tag{1.88}
 $$
 일 때 최소화 됨을 알 수 있다. 이 식을 정리하면,
 $$
-y(\mathbf{x})=\dfrac{\int tp(\mathbf{x},\,t)dt}{\int p(\mathbf{x},\,t)dt}=\dfrac{\int tp(\mathbf{x},\,t)dt}{p(\mathbf{x})} =\int tp(t|\mathbf{x})\,dt=\mathbb{E}_t[t|\mathbf{x}]
+y(\mathbf{x})=\dfrac{\int tp(\mathbf{x},\,t)dt}{\int p(\mathbf{x},\,t)dt}=\dfrac{\int tp(\mathbf{x},\,t)dt}{p(\mathbf{x})} =\int tp(t|\mathbf{x})\,dt=\mathbb{E}_t[t|\mathbf{x}] \tag{1.89}
 $$
- 임을 알 수 있다. 
+ 임을 알 수 있다. 이때의 $y(\mathbf{x})$ 를 **regression function** 이라 한다. 
 
 만약 target이 multi dimensional $\mathbf{t}$ 라면,
 $$
 y(\mathbf{x})=\mathbb{E}_{\mathbf{t}}[\mathbf{t}|\mathbf{x}]
 $$
 이다. 
+
+이것을 좀 다른 방법으로 유도할 수 있다. 우리가 optimal solutiondl 조건부 기대값이란 것을 알고 있고, (여기서는 $\mathbb{E}_t[t|\mathbf{x}]$ 를 $\mathbb{E}[t|\mathbb{x}]$ 로 쓰자.)
+$$
+\begin{align}
+\{y(\mathbf{x})-t\}^2 &= \{y(\mathbf{x}) -\mathbb{E}[t|\mathbf{x}]+\mathbb{E}[t|\mathbf{x}]-t\}^2 \\
+&=\{y(\mathbf{x})-\mathbb{E}[t|\mathbf{x}]\}^2 +\{\mathbb{E}[t|\mathbf{x}]-t\}^2+2\{y(\mathbf{x})-\mathbb{E}[t|\mathbf{x}]\}\{\mathbb{E}[t|\mathbf{x}]-t\}
+\end{align}
+$$
+여기서,
+$$
+\begin{align}
+\iint\{y(\mathbf{x})-\mathbb{E}[t|\mathbf{x}]\}\{\mathbb{E}[t|\mathbf{x}]-t\}p(\mathbf{x},\,t)\, dt\,d\mathbf{x} = \int \{y(\mathbf{x})-\mathbb{E}[t|\mathbf{x}]\} \left(\int \{\mathbb{E}[t|\mathbf{x}]-t\}p(\mathbf{x},\,t)\, dt \right)d\mathbf{x} 
+
+\end{align}
+$$
+인데, (1.89)의 $\mathbb{E}[t|\mathbf{x}]$ 의 정의를 보면 $dt$ 적분 부분이 $0$ 임을 알 수 있다. 또
+$$
+\begin{align}
+\mathbb{E}[L]&=\iint \{y(\mathbf{x})-\mathbb{E}[t|\mathbf{x}]\}^2 p(\mathbf{x},\,t)\,dt\,d\mathbf{x} + \iint\{\mathbb{E}[t|\mathbf{x}]-t\}^2 p(\mathbf{x},\,t)\, dt\,d\mathbf{x} \tag{1.90}
+
+\end{align}
+$$
+인데, 첫번째 적분의 integrand 중 $\{y(\mathbf{x})-\mathbb{E}[t|\mathbf{x}]\}^2$ 는 정의상 $\mathbf{x}$ 에만 의존하며, $t$-independent 함수이므로 
+$$
+\iint \{y(\mathbf{x})-\mathbb{E}[t|\mathbf{x}]\}^2 p(\mathbf{x},\,t)\,dt\,d\mathbf{x}=\int \{y(\mathbf{x})-\mathbb{E}[t|\mathbf{x}]\}^2 p(\mathbf{x})d\mathbf{x}
+$$
+이다. 또한 conditional variance 의 정의(https://en.wikipedia.org/wiki/Conditional_variance) 에 의하면,
+$$
+{\displaystyle \operatorname {var} (Y|X)=\mathbb{E} {\Big (}{\big (}Y-\mathbb{E} (Y\mid X){\big )}^{2}\mid X{\Big )}.}
+$$
+이므로,
+$$
+\operatorname{var}[t|\mathbf{x}]p(\mathbf{x})=\int \{t-\mathbb{E}[t|\mathbf{x}])\}^2p(t|\mathbf{x})p(\mathbf{x})dt=\int\{t-\mathbb{E}[t|\mathbf{x}])\}^2p(\mathbf{x},\,t)\,dt
+$$
+이다. 따라서, 식 (1.90) 은 다음과 같이 쓸 수 있다. 
+$$
+\mathbb{E}[L]=\int \{y(\mathbf{x})-\mathbb{E}[t|\mathbf{x}]\}^2 p(\mathbf{x})\,d\mathbf{x} + \int \operatorname{var}[t|\mathbf{x}]\,p(\mathbf{x})\, d\mathbf{x} \tag{1.90-1}
+$$
+
+- 두번째 적분은 $y(\mathbf{x})$ 의 선택과 무관한 값이며 $\mathbf{x}$ 에 대한 $t$ 의 분포와만 상관 있다. 따라서 이것은 $\mathbb{E}[L]$ 이 가져야하는 최소한의 값이다. (즉 $\mathbf{y}$ 를 아무리 잘 선택한다고 해도 $\mathbb{E}[L]$ 은 항상 이 값보다 크다)
+- 
 
 
 
