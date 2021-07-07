@@ -197,7 +197,13 @@ $$
 $$
 
 - 두번째 적분은 $y(\mathbf{x})$ 의 선택과 무관한 값이며 $\mathbf{x}$ 에 대한 $t$ 의 분포와만 상관 있다. 따라서 이것은 $\mathbb{E}[L]$ 이 가져야하는 최소한의 값이다. (즉 $\mathbf{y}$ 를 아무리 잘 선택한다고 해도 $\mathbb{E}[L]$ 은 항상 이 값보다 크다)
-- 
+- Loss function을 제곱함수만 선택할 수 있는 것은 아니며 피해야 할 경우도 있다. 예를들어 inverse problems의 해에서 나타나는 $p(t|\mathbf{x})$ 가 multimodal 일 경우가 그러하다. 아래와 같이 정의된 *Mincowski loss* 를 생각해보자.
+
+$$
+\mathbb{E}[t|\mathbf{x}]=\iint |y(\mathbf{x})-t|^q \,p(\mathbf{x},\,t)\,d\mathbf{x}\,dt \tag{1.91}
+$$
+
+- Mincowski loss 의 경우 $q=2$ 일 때는 우리가 지금까지 사용했던 square loss 이다. $\mathbb{E}[t|\mathbf{x}]$ 의 minimum 은 $q=2$ 인 경우 앞서 봤던 conditional mean $(y(\mathbf{x})=\mathbb{E}[t|\mathbf{x}])$ 이고, $q=1$ 일 때는 conditional median, $q=0$ 일 대는 conditional mode 이다. 
 
 
 

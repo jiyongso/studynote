@@ -11,7 +11,15 @@ Random variable $\mathbf{x}$ 에 대해 $\mathbf{x}_1,\ldots,\,\mathbf{x}_N$ 번
 
 - 이러한 density estimation은 근본적으로 취약하다는것을 명심해야 한다. 왜냐하면 유한한 데이터셋을 만족시키는 확률분포는 무한히 많기 때문이다.
 
-  
+
+
+
+#### Patametric distrubition & Non parametric density estimation
+
+- Gaussian 분포같이 몇개의 parameter 에 의해 정해지는 분포를 **parametric distribution** 이라 한다. 
+- 이에 반해 분포가 데이터의 크기에 의존하면 이를 **non parametric density estimation**  이라 한다. 이 경우에도 parameters는 존재하지만 parameter 가 model의 복잡도(complexity) 만 제어할 뿐 분포의 형태를 제어하지는 않는다. 
+
+
 
 ## 2.1 Binary Distribution
 
@@ -19,7 +27,7 @@ Random variable $\mathbf{x}$ 에 대해 $\mathbf{x}_1,\ldots,\,\mathbf{x}_N$ 번
 
 #### Bernoulli Distribution
 
-$x\in \{0,\,1\}$ and $p(x|\mu)$ is defined by
+$x\in \{0,\,1\}$ 이며 $0\le \mu \le 1$ 에 대해  $p(x|\mu)$ 가 다음과 같은 분포를 ** Bernoulli distribution** 이라 한다. 
 $$
 \begin{align}
 p(x=1|\mu)&=\mu\,,\\

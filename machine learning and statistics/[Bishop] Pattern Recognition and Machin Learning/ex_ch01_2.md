@@ -58,5 +58,39 @@ $$
 \implies & \mathbf{y}(\mathbf{x})=\dfrac{\displaystyle \int\mathbf{t}\, p(\mathbf{x},\,\mathbf{t})\, d\mathbf{t}}{\displaystyle \int p(\mathbf{x},\,\mathbf{t})\, d\mathbf{t} } = \int \mathbf{t} p(\mathbf{x},\,\mathbf{t}) \dfrac{1}{p(\mathbf{x})}\, d\mathbf{t} = \int\mathbf{t} p(\mathbf{t}\,|\,\mathbf{x})\, d\mathbf{t} =\mathbb{E}_\mathbf{t} [\mathbf{t}\,|\,\mathbf{x}]
 \end{align}
 $$
-이다. 
+이다. 일변수 일때는 direct 하다.
+
+
+
+<b>1.26</b> 식 (1.151)의 제곱을 expansion 하여 식 (1.90) 과 유사한 식을 유도하고
+
+
+
+---
+
+$$
+\begin{align}
+\|\mathbf{y}(\mathbf{x})-\mathbf{t}\|^2 & = \left(\mathbf{y}(\mathbf{x})-\mathbb{E}[\mathbf{t}|\mathbf{x}]+\mathbb{E}[\mathbf{t}|\mathbf{x}]-\mathbf{t}\right)^2 \\
+&= (\mathbf{y}(\mathbf{x})-\mathbb{E}[\mathbf{t}|\mathbf{x}])^2+(\mathbb{E}[\mathbf{t}|\mathbf{x}]-\mathbf{t})^2+2(\mathbf{y}(\mathbf{x})-\mathbb{E}[\mathbf{t}|\mathbf{x}])(\mathbb{E}[\mathbf{t}|\mathbf{x}]-\mathbf{t})
+
+
+\end{align}
+$$
+
+여기서,
+$$
+\begin{align}
+\iint (\mathbf{y}(\mathbf{x})-\mathbb{E}[\mathbf{t}|\mathbf{x}])&(\mathbb{E}[\mathbf{t}|\mathbf{x}]-\mathbf{t}) p(\mathbf{x},\,\mathbf{t})\,d\mathbf{x}\,d\mathbf{t}  \\
+&= \iint \mathbf{y}(\mathbf{x})\cdot \mathbb{E}[\mathbf{t}|\mathbf{x}]p(\mathbf{x},\,\mathbf{t})\, d\mathbf{x}d\mathbf{t} -\iint \mathbb{E}[\mathbf{t}|\mathbf{x}]\cdot \mathbb{E}[\mathbf{t}|\mathbf{x}]p(\mathbf{x},\,\mathbf{t})\, d\mathbf{x}d\mathbf{t} \\
+&\qquad +\iint \mathbf{t} \cdot \mathbb{E}[\mathbf{t}|\mathbf{x}]p(\mathbf{x},\,\mathbf{t})\, d\mathbf{x}d\mathbf{t} -\iint \mathbf{y}(\mathbf{x})\cdot \mathbf{t} p(\mathbf{x},\,\mathbf{t}) \, d\mathbf{x}d\mathbf{t} \\
+\end{align}
+$$
+
+$$
+\begin{align}
+\iint \mathbf{y}(\mathbf{x})\cdot \mathbb{E}[\mathbf{t}|\mathbf{x}]p(\mathbf{x},\,\mathbf{t})\, d\mathbf{x}d\mathbf{t} &= \int \mathbf{y}(\mathbf{x}) \cdot \left(  \int \mathbb{E}[\mathbf{t}|\mathbf{x}] p(\mathbf{x},\,\mathbf{t})\,d\mathbf{t}\right)d\mathbf{x}
+
+
+\end{align}
+$$
 
