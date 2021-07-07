@@ -27,20 +27,27 @@ Random variable $\mathbf{x}$ 에 대해 $\mathbf{x}_1,\ldots,\,\mathbf{x}_N$ 번
 
 #### Bernoulli Distribution
 
-$x\in \{0,\,1\}$ 이며 $0\le \mu \le 1$ 에 대해  $p(x|\mu)$ 가 다음과 같은 분포를 ** Bernoulli distribution** 이라 한다. 
+$x\in \{0,\,1\}$ 이며 $0\le \mu \le 1$ 에 대해  $p(x|\mu)$ 가 다음과 같은 분포를 **Bernoulli distribution** 이라 한다. 
 $$
 \begin{align}
 p(x=1|\mu)&=\mu\,,\\
 p(x=0|\mu)&=1-\mu\,.
-\end{align}
+\end{align} \tag{2.1}
 $$
-Then, the probability distribution is called as **Bernoulli Disbribution** and can be written as
+따라서, **Bernoulli Disbribution** 는 다음과 같이 쓸 수 있다. 
 $$
-\text{Bern}(x)=\mu^x (1-\mu)^{1-x}
+\text{Bern}(x)=\mu^x (1-\mu)^{1-x} \tag{2.2}
 $$
 
+베르누이 분포에서의 기대값과 분산은 다음과 같다.
+$$
+\begin{align}
+\mathbb{E}[x]& =\mu\,,\\
+\operatorname{var}[x] &= \mu (1-\mu)\,.
 
-- $\mathbb{E}[x]=\mu$, $\operatorname{var}[x]=\mu(1-\mu)$ 임을 쉽게 알 수 있다. 
+\end{align}\tag{2.3}
+$$
+
 
 
 
