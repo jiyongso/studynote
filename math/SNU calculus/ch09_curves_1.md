@@ -1,4 +1,4 @@
-IX. 곡선
+IX. 곡선 #1
 ===
 
 
@@ -27,7 +27,7 @@ $$
 $$
 (e^t,\, e^{2t},\, 1-e^{-t}),\qquad (1-t,\, \cos t,\, \sin t)
 $$
-는 점 $(1,\,1,\,0)$ 에서 만남을 보일고, 그 점에서의 교각을 구하라.
+는 점 $(1,\,1,\,0)$ 에서 만남을 보이고, 그 점에서의 교각을 구하라.
 
 ---
 
@@ -565,4 +565,49 @@ $$
 가 오른쪽으로 휘어 있을 필요충분조건은 $X$ 가 오른쪽으로 휘어 있는 것임을 보이라.
 
 ---
+
+(1) $X(t)$ 가 $t=g(s)$ 로 재매개화되어어 $Y(s)$ 가 되었다고 하자. 이 때 $g(s)$ 는 일급가역함수이다.
+$$
+\begin{align}
+Y' \times Y'' \cdot Y''' &= {\big [}(g'(s)X'(g(s))){\big]} \times \big{[} g''(s)X'(g(s))+(g'(s))^2X''(g(s)) {\big]} \\
+&\quad \cdot {\big[}g'''(s)X'(g(s))+g''(s)g'(s)X''(g(s))+2g''(s)g'(s)X''(g(s))] +(g'(s))^3X'''(s){\big ]} \\
+&=(g'(s))^3 {\big (}X'(g(s))\times X''(g(s)) {\big )} \\
+&\qquad \cdot {\big[}g'''(s)X'(g(s))+g''(s)g'(s)X''(g(s))+2g''(s)g'(s)X''(g(s))] +(g'(s))^3X'''(s){\big ]} \\
+&=(g'(s))^6 X'(g(s))\times X''(g(s))\cdot X'''(g(s)\\
+&=(g'(s)^6 {\big (} X' \times X'' \cdot X'''{\big)}
+
+
+\end{align}
+$$
+이다. $g(s)$ 는 일급가역함수이므로 모든 $s$ 에서 $0$ 이 아니며 $(g'(s))^6>0$ 이다. 따라서 양/음으로 휘는것은 재매개화에 의해 변하지 않는다.
+
+(2) $Y^{(k)}(t)=MX^{(k)}(t)$ for $k=1,\,2,\,3$ 이다. $Y'\times Y'' \cdot Y''' =  (MX' \times MX''\cdot MX''')$ 이다. 따라서,
+$$
+\det (Y',\, Y'' ,\, Y''')= \det(M)\det(X',\, X'' \cdot X''')
+$$
+이며 $\det(M) >0$ 이므로, $Y$ 가 오른쪽으로 휘어 있을 필요충분조건은 $X$ 가 오른쪽으로 휜 것이다. 
+
+
+
+<b>7. </b> 양수 $a,\,b$ 에 대하여 나선
+$$
+R(t):=(a\cos t,\, a \sin t,\, bt)
+$$
+는 오른쪽으로 휘어 있지만 나선
+$$
+L(t):=(a\cos t,\, -a \sin t,\ bt)
+$$
+는 왼쪽으로 휘어 있음을 보이라.
+
+---
+
+$$
+\begin{align}
+R'\times R'' \cdot R''' &= \begin{pmatrix} -a \sin t& a \cos t & b \\ -a \cos t & -a \sin t & 0 \\ a \sin t & -a \cos t & 0\end{pmatrix}=a^2b\cos ^2 t+a^2b \sin^2 t=a^2b> 0\\
+
+L'\times L'' \cdot L''' &= \begin{pmatrix} -a \sin t& -a \cos t & b \\ -a \cos t & a \sin t & 0 \\ a \sin t & a \cos t & 0\end{pmatrix} =-a^2b \cos t -a^2b \sin ^2t = -a^2b < 0
+
+
+\end{align}
+$$
 
