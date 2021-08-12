@@ -17,6 +17,18 @@ Chapter 3. Nuclear Properties
 
 
 
+#### Point charge 를 가정했을 때의 수소형 원자의 에너지 준위.   
+
+- 수소형 원자에서의 전자의 에너지 준위는 다음과 같다. 여기서 $\mu_e,\,\mu_{\mu}$ 는 환산질량으로 원자핵의 질량 $m_n$ 과  전자의 질량 $m_e$ 에 대해 $1/\mu_e = 1/m_n+1/m_e,\, \mu_\mu =1/m_n+1/m_{\mu}$​​​ 이다. ($A \gg 1$ 일 때, )
+
+$$
+E_n =−\left[ \dfrac{\mu}{2\hbar^2} \left(\dfrac{Ze^2}{4\pi \epsilon_0}\right)^2 \right] \dfrac{1}{n^2}  \approx \left\{\begin{array}{ll} - \dfrac{13.6}{n^2} (\text{eV}) \qquad & \text{H} \\ - 2.812(Z)^2\dfrac{1}{n^2} (\text{KeV}) \quad & \text{Atom with atomic weight }A\end{array}\right.
+$$
+
+
+
+
+
 ##  The distribution of Nuclear Charge
 
 - 핵의 직경은 10 fm 이하이므로 산란실험에서는 파장이 10 fm 이하인 파장을 사용해야 한다. 
@@ -91,4 +103,34 @@ $$
 - K X-ray 이외의 빛을 이용한 optical isotope shift 실험도 있다. 
 - Isotope shift 는 transition energy 의 10<sup>-4</sup>~ 10<sup>-6</sup> 정도로 매우 작은데 이는 전자의 파동함수중 원자핵과 겹치는 부분이 매우 작으므로 어쩔 수 없는 부분이다. 뮤온은 전자 대신 사용한다면 뮤온 $1s$ 의 파동함수의 반경은 전자의 약 1/207 이므로 상대적인 shift 가 매우 커진다.  Pb 와 같은 무거운 원소의 경우 뮤온 1s 오비탈의 반경은 원자핵의 반경보다 작게 되며 isotope shift 는 transition energy 의 2배나 된다.
 
-- 
+
+
+
+
+
+
+
+## The Distribution of Nuclear Matter
+
+#### $\alpha$ 입자 산란
+
+- 두 핵 사이의 nuclear force 에 관련된 실험으로 nuclear radius 를 측정할 수 있다. 앞서 말한 실험들이 Coulomb force 를 이용한 핵에서의 전하 분포에 대한 정보(즉 proton 분포)를 준다면 nuclear force 를 이용한 실험은 핵에서의 핵자(nucleaons) 의 분포에 대한 정보를 준다. 
+
+- <sup>4</sup>He 입자 ($\alpha$​​-입자) 를 <sup>197</sup>Au 에 산란시키는 실험을 생각하자. 핵 사이의 거리가 핵의 반경에 비해 충분히 멀다면, 각각의 핵은 서로의 핵력에 영향을 받지 않으므로 Coulomb force 만이 유효하다. 이 경우 $\alpha$​​ 입자의 산란 각도의 분포는 러더퍼드에 의해 예측되었다. 그러나 입사되는 $\alpha$​ 입자의 에너지가 충분히 크다면, $\alpha$ 입자와 target 핵(이경우 <sup>197</sup>Au  핵) 의 사이가 충분히 가까워 질 수 있으며, 이경우 핵력이 작용하므로, 러더퍼드의 산란식을 따르지 않는다. 
+
+
+
+#### $\alpha$ 붕괘
+
+- $\alpha$ 붕괘시 $\alpha$ 입자는 nuclear potential + Coulomb potential을 뚫고 나오며 이를 적절한 모델로 계산한다.
+
+
+
+#### $\pi$-mesic X-ray
+
+- muon isotope shift 와 비슷하지만 lifetime 이 매우 짧은 $\pi$-meson 을 사용한다. detail 은 text 참고.
+
+
+
+- 원자핵의 charge 분포와 matter 분포를 추정했을 때 그 차이가 놀라울 정도로 매우 작아서 0.1 fm 도 되지 않는다. 
+
