@@ -1,4 +1,4 @@
-Chapter 6. Alpha Decay
+Chapter 8. Alpha Decay
 ===
 
 
@@ -7,7 +7,7 @@ Chapter 6. Alpha Decay
 
 
 
-# 6.1 왜 $\alpha$ 붕괘가 발생하는가?
+# 8.1 왜 $\alpha$ 붕괘가 발생하는가?
 
 
 

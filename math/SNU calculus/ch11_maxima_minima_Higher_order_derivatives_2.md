@@ -420,3 +420,5 @@ T_k f(P,\,\mathbf{v})\cdot T_k g(P,\,\mathbf{v}) &= \left(\sum_{p=0}^k \dfrac{{D
 &= T_{k}(fg)(P)+  \sum_{n=k+1}^{2k}\sum_{m=0}^n \dfrac{1}{n! (n-m)!} {D_{\mathbf{v}}}^m f(P)\cdot {D_{\mathbf{v}}}^{n-m} g(P)
 \end{aligned}
 $$
+-- to be done --
+
