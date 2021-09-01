@@ -675,3 +675,6 @@ T_{circ} &= \int_0^a \dfrac{\sqrt{1+ \dfrac{(x-c)^2}{c^2+d^2-(x-c)^2}}}{\sqrt{2g
 $$
 
 
+
+더 계산할 수 있나...
+
